@@ -123,6 +123,13 @@ RUN { \
 # NOT: docker build -f .docker/php/Dockerfile .docker/php
 COPY . /var/www/html/
 
+# Copy prestart checks script and make sure log exists
+COPY .docker/php/prestart_checks.sh /usr/local/bin/prestart_checks.sh
+RUN chmod +x /usr/local/bin/prestart_checks.sh \
+    && mkdir -p /var/log \
+    && touch /var/log/prestart_checks.log \
+    && chown www-data:www-data /var/log/prestart_checks.log
+
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html \
     && find /var/www/html -type d -exec chmod 755 {} \; \
@@ -135,5 +142,5 @@ EXPOSE 80 443
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost/ || exit 1
 
-# Start Apache
-CMD ["apache2-foreground"]
+# Start Apache but run prestart checks first
+CMD ["/bin/bash", "-c", "/usr/local/bin/prestart_checks.sh || { echo 'Prestart checks failed; aborting'; exit 1; } && exec apache2-foreground"]
