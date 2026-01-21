@@ -3,3 +3,4 @@ error.log
 .env
 docker-compose.yml
 
+Terraform/config/.terraform/providers/registry.terraform.io/hashicorp/aws/6.20.0/windows_amd64/*.exe

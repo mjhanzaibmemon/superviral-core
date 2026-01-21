@@ -210,6 +210,15 @@ module "ecs_task_definition" {
       name  = "DB_PASS"
       value = "Admin123!"
     }
+    ,
+    {
+      name  = "REDIS_HOST"
+      value = module.redis.primary_endpoint_address
+    },
+    {
+      name  = "REDIS_PORT"
+      value = tostring(module.redis.port)
+    }
   ]
 
   depends_on = [
@@ -450,4 +459,23 @@ module "rds_instance" {
     module.rds_subnet_group
   ]
 
+}
+
+################################################################################
+#                           Redis / ElastiCache                                #
+################################################################################
+# Module to provision an ElastiCache Redis replication group and supporting SG
+module "redis" {
+  source = "../modules/redis"
+
+  vpc_id       = module.vpc.vpc_id
+  subnet_ids   = [module.rds_subnet_1.subnet_id, module.rds_subnet_2.subnet_id]
+  ingress_cidrs = ["10.0.0.0/16"]
+
+  # tuning options
+  engine_version = "6.x"
+  node_type      = "cache.t3.small"
+  number_cache_clusters = 1
+
+  depends_on = [module.vpc, module.rds_subnet_1, module.rds_subnet_2]
 }
