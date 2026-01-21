@@ -117,7 +117,7 @@ jobs:
 
       - name: Terraform Init
         run: |
-          terraform -chdir=${{ env.TF_WORKING_DIR }} init \
+          terraform -chdir=${{ env.TF_WORKING_DIR }} init -reconfigure \
             -backend-config="bucket=${{ env.state_bucket }}" \
             -backend-config="key=infra/${{ env.DEPLOY_ENV }}/terraform.tfstate" \
             -backend-config="region=${state_bucket_region}"
