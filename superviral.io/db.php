@@ -3,8 +3,29 @@ use Aws\CloudWatch\CloudWatchClient;
 
 ////////////////// ABOVE ALL IS IP RESCTRICTER
 
+/**
+ * Database connection logging helper
+ */
+function db_log($level, $message, $context = []) {
+    $timestamp = date('c');
+    $contextStr = !empty($context) ? ' ' . json_encode($context) : '';
+    $logLine = "[$timestamp] [$level] [db.php] $message$contextStr";
+    error_log($logLine);
+
+    // Also write to a dedicated debug log if in container environment
+    if (getenv('ECS_CONTAINER_METADATA_URI') || getenv('ENVIRONMENT') === 'dev') {
+        $debugLog = '/var/log/apache2/superviral_debug.log';
+        @file_put_contents($debugLog, $logLine . "\n", FILE_APPEND | LOCK_EX);
+    }
+}
+
+db_log('INFO', 'db.php starting', [
+    'REQUEST_URI' => $_SERVER['REQUEST_URI'] ?? 'N/A',
+    'HTTP_HOST' => $_SERVER['HTTP_HOST'] ?? 'N/A'
+]);
+
 // Detect the subdomain dynamically
-$host = $_SERVER['HTTP_HOST']; // Get the current host (e.g., anuj.superviral.io)
+$host = $_SERVER['HTTP_HOST'] ?? 'superviral.io'; // Get the current host (e.g., anuj.superviral.io)
 $subdomain = explode('.', $host)[0]; // Get the first part of the domain
 $initial = $subdomain . '.';
 $subdomain = '/' . $subdomain . '/etra.group';
@@ -21,7 +42,9 @@ global $cloudwatchpassword;
 global $rapidapihost;
 global $rapidapikey;
 
+db_log('INFO', 'Loading loadParamStore.php');
 require __DIR__ . '/../etra.group/loadParamStore.php';
+db_log('INFO', 'loadParamStore.php loaded');
 
 // -------------------------
 // DB configuration for EKS / RDS
@@ -96,67 +119,182 @@ $siteDomain = $protocol . $_SERVER['SERVER_NAME'];
 // Setup database connection (EKS / RDS aware)
 // -------------------------
 
-// Basic validation of DB config before connecting
-// if (empty($dbHost) || empty($dbUser) || $dbPass === null) {
-//     error_log('[superviral.io] Missing DB credentials - check DB_HOST/DB_USER/DB_PASS or Param Store.');
-//     die('Temporary database configuration error.');
-// }
+db_log('INFO', 'Starting database connection', [
+    'dbHost' => $dbHost ?? 'NOT_SET',
+    'dbName' => $dbName ?? 'NOT_SET',
+    'dbUser' => $dbUser ?? 'NOT_SET',
+    'dbPass' => isset($dbPass) ? '***SET***' : 'NOT_SET'
+]);
 
-// // Use RDS host instead of localhost
-// $conn = mysql_connect($dbHost, $dbUser, $dbPass);
+// Validate DB config before connecting
+if (empty($dbHost) || empty($dbUser)) {
+    db_log('ERROR', 'Missing DB credentials', [
+        'dbHost' => empty($dbHost) ? 'MISSING' : 'OK',
+        'dbUser' => empty($dbUser) ? 'MISSING' : 'OK',
+        'dbPass' => empty($dbPass) ? 'MISSING' : 'OK'
+    ]);
 
-// if (!$conn) {
-//     error_log('[superviral.io] DB connection failed: ' . mysqli_connect_error());
-//     die('Temporary database connection error.');
-// }
+    // Check environment variables as fallback
+    $envDbHost = getenv('DB_HOST');
+    $envDbUser = getenv('DB_USER');
+    $envDbPass = getenv('DB_PASS');
+    $envDbName = getenv('DB_NAME');
 
-// if (!mysql_select_db($dbName, $conn)) {
-//     error_log('[superviral.io] Selecting DB failed: ' . mysqli_error($conn));
-//     die('Temporary database selection error.');
-// }
+    if ($envDbHost && $envDbUser) {
+        db_log('INFO', 'Using environment variables for DB connection');
+        $dbHost = $envDbHost;
+        $dbUser = $envDbUser;
+        $dbPass = $envDbPass;
+        $dbName = $envDbName ?: ($dbName ?? 'etra_superviral');
+    } else {
+        db_log('ERROR', 'No DB credentials available from env or Param Store');
+        // Return a proper error response instead of dying
+        if (php_sapi_name() !== 'cli') {
+            http_response_code(503);
+            header('Content-Type: application/json');
+            echo json_encode(['error' => 'Service temporarily unavailable', 'code' => 'DB_CONFIG_ERROR']);
+            exit;
+        }
+    }
+}
 
+// Setup database connection with retry logic
+$conn = null;
+$dbRetries = 3;
+$dbRetryDelay = 2;
 
-// Setup database connection
-$conn = mysql_connect ($dbHost , $dbUser , $dbPass) or die(mysql_error());
+for ($attempt = 1; $attempt <= $dbRetries; $attempt++) {
+    try {
+        db_log('INFO', "Database connection attempt $attempt/$dbRetries");
 
-mysql_select_db ($dbName , $conn);
+        $conn = @mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+
+        if ($conn) {
+            db_log('INFO', 'Database connected successfully', [
+                'server_info' => mysqli_get_server_info($conn)
+            ]);
+            break;
+        } else {
+            $error = mysqli_connect_error();
+            $errno = mysqli_connect_errno();
+            db_log('ERROR', "Database connection failed (attempt $attempt)", [
+                'error' => $error,
+                'errno' => $errno,
+                'host' => $dbHost,
+                'user' => $dbUser,
+                'db' => $dbName
+            ]);
+
+            if ($attempt < $dbRetries) {
+                db_log('INFO', "Waiting {$dbRetryDelay}s before retry...");
+                sleep($dbRetryDelay);
+            }
+        }
+    } catch (Exception $e) {
+        db_log('ERROR', "Database exception (attempt $attempt)", [
+            'error' => $e->getMessage(),
+            'type' => get_class($e)
+        ]);
+
+        if ($attempt < $dbRetries) {
+            sleep($dbRetryDelay);
+        }
+    }
+}
+
+if (!$conn) {
+    db_log('ERROR', 'All database connection attempts failed', [
+        'host' => $dbHost,
+        'attempts' => $dbRetries
+    ]);
+
+    // Return a proper error response instead of dying with mysql_error()
+    if (php_sapi_name() !== 'cli') {
+        http_response_code(503);
+        header('Content-Type: application/json');
+        echo json_encode([
+            'error' => 'Database connection failed',
+            'code' => 'DB_CONNECTION_ERROR'
+        ]);
+        exit;
+    }
+}
+
+db_log('INFO', 'db.php initialization complete');
 
 
 date_default_timezone_set('Europe/London');
 
 /**
  * Legacy mysql_* compatibility wrappers using mysqli_*
+ * Note: These are kept for backward compatibility with legacy code
  */
-function mysql_connect($server, $username, $password)
-{
-    return mysqli_connect($server, $username, $password);
+if (!function_exists('mysql_connect')) {
+    function mysql_connect($server, $username, $password)
+    {
+        return mysqli_connect($server, $username, $password);
+    }
 }
 
-function mysql_select_db($database_name, $link)
-{
-    return mysqli_select_db($link, $database_name);
+if (!function_exists('mysql_select_db')) {
+    function mysql_select_db($database_name, $link)
+    {
+        return mysqli_select_db($link, $database_name);
+    }
 }
 
-function mysql_query($query)
-{
-    global $conn;
-    return mysqli_query($conn, $query);
+if (!function_exists('mysql_query')) {
+    function mysql_query($query)
+    {
+        global $conn;
+        if (!$conn) {
+            db_log('ERROR', 'mysql_query called but no DB connection', ['query_start' => substr($query, 0, 50)]);
+            return false;
+        }
+        $result = mysqli_query($conn, $query);
+        if ($result === false) {
+            db_log('ERROR', 'mysql_query failed', [
+                'error' => mysqli_error($conn),
+                'query_start' => substr($query, 0, 100)
+            ]);
+        }
+        return $result;
+    }
 }
 
-function mysql_fetch_array($result)
-{
-    return mysqli_fetch_assoc($result);
+if (!function_exists('mysql_fetch_array')) {
+    function mysql_fetch_array($result)
+    {
+        if (!$result) return null;
+        return mysqli_fetch_assoc($result);
+    }
 }
 
-function mysql_num_rows($result)
-{
-    return mysqli_num_rows($result);
+if (!function_exists('mysql_num_rows')) {
+    function mysql_num_rows($result)
+    {
+        if (!$result) return 0;
+        return mysqli_num_rows($result);
+    }
 }
 
-function mysql_insert_id()
-{
-    global $conn;
-    return mysqli_insert_id($conn);
+if (!function_exists('mysql_insert_id')) {
+    function mysql_insert_id()
+    {
+        global $conn;
+        if (!$conn) return 0;
+        return mysqli_insert_id($conn);
+    }
+}
+
+if (!function_exists('mysql_error')) {
+    function mysql_error($link = null)
+    {
+        global $conn;
+        $c = $link ?: $conn;
+        if (!$c) return 'No database connection';
+        return mysqli_error($c);
+    }
 }
 
 /**

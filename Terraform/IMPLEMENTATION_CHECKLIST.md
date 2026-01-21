@@ -102,7 +102,7 @@ These resources are **NOT affected** by this migration:
 
 ### RDS Credentials ✅
 - [x] RDS username/password (from SSM Parameter Store)
-- [x] Database name (my_app)
+- [x] Database name (etra_superviral)
 - [x] Storage configuration (20GB allocated, 90GB max)
 
 ---
@@ -184,7 +184,7 @@ Logging:
 
 Environment Variables (auto-injected):
   DB_HOST: <rds-endpoint-address>
-  DB_NAME: my_app
+  DB_NAME: etra_superviral
   DB_PORT: 3306
   ENVIRONMENT: dev
 

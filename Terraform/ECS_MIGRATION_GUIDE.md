@@ -101,7 +101,7 @@ The ECS task definition automatically injects these environment variables into c
 
 ```bash
 DB_HOST=<rds-endpoint>        # MySQL database host
-DB_NAME=my_app                # Database name
+DB_NAME=etra_superviral                # Database name
 DB_PORT=3306                  # Database port
 ENVIRONMENT=dev               # Environment identifier
 ```
@@ -218,7 +218,7 @@ The ECS resources will be destroyed and EKS will be recreated.
 ### Cannot Connect to RDS
 - Verify RDS security group allows traffic from VPC CIDR (10.0.0.0/16)
 - Check DB_HOST environment variable matches RDS endpoint
-- Test: `mysql -h <DB_HOST> -u <username> -p <password> -D my_app`
+- Test: `mysql -h <DB_HOST> -u <username> -p <password> -D etra_superviral`
 
 ### ECR Image Pull Failures
 - Verify image URI is correct in task definition

@@ -192,7 +192,7 @@ module "ecs_task_definition" {
     },
     {
       name  = "DB_NAME"
-      value = "my_app"
+      value = "etra_superviral"
     },
     {
       name  = "DB_PORT"
@@ -444,7 +444,7 @@ module "rds_instance" {
 
   username = var.rds_username
   password = var.rds_password
-  db_name  = "my_app"
+  db_name  = "etra_superviral"
 
   allocated_storage     = 20
   max_allocated_storage = 90

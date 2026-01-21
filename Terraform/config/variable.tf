@@ -123,7 +123,7 @@ variable "rds_storage_type" {
 variable "rds_db_name" {
   description = "RDS database name"
   type        = string
-  default     = "my_app"
+  default     = "etra_superviral"
 }
 
 variable "rds_parameter_group_name" {
