@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<head>
+    <title>{title} - Tikoid</title>
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0," />
+    <meta name="description" content="{description}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+    <style type="text/css">
+    
+    .header{border-bottom:1px solid #ccc;}
+    .footer{border-top:1px solid #ccc;}
+
+ h1{color:#000;text-align: left;margin:0;font-size:25px;padding:0;}
+h2{margin-bottom: 0;
+    margin-top: 35px;}
+h3{display:block;float:none;margin-left:0;font-size:17px;margin-top:40px;}
+p{margin:17px 0;font-size:15px;letter-spacing: .6px;}
+
+p img{width:100%;border:1px solid #000;}
+
+.social {
+  color:#fff;
+  height:35px;
+  width:82px;
+  padding:0;
+  list-style:none;
+  overflow: hidden;}
+
+
+.social a {
+	padding:5px 0;
+  font-size:20px;
+  cursor:pointer;
+  width:50%;
+  margin:0;
+  text-align:center;
+  float:left;
+  display:block;}
+
+.social ul li:hover {color:rgba(0,0,0,.5);}
+
+
+.social a.twitter {background:#6CDFEA;}
+.social a.facebook {background:#3B5998;}
+
+.social a svg{height:19px;fill:#fff;}
+
+.articlebody{padding:10px;}
+
+.articlebody a{color:#305896;text-decoration: underline;}
+
+.maintitle{border-bottom:1px solid #ccc;}
+
+.mainh1{padding-top:0;margin-top:15px;}
+
+.summary{margin:0;padding: 5px 20px;font-weight:600;}
+.summary li{margin:5px 0;}
+
+.writtenby{font-size:14px;padding: 10px 10px;}
+
+.date{font-size:13px;font-style:italic;}
+
+.mainh1,.articlepoints{border-bottom:1px solid #ccc;}
+
+.articlepoints{border-top:1px solid #ccc;}
+
+.articleshare{position: relative;}
+.articleshare .sharecount{    position: absolute;
+    right: 10px;
+    top: 16px;
+    text-align: right;
+    line-height: 13px;}
+.articleshare .sharecount .amount{    font-size: 25px;
+    font-weight: bold;}
+.articleshare .sharecount .share{font-size:12px;}
+
+.articleimg{padding:0;}
+.articleimg img{width:100%;height:initial;}
+
+.tabletsummary,.tabletshare{display:none;}
+
+.imgcaption{background-color:#ccc;padding:5px;font-weight:600;font-size:15px;}
+
+@media only screen and (min-width:768px){
+
+.articleholder{width:100%;}
+.articlebody{width:100%;max-width:768px;margin:0 auto;padding:25px;box-sizing:border-box;}
+h1{max-width: 100%;font-size:34px;}
+.mainh1{margin-top:25px;padding: 10px 25px;}
+
+.tabletsummary,.tabletshare{display:block;}
+.mobilesummary,.mobileshare{display:none;}
+
+.writtenby {font-size: 15px;padding: 8px 25px;border-bottom: 1px solid #ccc;}
+
+.writtenby .date {font-size: 14px;}
+
+.articleshare{padding: 10px 25px;}
+.articleshare .sharecount{right:initial;left:122px;}
+
+.articlepoints{padding:10px 25px;}
+
+.articleimg img{border:1px solid #000;}
+
+.summary li{margin:3px 0;}
+
+}
+
+    </style>
+</head>
+
+<body>
+
+	{header}
+
+<div class="articleholder">
+<div class="articlebody mainh1"><h1>{title}</h1>
+
+      <ul class="summary tabletsummary">
+        <li>{summary1}</li>
+        <li>{summary2}</li>
+        <li>{summary3}</li>
+    </ul>
+
+</div>
+
+<div class="articlebody writtenby">By Rabban Faruqui, <span class="date">{written}</span><br>{readtime}</div>
+
+<div class="articlebody articleshare tabletshare">                                
+                  <div class="social">
+                            <a class="twitter" href="https://twitter.com/home?status={sharelink}">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 97.2c-19 8.4-39.3 13.9-60.5 16.6 21.8-13 38.4-33.4 46.2-58 -20.3 12.1-42.7 20.6-66.6 25.4C411.9 60.7 384.4 48 354.5 48c-58.1 0-104.9 47.2-104.9 105 0 8.3 0.7 16.3 2.4 23.9 -87.3-4.3-164.5-46.1-216.4-109.8 -9.1 15.7-14.4 33.7-14.4 53.1 0 36.4 18.7 68.6 46.6 87.2 -16.9-0.3-33.4-5.2-47.4-12.9 0 0.3 0 0.7 0 1.2 0 51 36.4 93.4 84.1 103.1 -8.5 2.3-17.9 3.5-27.5 3.5 -6.7 0-13.5-0.4-19.9-1.8 13.6 41.6 52.2 72.1 98.1 73.1 -35.7 27.9-81.1 44.8-130.1 44.8 -8.6 0-16.9-0.4-25.1-1.4C46.5 446.9 101.6 464 161 464c193.2 0 298.8-160 298.8-298.7 0-4.6-0.2-9.1-0.4-13.6C480.2 137 497.7 118.5 512 97.2z"/></svg></li>
+                            </a>
+                            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={sharelink}">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96.1 96.1"><path d="M72.1 0L59.6 0C45.6 0 36.6 9.3 36.6 23.7v10.9H24c-1.1 0-2 0.9-2 2v15.8c0 1.1 0.9 2 2 2h12.5v39.9c0 1.1 0.9 2 2 2h16.4c1.1 0 2-0.9 2-2V54.3h14.7c1.1 0 2-0.9 2-2l0-15.8c0-0.5-0.2-1-0.6-1.4 -0.4-0.4-0.9-0.6-1.4-0.6H56.8v-9.2c0-4.4 1.1-6.7 6.8-6.7l8.4 0c1.1 0 2-0.9 2-2V2C74 0.9 73.2 0 72.1 0z"/></svg>
+                            </a>
+                       
+                    </div>
+                    <div class="sharecount">
+                      <span class="amount">{shares}</span><br>
+                      <span class="share">shares</span>
+                    </div>
+</div>
+
+<div class="articlebody articleimg"><img src="/imgs/blog/{id}.jpg"></div>
+
+<div class="articlebody articleshare mobileshare">                                
+                  <div class="social">
+                            <a class="twitter" href="https://twitter.com/home?status={sharelink}">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 97.2c-19 8.4-39.3 13.9-60.5 16.6 21.8-13 38.4-33.4 46.2-58 -20.3 12.1-42.7 20.6-66.6 25.4C411.9 60.7 384.4 48 354.5 48c-58.1 0-104.9 47.2-104.9 105 0 8.3 0.7 16.3 2.4 23.9 -87.3-4.3-164.5-46.1-216.4-109.8 -9.1 15.7-14.4 33.7-14.4 53.1 0 36.4 18.7 68.6 46.6 87.2 -16.9-0.3-33.4-5.2-47.4-12.9 0 0.3 0 0.7 0 1.2 0 51 36.4 93.4 84.1 103.1 -8.5 2.3-17.9 3.5-27.5 3.5 -6.7 0-13.5-0.4-19.9-1.8 13.6 41.6 52.2 72.1 98.1 73.1 -35.7 27.9-81.1 44.8-130.1 44.8 -8.6 0-16.9-0.4-25.1-1.4C46.5 446.9 101.6 464 161 464c193.2 0 298.8-160 298.8-298.7 0-4.6-0.2-9.1-0.4-13.6C480.2 137 497.7 118.5 512 97.2z"/></svg></li>
+                            </a>
+                            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={sharelink}">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96.1 96.1"><path d="M72.1 0L59.6 0C45.6 0 36.6 9.3 36.6 23.7v10.9H24c-1.1 0-2 0.9-2 2v15.8c0 1.1 0.9 2 2 2h12.5v39.9c0 1.1 0.9 2 2 2h16.4c1.1 0 2-0.9 2-2V54.3h14.7c1.1 0 2-0.9 2-2l0-15.8c0-0.5-0.2-1-0.6-1.4 -0.4-0.4-0.9-0.6-1.4-0.6H56.8v-9.2c0-4.4 1.1-6.7 6.8-6.7l8.4 0c1.1 0 2-0.9 2-2V2C74 0.9 73.2 0 72.1 0z"/></svg>
+                            </a>
+                       
+                    </div>
+                    <div class="sharecount">
+                      <span class="amount">1123</span><br>
+                      <span class="share">shares</span>
+                    </div>
+</div>
+
+<div class="articlebody articlepoints color1 mobileshare">
+
+      <ul class="summary mobilesummary">
+        <li>{summary1}</li>
+        <li>{summary2}</li>
+        <li>{summary3}</li>
+    </ul>
+</div>
+<div class="articlebody articlemain">{article}</div>
+</div>
+
+   {footer}
+
+   <script type="text/javascript">
+
+
+{headerscript}
+
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Dashboard - Superviral</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/css/style.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/accountstyle.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+
+  <style type="text/css">
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 9998;
+    }
+
+    .popup {
+      position: fixed;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 50px 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      height: 220px;
+      width: 500px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 32px;
+    }
+
+    .custom-dropdown {
+      position: relative;
+    }
+
+    .picker {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      border-radius: 7px;
+      margin-top: 20px;
+    }
+
+    .selected-date {
+      width: 95%;
+      font-size: 16px;
+      z-index: -1;
+    }
+
+    .picker svg {
+      z-index: -1;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      z-index: 1000;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 5px 0;
+      margin: 0;
+      list-style: none;
+      width: 100%;
+      height: 100px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    .dropdown-menu::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .dropdown-menu::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .dropdown-menu::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 6px;
+    }
+
+    .dropdown-menu::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .dropdown-menu li {
+      cursor: pointer;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .dropdown-menu li:hover {
+      background-color: #f0f0f0;
+    }
+
+    .download-btn {
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: 700;
+      background-color: #00a3ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .loader-wrapper {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      display: none;
+    }
+
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 6px solid #3498db;
+      width: 30px;
+      height: 30px;
+      -webkit-animation: spin 2s linear infinite;
+      /* Safari */
+      animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    h3 {
+      all: initial;
+    }
+
+    h3 * {
+      all: unset;
+    }
+
+    @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+    body {
+      background: #f2f2f2;
+    }
+
+    .display-section,
+    .social-status-section,
+    .competitors-section,
+    .order-history-section,
+    .auto-likes-section {
+      margin-bottom: 65px;
+    }
+
+    .container1 {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      padding: 10px 20px;
+      box-sizing: border-box;
+    }
+
+    .container1 h3,
+    button {
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 24px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .emailsuccess {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .page-header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      border: 0;
+      padding: 10px 20px;
+      border-radius: 50px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .btn-blue {
+      background: #0081f1;
+    }
+
+    .btn-white {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .btn-white:hover {
+      color: #fff;
+      transition: all 0.5s;
+    }
+
+    .btn-black {
+      background-color: #000;
+    }
+
+    .btn-section {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .socialstatusbtn {
+      width: 50%;
+      box-sizing: border-box;
+      float: left;
+      border: 0;
+      padding: 10px 0;
+      background: none;
+      font-size: 13px;
+      font-weight: bold;
+      font-family: "Open sans";
+    }
+
+    .socialstatusbtnactive {
+      color: #fff;
+      background: #000;
+      border-radius: 40px;
+    }
+
+    .view-btn {
+      color: rgb(177, 177, 177);
+      margin-top: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 14px;
+      margin-bottom: -15px;
+    }
+
+    .view-btn svg {
+      fill: rgb(177, 177, 177);
+    }
+
+    .inner-section {
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .inner-section h2 {
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    #menu {
+      display: none;
+    }
+
+    #person {
+      display: none;
+    }
+
+    /* Navigation Section Start Here */
+
+    .changeusernametabsholdermain {
+      position: relative;
+    }
+
+    .changeusernametabsholder {
+      width: 100%;
+      height: 38px;
+      position: relative;
+      overflow-y: scroll;
+    }
+
+    .changeusernametabsholder::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .changeusernametabsholder {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .changeusernametabs {
+      background: #000;
+      color: #fff;
+      height: 27px;
+      width: 3000px;
+      padding-top: 10px;
+      padding-left: 19px;
+      overflow: hidden;
+    }
+
+    .changeusernametabs .changeusernametab {
+      float: left;
+      color: #fff;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      font-size: 15px;
+      padding: 4px 10px;
+      margin-right: 8px;
+      background: #565656;
+    }
+
+    .changeusernametabs .changeusernameselected {
+      background: #f2f2f2;
+      color: #000;
+    }
+
+    .header-sec {
+      background: #fff;
+      padding: 10px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-ul {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-ul li {
+      display: inline-block;
+      margin: 0 20px;
+    }
+
+    .nav-ul li a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .nav-ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .acc-btn {
+      border: 1px solid #000;
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bottom-nav-ul li {
+      display: inline-block;
+    }
+
+    /* Navigation Section End Here */
+
+    /* Display Section Start Here */
+    .display-section {
+      padding: 10px 0;
+    }
+
+    .display-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .display-content {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      height: 90px;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .display-content img {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+    }
+
+    .display-info-content {
+      position: absolute;
+      left: 93px;
+      top: 2px;
+    }
+
+    .display-info-content h1 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 202px;
+    }
+
+    .display-info-content .update-stats {
+      background: #f1c206;
+      padding: 3px 7px;
+      border-radius: 5px;
+      margin: 0;
+      font-size: 13px;
+      font-weight: bold;
+      margin-top: 5px;
+      width: 165px;
+      text-transform: uppercase;
+    }
+
+    .display-info-content .role {
+      display: inline-block;
+      margin-top: 5px;
+      border-radius: 0 5px 5px 5px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .display-rating-holder {
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: #fff;
+      border: 2px solid transparent;
+    }
+
+    .display-rating-holder-active {
+      border-color: #0081f1;
+    }
+
+    .display-rating {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .display-rating h2 {
+      font-size: 60px;
+      margin: 0 0px;
+      margin-top: -6px;
+    }
+
+    .display-rating h3 {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .display-rating .goingup {
+      color: #299500;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 21px;
+      margin-top: -6px;
+    }
+
+    .display-rating .goingup svg {
+      width: 19px;
+    }
+
+    .display-rating .goingup svg .currentColor {
+      fill: #299500;
+    }
+
+    .display-rating .goingdown {
+      color: red;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 21px;
+      margin-top: -6px;
+    }
+
+    .display-rating .goingdown svg {
+      width: 19px;
+      -ms-transform: rotate(180deg);
+      /* IE 9 */
+      transform: rotate(180deg);
+    }
+
+    .display-rating .goingdown svg .currentColor {
+      fill: red;
+    }
+
+    .display-rating-holder .fullinformation {
+      display: none;
+    }
+
+    .display-rating-holder-active .fullinformation {
+      display: block;
+      margin-top: -30px;
+    }
+
+    .display-rating-holder-active .display-rating .view-btn {
+      display: none;
+    }
+
+    .last24h {
+      font-size: 13px;
+      font-weight: 200;
+    }
+
+    /* Display Section End Here */
+
+    /* Social status start here */
+
+    .status-btn-grp {
+      text-align: center;
+      border-radius: 26px;
+      background: #f2f2f2;
+      height: 38px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    #city,
+    #profile {
+      margin: 1rem 0;
+    }
+
+    .status-table {
+      text-align: left;
+      font-size: 1.5rem;
+    }
+
+    .status-table-body tr:hover {
+      background: #ddb100;
+      color: #000;
+      border-radius: 10px;
+    }
+
+    .status-table-body tr td {
+      border-bottom: 1px solid #f5f5f5;
+      padding: 5px;
+    }
+
+    .status-table-body tr td img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      object-position: top;
+    }
+
+    .past-likes tr td img {
+      border-radius: 0;
+    }
+
+    .status-table-body tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .positionofuser {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .usernameimg {
+      margin-top: 12px;
+    }
+
+    .uname {
+      font-size: 12px;
+      display: block;
+    }
+
+    .unamestat {
+      font-size: 19px;
+      display: block;
+      font-weight: bold;
+    }
+
+    /* Social status end here */
+
+    /* History Section Start Here */
+    .order-history-section {
+      padding: 10px 0;
+    }
+
+    .history-container {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      padding: 23px 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .history-container .history-stats p.orderdesc {
+      font-size: 14px;
+      margin: 0;
+      margin-top: 5px;
+    }
+
+    .history-container .history-stats p.status {
+      font-size: 14px;
+      margin: 0;
+      margin-top: 5px;
+      color: #7c7c7c;
+      font-weight: bold;
+    }
+
+    .history-stats {}
+
+    .history-stats h2 {
+      font-size: 23px;
+      margin-bottom: 0;
+      position: relative;
+      color: grey;
+    }
+
+    .tracking-btn-sec {
+      margin-top: 10px;
+    }
+
+    .tracking-btn-sec button {
+      float: left;
+      display: inline-block;
+      position: relative;
+      width: initial;
+      margin: 0;
+      font-size: 13px;
+      padding: 8px 16px;
+      margin-right: 8px;
+    }
+
+    .receipt {
+      float: right;
+      margin-top: 3px;
+      height: 26px;
+      width: 26px;
+    }
+
+    .delivered-sec>p {
+      color: #30af02;
+    }
+
+    .btn-rounded {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    /* History Section End Here */
+
+    /* Auto likes section start here */
+    .auto-likes-section {
+      padding: 10px 0;
+    }
+
+    .subscriptions {
+      padding: 2px 0;
+      position: relative;
+      line-height: 27px;
+      font-size: 15px;
+      padding-left: 68px;
+      background: #fff;
+      border-bottom: 1px solid #f5f5f5;
+      margin: 20px 0;
+      padding-bottom: 14px;
+    }
+
+    .subscriptions table {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    .subscriptions table tr td {
+      border: 0;
+    }
+
+    .subscriptions .substitle {
+      font-size: 16px;
+      padding-bottom: 9px;
+    }
+
+    .subscriptions .subtitlemain {
+      margin-top: 11px;
+      font-size: 16px;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .subscriptions .substitle .username {
+      font-size: 13px;
+      font-style: italic;
+      color: grey;
+    }
+
+    .subscriptions .substitle span {
+      font-size: 14px;
+      font-style: italic;
+      color: grey;
+    }
+
+    .subscriptions .substitle .status {
+      display: inline-block;
+      font-size: 13px;
+      position: relative;
+      margin-bottom: 7px;
+      width: 100%;
+    }
+
+    .subscriptions .substitle .statusactive {
+      color: green;
+    }
+
+    .subscriptions .substitle .statuspaused {
+      color: orange;
+    }
+
+    .subscriptions .substitle .statuscancelled {
+      color: red;
+    }
+
+    .subscriptions .substitle .statuspaused .spinning,
+    .subscriptions .substitle .statuscancelled .spinning {
+      display: none;
+    }
+
+    .substitle .savingcardbtn {
+      top: initial;
+      right: initial;
+      position: unset;
+      display: inline-block;
+      width: 82px;
+      text-align: center;
+      line-height: 0px;
+      font-size: 15px;
+      border: 1px solid #cdcdcd !important;
+      color: #000;
+      height: 31px;
+      line-height: 12px;
+      display: inline-block;
+      position: relative;
+      width: initial;
+      margin: 0 !important;
+      font-size: 13px;
+      padding: 8px 16px;
+    }
+
+    .dp {
+      height: 50px;
+      width: 50px;
+      border-radius: 50px;
+      position: absolute;
+      left: 0;
+      top: 12px;
+      object-position: top;
+      object-fit: cover;
+      top: 19px;
+    }
+
+    .spinholder {
+      display: none;
+      padding-left: 10px;
+    }
+
+    .spinning {
+      animation-name: spin;
+      animation-duration: 600ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      height: 20px;
+      fill: #000000;
+      top: 34px;
+    }
+
+    .pending h2 {
+      color: #000;
+      font-size: 31px;
+    }
+
+    .pending h2 .spinholder {
+      display: inline-block;
+    }
+
+    .history-container .pending p.status {
+      color: #1b991b;
+    }
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      text-align: center;
+      padding-top: 1rem;
+      border-collapse: collapse;
+    }
+
+    table th {
+      background: #000;
+      color: #fff;
+    }
+
+    table th,
+    td {
+      padding: 10px;
+    }
+
+    /* Auto likes section end here */
+
+    /* Competitors section start here */
+    .competitors-body {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    .competitors-body img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 50%;
+    }
+
+    .competitors-desc {
+      width: 100%;
+    }
+
+    .competitors-desc p {
+      background: #f09e00;
+      padding: 5px;
+      border-radius: 6px;
+      margin-top: 5px;
+    }
+
+    .subscriptions .substitle span.livebox {
+      padding: 3px;
+      color: white;
+      border-radius: 5px;
+      display: inline-block;
+      padding-left: 26px;
+      margin-right: 11px;
+      background: #34d08c;
+      position: relative;
+      font-weight: normal;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      font-style: normal;
+      font-weight: bold;
+      padding-right: 6px;
+    }
+
+    .subscriptions .substitle span.livebox .livesvg {
+      left: 9px;
+      height: 11px;
+      top: 13px;
+      fill: #fff;
+      position: absolute;
+      animation: blinking 4s infinite;
+    }
+
+    .max768pxShow {
+      position: relative !important;
+      margin-top: 10px !important;
+      right: 0px !important;
+    }
+
+    @keyframes blinking {
+      0% {
+        fill: #fff;
+      }
+
+      49% {
+        fill: #fff;
+      }
+
+      60% {
+        fill: transparent;
+      }
+
+      99% {
+        fill: transparent;
+      }
+
+      100% {
+        fill: #fff;
+      }
+    }
+
+    @media screen and (max-width: 550px) {
+      .popup {
+        width: 280px;
+      }
+
+    }
+
+    @media screen and (max-width: 350px) {
+      .popup {
+        width: 200px;
+      }
+
+
+    }
+
+    @media only screen and (min-width: 375px) {
+      .display-info-content h1 {
+        width: 252px;
+      }
+    }
+
+    @media only screen and (min-width: 425px) {
+      .display-info-content h1 {
+        width: 272px;
+      }
+    }
+
+    @media only screen and (min-width: 425px) {
+      .display-info-content h1 {
+        width: 400px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      .changeusernametabs {
+        padding-left: 23px;
+      }
+
+      .display-rating-holder-active .fullinformation {
+        padding: 15px;
+        padding-bottom: 30px;
+      }
+
+      .max768pxShow {
+        position: absolute !important;
+        right: 45px !important;
+        margin-top: -30px !important;
+      }
+    }
+
+    /* Competitors section end here */
+
+    /* Responsive 
+
+
+
+@media only screen and (min-width: 688px) {
+
+  .display-info-content .update-stats,
+  .display-info-content .role {
+    font-size: 0.9rem;
+  }
+
+  .status-table {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+@media only screen and (min-width: 992px) {
+  #menu {
+    display: block;
+  }
+
+  #person {
+    display: block;
+  }
+
+  .nav-ul {
+    display: none;
+    background: #fff;
+  }
+
+  .nav-ul.show {
+    display: block;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .nav-ul li {
+    width: 100%;
+    margin: 30px 45px;
+  }
+
+  .display-container {
+    grid-template-columns: 1fr;
+  }
+
+  .display-container>div {
+    padding: 20px;
+  }
+
+  .history-container {
+    flex-direction: column;
+  }
+}
+*/
+    .showBlockFlex {
+      display: flex;
+    }
+
+    .showBlock {
+      display: block;
+      -webkit-animation: fadein 2s;
+      /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadein 2s;
+      /* Firefox < 16 */
+      -ms-animation: fadein 2s;
+      /* Internet Explorer */
+      -o-animation: fadein 2s;
+      /* Opera < 12.1 */
+      animation: fadein 2s;
+    }
+
+    .hideBlock {
+      display: none !important;
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Firefox < 16 */
+    @-moz-keyframes fadein {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Safari, Chrome and Opera > 12.1 */
+    @-webkit-keyframes fadein {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Internet Explorer */
+    @-ms-keyframes fadein {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .col-row-4 a {
+      width: 25% !important;
+    }
+  </style>
+</head>
+
+<body>
+  {header} {message1}
+
+  <div class="order-history-section" style="margin: auto; display: block">
+    <div class="container1" style="text-align: left; {freeautolikesdisplay}">
+      <div class="inner-section">
+        <h1>
+          Get FREE 50 Automatic Likes for each Post!
+          <strike>({currency}10.94)</strike>
+        </h1>
+        <p>
+          Just <b>upload a post</b>, and
+          <b>we'll do the rest of the work automatically!</b> Click on the
+          button below to start enjoying the following Benefits for Free:
+        </p>
+        <ul class="listctn">
+          <li><span class="tick"></span>Automatic Likes for 30-days</li>
+          <li><span class="tick"></span>Pause anytime you like!</li>
+          <li><span class="tick"></span>Up to 4-posts per day</li>
+          <li>
+            <span class="tick"></span>50-60 Real likes from real users on each
+            post
+          </li>
+          <li><span class="tick"></span>Free views on all videos</li>
+          <li><span class="tick"></span>Safe &amp; Secure since 2012</li>
+          <li>
+            <span class="tick"></span>Worth {currency}10.94 -
+            <b>100% Free for You!</b>
+          </li>
+        </ul>
+        <a class="btn btn11 color4" onclick="signupAl();return false;" href="#"
+          style="display: inline-block; width: initial">Get Free Auto Likes Now &raquo;</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Order history section start here -->
+  <div id="overlay" class="overlay" style="display: none"></div>
+  <div id="popup" class="popup" style="display: none">
+    <span class="close" onclick="togglePopup()">&times;</span>
+    <h2 style="
+          margin: 0;
+          font-family: ' Source Sans Pro', sans-serif;
+          font-weight: 600;
+        ">
+      Download Invoice
+    </h2>
+    <div class="loader-wrapper">
+      <div id="loader" class="loader"></div>
+      <div class="loader-text">Loading invoices...</div>
+    </div>
+    <div id="errorMsg" style="display: none;">
+
+    </div>
+    <form method="post" action="/receipt-pdf-generator.php" id="invoiceForm" style="width: 100%">
+      <div class="custom-dropdown">
+        <div id="picker" class="picker">
+          <div id="selectedDate" class="selected-date" data-id="">Select Invoice</div>
+          <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="Polygon 7" d="M1 0.999999L6 6L11 1" stroke="#929292" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <ul class="dropdown-menu" id="dropdown-menu">
+
+        </ul>
+
+        <input id="orderCountry" name="orderCountry"  type="hidden" value="">
+        <input id="orderAmount"  name="orderAmount"   type="hidden" value="">
+        <input id="billingName"  name="billingName"   type="hidden" value="">
+        <input id="billingEmail" name="billingEmail"  type="hidden" value="">
+        <input id="orderID"      name="orderID"       type="hidden" value="">
+        <input id="billingCard"  name="billingCard"   type="hidden" value="">
+        <input id="orderDate"    name="orderDate"     type="hidden" value="">
+        <input id="orderPrice"   name="orderPrice"    type="hidden" value="">
+        <input id="packageType"  name="packageType"   type="hidden" value="Automatic Likes">
+
+      </div>
+
+      <button class="download-btn">Download invoice</button>
+    </form>
+  </div>
+  <section class="order-history-section">
+    <div class="container1">
+      <div class="inner-section">
+        <h2>My Order History</h2>
+
+        {orders}
+      </div>
+    </div>
+  </section>
+  <!-- Order history section end here -->
+
+  <!-- Auto likes section start here -->
+  <section class="auto-likes-section">
+    <div class="container1">
+      <div class="inner-section">
+        <h2>My Auto Likes</h2>
+        <div class="auto-like-inner-container">{autolikesonaccount}</div>
+      </div>
+    </div>
+  </section>
+  <!-- Auto likes section end here -->
+
+  <!-- Leader board section end here -->
+
+  {footer}
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- <script src="./js/index.js"></script> -->
+  <script>
+
+    function getInvoices(id) {
+
+      document.getElementById("selectedDate").textContent = 'Select Invoice';
+
+      var dataArr = {
+        "id": id,
+        "type": 'getInvoices'
+      };
+
+      $('.loader-wrapper').css('display','flex');
+      $('#invoiceForm').hide();
+      $('#errorMsg').hide();
+      $.ajax({
+        url: "/ajax-post.php",
+        type: "POST",
+        async: true,
+        dataType: 'json',
+        data: dataArr,
+        success: function (response) {
+          if (response.message == 'success') {
+
+            var i;
+            var htm = "";
+            for (i = 0; i < response.data.length; i++) {
+
+              timestampInSeconds = response.data[i].added;
+              timestampInMilliseconds = timestampInSeconds * 1000;
+              date = new Date(timestampInMilliseconds);
+
+              day = date.getDate();
+              if (day < 10) day = '0' + day;
+              month = date.getMonth() + 1; // Adding 1 because months are zero-indexed
+              if (month < 10) month = '0' + month;
+              year = date.getFullYear();
+              formattedDate = `${day}/${month}/${year}`;
+              htm += '<li id="'+ response.data[i].billid +'">' + formattedDate + '</li>';
+            }
+            $('#dropdown-menu').html(htm);
+            $('#invoiceForm').show();
+            $('#errorMsg').hide();
+          } else {
+            $('#invoiceForm').hide();
+            $('#errorMsg').html(response.message);
+            $('#errorMsg').show();
+          }
+          $('.loader-wrapper').hide();
+
+          // Set selected date on click
+          document.querySelectorAll("#dropdown-menu li").forEach(function (item) {
+            item.addEventListener("click", function () {
+              document.getElementById("selectedDate").textContent =
+                this.textContent;
+              document.getElementById("selectedDate").setAttribute('data-id', this.id);
+
+              document.getElementById("dropdown-menu").style.display = "none";
+              selectInvoice(id);
+            });
+          });
+        },
+      });
+
+    }
+
+    function selectInvoice(id) {
+
+     var billid = document.getElementById("selectedDate").getAttribute('data-id');
+
+      var dataArr = {
+        "id": id,
+        "billid":billid,
+        "type": 'selectInvoice'
+      };
+      $('#errorMsg').hide();
+      $.ajax({
+        url: "/ajax-post.php",
+        type: "POST",
+        async: true,
+        dataType: 'json',
+        data: dataArr,
+        success: function (response) {
+          if (response.message == 'success') {
+
+            $('#orderCountry').val(response.data.country);
+            $('#orderAmount').val(response.data.likesperpost);
+            $('#billingName').val(response.data.billingname);
+            $('#billingEmail').val(response.data.emailaddress);
+            $('#orderID').val(response.data.orderid);
+            $('#billingCard').val(response.data.lastfour);
+
+            timestampInSeconds = response.data.added;
+            timestampInMilliseconds = timestampInSeconds * 1000;
+            date = new Date(timestampInMilliseconds);
+            options = { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' };
+            formattedDate = date.toLocaleDateString('en-US', options);
+
+            $('#orderDate').val(formattedDate);
+            $('#orderPrice').val(response.data.amount);
+            $('#errorMsg').hide();
+          } else {
+            $('#invoiceForm').hide();
+            $('#errorMsg').show();
+            $('#errorMsg').html(response.message);
+          }
+        },
+        
+      });
+     
+    }
+
+    function closesignupDiv() {
+      document.body.removeChild(document.getElementById("signDiv"));
+      exitout = "1";
+      return false;
+    }
+
+    function signupAl() {
+      var widthPopup = "356";
+      var heightPopup = "652";
+
+      var signDiv = document.createElement("div");
+      signDiv.id = "signDiv";
+      document.body.appendChild(signDiv);
+      var signupHTML =
+        '<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+      signupHTML +=
+        '<div style="overflow: hidden; z-index:9999;width:' +
+        widthPopup +
+        "px;height:" +
+        heightPopup +
+        "px;position:fixed;left:50%;margin-left:-" +
+        widthPopup / 2 +
+        "px;top:50%;margin-top:-" +
+        heightPopup / 2 +
+        'px;border:0">';
+      signupHTML +=
+        '<iframe src="/account/auto-likes-free.php?&loc={loc}" style="overflow: hidden;width:100%;height:' +
+        (heightPopup - 35) +
+        'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+      document.getElementById("signDiv").innerHTML = signupHTML;
+      return false;
+    }
+
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + 1 * 60 * 60 * 1000); // 1 hour
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function eraseCookie(name) {
+      document.cookie =
+        name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    }
+
+    // split test for tool code
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0)
+          return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    var toolCookie = getCookie("splitForTool");
+
+    let params = new URL(document.location).searchParams;
+    let name = params.get("split");
+
+    if ((name != null && name == "b") || toolCookie == "true") {
+      document.getElementById("toolsID").style.display = "block";
+      element = document.querySelector(".darkmobileheader");
+      element.className += " col-row-4";
+      setCookie("splitForTool", "true");
+    } else {
+      document.getElementById("toolsID").style.display = "none";
+      document.getElementById("toolsTopBarId").style.display = "none";
+
+      // eraseCookie('splitForTool');
+    }
+
+    // Show dropdown on selected date click
+    document
+      .getElementById("picker")
+      .addEventListener("click", function (event) {
+        const dropdown = document.getElementById("dropdown-menu");
+        if (dropdown.style.display === "block") {
+          dropdown.style.display = "none";
+        } else {
+          dropdown.style.display = "block";
+        }
+        event.stopPropagation();
+      });
+
+    // Hide dropdown on outside click
+    document.addEventListener("click", function (event) {
+      const dropdown = document.getElementById("dropdown-menu");
+      const selectedDate = document.getElementById("picker");
+      if (event.target !== dropdown && event.target !== selectedDate) {
+        dropdown.style.display = "none";
+      }
+    });
+
+    function togglePopup(id) {
+      var popup = document.getElementById("popup");
+      var overlay = document.getElementById("overlay");
+      if (popup.style.display === "none") {
+        popup.style.display = "flex";
+        overlay.style.display = "block";
+      } else {
+        popup.style.display = "none";
+        overlay.style.display = "none";
+      }
+
+      if (id != null && id != "") getInvoices(id);
+    }
+  </script>
+</body>
+
+</html>

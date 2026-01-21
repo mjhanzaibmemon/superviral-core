@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Change My Password - Tikoid</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&amp;display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/loginregister.css">
+<style>
+
+   .notifmsg{ font-size: 13px;}
+
+</style>
+
+</head>
+<body>
+{header}
+
+<div class="orderbody" align="center">
+
+    <div class="cnwidth">
+
+        <div class="container dshadow" style="text-align: left;">
+
+            <form id="form" method="post" action="/{formsubmit}/?id={id}&key={key}">
+                <h1>Change My Password 🔑</h1>
+                    <input type="hidden" name="submitted" value="1">
+                <div class="form-group">
+                    <input type="hidden" name="email" value="{email}">
+                    <label>1. Choose a New Password:</label>
+                    {error1}
+                    <input id="password" type="password" class="form-control" name="newpassword" placeholder="New Password">
+                </div>
+                
+                <div style="margin-top:30px">
+                    <span class="password_verify">
+                        <input type="radio" name="" disabled="" id="capital_letter" disabled> At least 1 capital letter
+                    </span>
+                    <span class="password_verify">
+                        <input type="radio" name="" disabled="" id="number" disabled> At least 1 number
+                    </span>
+                    <span class="password_verify">
+                        <input type="radio" name="" disabled="" id="8_characters" disabled> At least 8 characters
+                    </span>
+                 </div>
+                
+                 <div class="form-group" style="margin-top:30px;">
+                    <label>2. Re-type in your New Password:</label>
+                    {error2}
+                    <input id="confirmpassword" type="password" class="form-control" name="confirmpassword" placeholder="Re-type in your New Password">
+                 </div>
+                 <button class="color4 btn" id="signUP">Change My Password</button>
+            </form>
+
+         </div>
+
+
+    </div>
+
+</div>
+
+    
+
+
+    <script type="text/javascript">{footer}</script>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <script>
+
+    $(document).ready(function () {
+        $('#form').validate({
+          rules: {
+            email: {
+              required: true,
+              email: true
+            },
+            password: {
+              required: true,
+            }
+          },
+          messages: {
+            email: {
+              required: 'Please enter Email Address.',
+              email: 'Please enter a valid Email Address.',
+            },
+            password: {
+              required: 'Please enter Password.',
+            }
+          },
+          submitHandler: function (form) {
+            form.submit();
+          }
+        });
+    });
+    var upperCase= new RegExp('[A-Z]');
+    var lowerCase= new RegExp('[a-z]');
+    var numbers = new RegExp('[0-9]');
+    $("#password").keyup(function(e){
+        var password = $('#password').val();
+        $('#capital_letter').prop('checked', false);
+        $('#number').prop('checked', false);
+        $('#8_characters').prop('checked', false);
+
+        if(password.match(upperCase)){
+            $('#capital_letter').prop('checked', true);
+        }
+        if(password.match(numbers)){
+            $('#number').prop('checked', true);
+        }
+        if(password.length >= 8){
+            $('#8_characters').prop('checked', true);
+
+        }
+        if(password.match(upperCase) && password.match(numbers) && (password.length >= 8)){
+            $('#signUP').prop("disabled", false);   
+            $('#signUP').css("opacity","1");
+        }else{
+            $('#signUP').prop("disabled", true);
+            $('#signUP').css("opacity","0.6");
+        }
+    });
+</script>
+</body>
+</html>

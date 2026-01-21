@@ -1,0 +1,1138 @@
+<!-- @meta -->
+
+<title>Email Support</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+<title>Email Support</title>
+
+<style>
+    :root {
+        --bg-primary-color: #fff;
+        --padding-common: 10px 8px;
+        --mt-common: 10px;
+        --mb-common: 10px;
+    }
+
+    main *,
+    main *::before,
+    main *::after {
+        box-sizing: border-box;
+    }
+
+    main span,
+    main a {
+        word-wrap: break-word;
+    }
+
+    main button {
+        cursor: pointer;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-primary-color);
+    }
+
+    main {
+        margin: 50px auto 0;
+    }
+
+    #main-layout {
+        margin-top: 16px;
+    }
+
+    main .btn-underlined {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        font-weight: 600;
+        text-decoration: underline;
+    }
+
+    main .btn-secondary {
+        background-color: transparent;
+        border: 1px solid #000;
+        padding: 10px 25px;
+        font-weight: 600;
+        border-radius: 30px;
+    }
+
+    main .flex-box-common {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    main .flex-box-common>* {
+        overflow: hidden;
+    }
+
+    main .padding-common {
+        padding: var(--padding-common);
+    }
+
+    main .mt-common {
+        margin-top: var(--mt-common);
+    }
+
+    main .mb-common {
+        margin-bottom: var(--mb-common);
+    }
+
+    main .mb-xm {
+        margin-bottom: 5px;
+    }
+
+    #es-conversations {
+        height: 262px;
+        overflow-y: auto;
+        background-color: #FFF;
+    }
+
+    #es-conversations>div {
+        padding: var(--padding-common);
+        margin-bottom: var(--mb-common);
+        border-radius: 10px;
+    }
+
+    #es-conversations p {
+        margin: 10px 0 0;
+    }
+
+    #es-conversations>div:last-child {
+        margin-bottom: 0;
+    }
+
+    #es-conversations .customer {
+        background-color: #DFF2FF;
+    }
+
+    #es-conversations .customer .label {
+        color: #24ABFF;
+    }
+
+    #es-conversations .support {
+        background-color: #EDEDED;
+    }
+
+    #es-conversations .admin {
+        background-color: #E1FFED;
+    }
+
+    #es-conversations .admin .label {
+        color: #05CB55;
+    }
+
+    #es-actions-toggler {
+        display: none;
+    }
+
+    #replybox{
+        width: 100%;min-height: 300px;padding: 12px;
+        font-size: 15px;
+        border-radius: 15px;
+        border: 1px solid #bbb;
+        box-sizing: border-box;
+    }
+
+    #replybtn{}
+
+    @media screen and (min-width: 768px) {
+        main {
+            max-width: 768px;
+            background-color: #FFF;
+            padding: var(--padding-common);
+        }
+        
+        #main-layout {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 10px;
+        }
+
+        main .pw-md-0 {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        main .container-sm {
+            grid-column: span 4;
+        }
+
+        main .container-md {
+            grid-column: span 8;
+        }
+
+        #es-actions-toggler {
+            display: block;
+            text-align: center;
+        }
+
+        #es-actions.hidden .flex-box-common {
+            height: 92px;
+            overflow: hidden;
+        }
+
+        #es-actions #es-actions-toggler button:first-child {
+            display: none;
+        }
+
+        #es-actions #es-actions-toggler button:last-child {
+            display: inline-block;
+        }
+
+        #es-actions.hidden #es-actions-toggler button:first-child {
+            display: inline-block;
+        }
+
+        #es-actions.hidden #es-actions-toggler button:last-child {
+            display: none;
+        }
+
+    }
+
+    @media screen and (min-width: 1024px) {
+        main {
+            max-width: 1024px;
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+        main {
+            max-width: 1280px;
+        }
+    }
+
+    @media screen and (min-width: 1536px) {
+        main {
+            max-width: 1536px;
+        }
+    }
+
+    #cover-spin {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 9999;
+        display: none;
+    }
+
+    @-webkit-keyframes spin {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    #cover-spin::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 48%;
+        top: 40%;
+        width: 40px;
+        height: 40px;
+        border-style: solid;
+        border-color: black;
+        border-top-color: transparent;
+        border-width: 4px;
+        border-radius: 50%;
+        -webkit-animation: spin 0.8s linear infinite;
+        animation: spin 0.8s linear infinite;
+    }
+   
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 15000;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    display: flow-root;
+  }
+
+  /* The Close Button */
+   .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+    .input{padding: 12px;font-size: 15px;border-radius: 5px;border: 1px solid #bbb;box-sizing: border-box;height: 45px;flex-grow:1;}
+    .input-container {display: flex;align-items: center;margin-bottom: 15px;}
+    .btn3{color:#fff;background:#000;border:1px solid #bdbdbd;padding:10px;font-weight:400;border-radius:5px!important;cursor:pointer;width:130px;margin-left:5px;font-weight:bold;font-size:13px;z-index:999;}
+    .remove-btn {background: none;border: none;color: red;font-size: 20px;cursor: pointer;}
+
+    .btn3{color:#fff;background:#000;border:1px solid #bdbdbd;padding:10px;font-weight:400;border-radius:5px!important;cursor:pointer;width:130px;margin-left:5px;font-weight:bold;font-size:13px;z-index:999;}
+
+    .offer-tabs > span {
+        display: inline-block;
+        border-bottom: solid 2px transparent;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    .offer-tabs > span.active {
+        border-color: #000000;
+    }
+
+    .loader {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 2px solid #000000;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+
+</style>
+
+<!-- @head_tags -->
+
+<div><h1 style="text-align: center;">{main_heading}</h1></div>
+
+<main>
+    <div id="cover-spin"></div>
+    <span style="text-align: center;display: block;">{done}</span>
+    <div style="display: flex;flex-wrap: wrap;justify-content: space-between;align-items: center;">
+        <div style="display: flex; gap: 4px;">
+            <a href="{tabAction}" style="padding: 10px 20px;background: {tab1_bg_color};border-radius: 10px; text-decoration: none; color: #000;">Require Action ({action_remaining})</a>
+            <a href="{tabReview}" style="padding: 10px 20px;background: {tab2_bg_color};border-radius: 10px; text-decoration: none; color: #000;">Reviews ({reviews_remaining})</a>
+        </div>
+        <div style="text-align: right;">
+            <span style="display: inline-block;padding: 6px 12px;border: solid 1px #ddd;border-radius: 20px;font-size: 14px;font-weight: bold;">ℹ️ {category_tag}</span>
+        </div>
+    </div>
+    <div id="main-layout">
+        <div class="container container-sm padding-common" style="padding-top: 0px;background-color: var(--bg-primary-color);">
+            <div style="border:solid 1px #ddd;border-radius:12px;">
+                <div class="mb-common" style="padding:10px;border-bottom:solid 1px #ddd;">
+                    <b id="customerEmailId">{custEmail}</b>
+                </div>
+                <div class="mb-common" style="padding: 10px;display:none;">
+                    <div>
+                        <b>Payment Attempts</b>
+                        <div style="display: flex;flex-wrap: wrap;gap: 8px;border-bottom: solid 1px #ddd;padding: 10px 0;justify-content:space-between;align-items:center;">
+                            <div>
+                                <b style="flex-shrink: 0;">12/12/22 at 23:31</b>
+                                <div style="flex-shrink: 0;">
+                                    <span>(PAYMENT_ID_1840880)</span>
+                                    <span>(ORDER_ID_1840880)</span>
+                                </div>
+                            </div>    
+                            <div>
+                                <span style="flex-shrink: 0;display: inline-flex;justify-content: center;align-items: center;border-radius: 50%;border: none;background-color: #05CB55;padding: 4px;" fdprocessedid="znr887"><svg viewBox="0 0 24 24" width="20px" height="20px" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-wrap: wrap;gap: 8px;border-bottom: solid 1px #ddd;padding: 10px 0;justify-content:space-between;align-items:center;">
+                            <div>
+                                <b style="flex-shrink: 0;">12/12/22 at 23:31</b>
+                                <div style="flex-shrink: 0;">
+                                    <span>(PAYMENT_ID_1840880)</span>
+                                    <span>(ORDER_ID_1840880)</span>
+                                </div>
+                            </div>    
+                            <div>
+                                <span style="flex-shrink: 0;display: inline-flex;justify-content: center;align-items: center;border-radius: 50%;border: none;background-color: red;padding: 4px;" fdprocessedid="akmvj"><svg viewBox="0 -0.5 25 25" width="20px" height="20px" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.96967 16.4697C6.67678 16.7626 6.67678 17.2374 6.96967 17.5303C7.26256 17.8232 7.73744 17.8232 8.03033 17.5303L6.96967 16.4697ZM13.0303 12.5303C13.3232 12.2374 13.3232 11.7626 13.0303 11.4697C12.7374 11.1768 12.2626 11.1768 11.9697 11.4697L13.0303 12.5303ZM11.9697 11.4697C11.6768 11.7626 11.6768 12.2374 11.9697 12.5303C12.2626 12.8232 12.7374 12.8232 13.0303 12.5303L11.9697 11.4697ZM18.0303 7.53033C18.3232 7.23744 18.3232 6.76256 18.0303 6.46967C17.7374 6.17678 17.2626 6.17678 16.9697 6.46967L18.0303 7.53033ZM13.0303 11.4697C12.7374 11.1768 12.2626 11.1768 11.9697 11.4697C11.6768 11.7626 11.6768 12.2374 11.9697 12.5303L13.0303 11.4697ZM16.9697 17.5303C17.2626 17.8232 17.7374 17.8232 18.0303 17.5303C18.3232 17.2374 18.3232 16.7626 18.0303 16.4697L16.9697 17.5303ZM11.9697 12.5303C12.2626 12.8232 12.7374 12.8232 13.0303 12.5303C13.3232 12.2374 13.3232 11.7626 13.0303 11.4697L11.9697 12.5303ZM8.03033 6.46967C7.73744 6.17678 7.26256 6.17678 6.96967 6.46967C6.67678 6.76256 6.67678 7.23744 6.96967 7.53033L8.03033 6.46967ZM8.03033 17.5303L13.0303 12.5303L11.9697 11.4697L6.96967 16.4697L8.03033 17.5303ZM13.0303 12.5303L18.0303 7.53033L16.9697 6.46967L11.9697 11.4697L13.0303 12.5303ZM11.9697 12.5303L16.9697 17.5303L18.0303 16.4697L13.0303 11.4697L11.9697 12.5303ZM13.0303 11.4697L8.03033 6.46967L6.96967 7.53033L11.9697 12.5303L13.0303 11.4697Z" fill="#fff"></path> </g></svg></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding: 10px;{displayAlDetails}">
+                    <div class="mb-common">
+                        <b>Automatic Likes Subscriptions</b>
+                        <div style="text-align: center;padding:20px;border:solid 1px #ececec;{displayEmptyALSub}">No AL Subs Found</div>
+                        <!-- @al_sub -->
+                        <div style="border: solid 1px #ddd;border-radius:20px;padding:20px;margin-bottom:10px;">
+                            <div style="display: flex;justify-content: space-between;">
+                                <div>
+                                    <b>@{al_username}</b><span> - {amount_type}</span>
+                                    <br>
+                                    <span style="{expiry_date_style}">{al_expiry}</span>
+                                </div>
+                                <div>
+                                    <span style="{dispPlayBtn}"><span class="loader"></span></span>
+                                    <span style="justify-content: center;align-items: center;border-radius: 5px;border: solid 1px black;padding: 4px;{dispPauseBtn}">
+                                        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>pause</title> <path d="M5.92 24.096q0 0.832 0.576 1.408t1.44 0.608h4.032q0.832 0 1.44-0.608t0.576-1.408v-16.16q0-0.832-0.576-1.44t-1.44-0.576h-4.032q-0.832 0-1.44 0.576t-0.576 1.44v16.16zM18.016 24.096q0 0.832 0.608 1.408t1.408 0.608h4.032q0.832 0 1.44-0.608t0.576-1.408v-16.16q0-0.832-0.576-1.44t-1.44-0.576h-4.032q-0.832 0-1.408 0.576t-0.608 1.44v16.16z"></path> </g></svg>
+                                    </span>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- @al_sub -->
+                    </div>
+                    <div>
+                        <b>Automatic Likes Issued</b>
+                        <div style="text-align: center;padding:20px;border:solid 1px #ececec;{displayEmptyALOrders}">No ALs Issued</div>
+
+                        <!-- @al_issued -->
+                        <div style="background: #bdffa9;display:flex;justify-content: space-between;border-radius:20px;align-items:Center;padding:20px;margin-bottom:10px;">
+                            <div><b>@{username}</b><span> - {amount} Likes</span></div>
+                            <span>{alf_expiry}</span>
+                        </div>
+                        <!-- @al_issued -->
+                    </div>
+                </div>   
+                <!-- <div style="padding:10px;{displayAccountDetails}" id="account_details">
+                    <b>Customer account info</b>
+                    <div style="text-align: center;padding:20px;border:solid 1px #ececec;{displayEmptyAccount}">No Account Found</div>
+                    <div class="box3 dshadow" id="customerInfoDivId" style="{displayCustomerInfo}">
+                        <p>
+                          <label class="font-size12">Company</label>
+                          <img style="margin-left: 2px" src="/admin/assets/icons/{brand}.svg" alt="logo" />
+                        </p>
+                        <p>
+                          <label class="font-size12">Username</label>
+                          <span>{ad_username}</span>
+                        </p>
+                        <p>
+                          <label class="font-size12">Joined on</label>
+                          <span>{ad_added}</span>
+                        </p>
+                    </div>                
+                </div> -->
+    
+                <div style="padding:10px;{displayOrderDetails}">
+                    <div class="mb-common">
+                        <b>Account</b>
+                        <div style="text-align: center;padding:20px;border:solid 1px #ececec;{displayEmptyAccounts}">No Account Found</div>
+
+                        <!-- @account_div -->
+                        <div style="border: solid 1px #ddd;display:flex;gap: 10px;justify-content: space-between;border-radius:20px;align-items:Center;padding:20px;margin-bottom: 10px;">
+                            <div style="overflow: auto;display: flex;align-items: center;gap: 10px;">
+                                <img src="/admin/assets/icons/Tiktok-icon.svg" style="flex-shrink: 0;margin-right: 3px;width: 30px;vertical-align:middle;display: inline-block;">
+                                <b>@{acc_uname}</b>
+                                <span id="priv-txt{cnt}" style="flex-shrink: 0;color: #6e6e6e;{privDisp}">private</span>
+                                <span id="pub-txt{cnt}" style="flex-shrink: 0;color: #05CB55;{pubDisp}">public</span>
+                                <span id="time-online{cnt}" style="flex-shrink: 0;{dispNone}">({dateCheckStats})</span>
+                            </div>
+                            <button style="flex-shrink: 0;border-radius: 5px;border: none;background-color: #05CB55;color: white;padding: 4px;display:none;">Check Visibility</button>
+                        </div>
+                        <!-- @account_div -->
+                    </div>
+    
+                    <div style="text-align: center;padding:20px;border:solid 1px #ececec;{displayEmptyOrders}">No Orders</div>
+    
+                     <div id="NSList">
+                    <!-- @NScustomerOrderList -->
+                        <div>
+                            <b>{customerOrderStatus}</b>
+                            <div style="border:solid 1px #ddd;display:flex;justify-content: space-between;border-radius:20px;align-items:Center;padding:20px;margin-bottom:10px;">
+                                <div style="display:flex;align-items: center;">
+                                    <img src="{socialMediaLogo}" style="margin-right: 13px;width: 30px;vertical-align:middle;display: inline-block;">
+                                    <div>
+                                        <a href="{postUrl}" target="_blank" style="vertical-align:middle;text-decoration: none;color: black;"><span style="font-size:18px;vertical-align: middle;"><b>{customerOrder}</b></span></a>
+                                        <a href="{trackinghref}" target="_blank" style="vertical-align:middle;text-decoration: none;color: black;"><span style="vertical-align:middle;margin-left:10px;">(#{customerOrderId})</span></a>
+                                        <div>BFR: {curr_engagement} / AFTR: {new_engagement} {missingAmount}</div>
+                                    </div>
+                                </div>
+                                <span>{added}</span>
+                            </div>
+                        </div>
+                    <!-- @NScustomerOrderList -->
+                     </div>
+                    
+                     <div id="IPList">
+                    <!-- @IPcustomerOrderList -->
+                        <div>
+                            <b>{customerOrderStatus}</b>
+                            <div style="background: #fff2a9;display:flex;justify-content: space-between;border-radius:20px;align-items:Center;padding:20px;margin-bottom:10px;">
+                                <div style="display:flex;align-items: center;">
+                                    <img src="{socialMediaLogo}" style="margin-right: 13px;width: 30px;vertical-align:middle;display: inline-block;">
+                                    <div>
+                                        <a href="{postUrl}" target="_blank" style="vertical-align:middle;text-decoration: none;color: black;"><span style="font-size:18px;vertical-align: middle;"><b>{customerOrder}</b></span></a>
+                                        <a href="{trackinghref}" target="_blank" style="vertical-align:middle;text-decoration: none;color: black;"><span style="vertical-align:middle;margin-left:10px;">(#{customerOrderId})</span></a>
+                                        <div>
+                                            BFR: {curr_engagement} / AFTR: {new_engagement} {missingAmount}
+                                        </div>
+                                    </div>
+                                </div>
+                                <span>{added}</span>
+                            </div>
+                        </div>
+                    <!-- @IPcustomerOrderList -->
+                    </div>
+
+                    <div id="CompList">
+                    <!-- @ComcustomerOrderList -->
+                        <div>
+                            <b>{customerOrderStatus}</b>
+                            <div style="background: #bdffa9;display:flex;justify-content: space-between;border-radius:20px;align-items:Center;padding:20px;margin-bottom:10px;">
+                                <div style="display:flex;align-items: center;">
+                                    <img src="{socialMediaLogo}" style="margin-right: 13px;width: 30px;vertical-align:middle;display: inline-block;">
+                                    <div>
+                                        <a href="{postUrl}" target="_blank" style="vertical-align:middle;text-decoration: none;color: black;"><span style="font-size:18px;vertical-align: middle;"><b>{customerOrder}</b></span></a>
+                                        <a href="{trackinghref}" target="_blank" style="vertical-align:middle;text-decoration: none;color: black;"><span style="vertical-align:middle;margin-left:10px;">(#{customerOrderId})</span></a>
+                                        <div>
+                                            BFR: {curr_engagement} / AFTR: {new_engagement} {missingAmount}
+                                        </div>
+                                    </div>
+                                </div>
+                                <span>{added}</span>
+                            </div>     
+                        </div>
+                    <!-- @ComcustomerOrderList -->
+                    </div>
+                    
+                    <div class="padding-common mt-common mb-xm" style="background-color: #FFF;display:none;">
+                        <div class="mb-common flex-box-common has-copy">
+                            <a href="{customerOrderUrl}" class="c1">{customerOrder}</a>
+                            <!-- <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"
+                                    stroke="#1C274C" stroke-width="1.5" />
+                                <circle cx="12" cy="12" r="4" stroke="#1C274C" stroke-width="1.5" />
+                            </svg> -->
+                            <button class="btn-underlined btn-copy">Copy</button>
+                        </div>
+                        <div class="mb-common">
+                            <span>Order Status:</span>
+                            <br>
+                            <span style="color: #FFA21E;">{customerOrderStatus}</span>
+                        </div>
+                        <div class="mb-common">
+                            <span>Username:</span>
+                            <div class="flex-box-common has-copy">
+                                <span class="c1">{igusername}</span>
+                                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M7 10.0288C7.47142 10 8.05259 10 8.8 10H15.2C15.9474 10 16.5286 10 17 10.0288M7 10.0288C6.41168 10.0647 5.99429 10.1455 5.63803 10.327C5.07354 10.6146 4.6146 11.0735 4.32698 11.638C4 12.2798 4 13.1198 4 14.8V16.2C4 17.8802 4 18.7202 4.32698 19.362C4.6146 19.9265 5.07354 20.3854 5.63803 20.673C6.27976 21 7.11984 21 8.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V14.8C20 13.1198 20 12.2798 19.673 11.638C19.3854 11.0735 18.9265 10.6146 18.362 10.327C18.0057 10.1455 17.5883 10.0647 17 10.0288M7 10.0288V8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8V10.0288"
+                                            stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <button class="btn-underlined btn-copy">Copy</button>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Order Tracking:</span>
+                            <a href="{trackinghref}">{tracking}</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="padding-common mb-xm" style="background-color: #FFF;display:none;">
+                        <a href="{customerOrderUrl}">{customerOrder}</a>
+                        <span>{customerOrderStatus}</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="container container-md">
+            {content}
+        </div>
+    </div>
+   
+      <!-- The Modal -->
+  <div id="submitReportModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="max-height: 600px; overflow-y: auto">
+      <span class="close" style="margin-top: -10px">&times;</span>
+      <span class="fontBold">Submit Report</span>
+      <br />
+      <br />
+      <select id="orderSelectId" class="searchBox">
+        {htmOption}
+      </select>
+      <br />
+      <br />
+      <textarea class="searchBox" id="submitReportId" placeholder="Enter report..." style="width: 100%"
+        rows="6"></textarea>
+      <button class="btn3" style="width: 100px" onclick="submitReportOnEmail();">
+        Submit
+      </button>
+    </div>
+  </div>
+</main>
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+<script>
+
+    function selectActions(actionId, ticketId) {
+
+        $("#cover-spin").show();
+        $.ajax({
+            url: "/admin/api/email-support-handler.php",
+            type: "POST",
+            data: {
+                type: "selectAction",
+                actionId: actionId,
+                ticketId: ticketId
+            },
+            dataType: "json",
+            success: function (data) {
+                if(data.Message == 'Done'){
+                    location.reload();
+                }else{
+                    alert(data.Message);
+                }
+                $("#cover-spin").hide();
+            },
+        });
+    }
+
+    function markDone() {
+        let text = "Are you sure to mark it done?";
+        if (confirm(text) == true) {
+        var emailId = $("#customerEmailId").text().trim();
+
+        $("#cover-spin").show();
+        $.ajax({
+        url: "/admin/api/email-support-handler.php",
+        type: "POST",
+        data: {
+          type: "markDone2",
+          emailId: emailId,
+        },
+        dataType: "json",
+        success: function (data) {
+          /*alert(data.Message);*/
+          location.reload();
+        },
+        });
+        }
+    }
+
+    function blockConversation() {
+        var value = $("#deleteBtnId").attr("data-value");
+        let text = "";
+        if (value == 0) {
+        text = "Are you sure to unblock this conversation?";
+        } else {
+        text = "Are you sure to block this conversation?";
+        }
+
+        if (confirm(text) == true) {
+        var emailId = $("#customerEmailId").text().trim();
+
+        $("#cover-spin").show();
+        $.ajax({
+        url: "/admin/api/email-support-handler.php",
+        type: "POST",
+        data: {
+          type: "blockConversation2",
+          emailId: emailId,
+          value: value,
+        },
+        dataType: "json",
+        success: function (data) {
+          alert(data.Message);
+          location.reload();
+        },
+        });
+        }
+    }
+
+
+    function submitReportOnEmail() {
+        var emailUid = {globLastEmailUid};
+        var emailsubject = "{recentSubject}";
+        var report = $("#submitReportId").val().trim();
+        if (report == "") {
+        alert("Report can't be blank");
+        return;
+        }
+        var orderId = $("#orderSelectId").val();
+        /*if (orderId == "") {
+            alert("Please select orderId");
+            return;
+        }*/
+        var emailId = $("#customerEmailId").text().trim();
+
+        $("#cover-spin").show();
+        $.ajax({
+        url: "/admin/api/email-support-handler.php",
+        type: "POST",
+        data: {
+        type: "submitReportOnEmail2",
+        emailId: emailId,
+        orderId: orderId,
+        report: report,
+        emailUid: emailUid,
+        emailsubject: emailsubject,
+        },
+        dataType: "json",
+        success: function (data) {
+        alert(data.Message);
+        location.reload();
+        },
+        });
+    }
+    function submitReport(ticketId) {
+
+        var emailId = $("#customerEmailId").text().trim();
+        var subject = $("#subjectId").val();
+        var emailUid = $("#EmailUidId").val();
+        var reply = $("#replybox").val();
+        
+        $("#cover-spin").show();
+        $.ajax({
+            url: "/admin/api/email-support-handler.php",
+            type: "POST",
+            data: {
+                type: "submitReport",
+                emailId: emailId,
+                emailUid: emailUid,
+                reply: reply,
+                subject: subject,
+                ticketId: ticketId
+            },
+            dataType: "json",
+            success: function (data) {
+                /*alert(data.Message);*/
+                location.reload();
+                $("#cover-spin").hide();
+            },
+        });
+    }
+
+    function offerFreeFollowers() {
+
+        var orderId = $("#latestOrderId").val();
+        var brand = $("#latestBrand").val();
+        var amount = $("#amount").val();
+        var username = $("#username").val();
+        var userInfo = $("#userInfo").serialize();
+        var offerSocialMedia = $("#offerSocialMedia").val();
+
+        if(amount < 10){
+            alert("Minimum amount should be 10");
+            return;
+        }
+
+        if(amount > 5000){
+            alert("Maximum amount is 5000");
+            return;
+        }
+
+        if(username.trim() == ""){
+            alert("Please enter username");
+            return;
+        }
+
+        $("#cover-spin").show();
+        $.ajax({
+            url: "/admin/api/email-support-handler.php",
+            type: "POST",
+            data: {
+                type: "offerFreeFollowers",
+                amount: amount,
+                username: username,
+                orderId: orderId,
+                brand: brand,
+                userInfo: userInfo,
+                offerSocialMedia: offerSocialMedia
+            },
+            dataType: "json",
+            success: function (data) {
+                /*alert(data.Message);*/
+                $("#cover-spin").hide();
+                if(data.Message == "success"){
+                    $("#of-form").hide();
+                    $("#of-success").show();
+                    $("#of-id").html("#"+data.insertId);
+
+                   var orderHtm = getOrderHtm(data.dataArr);
+                //    console.log(orderHtm);
+                    $('#IPList').append(orderHtm);
+                }else{
+                    alert(data.Message);
+                }
+            },
+        });
+    }
+
+    function offerFreeLikes() {
+
+        var orderId = $("#latestOrderId").val();
+        var brand = $("#latestBrand").val();
+        var amount = $("#amountFL").val();
+        var username = $("#fl_username").val();
+        var userInfo = $("#userInfo").serialize();
+
+        var inputValues = [];
+        
+        $('#dynamicInput input[name="myInputs[]"]').each(function() {
+            var value = $(this).val();  
+            if (value) {  
+                inputValues.push(value); 
+            }
+        });
+        
+        var posts = inputValues.join(',');
+
+        if(posts == ""){
+            alert("Please enter posts");
+            return;
+        }
+
+        if(amount < 100){
+            alert("Minimum amount should be 100");
+            return;
+        }
+
+      
+        $("#cover-spin").show();
+        $.ajax({
+            url: "/admin/api/email-support-handler.php",
+            type: "POST",
+            data: {
+                type: "offerFreeLikes",
+                amount: amount,
+                posts: posts,
+                orderId: orderId,
+                brand: brand,
+                username: username,
+                userInfo: userInfo
+            },
+            dataType: "json",
+            success: function (data) {
+                /*alert(data.Message);*/
+                $("#cover-spin").hide();
+                if(data.Message == "success"){
+                    $('#offerLikesNew').hide();
+                    $("#showOFLSuccess").show();
+                    $("#OFLOrderId").html("#"+data.insertId);
+
+                    var orderHtm = getOrderHtm(data.dataArr);
+                //    console.log(orderHtm);
+                    $('#IPList').append(orderHtm);
+                }else{
+                    alert(data.Message);
+                }
+            },
+        });
+    }
+
+    function getOrderHtm(data){
+
+        var htm = '<div> '+
+                        '<b></b>'+
+                        '<div style="background: #fff2a9;display:flex;justify-content: space-between;border-radius:20px;align-items:Center;padding:20px;margin-bottom:10px;">'+
+                            '<div style="display:flex;align-items: center;">'+
+                                '<img src="'+ data.socialMediaLogo +'" style="margin-right: 13px;width: 30px;vertical-align:middle;display: inline-block;">'+
+                                '<div>'+
+                                    '<a href="'+ data.postUrl +'" target="_blank" style="vertical-align:middle;text-decoration: none;color: black;"><span style="font-size:18px;vertical-align: middle;"><b>'+ data.customerOrder +'</b></span></a>'+
+                                    '<a href="'+ data.trackinghref +'" target="_blank" style="vertical-align:middle;text-decoration: none;color: black;"><span style="vertical-align:middle;margin-left:10px;">(#'+ data.customerOrderId +')</span></a>'+
+                                    '<div>BFR: -- / AFTR: -- </div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<span>'+ data.added +'</span>'+
+                        '</div>'+
+                    '</div>';
+
+        return htm;
+    }
+
+       
+    document.getElementById('es-conversations').scrollTop = document.getElementById('es-conversations').scrollHeight;
+
+    var counter = 1;
+    var limit = 10;
+    function addInput(divName) {
+        if (counter == limit) {
+            alert("You have reached the limit of adding " + counter + " inputs");
+        } else {
+            var newdiv = document.createElement('div');
+            newdiv.className = 'input-container'; // Apply a class for styling
+            newdiv.id = 'inputDiv' + counter; // Assign a unique ID to each div
+            newdiv.innerHTML = `
+                <input autocomplete="off" name="myInputs[]" value="" class="input" placeholder="https://www.instagram.com/p/CEG6R7_FGdD/">
+                <button type="button" onclick="removeInput('inputDiv`+ counter +`')" class="remove-btn">&times;</button>
+            `;
+            document.getElementById(divName).appendChild(newdiv);
+            counter++;
+        }
+    }
+    function removeInput(divId) {
+        var div = document.getElementById(divId);
+        if (div) {
+            div.remove();
+            counter--;
+        }
+    }
+
+    
+    /* Get the button that opens the modal */
+    var btn = document.querySelectorAll("button.modal-button");
+
+    /* All page modals */
+    var modals = document.querySelectorAll(".modal");
+
+    /* Get the <span> element that closes the modal */
+    var spans = document.getElementsByClassName("close");
+    /* When the user clicks the button, open the modal */
+    for (var i = 0; i < btn.length; i++) {
+      btn[i].onclick = function (e) {
+        e.preventDefault();
+        modal = document.querySelector(e.target.getAttribute("href"));
+        modal.style.display = "block";
+      };
+    }
+
+    /* When the user clicks on <span> (x), close the modal */
+    for (var i = 0; i < spans.length; i++) {
+      spans[i].onclick = function () {
+        for (var index in modals) {
+          if (typeof modals[index].style !== "undefined")
+            modals[index].style.display = "none";
+        }
+      };
+    }
+
+
+    // try {
+    //     const actions = document.getElementById('es-actions');
+    //     const actionsToggler = document.getElementById('es-actions-toggler');
+    //     actionsToggler.addEventListener('click', () => actions.classList.toggle('hidden'));
+    // } catch (error) {
+    //     console.error(error);
+    // }
+
+    try {
+        const copyBoxes = document.querySelectorAll(".has-copy");
+        copyBoxes.forEach(box => {
+            const copyBtn = box.querySelector(".btn-copy");
+            copyBtn.addEventListener("click", function () {
+                const textToCopy = box.querySelector(".c1").innerText;
+                // Create a temporary textarea element to hold the text
+                const tempTextArea = document.createElement("textarea");
+                tempTextArea.style.position = "fixed";  // Use fixed positioning to move it off-screen
+                tempTextArea.style.left = "-9999px";   // Move it far off-screen
+                tempTextArea.style.top = "0";           // Ensure it's not visually disruptive
+                tempTextArea.style.opacity = "0";       // Make it invisible
+                tempTextArea.style.pointerEvents = "none"; // Prevent any interaction
+                tempTextArea.value = textToCopy;
+
+                // Append to the body
+                document.body.appendChild(tempTextArea);
+
+                // Select the text in the textarea
+                tempTextArea.select();
+                tempTextArea.setSelectionRange(0, 99999); // For mobile devices
+
+                // Copy the text to the clipboard
+                document.execCommand("copy");
+
+                // Remove the temporary textarea element from the document
+                document.body.removeChild(tempTextArea);
+
+                // Change the button text to "Copied!"
+                copyBtn.innerText = "Copied!";
+
+                // Clear any existing timer for this button to avoid overlaps
+                if (copyBtn.timeoutId) {
+                    clearTimeout(copyBtn.timeoutId);
+                }
+
+                // Revert the button text back to the original after 2 seconds
+                copyBtn.timeoutId = setTimeout(() => {
+                    copyBtn.innerText = "Copy";
+                    copyBtn.timeoutId = null; // Clear the timeout ID after it runs
+                }, 1000);
+            })
+        });
+    } catch (error) {
+        console.error(error);
+    }
+
+    $("#orderSelect").change(function () {
+        let paymentId = $(this).find(":selected").data("pid");
+        let refund = $(this).find(":selected").data("refund");
+        let id = $(this).val();
+        $('#refund_paymentid').html('#'+paymentId);
+        $('#refund_id').val(id);
+        if(refund == 1){
+            $('#refund_paymentid').html('Already issued refund for this order');
+            $('#amountRefund').hide();
+            $('#refundBtnId').hide();
+        }else{
+            $('#amountRefund').show();
+            $('#refundBtnId').show();
+
+        }
+      
+    });
+
+    function showTab(ts,collapse){
+        var tabs = ts.closest('.tabs').querySelectorAll('.tab');
+        var collapse = document.querySelector(collapse);
+        var collapses = collapse.closest('.collapses').querySelectorAll('.collapse');
+
+        tabs.forEach(function(e){e.classList.remove('active');});
+        ts.classList.add('active');
+
+        collapses.forEach(function(e){e.style.display = 'none';});
+        collapse.style.display = 'block';
+
+
+    }
+
+    $(".updateSelect").change(function () {
+
+        var orderId = $(this).data("id"); 
+        var status = $(this).val(); 
+        
+        $("#cover-spin").show();
+        $.ajax({
+            url: "/admin/api/email-support-handler.php",
+            type: "POST",
+            data: {
+                type: "updateALStatus",
+                orderId: orderId,
+                status: status,
+            },
+            dataType: "json",
+            success: function (data) {
+                /*alert(data.Message);*/
+                $("#cover-spin").hide();
+                if(data.Message == "success"){
+                    alert(data.Message);
+                }else{
+                    alert(data.Message);
+                }
+                location.reload();
+            },
+        });
+      
+    });
+
+    $("#orderSelectLike").change(function () {
+        let id = $(this).val();
+        $('#resend_like_id').html('#'+id);
+        $('#resendLikeOrderId').val(id);
+    });
+
+    $("#orderSelectFollower").change(function () {
+        let id = $(this).val();
+        $('#resend_follower_id').html('#'+id);
+        $('#resendFollowerOrderId').val(id);
+    });
+
+    function ResendFollowers(){
+        
+        let id = $('#resendFollowerOrderId').val();
+        if(id.trim() == ""){
+            alert("Please select order");
+            return;
+        }
+        $("#cover-spin").show();
+        $.ajax({
+            url: "/admin/api/email-support-handler.php",
+            type: "POST",
+            data: {
+                type: "ResendFollowers",
+                orderId: id,
+            },
+            dataType: "json",
+            success: function (data) {
+
+                $("#cover-spin").hide();
+                if(data.Message == "success"){
+                    $("#of-form").hide();
+                    $("#of-success").show();
+                    $("#of-id").html("#"+data.insertId);
+                }else{
+                    alert(data.Message);
+                }
+            },
+        });
+
+    }
+
+    function ResendLikes(){
+
+         
+        let id = $('#resendLikeOrderId').val();
+        if(id.trim() == ""){
+            alert("Please select order");
+            return;
+        }
+        $("#cover-spin").show();
+        $.ajax({
+            url: "/admin/api/email-support-handler.php",
+            type: "POST",
+            data: {
+                type: "ResendLikes",
+                orderId: id,
+            },
+            dataType: "json",
+            success: function (data) {
+                /*alert(data.Message);*/
+                $("#cover-spin").hide();
+                if(data.Message == "success"){
+                    $('#offerLikesResend').hide();
+                    $("#showOFLSuccess").show();
+                    $("#OFLOrderId").html("#"+data.insertId);
+                }else{
+                    alert(data.Message);
+                }
+            },
+        });
+    }
+   
+</script>

@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Dashboard - Tikoid</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/accountstyle.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+
+
+  <style type="text/css">
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid #3498db;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+    h3 {
+      all: initial;
+    }
+
+    h3 * {
+      all: unset
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+    body {
+      background: #f2f2f2;
+    }
+
+    .display-section,
+    .social-status-section,
+    .competitors-section,
+    .order-history-section,
+    .auto-likes-section {
+      margin-bottom: 65px;
+    }
+
+    .container1 {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      padding: 10px 20px;
+      box-sizing: border-box;
+    }
+
+    .container1 h3,
+    button {
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 24px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+      .emailsuccess{text-align:center;} 
+
+    .page-header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      border: 0;
+      padding: 10px 20px;
+      border-radius: 50px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .btn-blue {
+      background: #0081f1;
+    }
+
+    .btn-white {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .btn-white:hover {
+      color: #fff;
+      transition: all 0.5s;
+    }
+
+    .btn-black {
+      background-color: #000;
+    }
+
+    .btn-section {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+
+    .socialstatusbtn {
+      width: 50%;
+      box-sizing: border-box;
+      float: left;
+      border: 0;
+      padding: 10px 0;
+      background: none;
+      font-size: 13px;
+      font-weight: bold;
+      font-family: 'Open sans';
+    }
+
+
+    .socialstatusbtnactive {
+      color: #fff;
+      background: #000;
+      border-radius: 40px;
+    }
+
+    .view-btn {
+      color: rgb(177, 177, 177);
+      margin-top: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 14px;
+      margin-bottom: -15px;
+    }
+
+    .view-btn svg {
+      fill: rgb(177, 177, 177);
+    }
+
+    .inner-section {
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .inner-section h2 {
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    #menu {
+      display: none;
+    }
+
+    #person {
+      display: none;
+    }
+
+
+    /* Navigation Section Start Here */
+
+
+    .changeusernametabsholdermain{position: relative;}
+
+    .changeusernametabsholder{width: 100%;height: 38px;position: relative;overflow-y: scroll;}
+
+
+.changeusernametabsholder::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.changeusernametabsholder {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+    .changeusernametabs {
+      background: #000;
+      color: #fff;
+      height: 27px;
+      width: 3000px;
+      padding-top: 10px;
+      padding-left: 19px;
+      overflow: hidden;
+    }
+
+    .changeusernametabs .changeusernametab {
+      float: left;
+      color: #fff;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      font-size: 15px;
+      padding: 4px 10px;
+      margin-right: 8px;
+      background: #565656;
+    }
+
+    .changeusernametabs .changeusernameselected {
+      background: #f2f2f2;
+      color: #000;
+    }
+
+
+    .header-sec {
+      background: #fff;
+      padding: 10px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-ul {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-ul li {
+      display: inline-block;
+      margin: 0 20px;
+    }
+
+    .nav-ul li a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .nav-ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .acc-btn {
+      border: 1px solid #000;
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bottom-nav-ul li {
+      display: inline-block;
+    }
+
+    /* Navigation Section End Here */
+
+    /* Display Section Start Here */
+    .display-section {
+      padding: 10px 0;
+    }
+
+    .display-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .display-content {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      height: 90px;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .display-content img {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+    }
+
+    .display-info-content {
+      position: absolute;
+      left: 93px;
+      top: 2px;
+    }
+
+    .display-info-content h1 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 0;
+          white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+        width: 202px;
+
+    }
+
+    .display-info-content .update-stats {
+    background: #f1c206;
+    padding: 3px 7px;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 5px;
+    width: 165px;
+    text-transform: uppercase;
+    }
+
+    .display-info-content .role {
+      display: inline-block;
+      margin-top: 5px;
+      border-radius: 0 5px 5px 5px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+
+    .display-rating-holder {
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: #fff;
+      border: 2px solid transparent;
+    }
+
+    .display-rating-holder-active {
+      border-color: #0081f1
+    }
+
+
+    .display-rating {
+      text-align: center;
+      padding: 15px;
+
+    }
+
+    .display-rating h2 {
+      font-size: 60px;
+      margin: 0 0px;
+      margin-top: -6px;
+    }
+
+
+    .display-rating h3 {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .display-rating .goingup {
+      color: #299500;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 21px;
+      margin-top: -6px;
+    }
+
+    .display-rating .goingup svg {
+      width: 19px;
+    }
+
+    .display-rating .goingup svg .currentColor {
+      fill: #299500;
+    }
+
+    .display-rating .goingdown {
+      color: red;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 21px;
+      margin-top: -6px;
+
+    }
+
+    .display-rating .goingdown svg {
+      width: 19px;
+      -ms-transform: rotate(180deg);
+      /* IE 9 */
+      transform: rotate(180deg);
+    }
+
+    .display-rating .goingdown svg .currentColor {
+      fill: red;
+    }
+
+    .display-rating-holder .fullinformation {
+      display: none;
+    }
+
+    .display-rating-holder-active .fullinformation {
+      display: block;
+      margin-top: -30px;
+    }
+
+    .display-rating-holder-active .display-rating .view-btn {
+      display: none
+    }
+
+
+
+     .last24h{font-size: 13px; 
+  font-weight: 200;} 
+    /* Display Section End Here */
+
+    /* Social status start here */
+
+    .status-btn-grp {
+      text-align: center;
+      border-radius: 26px;
+      background: #f2f2f2;
+      height: 38px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    #city,
+    #profile {
+      margin: 1rem 0;
+    }
+
+    .status-table {
+      text-align: left;
+      font-size: 1.5rem;
+    }
+
+    .status-table-body tr:hover {
+      background: #DDB100;
+      color: #000;
+      border-radius: 10px;
+    }
+
+    .status-table-body tr td {
+      border-bottom: 1px solid #f5f5f5;
+      padding: 5px
+    }
+
+    .status-table-body tr td img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      object-position: top;
+    }
+
+    .past-likes tr td img{border-radius: 0;}
+
+    .status-table-body tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .positionofuser {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .usernameimg {
+      margin-top: 12px
+    }
+
+    .uname {
+      font-size: 12px;
+      display: block
+    }
+
+    .unamestat {
+      font-size: 19px;
+      display: block;
+      font-weight: bold;
+    }
+
+    /* Social status end here */
+
+    /* History Section Start Here */
+    .order-history-section {
+      padding: 10px 0;
+    }
+
+    .history-container {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      padding: 23px 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+
+
+    .history-container .history-stats p.orderdesc {
+      font-size: 14px;
+      margin: 0;
+      margin-top: 5px;
+    }
+
+    .history-container .history-stats p.status {
+      font-size: 14px;
+      margin: 0;
+      margin-top: 5px;
+      color: #7c7c7c;
+      font-weight: bold;
+    }
+
+    .history-stats {}
+
+    .history-stats h2 {
+      font-size: 23px;
+      margin-bottom: 0;
+      position: relative;
+      color: grey;
+    }
+
+
+
+
+    .tracking-btn-sec {
+      margin-top: 10px;
+    }
+
+    .tracking-btn-sec button {
+      float: left;
+      display: inline-block;
+      position: relative;
+      width: initial;
+      margin: 0;
+      font-size: 13px;
+      padding: 8px 16px;
+      margin-right: 8px;
+    }
+
+    .receipt {
+      float: right;
+      margin-top: 3px;
+      height: 26px;width: 26px;
+    }
+
+    .delivered-sec>p {
+      color: #30af02;
+    }
+
+    .btn-rounded {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    /* History Section End Here */
+
+    /* Auto likes section start here */
+    .auto-likes-section {
+      padding: 10px 0;
+    }
+
+    .subscriptions {
+      padding: 2px 0;
+      position: relative;
+      line-height: 27px;
+      font-size: 15px;
+      padding-left: 68px;
+      background: #fff;
+      border-bottom: 1px solid #f5f5f5;
+      margin: 20px 0;
+      padding-bottom: 14px;
+    }
+
+    .subscriptions table {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    .subscriptions table tr td {
+      border: 0;
+    }
+
+    .subscriptions .substitle {
+      font-size: 16px;
+      padding-bottom: 9px;
+    }
+
+    .subscriptions .subtitlemain {
+      margin-top: 11px;
+      font-size: 16px;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+
+    .subscriptions .substitle .username {
+      font-size: 13px;
+      font-style: italic;
+      color: grey;
+    }
+
+    .subscriptions .substitle span {
+      font-size: 14px;
+      font-style: italic;
+      color: grey;
+    }
+
+    .subscriptions .substitle .status {
+      display: inline-block;
+      font-size: 13px;
+      position: relative;
+      margin-bottom: 7px;
+      width: 100%;
+    }
+
+    .subscriptions .substitle .statusactive {
+      color: green;
+    }
+
+    .subscriptions .substitle .statuspaused {
+      color: orange;
+    }
+
+    .subscriptions .substitle .statuscancelled {
+      color: red;
+    }
+
+    .subscriptions .substitle .statuspaused .spinning,
+    .subscriptions .substitle .statuscancelled .spinning {
+      display: none;
+    }
+
+    .substitle .savingcardbtn {
+      top: initial;
+      right: initial;
+      position: unset;
+      display: inline-block;
+      width: 82px;
+      text-align: center;
+      line-height: 0px;
+      font-size: 15px;
+      border: 1px solid #cdcdcd !important;
+      color: #000;
+      height: 31px;
+      line-height: 12px;
+      display: inline-block;
+      position: relative;
+      width: initial;
+      margin: 0 !important;
+      font-size: 13px;
+      padding: 8px 16px;
+    }
+
+    .dp {
+      height: 50px;
+      width: 50px;
+      border-radius: 50px;
+      position: absolute;
+      left: 0;
+      top: 12px;
+      object-position: top;
+      object-fit: cover;
+      top: 19px
+    }
+
+    .spinholder{    display: none;
+    padding-left: 10px;}
+
+    .spinning {
+      animation-name: spin;
+      animation-duration: 600ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      height: 20px;
+      fill: #000000;
+      top: 34px;
+    }
+
+    .pending h2{    color: #000;
+    font-size: 31px;}
+
+    .pending h2 .spinholder{display: inline-block;}
+
+.history-container .pending p.status{color: #1b991b;}
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      text-align: center;
+      padding-top: 1rem;
+      border-collapse: collapse;
+    }
+
+    table th {
+      background: #000;
+      color: #fff;
+    }
+
+    table th,
+    td {
+      padding: 10px;
+    }
+
+    /* Auto likes section end here */
+
+    /* Competitors section start here */
+    .competitors-body {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    .competitors-body img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 50%;
+    }
+
+    .competitors-desc {
+      width: 100%;
+    }
+
+    .competitors-desc p {
+      background: #f09e00;
+      padding: 5px;
+      border-radius: 6px;
+      margin-top: 5px;
+    }
+
+
+.subscriptions .substitle span.livebox {
+    padding: 3px;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+    padding-left: 26px;
+    margin-right: 11px;
+    background: #34D08C;
+    position: relative;
+    font-weight: normal;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    font-style: normal;
+    font-weight: bold;
+    padding-right:6px; 
+}
+
+
+.subscriptions .substitle span.livebox .livesvg {
+    left: 9px;
+    height: 11px;
+    top: 13px;
+    fill: #fff;
+    position: absolute;
+    animation: blinking 4.0s infinite;
+}
+
+
+@keyframes blinking{
+    0%{     fill: #fff; }
+    49%{    fill: #fff; }
+    60%{    fill: transparent; }
+    99%{    fill: transparent;  }
+    100%{   fill: #fff;   }
+}
+
+
+    @media only screen and (min-width: 375px) {
+      .display-info-content h1 {
+            width: 252px;
+      }
+    }
+    @media only screen and (min-width: 425px) {
+      .display-info-content h1 {
+               width: 272px;
+      }
+    }
+
+    @media only screen and (min-width: 425px) {
+      .display-info-content h1 {
+                  width: 400px;
+      }
+    }
+
+    @media only screen and (min-width: 425px) {
+     
+     .max768pxShow{
+       position: relative !important;
+       margin-top: 10px !important;
+       right: 0px !important;
+     }
+   }
+
+
+    @media only screen and (min-width: 768px) {
+      .changeusernametabs {
+        padding-left: 23px;
+      }
+
+      .display-rating-holder-active .fullinformation{padding: 15px;padding-bottom: 30px;}
+
+      .max768pxShow{
+        position: absolute !important;
+        right: 45px !important;
+        margin-top: -30px !important;
+      }
+
+    }
+
+   
+    /* Competitors section end here */
+
+    /* Responsive 
+
+
+
+@media only screen and (min-width: 688px) {
+
+  .display-info-content .update-stats,
+  .display-info-content .role {
+    font-size: 0.9rem;
+  }
+
+  .status-table {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+@media only screen and (min-width: 992px) {
+  #menu {
+    display: block;
+  }
+
+  #person {
+    display: block;
+  }
+
+  .nav-ul {
+    display: none;
+    background: #fff;
+  }
+
+  .nav-ul.show {
+    display: block;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .nav-ul li {
+    width: 100%;
+    margin: 30px 45px;
+  }
+
+  .display-container {
+    grid-template-columns: 1fr;
+  }
+
+  .display-container>div {
+    padding: 20px;
+  }
+
+  .history-container {
+    flex-direction: column;
+  }
+}
+*/
+.showBlockFlex{
+  display: flex;
+}
+    .showBlock {
+      display: block;
+          -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+    }
+
+    .hideBlock {
+      display: none !important;
+    }
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+    
+  </style>
+</head>
+
+<body>
+
+  {header}
+
+{message1}
+
+<div class="changeusernametabsholdermain" {styledisplay}>
+
+
+        <button class="btn btn-blue" onclick="editusernames();" style="    width: 53px;
+        margin: 0!important;
+        padding: 3px 10px!important;
+        position: absolute;
+        right: 7px;
+        text-align: center;
+        top: 7px;
+            z-index: 99;">Edit</button>
+
+
+    <div class="changeusernametabsholder">
+
+
+
+          <div class="changeusernametabs" >
+
+
+           {userList}
+
+
+
+          </div>
+
+    </div>
+
+</div>
+
+  <section class="display-section">
+    <div class="container1">
+      <div class="display-container">
+
+
+
+        <div class="display-content" {hideAll}>
+          <!-- https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkxMzE0Mjg4NzkzNjI2MTQ1/ronaldo-rayo-vallecano.jpg -->
+          <img src="{dpImage}" alt="Avatar">
+
+          <div class="display-info-content">
+
+            <h1>@{uname}</h1>
+            <p class="update-stats {showHideAccAvailable}" id="timer">Next update in </p>
+            <span class="role {showHideAccAvailable}" >Updated {lastUpdated}</span>
+          </div>
+        </div>
+        <div class="display-rating-holder" style="display:none;">
+          <div class="display-rating">
+            <h3>Badge & Reward</h3>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path
+                  d="m17.3 45-3.8-6.5-7.55-1.55.85-7.35L2 24l4.8-5.55-.85-7.35 7.55-1.55L17.3 3 24 6.1 30.7 3l3.85 6.55 7.5 1.55-.85 7.35L46 24l-4.8 5.6.85 7.35-7.5 1.55L30.7 45 24 41.9Zm4.55-14.35L33.2 19.4l-2.25-2.05-9.1 9-4.75-4.95-2.3 2.25Z"
+                  fill="#c3c3c3" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path d="m17.3 45-3.8-6.5-7.55-1.55.85-7.35L2 24l4.8-5.55-.85-7.35 7.55-1.55L17.3 3 24 6.1 30.7 3l3.85 6.55
+                  7.5 1.55-.85 7.35L46 24l-4.8 5.6.85 7.35-7.5 1.55L30.7 45 24 41.9Zm4.55-14.35L33.2 19.4l-2.25-2.05-9.1
+                  9-4.75-4.95-2.3 2.25Z" fill="#00F0CF" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path d="m17.3 45-3.8-6.5-7.55-1.55.85-7.35L2 24l4.8-5.55-.85-7.35 7.55-1.55L17.3 3 24 6.1 30.7 3l3.85 6.55
+                  7.5 1.55-.85 7.35L46 24l-4.8 5.6.85 7.35-7.5 1.55L30.7 45 24 41.9Zm4.55-14.35L33.2 19.4l-2.25-2.05-9.1
+                  9-4.75-4.95-2.3 2.25Z" fill="#0E7FFF" />
+              </svg>
+            </div>
+            
+            <a class="view-btn" href="#">View Stats <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+                <path d="m10 13.062-5-5L6.062 7 10 10.938 13.938 7 15 8.062Z" />
+              </svg></a>
+          </div>
+        </div>
+
+        <div class="display-rating-holder dataChartDiv" id="chartId1" {hideAll}>
+          <div class="display-rating" onclick="toggleActive(this)" id="chartId1Div">
+            <h3>Your followers</h3>
+            <h2 class="Count">{followers}</h2>
+            <div class="goingup follwerUpClass hideBlock">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="triangle"
+                class="svg-inline--fa fa-triangle fa-w-18 " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512">
+                <path class="currentColor"
+                  d="M329.6 24c-18.4-32-64.7-32-83.2 0L6.5 440c-18.4 31.9 4.6 72 41.6 72H528c36.9 0 60-40 41.6-72l-240-416z">
+                </path>
+              </svg>
+              {followersDiff} <span class="last24h">(last 24 hrs)</span>
+            </div>
+            <div class="goingdown followerDownClass hideBlock">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="triangle"
+                class="svg-inline--fa fa-triangle fa-w-18 " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512">
+                <path class="currentColor"
+                  d="M329.6 24c-18.4-32-64.7-32-83.2 0L6.5 440c-18.4 31.9 4.6 72 41.6 72H528c36.9 0 60-40 41.6-72l-240-416z">
+                </path>
+              </svg>
+              {followersDiff} <span class="last24h">(last 24 hrs)</span>
+            </div>
+            <p class="{showHideAccAvailableMsg}" >{messageAccAvailable}</p>
+            <a class="view-btn {showHideAccAvailable}" href="#">View full history<svg xmlns="http://www.w3.org/2000/svg" height="20"
+                width="20">
+                <path d="m10 13.062-5-5L6.062 7 10 10.938 13.938 7 15 8.062Z" />
+              </svg></a>
+          </div>
+
+          <div class="fullinformation {showHideAccAvailable}">
+
+
+            <div class="alignthis" align="center">
+              <h2>Followers</h2>
+              <canvas id="followersChart" style="height:300px;"></canvas>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="display-rating-holder dataChartDiv " id="chartId2" {hideAll}>
+          <div class="display-rating" onclick="toggleActive(this)" id="chartId2Div">
+            <h3>Your avg likes per post</h3>
+            <h2 class="Count">{avgPostLikes}</h2>
+            <div class="goingup avgLikeUpClass hideBlock">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="triangle"
+                class="svg-inline--fa fa-triangle fa-w-18 " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512">
+                <path class="currentColor"
+                  d="M329.6 24c-18.4-32-64.7-32-83.2 0L6.5 440c-18.4 31.9 4.6 72 41.6 72H528c36.9 0 60-40 41.6-72l-240-416z">
+                </path>
+              </svg>
+              {avgPostLikesDiff} <span class="last24h">(last 24 hrs)</span>
+            </div>
+            <div class="goingdown avgLikeDownClass hideBlock">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="triangle"
+                class="svg-inline--fa fa-triangle fa-w-18 " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512">
+                <path class="currentColor"
+                  d="M329.6 24c-18.4-32-64.7-32-83.2 0L6.5 440c-18.4 31.9 4.6 72 41.6 72H528c36.9 0 60-40 41.6-72l-240-416z">
+                </path>
+              </svg>
+              {avgPostLikesDiff} <span class="last24h">(last 24 hrs)</span>
+            </div>
+            <p class="{showHideAccAvailableMsg}" >{messageAccAvailable}</p>
+            <p class="update-stats {showHidePrvtAcc} {showHideAccAvailable}"  style="color: white;background: #dc0e0e;width: 40%; margin: auto;">Private Account</p>
+
+            <p id="privateAccountAvgLikeMsg" style="display: none;">We're unable to calculate your average likes due to this account being on private. Switch it back to public to view your average likes on the next data update!</p>
+            <a class="view-btn {showHidePrvtAccChart} {showHideAccAvailable}" href="#">View full history<svg xmlns="http://www.w3.org/2000/svg" height="20"
+                width="20">
+                <path d="m10 13.062-5-5L6.062 7 10 10.938 13.938 7 15 8.062Z" />
+              </svg></a>
+          </div>
+          <div class="fullinformation {showHidePrvtAccChart} {showHideAccAvailable}">
+
+
+            <div class="alignthis" align="center">
+              <h2>Average Likes</h2>
+              <canvas id="avgLikesChart" style="height:300px;"></canvas>
+            </div>
+
+          <section class="competitors-section ">
+              <div class="container1" style="padding: 0;">
+                <div class="inner-section">
+                  <div style="text-align: center;">
+                    <h4>Average based on your last 12-posts</h4>
+                  </div>
+                  <div class="profiles">
+                    <table class="status-table">
+                        <tbody class="status-table-body past-likes">
+                        {postList}
+                        </tbody>
+                    </table>
+                    <!-- <button class="btn btn-blue" style="width:108px;margin: 15px auto -6px auto!important;">View All</button> -->
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="display-rating-holder dataChartDiv" id="chartId3" {hideAll}>
+          <div class="display-rating" onclick="toggleActive(this)" id="chartId3Div">
+            <h3>Estimated Instagram account value</h3>
+            <h2>{currency}<span class="Count">{accountValue}</span></h2>
+            <div class="goingup accValUpClass hideBlock">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="triangle"
+                class="svg-inline--fa fa-triangle fa-w-18 " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512">
+                <path class="currentColor"
+                  d="M329.6 24c-18.4-32-64.7-32-83.2 0L6.5 440c-18.4 31.9 4.6 72 41.6 72H528c36.9 0 60-40 41.6-72l-240-416z">
+                </path>
+              </svg>
+              {accValueDiff} <span class="last24h">(last 24 hrs)</span>
+            </div>
+            <div class="goingdown accValDownClass hideBlock">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="triangle"
+                class="svg-inline--fa fa-triangle fa-w-18 " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512">
+                <path class="currentColor"
+                  d="M329.6 24c-18.4-32-64.7-32-83.2 0L6.5 440c-18.4 31.9 4.6 72 41.6 72H528c36.9 0 60-40 41.6-72l-240-416z">
+                </path>
+              </svg>
+              {accValueDiff} <span class="last24h">(last 24 hrs)</span>
+            </div>
+            <p class="{showHideAccAvailableMsg}" >{messageAccAvailable}</p>
+
+            <a class="view-btn {showHideAccAvailable}"  href="#">View full history<svg xmlns="http://www.w3.org/2000/svg" height="20"
+                width="20">
+                <path d="m10 13.062-5-5L6.062 7 10 10.938 13.938 7 15 8.062Z" />
+              </svg></a>
+          </div>
+          <div class="fullinformation {showHideAccAvailable}">
+
+
+            <div class="alignthis" align="center">
+              <h2>Account Values</h2>
+              <canvas id="accValueChart" style="height:300px;"></canvas>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social status section start here -->
+
+  <section class="social-status-section" style="display: none;">
+    <div class="container1">
+      <div class="inner-section">
+        <h2>My Social Status</h2>
+        <div class="status-btn-grp">
+          <button class="socialstatusbtn">By City</button>
+          <button class="socialstatusbtn socialstatusbtnactive">By Profile Type</button>
+        </div>
+        <div class="profiles">
+          <table class="status-table">
+            <tbody class="status-table-body">
+              <tr>
+                <td class="positionofuser">#1</td>
+                <td><img class="usernameimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="avatar">
+                </td>
+                <td>
+                  <span class="uname">@Cristiano</span>
+                  <span class="unamestat">57,223 Followers</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="positionofuser">#2</td>
+                <td><img class="usernameimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="avatar">
+                </td>
+                <td class="positionofuser">
+                  <span class="uname">@Cristiano</span>
+                  <span class="unamestat">57,223 Followers</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="positionofuser">#3</td>
+                <td><img class="usernameimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="avatar">
+                </td>
+                <td>
+                  <span class="uname">@Cristiano</span>
+                  <span class="unamestat">57,223 Followers</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="positionofuser">#4</td>
+                <td><img class="usernameimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="avatar">
+                </td>
+                <td>
+                  <span class="uname">@Cristiano</span>
+                  <span class="unamestat">57,223 Followers</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="positionofuser">#5</td>
+                <td><img class="usernameimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="avatar">
+                </td>
+                <td>
+                  <span class="uname">@Cristiano</span>
+                  <span class="unamestat">57,223 Followers</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-blue" style="width:108px;margin: 15px auto -6px auto!important;">View All</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social status section end here -->
+
+  <!-- Competitors section start here -->
+  <section class="competitors-section " {hideAll}>
+    <div class="container1">
+      <div class="inner-section">
+        <div class="page-header-section">
+          <h2>My Competitors</h2>
+          <button class="btn btn-blue" onclick="signup2();" style="width:90px;margin:0!important">Edit</button>
+        </div>
+        <div class="profiles">
+          <table class="status-table">
+            <tbody class="status-table-body">
+                  {competitorBody}
+            </tbody>
+          </table>
+          <!-- <button class="btn btn-blue" style="width:108px;margin: 15px auto -6px auto!important;">View All</button> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Competitors section end here -->
+
+  <!-- Order history section start here -->
+  <section class="order-history-section">
+    <div class="container1">
+      <div class="inner-section">
+        <h2>My Order History</h2>
+
+
+
+        {orders}
+
+      </div>
+    </div>
+  </section>
+  <!-- Order history section end here -->
+
+  <!-- Auto likes section start here -->
+  <section class="auto-likes-section">
+    <div class="container1">
+      <div class="inner-section">
+        <h2>My Auto Likes</h2>
+        <div class="auto-like-inner-container">
+
+          {autolikesonaccount}
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Auto likes section end here -->
+
+  <!-- Leader board section start here -->
+  <section class="leader-board-section" style="display:none;">
+    <div class="container1">
+      <div class="inner-section">
+        <h2>Leaderboard</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Status</th>
+                <th>Followers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>@Cristiano</td>
+                <td>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+                    <path d="m7.229 18.5-1.562-2.583-2.938-.667.271-3L1 10l2-2.25-.271-3 2.938-.667L7.229 1.5 10 2.688
+                      12.771 1.5l1.562 2.583 2.938.667-.271 3L19 10l-2 2.25.271 3-2.938.667-1.562 2.583L10 17.312ZM8.938
+                      13l4.958-4.938L12.833 7l-3.895 3.875-1.771-1.75-1.063 1.063Z" fill="#0E7FFF" />
+                  </svg>
+                </td>
+                <td>
+                  57,223
+                </td>
+              </tr>
+              <tr>
+                <td>02</td>
+                <td>@Cristiano</td>
+                <td>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+                    <path d="m7.229 18.5-1.562-2.583-2.938-.667.271-3L1 10l2-2.25-.271-3 2.938-.667L7.229 1.5 10 2.688
+                      12.771 1.5l1.562 2.583 2.938.667-.271 3L19 10l-2 2.25.271 3-2.938.667-1.562 2.583L10 17.312ZM8.938
+                      13l4.958-4.938L12.833 7l-3.895 3.875-1.771-1.75-1.063 1.063Z" fill="#00F0CF" />
+                  </svg>
+                </td>
+                <td>54,223</td>
+              </tr>
+              <tr>
+                <td>03</td>
+                <td>@Cristiano</td>
+                <td>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+                    <path
+                      d="m7.229 18.5-1.562-2.583-2.938-.667.271-3L1 10l2-2.25-.271-3 2.938-.667L7.229 1.5 10 2.688 12.771 1.5l1.562 2.583 2.938.667-.271 3L19 10l-2 2.25.271 3-2.938.667-1.562 2.583L10 17.312ZM8.938 13l4.958-4.938L12.833 7l-3.895 3.875-1.771-1.75-1.063 1.063Z"
+                      fill="#bdbdbd" />
+                  </svg>
+                </td>
+                <td>52,223</td>
+              </tr>
+              <tr>
+                <td>04</td>
+                <td>@Cristiano</td>
+                <td>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+                    <path
+                      d="m7.229 18.5-1.562-2.583-2.938-.667.271-3L1 10l2-2.25-.271-3 2.938-.667L7.229 1.5 10 2.688 12.771 1.5l1.562 2.583 2.938.667-.271 3L19 10l-2 2.25.271 3-2.938.667-1.562 2.583L10 17.312ZM8.938 13l4.958-4.938L12.833 7l-3.895 3.875-1.771-1.75-1.063 1.063Z"
+                      fill="#eee" />
+                  </svg>
+                </td>
+                <td>51,223</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <a class="view-btn" href="#">View Stats <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+            <path d="m10 13.062-5-5L6.062 7 10 10.938 13.938 7 15 8.062Z" />
+          </svg></a>
+      </div>
+    </div>
+  </section>
+  <!-- Leader board section end here -->
+
+{footer}
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- <script src="./js/index.js"></script> -->
+  <script>
+
+    String.prototype.toHHMMSS = function () {
+      var sec_num = parseInt(this, 10);
+      var hours = Math.floor(sec_num / 3600);
+      var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+      var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+      if (hours < 10) {
+        hours = "0" + hours;
+      }
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      }
+      if (seconds < 10) {
+        seconds = "0" + seconds;
+      }
+      return hours + ":" + minutes + ":" + seconds;
+    };
+
+
+    let startTime = {nextUpdate}; // database unix-timestamp value
+    setInterval(() => {
+      let curTime = (new Date()).getTime() / 1000;
+      // console.log(curTime);
+      document.getElementById("timer").innerText = "Next update in " + (`${startTime - curTime}`).toHHMMSS();
+    }, 1000);
+
+    const ctx = document.getElementById('followersChart').getContext('2d');
+    const followersChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [{labelsbackend}],
+        datasets: [{
+          label: '',
+          data: [{followersData}],
+          borderColor: '#50C878',
+          backgroundColor: '#50C878',
+        },
+          // {
+          //   label: 'Thumbs not found',
+          //   data: [<?= $negdaydata ?>],
+          //   borderColor: '#E52A01',
+          //   backgroundColor: '#E52A01',
+          // }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctx1 = document.getElementById('avgLikesChart').getContext('2d');
+    const avgLikesChart = new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: [{labelsbackend}],
+        datasets: [{
+          label: '',
+          data: [{avgPostLikesData}],
+          borderColor: '#50C878',
+          backgroundColor: '#50C878',
+        },
+          // {
+          //   label: 'Thumbs not found',
+          //   data: [<?= $negdaydata ?>],
+          //   borderColor: '#E52A01',
+          //   backgroundColor: '#E52A01',
+          // }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctx2 = document.getElementById('accValueChart').getContext('2d');
+    const accValueChart = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: [{labelsbackend}],
+        datasets: [{
+          label: '',
+          data: [{accountValueData}],
+          borderColor: '#50C878',
+          backgroundColor: '#50C878',
+        },
+          // {
+          //   label: 'Thumbs not found',
+          //   data: [<?= $negdaydata ?>],
+          //   borderColor: '#E52A01',
+          //   backgroundColor: '#E52A01',
+          // }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+
+    var holdLastId = "";
+    function toggleActive(elem) {
+
+      if (elem.id != holdLastId) {
+        $(".dataChartDiv").removeClass('display-rating-holder-active');
+
+        $(elem).parent().addClass("display-rating-holder-active");
+        holdLastId = elem.id;
+      } else {
+        $(elem).parent().removeClass("display-rating-holder-active");
+        holdLastId = "";
+      }
+
+    }
+
+
+
+
+      function closesignupDiv(){
+      document.body.removeChild(document.getElementById('signDiv'));
+      exitout="1";
+      return false;
+      }
+
+      function signupAl(){
+
+      var widthPopup="356";var heightPopup="652";
+
+      var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+      var signupHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+      signupHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+      signupHTML+='<iframe src="/account/auto-likes-free.php?&loc={loc}" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+      document.getElementById('signDiv').innerHTML=signupHTML;
+      return false;
+
+      }
+
+
+
+   
+
+    function closesignupDiv() {
+      document.body.removeChild(document.getElementById('signDiv'));
+      exitout = "1";
+      location.reload();
+      return false;
+    }
+
+
+
+    function signup2() {
+
+      var widthPopup = "356"; var heightPopup = "652";
+
+      var signDiv = document.createElement("div"); signDiv.id = 'signDiv'; document.body.appendChild(signDiv);
+      var signupHTML = '<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+      signupHTML += '<div style="overflow: hidden; z-index:9999;width:' + widthPopup + 'px;height:' + heightPopup + 'px;position:fixed;left:50%;margin-left:-' + (widthPopup / 2) + 'px;top:50%;margin-top:-' + (heightPopup / 2) + 'px;border:0">';
+      signupHTML += '<iframe src="/account/dashboard-edit-competitors.php" style="overflow: hidden;width:100%;height:' + (heightPopup - 35) + 'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+      document.getElementById('signDiv').innerHTML = signupHTML;
+      return false;
+
+    }
+
+function closeeditusernames(){document.body.removeChild(document.getElementById('signDiv1'));exitout="1";location.reload();return false; }
+
+ function editusernames(){
+
+  var widthPopup="356";var heightPopup="652";
+
+  var signDiv1=document.createElement("div");signDiv1.id='signDiv1';document.body.appendChild(signDiv1);
+
+  var signupHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';signupHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';signupHTML+='<iframe src="/account/dashboard-edit-usernames.php" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';document.getElementById('signDiv1').innerHTML=signupHTML;return false;
+
+ }
+
+ function viewStats(shortcode) {
+
+var widthPopup = "356"; var heightPopup = "652";
+
+var signDiv2 = document.createElement("div"); signDiv2.id = 'signDiv2'; document.body.appendChild(signDiv2);
+var signupHTML = '<div onclick="closeviewStatsDiv()" style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+signupHTML += '<div style="overflow: hidden; z-index:9999;width:' + widthPopup + 'px;height:' + heightPopup + 'px;position:fixed;left:50%;margin-left:-' + (widthPopup / 2) + 'px;top:50%;margin-top:-' + (heightPopup / 2) + 'px;border:0">';
+signupHTML += '<iframe src="/account/view-post-stats.php?shortcode='+ shortcode +'" style="overflow: hidden;width:100%;height:' + (heightPopup - 35) + 'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+document.getElementById('signDiv2').innerHTML = signupHTML;
+return false;
+
+}
+
+function closeviewStatsDiv(){document.body.removeChild(document.getElementById('signDiv2'));exitout="1";return false; }
+
+
+
+var competiorArrData = [];
+function getAllCompetitorData(){
+
+  var checkCount = {competitorCount};
+  var competiorArr = [{competiorData}];
+  var i;
+
+  for(i=0;i<checkCount;i++){
+  // alert(competiorArr[i]);
+  $.ajax({
+      url: "/load-competitor-data.php",
+      type:"POST",
+      async: true,
+      dataType:'json',
+      data: {
+          "username" : competiorArr[i],
+      },
+      success: function(response){ 
+        
+        competiorArrData.push(response);
+        competiorArrData.sort((b, a) => a.followers - b.followers)
+
+        if(competiorArrData.length == checkCount){
+
+           userDataWithComp = [];
+           userDataWithComp["followers"] = {followers};
+           userDataWithComp["userName"] =  '{uname}';
+           userDataWithComp['dp'] = '{dpImage}';
+           userDataWithComp["message"] = "Success";
+           userDataWithComp["userProfile"] = "yes";
+
+           competiorArrData.push(userDataWithComp);
+           competiorArrData.sort((b, a) => a.followers - b.followers);
+
+          for(i=0;i< (checkCount + 1);i++){
+
+            $("#followersLoader"+(i+1)).hide();
+            $("#avatarLoader"+(i+1)).hide();
+
+            if(competiorArrData[i].message == "Success"){
+
+              if(competiorArrData[i].followers == null) competiorArrData[i].followers = "Not found";
+              if(competiorArrData[i].dp == null) competiorArrData[i].dp = '/imgs/placeholder.jpg';
+              if(competiorArrData[i].userName == null) competiorArrData[i].userName = "Not found ";
+
+              $("#followersCount"+(i+1)).html(competiorArrData[i].followers + ' Followers');
+              $("#avatarImage"+(i+1)).attr("src", competiorArrData[i].dp);
+              $("#userProfileName"+(i+1)).html("@"+competiorArrData[i].userName);
+              
+            }else{
+              $("#followersCount"+(i+1)).html('Followers not found');
+              $("#avatarImage"+(i+1)).attr("src", '/imgs/placeholder.jpg');
+              $("#userProfileName"+(i+1)).html("User not found");
+
+            }
+          
+            if(competiorArrData[i].userProfile == "yes"){
+              $("#tableTrComp"+(i+1)).css('background','wheat');
+            }
+
+          }
+
+        }
+       
+      },
+  });
+ }
+
+}
+
+function removeItemOnce(arr, value) {
+  var index = arr.indexOf(value);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  getAllCompetitorData();
+  counterNumber();
+});
+function counterNumber(){
+
+  $('.Count').each(function () {
+      var follwerUpClass = '{follwerUpClass}';
+      var followerDownClass = '{followerDownClass}';
+      var avgLikeUpClass = '{avgLikeUpClass}';
+      var avgLikeDownClass = '{avgLikeDownClass}';
+      var accValUpClass = '{accValUpClass}';
+      var accValDownClass = '{accValDownClass}';
+
+
+      $(this).prop('Counter', 0).animate({
+        Counter: $(this).text()
+      }, {
+        duration: 3000,
+        easing: 'swing',
+        step: function (now) {
+          $(this).text(Math.ceil(now));
+        }
+      });
+
+      setTimeout(function () {
+        $('.goingup').removeClass('hideBlock');
+        $('.goingdown').removeClass('hideBlock');
+
+        $('.follwerUpClass').addClass(follwerUpClass);
+        $('.followerDownClass').addClass(followerDownClass);
+        if({isPrivate} > 0){
+          $('.avgLikeUpClass').addClass('hideBlock');
+          $('.avgLikeDownClass').addClass('hideBlock');
+          $("#privateAccountAvgLikeMsg").show();
+        }else{
+          $('.avgLikeUpClass').addClass(avgLikeUpClass);
+          $('.avgLikeDownClass').addClass(avgLikeDownClass);
+        }
+        $('.accValUpClass').addClass(accValUpClass);
+        $('.accValDownClass').addClass(accValDownClass);
+        
+        if ( $(".follwerUpClass").hasClass("showBlock") ) {
+            $("#followersHeading").css("color","#299500");
+        }else{
+            $("#followersHeading").css("color","red");
+        }
+        if ( $(".avgLikeUpClass").hasClass("showBlock") ) {
+            $("#avgPostLikesHeading").css("color","#299500");
+        }else{
+            $("#avgPostLikesHeading").css("color","red");
+        }
+        if ( $(".accValUpClass").hasClass("showBlock") ) {
+            $("#accountValueHeading").css("color","#299500");
+        }else{
+            $("#accountValueHeading").css("color","red"); 
+        }
+        
+        
+      }, 3000) //timeout need to be same as counter duration
+
+    });
+    
+
+}
+
+
+  </script>
+</body>
+
+</html>

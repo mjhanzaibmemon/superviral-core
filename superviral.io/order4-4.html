@@ -1,0 +1,372 @@
+<style type="text/css">
+h1{
+    display: block;
+    max-width: 100%;
+      margin-bottom: 33px;   font-size: 75px!important;
+  text-align: center!important;
+  width:100%;
+  line-height: 76px;
+  background: -webkit-linear-gradient(0deg,#ff8300 0,#ed2947 25%,#fd6935 50%,#7f1c7f 75%,#ff8300 100%);
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2.5s linear infinite;
+  animation-direction: reverse;}
+
+
+
+h2{text-align: left;font-size:17px;margin-top:10px;}
+
+.container{margin:50px 0px 30px;}
+
+p{text-align: left;margin-bottom:30px;color:#525252;font-size:15px;    line-height: 26px;}
+ul{    padding: 0;
+    list-style: none;}
+ul li{text-align: left;
+    font-size: 13px;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 9px;
+    line-height: 26px;}
+.tick{    width: 20px;
+    height: 20px;
+    background: url(/imgs/all-images.png) no-repeat 0 -26px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    padding-left:30px;}
+
+.thehref{font-size:15px;text-decoration: underline;color:blue;}
+
+
+
+
+/* loader animation */
+
+.bigtick{display: inline-block;
+    height: initial;
+    width: 100%;
+    margin-top: 30px;
+    padding-left: 120px;
+    position: relative;
+    text-align: left;
+      box-sizing: border-box;}
+
+.bigtick button{position:absolute;}
+
+.bigtick span{font-weight:bold;margin:0!important;padding:0;color:#000!important;font-size:17px!important;}
+
+.bigtick p{margin:0!important;font-size:14px;}
+
+.bigtick svg{    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    top:8px;}
+
+.circ{
+    opacity: 0;
+    stroke-dasharray: 130;
+    stroke-dashoffset: 130;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.tick{
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    -webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
+    -moz-transition: stroke-dashoffset 1s 0.5s ease-out;
+    -ms-transition: stroke-dashoffset 1s 0.5s ease-out;
+    -o-transition: stroke-dashoffset 1s 0.5s ease-out;
+    transition: stroke-dashoffset 1s 0.5s ease-out;
+}
+.drawn + svg .path{
+    opacity: 1;
+    stroke-dashoffset: 0;
+}
+
+.contactnumberupdate{display:inline-block;width:100%;}
+.iti{float:left;    width: 100%;margin-bottom:20px;}
+.btn{margin-bottom:15px;}
+.container div span, .container label{display: initial;}
+
+.nothankyou{    text-decoration: underline;
+    width: 100%;
+    display: block;
+    text-align: center;}
+
+.stepsbar {
+  -webkit-animation: animateThis 1s ease;
+  animation: animateThis 1s ease;
+  background : rgb(78, 3, 224);
+  height : 100%;
+  width:100%;
+}
+
+.container div input.redoutline{animation:blinking 0.5s infinite alternate;
+
+  border:2px solid #ff0000!important; }
+
+@keyframes blinking{
+  from {
+    box-shadow: 0 0 4px -4px #ffb8b8;
+    -webkit-box-shadow: 0 0 4px -4px #ffb8b8;
+      -moz-box-shadow:  0 0 4px -4px #ffb8b8;
+      
+  }
+  to {
+    box-shadow: 0 0 4px 4px #ffb8b8;
+     -webkit-box-shadow:  0 0 4px 4px #ffb8b8;
+     -moz-box-shadow:  0 0 4px 4px #ffb8b8;
+  }
+}
+
+
+.stepsbarholder{background-color:#fff;border-bottom:1px solid #ccc}
+.stepsbar{display:none;}
+@-webkit-keyframes animateThis {
+  0% {
+    width: 95%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes animateThis {
+  0% {
+    width: 95%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+div.stepsbar {
+  display : none;
+}
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  .backto{display:none;}
+
+</style>
+  <script>
+    document.body.className += ' variation-' + window.chosenVariation;
+  </script>
+<link rel="stylesheet" href="/intlinput/build/css/intlTelInput.css">
+<link rel="stylesheet" href="/intlinput/build/css/demo.css">
+    <div  class="orderbody" align="center">
+
+
+      <div class="cnwidth">
+
+
+
+        <div class="container tycontainer dshadow">
+
+          {discountnotiffinish}
+
+          <h1>{h1}</h1>
+                    <h2 style="font-size:15px;">{1-desc-1} #{ordernumber}</h2>
+                    <h2 style="font-size:14px;">{1-desc-2}</h2>
+                    <p>{1-desc-3}</p>
+
+                  <div style="    border-top: 1px solid #e8e8e8;display: inline-block; width: 100%;padding: 22px 0;">
+
+                    <h2>{1-desc-4}</h2>
+                    <input onclick="signup();" type="tel" id="phone1" class="form-control {redoutline}"  name="input2" value="{thiscontactnumber}">
+                    <input type="hidden" id="output" name="input" value="{thiscontactnumber}">
+
+
+                  </div>
+
+                    {autolikesfree}
+
+                  <div style="    border-top: 1px solid #e8e8e8;border-bottom: 1px solid #e8e8e8;display: inline-block; width: 100%;padding: 22px 0;">
+
+                      {mainctabtnoption}
+                  </div>
+
+
+    
+                    
+                    <div style="margin-top:30px;">
+
+                        <div class="bigtick">
+                          
+
+                              <div class="trigger"></div>
+                              <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 37 37" style="fill:#5cb85c;enable-background:new 0 0 37 37;" xml:space="preserve">
+                              <path class="circ path" style="fill:none;stroke:#5cb85c;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                                M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z"
+                                />
+                              <polyline class="tick path" style="fill:none;stroke:#5cb85c;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="
+                                11.6,20 15.9,24.2 26.4,13.8 "/>
+                              </svg>
+                              <button style="opacity:0">go/reset</button>
+
+                              <span>{2-h3-1}</span>
+                              <p>{2-desc-1}</p>
+
+
+                        </div>
+
+
+
+                        <div class="bigtick">
+                          
+
+                              <div class="trigger"></div>
+                              <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 37 37" style="fill:#5cb85c;enable-background:new 0 0 37 37;" xml:space="preserve">
+                              <path class="circ path" style="fill:none;stroke:#5cb85c;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                                M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z"
+                                />
+                              <polyline class="tick path" style="fill:none;stroke:#5cb85c;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="
+                                11.6,20 15.9,24.2 26.4,13.8 "/>
+                              </svg>
+                              <button style="opacity:0">go/reset</button>
+
+                              <span>{2-h3-2}</span>
+                              <p>{2-desc-2}</p>
+
+
+                        </div>
+
+
+                        <div class="bigtick">
+                          
+
+                              <div class="trigger"></div>
+                              <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 37 37" style="fill:#5cb85c;enable-background:new 0 0 37 37;" xml:space="preserve">
+                              <path class="circ path" style="fill:none;stroke:#5cb85c;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                                M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z"
+                                />
+                              <polyline class="tick path" style="fill:none;stroke:#5cb85c;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="
+                                11.6,20 15.9,24.2 26.4,13.8 "/>
+                              </svg>
+                              <button style="opacity:0">go/reset</button>
+
+                              <span>{2-h3-3}</span>
+                              <p>{2-desc-3}</p>
+
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+        </div>
+
+
+
+
+      </div>
+
+    </div>
+
+    {askednumber}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+$( document ).ready(function() {
+   $(".trigger").toggleClass("drawn")
+});
+
+
+
+    </script>
+
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41728467-8"></script>-->
+  <script src="/intlinput/build/js/intlTelInput.js?68"></script>
+  <script>
+
+
+ var myEle = document.getElementById("askednumber");
+if(myEle){signup();}
+
+
+var input = document.querySelector("#phone1"),output = document.querySelector("#output");
+
+var iti = window.intlTelInput(input, {
+  nationalMode: true,
+  initialCountry: "auto",
+    geoIpLookup: function(callback) {
+    $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+      var countryCode = (resp && resp.country) ? resp.country : "";
+      callback(countryCode);
+    });
+  },
+  utilsScript: "/intlinput/build/js/utils.js" // just for formatting/placeholders etc
+});
+
+var handleChange = function() {
+  var text = iti.getNumber();
+  var textNode = document.createTextNode(text);
+  output.innerHTML = "";
+  output.appendChild(textNode);
+  $(output).val(text);
+};
+
+
+
+// listen to "keyup", but also "change" to update when the user selects a country
+input.addEventListener('change', handleChange);
+input.addEventListener('keyup', handleChange);
+
+
+function signup(){
+
+var widthPopup="356";var heightPopup="492";
+
+var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+var signupHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+signupHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+signupHTML+='<iframe src="/track-my-order-number.php?id={ordernumber}&hash={order_session}" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+document.getElementById('signDiv').innerHTML=signupHTML;
+return false;
+
+}
+
+
+function signupaccount(){
+
+var widthPopup="356";var heightPopup="620";
+
+var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+var signupHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+signupHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+signupHTML+='<iframe src="/order4-popup.php?id={ordernumber}&hash={order_session}" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+document.getElementById('signDiv').innerHTML=signupHTML;
+return false;
+
+}
+
+
+function closesignupDiv(){
+document.body.removeChild(document.getElementById('signDiv'));
+exitout="1";
+return false;
+}
+
+
+{recordga2}
+  </script>
+ 

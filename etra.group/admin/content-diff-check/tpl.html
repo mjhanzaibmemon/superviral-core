@@ -1,0 +1,106 @@
+<!-- @meta -->
+
+<title>Diff Checker</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<style>
+    table {
+        width: 90%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #FFF;
+        margin: 50px auto 0;
+    }
+
+    table th,
+    table td {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+
+    table thead {
+        color: #000;
+        height: 60px;
+        font-weight: bolder;
+        background-color: #D1E0F1;
+    }
+
+
+    table tbody tr td {
+        color: grey;
+        font-weight: 300;
+    }
+
+    .btn-transparent {
+        background: #F3F8FE;
+        border: 1px solid #000;
+        color: #000;
+        font-size: 14px;
+    }
+
+    table tbody tr:nth-child(even) {
+        background-color: #F3F8FE;
+    }
+</style>
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<!-- @script_tags -->
+
+<main class="diff-checker">
+
+    <table>
+
+
+
+        <thead>
+
+
+
+            <tr>
+
+
+
+                <th>
+                    <div class="bold">Page</div>
+                </th>
+                <th>
+                    <div class="bold">Key</div>
+                </th>
+                <th>
+                    <div class="bold"> Test Server</div>
+
+                </th>
+                <th>
+                    <div class="bold"> Live Server</div>
+                </th>
+                <th>
+                    <div class="bold"> Action</div>
+
+                </th>
+
+            </tr>
+
+
+
+        </thead>
+
+
+
+        <tbody>
+
+           {datahtml}
+
+        </tbody>
+
+
+
+    </table>
+
+</main>

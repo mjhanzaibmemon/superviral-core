@@ -1,0 +1,99 @@
+<!-- @meta -->
+
+<title>User Outreach</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<style>
+    body {
+        background-color: #FFF;
+    }
+
+    .change-service {
+        padding: 25px 10% 50px;
+    }
+
+    .page-title {
+        font-style: normal;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 35px;
+    }
+
+    table{width:100%;table-layout:fixed;border-collapse:collapse;border-radius:2px 2px 0 0;overflow:hidden;background-color:#FFF;margin:0px auto 20px;filter:drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.09));}
+    table tbody tr:nth-child(even) {background-color: #F8F9F8;}
+    table th,table td{padding:30px;font-size:23px;}
+    table thead{color:#FFF;height:60px;font-weight:bolder;background-color:#000;}
+    .package{color:#000;font-size:22px;font-weight:600;}
+    input{font-size:11px;}
+    input{background:transparent;border:1px solid #E3E3E3;color:#000;font-size:21px;font-weight:600;padding:15px;}
+    .btn{font-size:17px;padding:7px 60px;}
+
+    .report{width:initial;margin-bottom:5px;border:1px solid black!important;color:black!important;text-decoration:none!important;background:transparent;}
+    .report:hover{color:#FFF!important;background:#000!important;}
+
+</style>
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<script src="/admin/common/js/layout.js"></script>
+<!-- @script_tags -->
+
+<main class="change-service">
+
+    <h1 class="page-title">User Outreach</h1>
+    {reviewmessage}
+
+    <table>
+
+
+
+        <thead>
+            <tr>
+                <th>
+                    <div style="text-align:left;">Details</div>
+                </th>
+                <th>&nbsp;</th>
+                <th style="width: 42%;">
+                    <div></div>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- @row -->
+            <tr>
+                <td class="package">
+                    <img src="/admin/assets/icons/{brand}-icon.svg">
+                    <img src="/admin/assets/icons/{socialmedia}-icon.svg" style="width:20px;height:20px;"><br>
+                    {email}<br>
+                    {followers} followers
+                </td>
+                <td style="text-align: left;">
+                    <a target="_blank" href="https://www.instagram.com/{username}">@{username}</a>
+                </td>
+                <td style="text-align: right;padding-right:20px;">
+                    <form method="POST">
+                        <a target="_blank" class="btn btn3 report" href="/admin/check-user/?orderid={lst_order_id}" style="display:inline-block;">View last order</a>
+                        <br>
+                        <button type="submit" class="btn btn-primary" name="submit" value="1">Mark Done</button>
+                        <input name="id" value="{id}" type="hidden">
+                    </form>
+                </td>
+            </tr>
+            <!-- @row -->
+        </tbody>
+
+
+    </table>
+
+    <div style="display: flex; justify-content: center;display:none;">
+        <button
+            style="background-color: transparent; border: none ; color: #09B5FF; text-decoration: underline; font-weight: 600;">See
+            More &raquo;</button>
+    </div>
+
+
+</main>

@@ -1,0 +1,79 @@
+<!-- @meta -->
+
+<title>Feedback</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+
+<style type="text/css">
+    tr:hover{background:lightblue;}
+    td{padding:10px 0;}
+
+    .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    .alignthis {
+        padding: 55px 0;
+    }
+
+
+    .box23 {
+        margin: 66px auto;
+        margin-top:0;
+        width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .page,.time{white-space: nowrap;}
+    .message{padding:0 10px;}
+
+</style>
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<!-- @script_tags -->
+
+
+
+<main>
+
+    <div class="alignthis" align="center">
+        <h1 style="color:unset;">Feedbacks And Questions</h1>
+    </div>
+
+    <div class="alignthis" align="center">
+        <div class="box23" style="margin: 0;border-bottom: solid 1px;border-radius: 0;font-size: 21px;display: flex;align-items: center;justify-content: space-between;position: sticky;top: 0;">
+            Feedbacks
+            <img src="/admin/assets/icons/{brand}-icon.svg" alt="logo">
+        </div>        
+        <div class="box23">
+
+            <table style="width:100%">
+                {feedbackData}
+            </table>
+
+        </div>
+    </div>
+
+
+    <div class="alignthis" align="center">
+        <div class="box23" style="margin: 0;border-bottom: solid 1px;border-radius: 0;font-size: 21px;display: flex;align-items: center;justify-content: space-between;position: sticky;top: 0;">
+            Questions
+            <img src="/admin/assets/icons/{brand}-icon.svg" alt="logo">
+        </div>
+        <div class="box23">
+            <table style="width:100%">
+                {questionData}
+            </table>
+        </div>
+
+    </div>
+
+</main>

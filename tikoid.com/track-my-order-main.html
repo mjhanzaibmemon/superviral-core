@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<head>
+	<title>{title}</title>
+	<meta name="description" content="{metadesc}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta http-equiv="Content-Language" content="{contentlanguage}">
+	<link rel="canonical" href="{canonical}" />
+    
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/orderform.css">
+<style type="text/css">
+	
+
+    h1{color:#000;text-align: center;    max-width: 100%;width:100%;}
+
+body{background:#f5f7fe;}
+
+.containercontactus{display:inline-block;width:100%;}
+.cn2{margin-top:20px!important;text-align:left;}
+
+
+.labelcontact{    font-size: 14px;
+    color: #8c8c8c;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: -5px;}
+.inputcontact,.btncontact{    padding: 12px;
+    width: 100%;
+    font-size:15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    margin-top: 9px;
+    box-sizing: border-box;outline:0;}
+
+.emailfailed{padding:5px;margin:5px 0;border-radius:5px;}
+
+.question{font-weight:bold;display:block;margin-top:30px;}
+.answer{    color: #6b6b6b;
+    font-size: 14px;
+    margin-top: 5px;}
+
+ul{color:#6b6b6b;}
+
+    @media only screen and (min-width: 768px) {
+
+        .contactusspan{display:block;margin-bottom:20px;}
+
+    }
+
+    @media only screen and (min-width: 992px) {
+
+        .containercontactus{max-width:768px;    margin: 0 auto;}
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+    }
+
+
+</style>	
+</head>
+
+	<body>
+
+
+        {header}
+
+
+		<div class="color2 se1" align="center">
+
+			<div class="cnwidth">
+
+				<h1>{h1-track-order-heading}</h1>
+                <span class="contactusspan">{p-track-order-desc}</span>
+
+                <div class="container containercontactus">
+
+                    {success}
+
+
+                    <div class="left">
+
+
+
+                    </div>
+
+                    <div class="right">
+
+
+                        <form method="POST" enctype="multipart/form-data">
+
+
+                            <div class="label labelcontact">Your order number:</div>
+                            {error1}
+                            <input class="input inputcontact" name="order" value="{order}">
+                            
+                            <div class="label labelcontact">Your email address:</div>
+                            {error2}
+                            <input class="input inputcontact" name="emailaddress" value="{emailaddress}">
+
+                            <input type="submit" class="btn color4" name="submit" value="Track My Order">
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="container containercontactus" style="text-align:left;margin-top:30px;font-size:15px;">
+                    <p style="margin-bottom:30px;">{p-form-desc}</p>
+
+                    <font class="question">{question-1}</font>
+                    <p class="answer">
+                     {answer-1}
+                    </p>
+
+                    <font class="question">{question-2}</font>
+                    <p class="answer">
+                        {answer-2}
+                    </p>
+
+                    <font class="question">{question-3}</font>
+                    <p class="answer">
+                        {answer-3}
+                    </p>
+
+                    <font class="question">{question-4}</font>
+                    <p class="answer">
+                        {answer-4}
+                    </p>
+
+
+                </div>
+
+
+			</div>
+		</div>
+
+
+
+		
+
+{footer}
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script type="text/javascript">
+
+
+{headerscript}
+
+
+
+</script>
+	</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+
+<head>
+	<title>{title}</title>
+	<meta name="description" content="{metadesc}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta http-equiv="Content-Language" content="{contentlanguage}">
+	<link rel="canonical" href="{canonical}" />
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/orderform.css">
+    <style type="text/css">
+        h1 {
+            color: #000;
+            text-align: center;
+            max-width: 100%;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        body {
+            background: #f5f7fe;
+        }
+
+        .officelocation {
+            width: 100%;
+        }
+
+
+        .container {
+            height: initial;
+            width: 100%;
+            box-sizing: border-box;
+            /* border-radius: 5px; */
+            background: #fff;
+            margin: 14px 0 0;
+            padding: 5px 0 20px;
+        }
+
+        .container .containerholder {
+            max-width: 991px;
+            width: 95%;
+        }
+
+        .cnwidth .contactusspan {
+            display: block;
+            margin-bottom: 40px;
+        }
+
+        .container .containerholder span {
+            color: #000;
+        }
+
+        .container div span,
+        .container label {
+            margin-top: 0;
+        }
+
+        .container .containerinfo .containerinfotext span.text,
+        .container .containerinfo .containerinfotext p.text {
+            font-size: 15px;
+            color: #000;
+            margin: 0;
+        }
+
+        .container .containerinfo .containerinfotext span.heading {
+            font-size: 15px;
+            color: grey;
+            margin-top: 15px;
+        }
+
+        .containeroffice {
+            padding: 0;
+        }
+
+        .containerinfo {
+            padding: 10px;
+        }
+
+        .containerholder p {
+            font-size: 14px;
+        }
+
+        .contactusbtn {
+            border: 1px solid #000;
+            margin: 5px 0 0 0 !important;
+            padding: 10px;
+            width: 120px;
+        }
+
+        .se1 {
+            padding: 20px 20px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+
+        .contact-info .contact {
+            /* width: 100%; */
+            text-align: left;
+            margin-bottom: 30px
+        }
+
+        .contact-info .contact .title {
+            color: #000;
+            font-size: 14px;
+            font-weight: 500;
+
+        }
+
+        .contact-info .contact .value {
+            color: #717171;
+            font-size: 14px;
+            display: block;
+
+        }
+
+        .success-section .cardboard {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px 40px;
+            margin: auto;
+            margin-bottom: 30px;
+            max-width: 440px;
+        }
+
+        .success-section .cardboard .board-item {
+            width: calc(50% - 30px);
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #FFF;
+            box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.04);
+        }
+
+        .success-section .cardboard .board-item .item-title {
+            color: #FB2B41;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .success-section .cardboard .board-item .item-subtitle {
+            color: #636363;
+            font-size: 14px;
+        }
+
+        .aboutContentWidth {
+            max-width: 95%;
+            margin: auto;
+        }
+
+        .success-heading,
+        .historysec-heading {
+            padding-top: 15px;
+            margin-left: 15px;
+            text-align: left
+        }
+
+
+        .max768pxDivShow {
+            display: grid;
+        }
+
+        .min1024pxDivShow {
+            display: none;
+        }
+
+        .alignAchBoxCenter {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flexDisplay {
+            display: flex;
+            /* flex-wrap: wrap; */
+        }
+
+        .achvBox {
+            background-color: #fff;
+            box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.04);
+            padding: 20px;
+            text-align: center;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            min-width: 170px;
+            max-width: 170px;
+            height: 70px;
+            border-radius: 12px;
+        }
+
+        .achCount {
+            color: #FB2B41;
+            font-weight: 800;
+            font-size: 26px;
+        }
+
+        .achBoxDescPointMaxWidth425px {
+            font-size: 14px;
+            color: #636363;
+        }
+
+        .bulletPointDiv {
+            max-height: 300px;
+            overflow-y: auto;
+            margin: auto;
+            margin-bottom: 40px;
+            max-width: 991px;
+            /* max-width: 350px; */
+            display: grid;
+        }
+
+        .bulletPointDiv::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .bulletPointDiv .flexDisplay {
+            flex-wrap: nowrap;
+            background: #fff;
+            border-radius: 20px;
+            padding: 8px;
+        }
+
+        .bulletPointTitle {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFF4F5;
+            color: #FB2B41;
+            border-radius: 14px;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .bulletPointDesc {
+            background: #fff;
+            border-radius: 0px 7px 7px 0px;
+            padding: 15px;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .featuredonholder1 {
+            background: #FB2B41;
+            height: 120px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            overflow: hidden;
+            font-weight: 600;
+        }
+
+        .featuredon {
+            height: 65px;
+            animation: slide 40s linear infinite;
+            width: 5000px;
+            background: url(/imgs/featuredon.svg) repeat-x;
+			background-size: 950px 70px;
+        }
+
+        .footer {
+            margin-top: -4px;
+        }
+
+
+        @media only screen and (max-width: 450px) {
+            .achvBox {
+                min-width: 105px;
+                max-width: 105px;
+                margin-bottom: 10px;
+                margin-right: 10px;
+            }
+
+            .aboutContentWidth {
+                max-width: 95%;
+            }
+        }
+
+        @media only screen and (min-width: 585px) {
+            .achvBox {
+                min-width: 205px;
+                max-width: 205px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+
+
+
+            .officelocation {
+                width: 50%;
+                float: left;
+                margin: 13px;
+            }
+
+            .containerinfo {
+                margin: 10px;
+                display: block;
+                float: left;
+                padding-left: 0;
+            }
+
+            .container .containerinfo .containerinfotext span.heading:nth-child(1) {
+                margin-top: 0;
+            }
+
+            .container {
+                padding: 20px 0 30px;
+
+            }
+
+            .contact-info {
+                flex-direction: row;
+                max-width: 991px;
+                justify-content: center;
+                align-items: center;
+                gap: 15%;
+
+            }
+
+            .max768pxDivShow {
+                display: none;
+            }
+
+
+            .min1024pxDivShow {
+                display: grid;
+            }
+
+
+            .cnwidth {
+                width: 100%;
+                padding: 0;
+            }
+
+
+
+            .achvBox {
+                margin-right: 10px;
+                margin-bottom: 10px;
+                min-width: 200px;
+                max-width: 200px;
+            }
+
+            /* .bulletPointDiv {
+                max-width: 991px;
+            } */
+
+
+        }
+
+        @media only screen and (min-width: 992px) {
+
+            h2 {
+                margin: 20px 0 30px;
+                text-align: center;
+            }
+
+            .officelocation {
+                margin: 0;
+            }
+
+            .containerinfotext {
+                margin: 15px 15px 0 15px;
+            }
+
+            .container .containerholder {
+                /* width: 80%; */
+                margin: 0 auto;
+            }
+
+            .containerholder p {
+                text-align: left;
+            }
+
+            .container div {
+                text-align: center;
+            }
+
+            .success-heading,
+            .historysec-heading {
+                text-align: center;
+                padding-top: 30px;
+                padding-bottom: 20px;
+            }
+
+            .achvBox {
+                margin-right: 20px;
+                margin-bottom: 20px;
+
+            }
+
+        }
+
+        @media only screen and (min-width: 1024px) {
+            .max1024pxWidthBulletPoint {
+                width: 100%;
+            }
+
+            .max768pxDivShow {
+                display: none;
+            }
+
+
+            .min1024pxDivShow {
+                display: grid;
+            }
+        }
+
+
+
+        @media only screen and (min-width: 1200px) {
+            .cnwidth {
+                max-width: 100%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    {header}
+
+
+    <div class="color2 " align="center">
+
+        <div class="cnwidth">
+
+            <h1>{h1-about-title}</h1>
+            <span class="contactusspan">{p-about-desc}</span>
+
+            <div class="contact-info se1" style="display:none;">
+                <div class="contact">
+                    <span class="title">{email-1}</span>
+                    <span class="value">{email-value-1}</span>
+                </div>
+                <div class="contact ">
+                    <span class="title">{email-2}</span>
+                    <span class="value">{email-value-2}</span>
+                </div>
+                <div class="contact ">
+                    <span class="title">{email-3}</span>
+                    <span class="value">{email-value-3}</span>
+                </div>
+            </div>
+
+
+            <div class="container">
+
+                <div class="containerholder">
+
+                    <h2>{h2-story-heading}</h2>
+                    <p> {p-story-para}
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="featuredonholder1">
+                <p>As seen in</p>
+                <div class="featuredon">
+                </div>
+            </div>
+
+            <div class="history-section">
+
+                <h2 class="historysec-heading">{h2-history-heading}</h2>
+
+                <div class="aboutContentWidth">
+
+                    <div class="bulletPointDiv">
+                        <div class="flexDisplay" style="margin: 10px 0px;">
+                            <div class="bulletPointTitle">2020</div>
+                            <div class="bulletPointDesc max1024pxWidthBulletPoint">{bullet-point-2020}</div>
+                        </div>
+                        <div class="flexDisplay" style="margin: 10px 0px;">
+                            <div class="bulletPointTitle">2021</div>
+                            <div class="bulletPointDesc max1024pxWidthBulletPoint">{bullet-point-2021}</div>
+                        </div>
+                        <div class="flexDisplay" style="margin: 10px 0px;">
+                            <div class="bulletPointTitle">2022</div>
+                            <div class="bulletPointDesc max1024pxWidthBulletPoint">{bullet-point-2022}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="success-section se1">
+                <h2 style="text-align: left;">Successes</h2>
+                <div class="cardboard">
+                    <div class="board-item">
+                        <div class="item-title">10m</div>
+                        <span class="item-subtitle">Followers Delivered</span>
+                    </div>
+                    <div class="board-item">
+                        <div class="item-title">10m</div>
+                        <span class="item-subtitle">Followers Delivered</span>
+                    </div>
+                    <div class="board-item">
+                        <div class="item-title">10m</div>
+                        <span class="item-subtitle">Followers Delivered</span>
+                    </div>
+                    <div class="board-item">
+                        <div class="item-title">10m</div>
+                        <span class="item-subtitle">Followers Delivered</span>
+                    </div>
+                    <div class="board-item">
+                        <div class="item-title">10m</div>
+                        <span class="item-subtitle">Followers Delivered</span>
+                    </div>
+                    <div class="board-item">
+                        <div class="item-title">10m</div>
+                        <span class="item-subtitle">Followers Delivered</span>
+                    </div>
+
+                </div>
+            </div> -->
+
+            <div class="success-section">
+                <h2 class="success-heading">{h2-success-heading}</h2>
+                <div class="aboutContentWidth">
+                    <div class="alignAchBoxCenter max768pxDivShow">
+                        <div class="flexDisplay">
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                        </div>
+                        <div class="flexDisplay">
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                        </div>
+                        <div class="flexDisplay">
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alignAchBoxCenter min1024pxDivShow">
+                        <div class="flexDisplay">
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                        </div>
+                        <div class="flexDisplay">
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                            <div class="achvBox">
+                                <span class="achCount">10m</span><br>
+                                <span class="achBoxDescPointMaxWidth425px">followers delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <div class="containerholder">
+
+                    <h2>{h2-focus-heading}</h2>
+
+                    <div>{p-focus-desc}</div>
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+    {footer}
+
+    <script type="text/javascript">
+
+
+        {headerscript}
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+
+  install:
+    commands:
+      - echo "Installing Composer dependencies and Node.js packages..."
+      - composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev & npm install -g serverless@3 --cache /root/.npm && wait
+      - echo "Checking AWS credentials..."
+  pre_build:
+    commands:
+      - export BRANCH_NAME=$(echo ${CODEBUILD_WEBHOOK_HEAD_REF:-refs/heads/dev} | awk -F'/' '{print $NF}')
+  build:
+    commands:
+      - echo "Fetching stage from AWS Parameter Store..."
+      - STAGE=$(aws ssm get-parameter --name "stage" --query "Parameter.Value" --output text)  # Fetch 'stage' parameter
+      - echo "Packaging and deploying with Serverless..."
+      - serverless deploy --stage $BRANCH_NAME # Use the fetched stage
+      - echo "Deployment completed successfully."
+
+artifacts:
+  files:
+    - '**/*'  # Include all files generated during the build
+
+cache:
+  paths:
+    - '/root/.cache/composer/**/*'  # Cache Composer files
+    - '/root/.npm/**/*'  # Cache npm packages
+    - './node_modules/**/*'  # Cache Node.js dependencies
+    - './vendor/**/*'  # Cache PHP dependencies

@@ -1,0 +1,283 @@
+<!-- @meta -->
+
+<title>Change Service</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<style>
+    body {
+        background-color: #FFF;
+    }
+
+    .change-service {
+        padding: 25px 10% 50px;
+    }
+
+    .page-title {
+        font-style: normal;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 35px;
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-radius: 2px 2px 0 0;
+        overflow: hidden;
+        background-color: #FFF;
+        margin: 0px auto 20px;
+        filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.09));
+    }
+
+    table th,
+    table td {
+        text-align: center;
+        padding: 25px 0;
+        font-size:23px;
+    }
+
+
+    table thead {
+        color: #FFF;
+        height: 60px;
+        font-weight: bolder;
+        background-color: #000;
+    }
+
+    .package {
+        color: #000;
+        font-size: 27px;
+        font-weight: 600;
+    }
+
+    input {
+        font-size: 11px;
+    }
+
+    input {
+        background: transparent;
+        border: 1px solid #E3E3E3;
+        color: #000;
+        font-size: 21px;
+        font-weight: 600;
+        padding: 15px;
+    }
+
+    select {
+    background: transparent;
+    border: 1px solid #000000;
+    color: #000;
+    font-size: 19px;
+    font-weight: 600;
+    padding: 10px;
+    }
+
+    table tbody tr:nth-child(even) {
+        background-color: #F8F9F8;
+    }
+
+    .dropdown1 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        border-radius: 4px;
+        border: 1px solid #EEE;
+        width: 90px;
+        height: 25px;
+        margin-left: auto;
+        margin-bottom: 15px;
+    }
+
+    .dropdown-toggle1 {
+        color: #000;
+        background-color: transparent;
+        font-weight: 600;
+        border: none;
+        font-size: 15px;
+        padding: 0;
+    }
+
+    .dropdown-menu1{
+    display: none;
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    top: 23px;
+    left: 0;
+    background-color: #000;
+    z-index: 1;
+    width: 100%;
+    border-radius: 0px 0px 5px 5px;
+    white-space: nowrap;
+    width: max-content;
+    z-index: 9998;
+    }
+
+    .btn {
+        font-size:21px;
+        padding: 7px 60px;
+    }
+
+    .tbl-hide{display:none;}
+
+    input.error{border:solid 1px red;}
+
+    .textarea{
+        padding: 13px;
+        font-size: 14px;
+        width: 100%;
+        border-radius: 6px;
+        border: 1px solid #BEBEBE;
+        display: block;
+        min-height: 100px;
+    }
+</style>
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<script src="/admin/common/js/layout.js"></script>
+<!-- @script_tags -->
+<script src="/common/ckeditor/ckeditor.js"></script>
+
+<script>
+
+
+
+    CKEDITOR.on('instanceReady', function (ev) { ev.editor.fire('contentDom'); config.extraAllowedContent = '*(*)'; });
+  
+  
+  
+    CKEDITOR.replace('editor1', {
+  
+      width: '768px',
+  
+      contentsCss: "body {font-size: 15px;font-family:'Poppins';letter-spacing: .4px;}"
+  
+    });
+  
+  
+  
+  
+  
+    CKEDITOR.addCss('p.imgcaption{background-color:#ccc;padding:5px;font-weight:600;font-size:15px;font-family: arial;}');
+  
+    CKEDITOR.extraAllowedContent = '*(*)';
+  
+  
+  
+  </script>
+
+<main class="change-service">
+
+    <h1 class="page-title">Change Service</h1>
+
+    <div style="text-align: right;margin-bottom:10px;">
+        <form method="GET">
+            <select name="socialMedia" onchange="form.submit()">
+                <option class="option-ig" value="ig">Instagram</option>
+                <option class="option-tt" value="tt">Tiktok</option>
+            </select>   
+            <select name="jap" onchange="form.submit()">
+               {japOption}
+            </select>            
+            <select name="category" onchange="form.submit()">
+                <option class="category-followers" value="followers">Followers</option>
+                <option class="category-likes" value="likes">Likes</option>
+                <option class="category-views" value="views">Views</option>
+                <option class="category-comments" value="comments">Comments</option>
+                <option class="category-freeautolikes" value="freeautolikes">Free Autolikes</option>
+                <option class="category-freeautoviews" value="freeautoviews">Free Autoviews</option>
+                <option class="category-freelikes" value="freelikes">Free Likes</option>
+                <option class="category-freetrial" value="freetrial">Free Followers</option>
+                <option class="category-premiumfollowers" value="premiumfollowers">Premium Followers</option>
+                <option class="category-premiumlikes" value="premiumlikes">Premium Likes</option>
+                <option class="category-premiumviews" value="premiumviews">Premium Views</option>
+
+            </select>
+        </form>
+    </div>
+
+    <!-- @table -->
+    <div id="{tbl_id}" class="{display_tbl}">
+        <div style="position: sticky;top:0;background:black;z-index:2;">
+            <table style="margin:0;">
+                <thead>
+                    <tr>
+                        <th># ID</th>
+                        <th><div>PACKAGES</div></th>
+                        <th><div>{jap}</div></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>            
+            </table>
+        </div>
+        <table>
+            <tbody>
+                <!-- @row -->
+                <tr>
+                    <td>{id}</td>
+                    <td class="package">{name}</td>
+                    <td><input id="input{i}" type="text" name="type" value="{jap}"></td>
+                    <td><a target="_blank" href="https://etra-live-japqc.s3.us-east-2.amazonaws.com/media/{type}_{jap}.png">View</a></td>
+                    <td style="text-align: right;padding-right:20px;">
+                        <form method="POST">
+                            <button type="submit" class="btn btn-primary" data-id="{i}">Change</button>
+                            <input name="jap_name" value="{jap_type}" type="hidden">
+                            <input name="jap_value" value="{jap}" type="hidden">
+                            <input name="id" value="{id}" type="hidden">
+                            <input name="update" value="1" type="hidden">
+                        </form>
+                    </td>
+                </tr>
+                <!-- @row -->
+            </tbody>
+        </table>
+    </div>
+    <!-- @table -->
+
+        <form action="" method="post">
+            <div class="label labelcontact">Notice Message:</div>
+            <textarea class="ckeditor input" cols="80" id="editor1" name="noticeMsg" rows="10">{noticeMsgDisplay}</textarea>
+            <input type="submit" class="btn btn-primary color3" name="submit" value="Save"
+            style="float:left; margin-top: 15px;margin-bottom: 20px;">
+            <input type="hidden" name="deleteId" value="{msgId}">
+            <input type="submit" onclick="return confirm('Are you sure you want to delete?');" class="btn btn-primary color3" name="delete" value="Delete"
+            style="float:left; margin-top: 15px;margin-bottom: 20px;margin-left: 10px;">
+        </form>
+   
+        <br><br><br>
+   
+</main>
+
+<script>
+    document.querySelectorAll('button[type=submit]').forEach(function(e){
+        e.addEventListener('click',function(e){
+            e.preventDefault();
+
+            var btn = e.target;
+            var id = btn.getAttribute('data-id');
+            var form = btn.closest('form');
+            var inputType = form.querySelector('input[name=jap_value]');
+            var inputTypeValue = document.querySelector('#input'+id).value;
+
+            document.querySelector('#input'+id).classList.remove('error');
+
+            if(inputTypeValue == ''){
+                alert('Enter a value');
+                document.querySelector('#input'+id).classList.add('error');
+                return false;
+            }
+
+            inputType.value = inputTypeValue;
+            form.submit();
+        });
+    });
+
+</script>

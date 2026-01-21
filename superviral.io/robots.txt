@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /order/
+Disallow: /auftrag/
+Disallow: /ordine/
+Disallow: /orden/
+Disallow: /orden/
+Disallow: /ordre/
+Disallow: /us/order/
+Disallow: /uk/order/

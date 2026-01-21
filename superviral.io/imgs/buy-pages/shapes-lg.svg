@@ -1,0 +1,14 @@
+<svg width="328" height="245" viewBox="0 0 328 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M246 0H164V82C209.287 82 246 45.2873 246 0Z" fill="white"/>
+<path opacity="0.5" d="M0 0H82C82 45.2873 45.2873 82 0 82V0Z" fill="white"/>
+<path opacity="0.1" d="M164 0H82V82H164V0Z" fill="white"/>
+<path opacity="0.6" d="M246 0H328V82C282.713 82 246 45.2873 246 0Z" fill="white"/>
+<path d="M246 163C246 118.265 209.735 82 165 82H164V163H246Z" fill="white"/>
+<path d="M0 82H1C45.7351 82 82 118.265 82 163H0V82Z" fill="white"/>
+<path opacity="0.3" d="M164 82H82C82 126.735 118.265 163 163 163H164V82Z" fill="white"/>
+<path opacity="0.3" d="M246 163C246 118.265 282.265 82 327 82H328V163H246Z" fill="white"/>
+<path opacity="0.3" d="M246 163H164V245H246V163Z" fill="white"/>
+<path opacity="0.3" d="M0 163H82C82 208.287 45.2873 245 0 245V163Z" fill="white"/>
+<path opacity="0.5" d="M164 163C118.713 163 82 199.713 82 245H164V163Z" fill="white"/>
+<path opacity="0.6" d="M246 163H328V245H246V163Z" fill="white"/>
+</svg>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner Editor</title>
+    <link rel="stylesheet" href="/admin/articles/editArticle2/styles.css">
+
+    <style>
+        .box23 {
+
+            margin: 66px auto;
+
+            width: 77%;
+
+            background: #fff;
+
+            border-radius: 5px;
+
+            text-align: left;
+
+            padding: 15px;
+        }
+
+        .emailsuccess {
+
+            background: #a3ffa3;
+
+            padding: 8px;
+
+            -webkit-border-radius: 5px;
+
+            -moz-border-radius: 5px;
+
+            border-radius: 5px;
+
+        }
+
+
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #FFF;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
+</head>
+<script src="/common/ckeditor/ckeditor.js"></script>
+
+<body>
+    {live}
+    {message}
+    <input type="hidden" name="id" value="{id}">
+    <input type="hidden" name="country" value="us">
+    <div class="box23" style="display:flex;justify-content: space-between;align-items: center;">
+
+        <a href="/admin/articles/">« Back</a>
+
+        <a class="btn btn-primary color3"
+            href="https://superviral.io{loc}/blog/{url}?testpreview=true&previewtime={timenow}" target="_blank">
+            <span>
+                <svg style="fill:white;vertical-align: text-top;" xmlns="http://www.w3.org/2000/svg" width="16"
+                    height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z">
+                    </path>
+                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0">
+                    </path>
+                </svg>
+            </span>
+            <span>
+                PREVIEW
+            </span>
+        </a>
+    </div>
+    <form method="POST" id="saveFormData" enctype="multipart/form-data">
+        <div class="container">
+            <div class="editor-controls" style="margin-top: 0;">
+                <div class="form-group">
+                    <label>Your Title</label>
+                    <input type="text" id="article-title" onkeyup="changeThumbTitle(this);" name="title" value="{title}">
+                </div>
+            </div>
+
+            <!-- Banner Preview Area -->
+            <div class="banner-container">
+                <div id="editable-banner" class="banner">
+                    <!-- Background will be controlled by CSS -->
+                    <div class="banner-content" id="banner-content">
+                        <!-- HTML content will be inserted here -->
+
+                        <div style="font-size: 48px;font-weight: bold;line-height: 1.2;margin-bottom: 20px;" id="thumbTitle">{title}
+                        </div>
+                    </div>
+
+                    <!-- Image container -->
+                    <div id="inner-image-container" class="inner-image-container">
+                        <div class="inner-image">
+                            <img id="banner-image" src="{firstVectorImage}" alt="Banner image">
+                            <input type="hidden" id="article_id" value="{id}">
+                            <!-- <input type="hidden" id="edit_param" value="{edit}"> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inline Controls Section -->
+            <div class="editor-controls">
+                <div class="form-group">
+                    <label>Image</label>
+                    <div class="image-gallery">
+                        <!-- <div class="image-option">
+                        <img src="https://picsum.photos/id/1/150/150" alt="Image 1">
+                    </div> -->
+                        {vectorImages}
+                        <div class="image-option generate-more" onclick="generateMoreVector();">
+                            <span id="generateMoreSpan">Generate More</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Text</label>
+                    <textarea class="ckeditor" cols="80" id="html-content" name="article" rows="10">{article}</div>
+                </textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="text" id="article-url" name="url" value="{url}">
+                </div>
+
+                <div class="form-group">
+                    <label>Publish Date</label>
+                    <input type="date" id="publish-date" name="date" value="{date}">
+                </div>
+
+                <div class="form-group">
+                    <label>Meta Title</label>
+                    <input type="text" id="meta-title" name="meta_title" value="{meta_title}">
+                </div>
+
+                <div class="form-group">
+                    <label>Meta Desc</label>
+                    <textarea id="meta-description" name="shortdesc"
+                        placeholder="meta-description">{shortdesc}</textarea>
+                </div>
+                <input type="hidden" name="save" value="Save">
+                <div class="button-container">
+                    <button id="set-thumb" class="btn">Save & Continue</button>
+                    <!-- <button id="export-button" class="btn">Export Banner</button> -->
+                    <input type="submit" class="btn" name="delete" value="Delete"
+                    style="background:grey;{deleteBtnCss}"
+                    onclick="return confirm('Are you sure you want to delete this article?');">
+                </div>
+            </div>
+    </form>
+    <script>
+
+        CKEDITOR.on('instanceReady', function (ev) {
+            ev.editor.fire('contentDom');
+            // config.extraAllowedContent = '*(*)'; 
+        });
+
+
+
+        CKEDITOR.replace('html-content', {
+
+            width: '768px',
+
+            contentsCss: "body {font-size: 15px;font-family:'Poppins';letter-spacing: .4px;}"
+
+        });
+
+
+
+
+
+        CKEDITOR.addCss('p.imgcaption{background-color:#ccc;padding:5px;font-weight:600;font-size:15px;font-family: arial;}');
+
+        CKEDITOR.extraAllowedContent = '*(*)';
+
+        function generateMoreVector() {
+
+            document.getElementById("generateMoreSpan").innerHTML = '<div class="loader"></div>';
+            const xhr = new XMLHttpRequest();
+
+            xhr.open("GET", "new/images/openai.php?id={id}", true);
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log("Response from PHP:", xhr.responseText);
+                    if (xhr.responseText.includes('Done for ID')) {
+                        alert('New images generated successfully!');
+                        location.reload();
+                    }
+                } else {
+                    console.error("Error:", xhr.statusText);
+                }
+                document.getElementById("generateMoreSpan").innerHTML = 'Generate More'; // Restore text
+            };
+
+            xhr.send();
+        };
+
+        function changeThumbTitle(elem){
+
+            let val = elem.value;
+
+            let thumbTitle = document.getElementById('thumbTitle').innerHTML = val;
+
+        }
+    </script>
+    <!-- Scripts -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="/admin/articles/editArticle2/script.js"></script>
+
+</body>
+
+</html>

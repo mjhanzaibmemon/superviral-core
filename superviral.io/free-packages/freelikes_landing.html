@@ -1,0 +1,1998 @@
+<!DOCTYPE html> 
+
+
+
+
+
+
+
+<head>
+
+
+
+
+
+
+
+    <title>{metatitle}</title>
+
+
+
+
+
+
+
+    <meta name="description" content="{metadesc2}" />
+
+
+
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+    <meta http-equiv="Content-Language" content="{contentlanguage}">
+
+
+
+
+
+
+
+    <link rel="canonical" href="{canonical2}" />
+
+
+
+
+
+
+
+    <link rel="alternate" hreflang="en-us" href="https://superviral.io/free-instagram-likes/" />
+
+
+
+
+
+
+
+    <link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/free-instagram-likes/" />
+
+
+
+
+
+
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700;800&family=DM+Sans:wght@200;400;500;800&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/superviral-free-tools.css" />
+
+    <style>
+        .banner {
+
+            background: linear-gradient(180deg, #FFF6F3 0%, rgba(255, 255, 255, 0.00) 100%);
+
+        }
+
+
+
+        .banner .title {
+
+            color: #D93500;
+
+        }
+
+
+
+        .banner .input-group input {
+
+            flex: 1;
+
+            width: 100%;
+
+            padding: 0;
+
+            border: none;
+
+            font-weight: 400;
+
+            color: #000;
+
+            outline: none;
+
+            font-size: 20px;
+
+        }
+
+
+
+        .banner .btn-primary {
+
+            text-align: center;
+
+            border: 0;
+
+            width: 100%;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        .banner .input-group:nth-of-type(2) {
+
+            margin-bottom: 12px;
+
+        }
+
+
+
+        .banner .input-group:nth-of-type(3) {
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .banner .btn-container {
+
+            margin: 0 auto 25px;
+
+            width: 100%;
+
+            text-align: center;
+
+        }
+
+
+
+        .banner .btn-transparent {
+
+            color: #000000;
+
+            font-size: 16px;
+
+            font-family: "Open Sans";
+
+            font-weight: 700;
+
+            width: 100%;
+
+            max-width: 250px;
+
+            text-transform: uppercase;
+
+            background: transparent;
+
+            border: 1px solid #000000;
+
+            border-radius: 50px;
+
+            cursor: pointer;
+
+
+
+        }
+
+
+
+        .banner .green-text {
+
+            color: #007220;
+
+            font-family: "Open Sans";
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+        }
+
+
+
+        .about:not(.features) .sub-item {
+
+            display: flex;
+
+            gap: 16px;
+
+        }
+
+
+
+        .about .sub-item .sub-heading {
+
+            margin-top: 0;
+
+        }
+
+
+
+        .about .sub-item .image {
+
+            width: 60px;
+
+            height: 60px;
+
+            flex-shrink: 0;
+
+        }
+
+
+
+        .about .sub-item .image img,
+
+        .about .sub-item .image svg {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+        }
+
+
+
+        .posts {
+
+
+
+            display: grid;
+
+
+
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+
+
+            grid-gap: 20px;
+
+
+
+            /* justify-content: center; */
+
+
+
+            position: relative;
+
+
+
+            margin-bottom: 20px;
+
+
+
+        }
+
+
+
+        .posts .post {
+
+
+
+            position: relative;
+
+            cursor: pointer;
+
+
+
+        }
+
+
+        .posts .post .icon-container {
+            position: absolute;
+            display: none;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            transform: translate(-50%, -50%);
+            background-color: #9A9A9A;
+            border-radius: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* Active class to highlight the selected image */
+
+        .posts .post.active .icon-container {
+            background-color: #1374E8;
+            border: 4px solid #1a73e7;
+        }
+
+        .posts .post .icon-container .check {
+            width: 30px;
+            height: 30px;
+        }
+
+        .image_checkboxes .img-responsive {
+            position: relative;
+            display: flex;
+            background: rgb(0 0 0 / 21%);
+            aspect-ratio: 1 / 1;
+        }
+
+        .image_checkboxes .img-responsive .main-img {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image_checkboxes .img-responsive.loaded .main-img {
+            display: block;
+        }
+
+        .image_checkboxes .img-responsive .img-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #f3f3f3;
+            /* Light gray border */
+            border-top: 3px solid #3498db;
+            /* Blue border for loader animation */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            /* Loader animation */
+        }
+
+        .image_checkboxes .img-responsive.loaded .icon-container {
+            display: flex;
+        }
+
+        .image_checkboxes .img-responsive.loaded .img-loader,
+        .image_checkboxes .img-responsive.load-error .img-loader {
+            display: none;
+        }
+
+
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .image_checkboxes #loaderLoadMoreId {
+            display: grid;
+            grid-column: span 3;
+        }
+
+        .image_checkboxes #loaderLoadMoreId1 {
+            display: none;
+        }
+
+        .image_checkboxes .load-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            grid-column: span 3;
+        }
+
+        .image_checkboxes .lds-dual-ring {
+            display: inline-block;
+            width: 92px;
+            height: initial;
+        }
+
+        .image_checkboxes .lds-dual-ring:after {
+            content: "";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid #1a73e7;
+            border-color: #4e03e0 transparent #4e03e0 transparent;
+            animation: lds-dual-ring 0.6s linear infinite;
+        }
+
+        @keyframes lds-dual-ring {
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        .image_checkboxes #progressbar {
+            background-color: #f5f7fe;
+            border-radius: 21px;
+            padding: 8px;
+            width: 196px;
+            height: 38px;
+            border: 1px solid #c8acff;
+        }
+
+        .image_checkboxes #progressbar .innerbar {
+            background-color: #4e03e0;
+            width: 100%;
+            height: 20px;
+            border-radius: 10px;
+            -webkit-animation: animateThis 11.233333333333s ease;
+            animation: loadingposts 11.233333333333s ease;
+        }
+
+        @-webkit-keyframes loadingposts {
+
+            0% {
+                width: 15%;
+            }
+
+            100% {
+                width: 100%;
+            }
+
+        }
+
+
+
+        @keyframes loadingposts {
+
+            0% {
+                width: 15%;
+            }
+
+            100% {
+                width: 100%;
+            }
+
+        }
+
+        .image_checkboxes .btn-container {
+            grid-column: span 3;
+        }
+
+
+        .tholder {
+
+            width: 100%;
+
+            border-bottom: 1px solid #ccc;
+
+            min-height: 100px;
+
+        }
+
+
+
+        .tholdermaindelivery {
+
+            border-bottom: 0;
+
+        }
+
+
+
+        .tholdermaindelivery .cnwidthtracking {
+
+            padding: 10px 20px;
+
+        }
+
+
+
+        .tholderanimation {
+
+            min-height: initial;
+
+            border-bottom: 0;
+
+        }
+
+
+
+        .tholderanimation .cnwidthtracking {
+
+            padding: 0;
+
+        }
+
+
+
+        .cnwidthtracking {
+
+            max-width: 600px;
+
+            padding: 10px;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .animationholder {
+
+            position: relative;
+
+            width: 315px;
+
+            height: 91px;
+
+            position: relative;
+
+        }
+
+
+
+        .igicon {
+
+            position: absolute;
+            right: 39px;
+            height: 43px;
+            width: 44px;
+            border-radius: 26px;
+            top: 13px;
+
+        }
+
+
+
+        .mainanimation {
+
+            height: initial;
+
+            width: 260px;
+
+        }
+
+        .navbtn {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cnwidth {
+            margin: 0 auto;
+
+            display: block;
+        }
+
+
+        .typeofpackageholder {
+            display: inline-block;
+        }
+
+        .typeofpackageholder a {
+
+            font-weight: bold;
+
+            padding: 7px 7px;
+
+            display: block;
+
+            float: left;
+
+            background: #fff;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            margin-right: 8px;
+
+            border: 1px solid #1a73e7;
+
+        }
+
+        .typeofpackageholder a:last-child {
+            margin-right: 0;
+        }
+
+        .typeofpackageholder a.activenow {
+            background: #1a73e7;
+
+            color: #fff;
+        }
+
+        .difflinkholder {
+            box-sizing: border-box;
+
+            display: inline-block;
+        }
+
+        .difflinkholder a {
+            text-decoration: underline;
+
+            color: #1a73e7;
+
+            font-size: 13px;
+        }
+
+        .cnwidthpackages {
+             padding: 0 17px 0;
+             width: 100%;
+             margin-bottom: 35px;
+        }
+
+        .hero .newmobilepackages {
+            height: auto !important;
+        }
+
+
+        @media only screen and (min-width: 360px) {
+
+
+
+            .animationholder {
+
+                width: 360px;
+
+                height: 96px;
+
+            }
+
+
+
+            .mainanimation {
+
+                width: 300px;
+
+            }
+
+
+
+            .igicon {
+
+                right: 44px;
+                height: 48px;
+                border-radius: 28px;
+                top: 15px;
+                width: 48px;
+
+            }
+
+        }
+
+
+
+
+
+
+
+        @media only screen and (min-width: 425px) {
+
+
+
+            .animationholder {
+
+                width: 425px;
+
+                height: 111px;
+
+            }
+
+
+
+            .mainanimation {
+
+                width: 381px;
+
+            }
+
+
+
+            .igicon {
+
+                right: 40px;
+                height: 60px;
+                width: 61px;
+                border-radius: 33px;
+                top: 19px;
+
+            }
+
+
+
+        }
+
+
+
+        @media screen and (max-width: 400px) {
+
+            .posts .post .icon-container {
+
+                width: 30px;
+
+                height: 30px;
+
+
+
+            }
+
+
+
+            .posts .post .icon-container .check {
+
+                width: 20px;
+
+                height: 20px;
+
+            }
+
+        }
+
+        @media screen and (min-width: 575px) {
+            .cnwidthpackages {
+                padding: 0 38px 0;
+               
+            }
+        }
+
+
+        @media screen and (min-width: 665px) {
+            .posts {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .image_checkboxes .img-responsive {
+                width: 177px;
+            }
+        }
+
+
+
+        @media screen and (min-width: 768px) {
+
+
+
+            .banner .green-text {
+
+                font-size: 18px;
+
+            }
+
+
+
+            .banner .btn-transparent {
+
+                max-width: 350px;
+
+            }
+
+            .posts {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .posts .post .icon-container {
+                width: 50px;
+                height: 50px;
+            }
+
+            .posts .post .icon-container .check {
+
+                width: 35px;
+
+                height: 35px;
+
+
+
+            }
+
+            .image_checkboxes #loaderLoadMoreId,
+            .image_checkboxes .load-wrapper,
+            .image_checkboxes .btn-container {
+                grid-column: span 4;
+            }
+
+            .tholder {
+
+                border-bottom: 0;
+
+            }
+
+
+
+            .animationholder {
+
+                width: 580px;
+
+                height: 143px;
+
+            }
+
+            .mainanimation {
+
+                width: 580px;
+
+            }
+
+            .igicon {
+
+                right: 27px;
+                height: 92px;
+                width: 92px;
+                border-radius: 46px;
+                top: 30px;
+
+            }
+
+            .cnwidthpackages {
+                padding: 0 50px 0;
+               
+            }
+
+            .hero .packages-md .swiper {
+                justify-content: start;
+                width: 1120px;
+            }
+        }
+
+
+
+        @media screen and (min-width: 991px) {
+
+            .banner .input-group:nth-of-type(2) {
+
+                margin-bottom: 25px;
+
+            }
+
+
+
+            .banner .input-group:nth-of-type(3) {
+
+                margin-bottom: 15px;
+
+            }
+
+
+
+            .about .para:last-child {
+
+                margin-bottom: 35px;
+
+            }
+
+            .guideline {
+                justify-content: start;
+            }
+
+            .cnwidthpackages {
+                padding: 0;
+                max-width: 865px;
+            }
+
+        }
+
+
+
+        @media screen and (max-width: 830px) {
+
+            .guideline .guide {
+
+                max-height: unset;
+
+                align-items: start;
+
+            }
+
+
+
+            .guideline .guide:not(:last-child) .seqNum::after {
+
+                height: 167px;
+
+            }
+
+        }
+
+
+
+        @media screen and (max-width: 430px) {
+
+            .guideline .guide .para {
+
+                font-size: 14px;
+
+            }
+
+
+
+            .guideline .guide:not(:last-child) .seqNum::after {
+
+                height: 185px;
+
+            }
+
+
+
+
+
+        }
+
+
+
+        @media screen and (max-width: 375px) {
+
+            .guideline .guide:not(:last-child) .seqNum::after {
+
+                height: 207px;
+
+            }
+
+        }
+
+    </style>
+
+
+
+</head>
+
+
+
+
+
+<body>
+
+
+
+
+
+
+
+    {header}
+    <div id="loading_overlay" style="display:none;"><span class="loading_overlay_spinner"></span></div>
+
+
+    <div class="superviral-free-tools-page">
+
+        <section class="banner">
+
+            <div class="main-container">
+
+                <h1 class="title">{main-title-h1}</h1>
+
+                <p class="subtitle">{main-subtitle-p}</p>
+                <div class="tabs">
+                    <a href="/free-instagram-likes/" class="btn btn-tab active">Instagram</a>
+                    <a href="/free-tiktok-likes/" class="btn btn-tab">TikTok</a>
+                </div>
+                {error}
+                <form method="post" style="{successHide}" id="idform" action="?load-data=true">
+
+
+                    <div class="input-group">
+
+                        <span class="instruction">{banner-instruction-1}</span>
+
+                        <div class="input-container">
+
+                            <input autocomplete="off" id="postUrl" name="post_input" placeholder="Please Enter Post Url" />
+
+                        </div>
+                        {inpError1}
+                    </div>
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
+                    <input type="hidden" name="submitBtn" value="1">
+
+                    <div class="input-group" id="recaptchaBox">
+
+                        <span class="instruction">{banner-instruction-2}</span>
+                        <span class="instruction">{banner-instruction-3}</span>
+
+                        <button id="subBtnId" class="btn btn-primary" onclick="{onClickEvent}" type="submit">get free Instagram likes</button>
+
+                    </div>
+
+                    <input type="hidden" value="1" name="submitForm">
+
+                </form>
+
+                {showHideAnimation}
+
+            </div>
+
+
+
+        </section>
+
+        <section class="about testimonials main-container">
+
+            <h2 class="title">{testimonials-heading}</h2>
+
+            <div class="testimonials sc-wrapper">
+                <div class="swiper-container">
+                    <div class="swiper">
+                        <div class="card">
+
+                            <div class="stars">
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                            </div>
+
+                            <div class="label">{review1-label}</div>
+
+                            <div class="para">{review1-desc}</div>
+
+                            <div class="flex-box">
+
+                                <div class="reviewer">
+
+                                    <span class="icon">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                            fill="none">
+
+                                            <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+
+                                            <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                                stroke-width="0.55" />
+
+                                        </svg>
+
+                                    </span>
+
+                                    <span class="txt">{review1-name}</span>
+
+                                </div>
+
+                                <div class="verification">
+
+                                    <span class="icon">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 10 10"
+                                            fill="none">
+
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                                fill="#D85B00" />
+
+                                        </svg>
+
+                                    </span>
+
+                                    <span class="txt">Verified purchase</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card">
+
+                            <div class="stars">
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                            </div>
+
+                            <div class="label">{review2-label}</div>
+
+                            <div class="para">{review2-desc}</div>
+
+                            <div class="flex-box">
+
+                                <div class="reviewer">
+
+                                    <span class="icon">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                            fill="none">
+
+                                            <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+
+                                            <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                                stroke-width="0.55" />
+
+                                        </svg>
+
+                                    </span>
+
+                                    <span class="txt">{review2-name}</span>
+
+                                </div>
+
+                                <div class="verification">
+
+                                    <span class="icon">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 10 10"
+                                            fill="none">
+
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                                fill="#D85B00" />
+
+                                        </svg>
+
+                                    </span>
+
+                                    <span class="txt">Verified purchase</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card">
+
+                            <div class="stars">
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <img src="/imgs/about/star.svg" alt="star">
+
+                                </div>
+
+                            </div>
+
+                            <div class="label">{review3-label}</div>
+
+                            <div class="para">{review3-desc}</div>
+
+                            <div class="flex-box">
+
+                                <div class="reviewer">
+
+                                    <span class="icon">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                            fill="none">
+
+                                            <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+
+                                            <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                                stroke-width="0.55" />
+
+                                        </svg>
+
+                                    </span>
+
+                                    <span class="txt">{review3-name}</span>
+
+                                </div>
+
+                                <div class="verification">
+
+                                    <span class="icon">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 10 10"
+                                            fill="none">
+
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                                fill="#D85B00" />
+
+                                        </svg>
+
+                                    </span>
+
+                                    <span class="txt">Verified purchase</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about main-container">
+
+            <div class="subtitle">{about-sub-heading}</div>
+
+            <h2 class="title">{about-heading-h1}</h2>
+
+            <p class="para">{about-para-p1}</p>
+
+            <div class="checklist">
+
+                <div class="item">
+
+                    <div class="label">
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
+                                fill="none">
+
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000" />
+
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2" />
+
+                            </svg>
+
+                        </span>
+
+                        <span class="txt">{about-check-label1}</span>
+
+                    </div>
+
+                    <div class="para">{about-check-para1}</div>
+
+                </div>
+
+                <div class="item">
+
+                    <div class="label">
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
+                                fill="none">
+
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000" />
+
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2" />
+
+                            </svg>
+
+                        </span>
+
+                        <span class="txt">{about-check-label2}</span>
+
+                    </div>
+
+                    <div class="para">{about-check-para2}</div>
+
+                </div>
+
+                <div class="item">
+
+                    <div class="label">
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
+                                fill="none">
+
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000" />
+
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2" />
+
+                            </svg>
+
+                        </span>
+
+                        <span class="txt">{about-check-label3}</span>
+
+                    </div>
+
+                    <div class="para">{about-check-para3}</div>
+
+                </div>
+
+                <div class="item">
+
+                    <div class="label">
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
+                                fill="none">
+
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000" />
+
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2" />
+
+                            </svg>
+
+                        </span>
+
+                        <span class="txt">{about-check-label4}</span>
+
+                    </div>
+
+                    <div class="para">{about-check-para4}</div>
+
+                </div>
+
+                <div class="item">
+
+                    <div class="label">
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
+                                fill="none">
+
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000" />
+
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2" />
+
+                            </svg>
+
+                        </span>
+
+                        <span class="txt">{about-check-label5}</span>
+
+                    </div>
+
+                    <div class="para">{about-check-para5}</div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+        </section>
+
+        <section class="about main-container">
+
+            <div class="subtitle">{stepper-sub-heading}</div>
+
+            <h2 class="title">{stepper-heading}</h2>
+
+            <p class="para">{stepper-para-1}</p>
+
+            <div class="guideline">
+
+                <div class="guide">
+
+                    <div class="seqNum">1</div>
+
+                    <div class="para">
+
+                        {step-1}
+
+                    </div>
+
+                </div>
+
+                <div class="guide">
+
+                    <div class="seqNum">2</div>
+
+                    <div class="para">
+
+                        {step-2}
+
+                    </div>
+
+                </div>
+
+                <div class="guide">
+
+                    <div class="seqNum">3</div>
+
+                    <div class="para">
+
+                        {step-3}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p class="para">{stepper-para-2}</p>
+
+            <hr>
+
+        </section>
+
+        <section class="features features-lg about main-container">
+
+            <div class="item">
+
+                <div class="body">
+
+                    <div class="content">
+
+                        <h4 class="subtitle">{feature1-heading1}</h4>
+
+                        <h3 class="heading">{feature1-heading2}</h3>
+
+                        <div>{feature1-content}</div>
+
+                        <img data-src="/imgs/freelikes/icon1.svg" src="" alt="icon1" class="hideDesktop tall_img lazy">
+
+                    </div>
+
+                    <div class="img-container">
+
+                        <img data-src="/imgs/freelikes/icon1.svg" src="" alt="icon1" class="tall_img lazy">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="item">
+
+                <div class="body">
+
+                    <div class="content">
+
+                        <h4 class="subtitle">{feature2-heading1}</h4>
+
+                        <h3 class="heading">{feature2-heading2}</h3>
+
+                        <div>{feature2-content}</div>
+
+                        <img data-src="/imgs/freelikes/icon2.svg" src="" alt="icon1" class="hideDesktop tall_img lazy">
+
+                    </div>
+
+                    <div class="img-container">
+
+                        <img data-src="/imgs/freelikes/icon2.svg" src="" alt="icon1" class="tall_img lazy">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="item">
+
+                <div class="body">
+
+                    <div class="content">
+
+                        <h4 class="subtitle">{feature3-heading1}</h4>
+
+                        <h3 class="heading">{feature3-heading2}</h3>
+
+                        <div>{feature3-content}</div>
+
+                        <img data-src="/imgs/freelikes/icon3.svg" src="" alt="icon1" class="hideDesktop tall_img lazy">
+
+                    </div>
+
+                    <div class="img-container">
+
+                        <img data-src="/imgs/freelikes/icon3.svg" src="" alt="icon1" class="tall_img lazy">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="item">
+
+                <div class="body">
+
+                    <div class="content">
+
+                        <h4 class="subtitle">{feature4-heading1}</h4>
+
+                        <h3 class="heading">{feature4-heading2}</h3>
+
+                        <div class="sub-item">
+
+                            <h4 class="sub-heading">{feature4-subheading1}</h4>
+
+                            <p class="para">{feature4-para1}</p>
+
+                        </div>
+
+                        <div class="sub-item">
+
+                            <h4 class="sub-heading">{feature4-subheading2}</h4>
+
+                            <p class="para">{feature4-para2}</p>
+
+                        </div>
+
+                        <div class="sub-item">
+
+                            <h4 class="sub-heading">{feature4-subheading3}</h4>
+
+                            <p class="para">{feature4-para3}</p>
+
+                        </div>
+
+                        <img data-src="/imgs/freelikes/icon4.svg" src="" alt="icon1" class="hideDesktop square_img lazy">
+
+                    </div>
+
+                    <div class="img-container">
+
+                        <img data-src="/imgs/freelikes/icon4.svg" src="" alt="icon1" class="square_img lazy">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="item">
+
+                <div class="body">
+
+                    <div class="content">
+
+                        <h4 class="subtitle">{feature5-heading1}</h4>
+
+                        <h3 class="heading">{feature5-heading2}</h3>
+
+                        <div>{feature5-content}</div>
+
+                        <img data-src="/imgs/freelikes/icon5.svg" src="" alt="icon1" class="hideDesktop tall_img lazy">
+
+                    </div>
+
+                    <div class="img-container">
+
+                        <img data-src="/imgs/freelikes/icon5.svg" src="" alt="icon1" class="tall_img lazy">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="faq main-container">
+
+            <h4 class="heading">{faq-heading}</h4>
+
+            <h2 class="title">{faq-title}</h2>
+
+            <div class="faq-part">
+
+                <div class="box">
+
+                    <div class="question">
+
+                        <span class="txt">{faq-q1}</span>
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+                    <div class="answer">
+
+                        {faq-a1}
+
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="question">
+
+                        <span class="txt">{faq-q2}</span>
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+                    <div class="answer">
+
+                        {faq-a2}
+
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="question">
+
+                        <span class="txt">{faq-q3}</span>
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+                    <div class="answer">
+
+                        {faq-a3}
+
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="question">
+
+                        <span class="txt">{faq-q4}</span>
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+                    <div class="answer">
+
+                        {faq-a4}
+
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="question">
+
+                        <span class="txt">{faq-q5}</span>
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+                    <div class="answer">
+
+                        {faq-a5}
+
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="question">
+
+                        <span class="txt">{faq-q6}</span>
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+                    <div class="answer">
+
+                        {faq-a6}
+
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="question">
+
+                        <span class="txt">{faq-q7}</span>
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+                    <div class="answer">
+
+                        {faq-a7}
+
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="question">
+
+                        <span class="txt">{faq-q8}</span>
+
+                        <span class="icon">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+                    <div class="answer">
+
+                        {faq-a8}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div style="text-align: center;"><a href="javascript:void(0);" class="btn btn3" onclick="questionModal();">ASK A QUESTION</a>
+
+            </div>
+
+        </section>
+
+        <div style="background-color: #F8F8F8 ;padding:3rem 0;margin-bottom: 3rem;">
+            <section class="download-prompt main-container" style="margin-bottom:0;">
+
+                <h4 class="heading" style="margin-top:0;">{prompt-heading}</h4>
+
+                <h2 class="title">{prompt-title}</h2>
+
+                <div style="text-align: center;"><a href="#" class="btn color4">{prompt-link}</a></div>
+
+            </section>
+        </div>
+
+        <section class="hero about cnwidth cnwidthpackages">
+            <h2 class="title">{about4-heading-h1}</h2>
+            <p class="para">{about4-para-p1}</p>
+            <div style="text-align: center;"><a href="/buy-instagram-likes/" class="btn color4">BUY INSTAGRAM LIKES</a></div>
+        </section>
+
+    </div>
+
+    {footer}
+
+    <script src="/common/superviral-free-tools.js"></script>
+    <script src="/common/lazy-loading.js"></script>
+    <script src="/common/buy-pages.js"></script>
+
+    <script>
+        {headerscript}
+
+        function addImageLoaded() {
+            try {
+                const items = document.querySelectorAll(".image_checkboxes .img-responsive");
+
+                items.forEach((item) => {
+
+                    const image = item.querySelector(".main-img");
+
+                    const loader = item.querySelector(".img-loader");
+
+                    image.onload = () => {
+                        item.classList.add("loaded");
+                    };
+
+                    image.onerror = () => {
+                        item.classList.add("load-error");
+                        item.querySelector(".tick").innerHTML = "<span class='error-text'>Image load error</span>";
+                    };
+
+                })
+            } catch (error) {
+                console.error(error);
+            }
+
+        }
+
+        function onSubmitData(event) {
+            event.preventDefault();
+            grecaptcha.ready(function() {
+                grecaptcha.execute('{googlev3recaptchakey}', {action: 'submit'}).then(function(token) {
+                    // spinFunction();
+                    document.getElementById('g-recaptcha-response').value = token;
+                    submitform(event);
+                });
+            });
+        }   
+
+      
+        function submitform(event) {    
+            event.preventDefault();
+            var postUrl = document.getElementById('postUrl').value;
+            if (postUrl.trim() == "") {
+                alert("Please enter url");
+                return;
+            }
+            document.getElementById('loading_overlay').style.display = 'flex';
+            document.getElementById('idform').submit();
+        }
+
+
+
+        function questionModal() {
+            var widthPopup = "356"; var heightPopup = "472";
+            var signDiv = document.createElement("div"); signDiv.id = 'signDiv'; document.body.appendChild(signDiv);
+            var questionHTML = '<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+            questionHTML += '<div style="overflow: hidden; z-index:9999;width:' + widthPopup + 'px;height:' + heightPopup + 'px;position:fixed;left:50%;margin-left:-' + (widthPopup / 2) + 'px;top:50%;margin-top:-' + (heightPopup / 2) + 'px;border:0">';
+            questionHTML += '<iframe src="{loclink}/userquestions.php?page=free-instagram-likes" style="overflow: hidden;width:100%;height:' + (heightPopup - 35) + 'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe><div onclick="closequestionDiv();" style="text-align:center;color:#fff;font-size:15px;">Close window X</div></div>';
+            document.getElementById('signDiv').innerHTML = questionHTML;
+            return false;
+        }
+
+        function closequestionDiv(msg) {
+            document.body.removeChild(document.getElementById('signDiv'));
+            // exitout="1";
+            if (msg == "Question submitted successfully - thank you for the feedback!")
+                addMsgs(msg);
+        }
+        function addMsgs(msg) {
+            document.getElementById("successMsgAddQues").innerHTML = msg;
+            document.getElementById("successMsgAddQues").style.display = "block";
+            document.getElementById("successMsgBtn").click();
+        }
+
+    </script>
+    <!-- {recaptchaUrl} -->
+    <script src="https://www.google.com/recaptcha/api.js?render={googlev3recaptchakey}"></script>
+</body>
+</html>

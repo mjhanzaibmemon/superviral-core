@@ -1,0 +1,433 @@
+<?php
+
+
+require dirname($_SERVER["DOCUMENT_ROOT"]) .'/etra.group/loadParamStore.php';
+
+// require_once dirname($_SERVER["DOCUMENT_ROOT"]) . '/etra.group/common/aws-sdk/aws-autoloader.php';
+
+use Aws\CloudWatch\CloudWatchClient;
+global $cloudwatchkey;
+global $cloudwatchpassword;
+
+$ip =   $_SERVER['HTTP_X_FORWARDED_FOR'];  
+
+
+////////////////// ABOVE ALL IS IP RESCTRICTER
+/* 
+
+
+
+ini_set('display_errors', 0);
+
+if(($ip!=='43.241.192.214')&&($ip!=='77.102.160.65')&&($ip!=='212.159.178.222')) {echo 'Not Authorised 1'; die();}
+
+*/
+
+// loadEnv('/home/etra/.env');
+
+$dbMasked = 0; // 1 or 0
+
+
+if ($dbMasked == 1 && $devstage == 'test') {
+
+        $dbName = 'etra_superviral_masked'; // masked
+    
+}
+
+function sendCloudwatchData($namespace, $metricName, $func, $dimensions, $data) {
+    global $cloudwatchkey, $cloudwatchpassword;
+    // Initialize CloudWatch client
+    $cloudWatchClient = new CloudWatchClient([
+        'region' => 'us-east-2',
+        'version' => 'latest',
+        'credentials' => [
+            'key'    => $cloudwatchkey,
+            'secret' => $cloudwatchpassword,
+        ],
+    ]);
+    try {
+        // Send custom revenue metric data to CloudWatch USD
+        $cloudWatchClient->putMetricData([
+            'Namespace' => $namespace,
+            'MetricData' => [
+                [
+                    'MetricName' => $metricName,
+                    'Dimensions' => [
+                        [
+                            'Name' => $func,
+                            'Value' => $dimensions
+                        ],
+                    ],
+                    'Unit' => 'None', // Or 'Currency' if appropriate
+                    'Value' => $data, // Use the calculated revenue value
+                ],
+            ],
+        ]);
+
+        error_log($metricName . ' metric data sent successfully');
+    } catch (Exception $e) {
+        error_log('Error sending metric data: ' . $e->getMessage());
+    }
+}
+
+// report load param error
+
+if($loadParamErrorFlag == 1){ // from loadparamstore.php
+    error_log('Error loading parameters from AWS SSM: ' . json_encode($envVars));
+    sendCloudwatchData('EtraGroup', 'load-param-store-error', 'LoadParamStoreError', 'load-param-store-error-funtion', 1);
+    die;
+}
+
+$conn = '';
+
+$siteDomain = $protocol. $_SERVER['SERVER_NAME'];
+
+
+//AJ: Dynamic Domain
+if($_SERVER['SERVER_NAME'] == "superviral.lcl"  || $_SERVER['SERVER_NAME'] == "tikoid.lcl"){
+    $protocol = 'http://'; 
+}else{
+    $protocol = 'https://'; 
+}
+
+// Setup database connection
+
+$conn = mysql_connect ('localhost' , $dbUser , $dbPass) or die(mysql_error());
+
+
+mysql_select_db ($dbName , $conn);
+
+
+date_default_timezone_set('Europe/London');
+
+
+
+
+
+function mysql_connect($server,$username,$password){
+
+    return mysqli_connect($server,$username,$password);
+
+}
+
+
+
+function mysql_select_db($database_name,$link){
+
+    return mysqli_select_db($link,$database_name);
+
+}
+
+
+
+function mysql_query($query){ global $conn;
+
+    return mysqli_query($conn,$query);
+
+}
+
+
+
+function mysql_fetch_array($result){
+
+    return mysqli_fetch_assoc($result);
+
+}
+
+
+
+function mysql_num_rows($result){
+
+    return mysqli_num_rows($result);
+
+}
+
+
+
+function mysql_insert_id(){ global $conn;
+
+    return mysqli_insert_id($conn);
+
+}
+
+
+
+
+
+if($webhookbypass==0){
+
+if (strpos($_SERVER['SERVER_NAME'], 'etra.group') !== false || strpos($_SERVER['SERVER_NAME'], 'superviral.io') !== false){}else{die('Error');}//Protection from Nameserver imitation
+
+}
+
+
+
+
+
+//////////////////////////// CHANGED FROM HERE $LOC: how it's retrieveed
+
+//MASTER 301 REDIRECT
+
+
+$subdomaindetect = $_SERVER['SERVER_NAME'];
+
+$subdomaindetect = str_replace('superviral.','',$subdomaindetect);
+
+$subdomaindetecthttp_host = $_SERVER['HTTP_HOST'];
+$subdomainhttp_host_array = explode('.', $subdomaindetecthttp_host);
+
+$subdomainloc = array_shift(($subdomainhttp_host_array));
+
+if(($subdomainloc=='us')||($subdomainloc=='uk')){
+
+$newhttphost = str_replace($subdomainloc.'.','',$_SERVER['HTTP_HOST']);
+
+//echo 'https://'.$newhttphost.'/'.$subdomainloc.$_SERVER['REQUEST_URI'];
+
+header('Location: https://'.$newhttphost.'/'.$subdomainloc.$_SERVER['REQUEST_URI'],TRUE,301);die;
+
+}
+
+
+
+//WE ARE RETRIEVING IT THROUGH GET
+
+$loc = addslashes($_GET['loc']);//MAKE SURE THE GET STAYS HERE
+
+if(empty($loc))$loc = 'us';
+
+if($loc=='superviral')$loc = 'ww';
+
+if($loc=='www')$loc = 'ww';
+
+if($loc!=='us'){
+    $loclink = '/'.$loc;
+    $loclinkforward = $loc.'/';
+}
+
+
+
+
+
+/////////////////////////////////////////////////////////
+
+
+
+$locas = array(
+    // "ww" => array(
+    //          "sdb" => "us",
+    //          "countrycode" => "US",
+    //          "currencysign" => "&dollar;",
+    //          "currencyend" => "",
+    //          "currencypp" => "USD",
+    //          "mid" => "2092",
+    //          "contentlanguage" => "en",
+    //          "footercopyright" => "© 2012 - ".date("Y")." Superviral. All Rights Reserved.",
+    //          "order" => "order",
+    //          "order1" => "details",
+    //          "order1select" => "select",
+    //          "order2" => "review",
+    //          "order3" => "payment",
+    //          "order3-new" => "payment-new",
+    //          "order3-new-1" => "payment-new-1",
+    //          "order3-processing" => "payment-processing",
+    //          "order4" => "finish",
+    //          "account" => "account",
+    //          "login" => "login",
+    //          "logout" => "logout",
+    //          "signup" => "sign-up",
+    //          "forgotpassword" => "forgot-password",
+    //          "resetpassword" => "reset-password"
+    //      ),
+    "ww" => array( 
+             "sdb" => "us",
+              "altsdb" => "uk",
+              "altlang" => "British English (GB)",
+              "countrycode" => "US",
+              "currencysign" => "$",
+              "currencyend" => "",
+              "currencypp" => "USD",
+              "mid" => "2092",
+              "contentlanguage" => "en-us",
+              "footercopyright" => "© 2012 - ".date("Y")." Superviral. All Rights Reserved.",
+              "order" => "order",
+              "order1" => "details",
+              "order1select" => "select",
+              "order2" => "review",
+              "order3" => "payment",
+              "order3-new" => "payment-new",
+              "order3-new-1" => "payment-new-1",
+              "order3-processing" => "payment-processing",
+              "order4" => "finish",
+              "account" => "account",
+              "login" => "login",
+              "logout" => "logout",
+              "signup" => "sign-up",
+              "forgotpassword" => "forgot-password",
+              "resetpassword" => "reset-password"
+            ),
+    "uk" => array(
+             "sdb" => "uk",
+             "altsdb" => "us",
+             "altlang" => "American English (US)",
+             "countrycode" => "GB",
+             "currencysign" => "&pound;",
+             "currencyend" => "",
+             "currencypp" => "GBP",
+             "mid" => "2567",
+             "contentlanguage" => "en-gb",
+             "footercopyright" => "© 2012 - ".date("Y")." ITH Retail Group Ltd trading as Superviral. All Rights Reserved.",
+             "order" => "order",
+             "order1" => "details",
+             "order1select" => "select",
+             "order2" => "review",
+             "order3" => "payment",
+             "order3-new" => "payment-new",
+             "order3-new-1" => "payment-new-1",
+             "order3-processing" => "payment-processing",
+             "order4" => "finish",
+             "account" => "account",
+             "login" => "login",
+             "logout" => "logout",
+             "signup" => "sign-up",
+             "forgotpassword" => "forgot-password",
+             "resetpassword" => "reset-password"
+         ),
+    "us" => array(
+             "sdb" => "us",
+             "altsdb" => "uk",
+             "altlang" => "British English (GB)",
+             "countrycode" => "US",
+             "currencysign" => "$",
+             "currencyend" => "",
+             "currencypp" => "USD",
+             "mid" => "2573",
+             "contentlanguage" => "en-us",
+             "footercopyright" => "© 2012 - ".date("Y")." Superviral. All Rights Reserved.",
+            "order" => "order",
+             "order1" => "details",
+             "order1select" => "select",
+             "order2" => "review",
+             "order3" => "payment",
+             "order3-new" => "payment-new",
+             "order3-new-1" => "payment-new-1",
+             "order3-processing" => "payment-processing",
+             "order4" => "finish",
+             "account" => "account",
+             "login" => "login",
+             "logout" => "logout",
+             "signup" => "sign-up",
+             "forgotpassword" => "forgot-password",
+             "resetpassword" => "reset-password"
+         ),
+    "de" => array(
+         "sdb" => "de",
+         "countrycode" => "DE",
+         "currencysign" => "&euro;",
+         "currencyend" => "",
+         "currencypp" => "EUR",
+         "mid" => "2571",
+         "contentlanguage" => "de",
+         "footercopyright" => "© 2012 - ".date("Y")." ITH Retail Group Ltd, handelnd als Superviral. Alle Rechte vorbehalten.",
+        "order" => "auftrag",
+        "order1" => "einzelheiten",
+        "order1select" => "wahlen",
+        "order2" => "rezension",
+        "order3" => "zahlung",
+        "order3-processing" => "zahlungsabwicklung",
+        "order4" => "fertig",
+         "account" => "konto",
+         "login" => "einloggen",
+         "logout" => "ausloggen",
+         "signup" => "anmelden",
+         "forgotpassword" => "passwort-vergessen",
+         "resetpassword" => "reset-password"
+     ),
+    "it" => array(
+         "sdb" => "it",
+         "countrycode" => "IT",
+         "currencysign" => "&euro;",
+         "currencyend" => "",
+         "currencypp" => "EUR",
+         "mid" => "2571",
+         "contentlanguage" => "it",
+         "footercopyright" => "© 2012 - ".date("Y")." ITH Retail Group Ltd opera in qualità di Superviral. Tutti i Diritti Riservati.",
+        "order" => "ordine",
+        "order1" => "dettagli",
+        "order1select" => "selezionare",
+        "order2" => "revisione",
+        "order3" => "pagamento",
+        "order3-processing" => "processo-di-pagamento",
+        "order4" => "finire",
+         "account" => "account",
+         "login" => "accesso",
+         "logout" => "disconnettersi",
+         "signup" => "iscrizione",
+         "forgotpassword" => "ha-dimenticato-la-password",
+         "resetpassword" => "resetta-password"
+     ),
+    "es" => array(
+         "sdb" => "es",
+         "countrycode" => "ES",
+         "currencysign" => "&euro;",
+         "currencyend" => "",
+         "currencypp" => "EUR",
+         "mid" => "2571",
+         "contentlanguage" => "es",
+         "footercopyright" => "© 2012 - ".date("Y")." ITH Retail Group Ltd. Comercializando como Superviral. Todos los derechos reservados.",
+        "order" => "orden",
+        "order1" => "detalles",
+        "order1select" => "seleccione",
+        "order2" => "revision",
+        "order3" => "pago",
+        "order3-processing" => "procesando-el-pago",
+        "order4" => "finalizar",
+         "account" => "cuenta",
+         "login" => "iniciar-sesion",
+         "logout" => "cerrar-sesion",
+         "signup" => "registrarse",
+         "forgotpassword" => "olvidado-tu-contrasena",
+         "resetpassword" => "restablecer-contrasena"
+     ),
+     "fr" => array(
+         "sdb" => "fr",
+         "countrycode" => "FR",
+         "currencysign" => "",
+         "currencyend" => " &euro;",
+         "currencypp" => "EUR",
+         "mid" => "2571",
+         "contentlanguage" => "fr",
+         "footercopyright" => "© 2012 - ".date("Y")." ITH Retail Group Ltd, sous le nom de Superviral. Tous droits réservés.",
+        "order" => "ordre",
+        "order1" => "detalles",
+        "order1select" => "selectionner",
+        "order2" => "revue",
+        "order3" => "paiement",
+        "order3-processing" => "traitement-paiements",
+        "order4" => "terminer",
+         "account" => "compte",
+         "login" => "connexion",
+         "logout" => "se-deconnecter",
+         "signup" => "s-inscrire",
+         "forgotpassword" => "mot-passe-oublie",
+         "resetpassword" => "reinitialiser-mot-passe"
+     )
+  );
+
+$currency = $locas[$loc]['currencysign'];
+
+
+
+if(($loc!=='ww')&&($loc!=='us')&&($loc!=='uk'))$notenglish=true;
+
+
+
+
+
+
+
+
+
+
+
+?>

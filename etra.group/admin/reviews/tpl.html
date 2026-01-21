@@ -1,0 +1,131 @@
+<!-- @meta -->
+
+<title>Reviews</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<style>
+    textarea{height: 400px;}
+
+    .reviews .box23 {
+        margin: 66px auto;
+        max-width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .reviews h1 {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .reviews .label {
+        margin-top: 35px;
+    }
+
+    .reviews .container div input,
+    .reviews .selectric,
+    .reviews .input,
+    .reviews .btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .reviews .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    .reviews .cke_reset_all {
+        background: #f7f7f7 !important;
+    }
+
+    .reviews .articles {
+        width: 100%;
+    }
+
+    .reviews .articles tr td {
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #000;
+        padding: 10px;
+        vertical-align: top
+    }
+
+    .reviews .articles tr:first-child td {
+        background: #f1f1f1;
+        font-weight: bold;
+    }
+
+    .reviews .status {
+        font-weight: bold;
+        height: 23px;
+        width: 55px;
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .reviews .btn {
+        width: 152px;
+    }
+
+    .reviews .form-common .input-container {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+</style>
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<!-- @script_tags -->
+
+<main class="reviews">
+    <div class="box23">
+        {submitted}
+        {reviewmessage}
+        <form method="POST" class="form-common">
+            <div class="input-container">
+                <select class="input" id="company" name="company">
+                    <option disabled selected>Select a company</option>
+                    <!-- @brand_options -->
+                    <option>{name}</option>
+                    <!-- @brand_options -->
+                </select>
+            </div>
+            <div class="input-container">
+                <select class="input" id="company" name="country">
+                    <option disabled>Select a company</option>
+                    <!-- @brand_options -->
+                    <option value="us">US</option>
+                    <option value="uk">UK</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <select class="input" id="company" name="type">
+                    <option disabled>Select a type</option>
+                    <option value="ig-followers">ig-followers</option>
+                    <option value="ig-likes">ig-likes</option>
+                    <option value="ig-views">ig-views</option>
+                    <option value="tt-followers">tt-followers</option>
+                    <option value="tt-likes">tt-likes</option>
+                    <option value="tt-views">tt-views</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <input class="input inputcontact" name="name" value="" placeholder="name">
+            </div>
+            <div class="input-container">
+                <input class="input inputcontact" name="subject" value="" placeholder="subject">
+            </div>
+            <div class="input-container">
+                <textarea class="input inputcontact" name="review" placeholder="review"></textarea>
+            </div>
+            <button class="btn btn-primary color3" name="submit" value="1" type="submit">Submit Review</button>
+        </form>
+    </div>
+</main>

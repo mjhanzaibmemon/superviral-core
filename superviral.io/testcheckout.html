@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <meta name="theme-color" content="#393939">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #eeeeee;
+      --secondary-color: #363636;
+      --secondary-variant-color: #272727;
+      --background-color: #212121;
+      --inner-color: #ffffff;
+      --border-color: #555651;
+
+      /* icons by Google - Material Design
+       * https://material.io/resources/icons/?style=baseline
+       */
+      --switch-moon-white: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath fill='%23eeeeee' d='M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z'%3E%3C/path%3E%3C/svg%3E");
+      --switch-sun-black: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath fill='%23212121' d='M20 15.31L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z'%3E%3C/path%3E%3C/svg%3E");
+      --switch-auto-white: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath fill='%23eeeeee' d='M10.85 12.65h2.3L12 9l-1.15 3.65zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM14.3 16l-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9z'%3E%3C/path%3E%3C/svg%3E");
+      --switch-auto-black: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath fill='%23212121' d='M10.85 12.65h2.3L12 9l-1.15 3.65zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM14.3 16l-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9z'%3E%3C/path%3E%3C/svg%3E");
+
+    }
+
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .sprite {
+      display: none;
+    }
+
+
+
+
+
+    .container {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .group {
+      position: relative;
+      width: 100%;
+      margin: 40px 0;
+      padding-top: 16px;
+
+
+    }
+
+    .run {
+      padding: 10px 6px;
+      margin: 0.75em auto;
+      max-width: 200px;
+      width: 100%;height:0;width:0;
+      display: inline-block;
+
+      background: var(--secondary-color);
+      border: none;
+      outline: none;
+
+      color: var(--inner-color);
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+
+      opacity: 0.8;
+      transition: opacity 100ms ease;
+    }
+
+
+
+    .left {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a.anchor {
+      position: relative;
+      color: currentColor;
+      text-decoration: none;
+    }
+
+    a.anchor:hover::before {
+      content: "🔗";
+      color: currentColor;
+      position: absolute;
+      left: -2rem;
+      top: 0;
+      transform: scale(0.75, 0.75);
+    }
+
+    footer {
+      font-size: 0.9rem;
+      text-align: center;
+      line-height: 2;
+
+      background: var(--secondary-color);
+    }
+
+    footer span {
+      vertical-align: middle;
+    }
+
+    span.icon {
+      position: relative;
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+    }
+    svg.icon {
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      fill: var(--inner-color);
+    }
+
+
+
+    .custom-canvas {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 1000px;
+      height: 380px;
+      background: var(--secondary-color);
+    }
+
+
+  </style>
+
+
+</head>
+
+
+<body>
+
+
+  <script>
+    // this page is a demo that is not built, so fudge the module.exports support
+    // define a global `module` so that the actual source file can use it
+    window.module = {};
+  </script>
+  <script src="/js/confetti.js"></script>
+  <script>
+    // define the `module.exports` as the `confetti` global, the way that the
+    // cdn distributed file would
+    window.confetti = module.exports;
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.0/ace.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify.min.js"></script>
+
+  <div class="container" >
+    <div class="group" data-name="realistic">
+      <div class="flex-rows">
+        <div class="left">
+          <button class="run">
+            Run
+            <span class="icon">
+              <svg class="icon"><use xlink:href="#run"></use></svg>
+            </span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+
+
+
+
+    var modes = {
+      random: function random() {
+        function randomInRange(min, max) {
+          return Math.random() * (max - min) + min;
+        }
+
+        confetti({
+          angle: randomInRange(55, 125),
+          spread: randomInRange(50, 70),
+          particleCount: randomInRange(50, 100),
+          origin: { y: 0.6 }
+        });
+      },
+      realistic: function realistic() {
+        var count = 200;
+        var defaults = {
+          origin: { y: 0.7 }
+        };
+
+        function fire(particleRatio, opts) {
+          confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+          }));
+        }
+
+        fire(0.25, {
+          spread: 26,
+          startVelocity: 55,
+        });
+        fire(0.2, {
+          spread: 60,
+        });
+        fire(0.35, {
+          spread: 100,
+          decay: 0.91,
+          scalar: 0.8
+        });
+        fire(0.1, {
+          spread: 120,
+          startVelocity: 25,
+          decay: 0.92,
+          scalar: 1.2
+        });
+        fire(0.1, {
+          spread: 120,
+          startVelocity: 45,
+        });
+      },
+
+      continuous: function continuous() {
+        var end = Date.now() + (15 * 1000);
+
+        // go Buckeyes!
+        var colors = ['#bb0000', '#ffffff'];
+
+        (function frame() {
+          confetti({
+            particleCount: 2,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors
+          });
+          confetti({
+            particleCount: 2,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        }());
+      },
+      custom: function() {
+        var canvas = document.getElementById('my-canvas');
+
+        // you should  only initialize a canvas once, so save this function
+        // we'll save it to the canvas itself for the purpose of this demo
+        canvas.confetti = canvas.confetti || confetti.create(canvas, { resize: true });
+
+        canvas.confetti({
+          spread: 70,
+          origin: { y: 1.2 }
+        });
+      }
+    };
+
+
+
+
+
+        function realistic() {
+        var count = 200;
+        var defaults = {
+          origin: { y: 0.7 }
+        };
+
+        function fire(particleRatio, opts) {
+          confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+          }));
+        }
+
+        fire(0.25, {
+          spread: 26,
+          startVelocity: 55,
+        });
+        fire(0.2, {
+          spread: 60,
+        });
+        fire(0.35, {
+          spread: 100,
+          decay: 0.91,
+          scalar: 0.8
+        });
+        fire(0.1, {
+          spread: 120,
+          startVelocity: 25,
+          decay: 0.92,
+          scalar: 1.2
+        });
+        fire(0.1, {
+          spread: 120,
+          startVelocity: 45,
+        });
+      }
+
+      realistic();
+  
+    
+  </script>
+
+</body>
+</html>

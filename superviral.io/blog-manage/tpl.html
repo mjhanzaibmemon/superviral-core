@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Source+Sans+Pro:wght@400;600;700;800&family=DM+Sans:wght@100..1000&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css" />
+    <style type="text/css">
+        body{background:#f3f2ff;}
+        
+        tr{border-bottom: 1px solid #dddddd;}
+        th{text-align: left;font-size: 14px;padding: 12px 15px;}
+        td{padding: 12px 15px;}
+        table {border-collapse: collapse;margin: 25px 0;font-size: 0.9em;}
+
+        .edit-btn{text-decoration: underline;width: 76px;text-align: center;display: block;height: 76px;line-height: 76px;}
+        .edit-btn:hover{color:blue;font-weight: bold;}
+
+        .pagination{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:1rem;}
+        .pagination-btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;background-color:#e8e3ff;color:#6b46c1;text-decoration:none;border-radius:6px;font-weight:500;font-size:14px;transition:all 0.2s ease;min-width:36px;height:36px;box-sizing:border-box;border:none;cursor:pointer;font-family:inherit;}
+        .pagination-btn:hover{background-color:#ddd6fe;color:#5b21b6;}
+        .pagination-btn.active{background-color:#6b46c1;color:white;}
+        .pagination-btn.active:hover{background-color:#5b21b6;}
+        .pagination-next{gap:4px;padding:8px 16px;}
+        .pagination-dots{color:#9ca3af;font-weight:500;padding:0 4px;}        
+    </style>
+
+</head>
+  <body>
+    {header}
+    <div class="basic-container" style="max-width: 928px;margin: auto;margin-top: 60px;">
+        <h1 style="color:#000;">Manage Articles</h1>
+        <div><a style="display: inline-block;background: white;border: solid 1px #ddd;padding: 10px 15px;margin-top: 14px;font-weight: bold;border-radius: 10px;" href="upload.php">Upload Article</a></div>
+        <div style="background:white;margin-top:1rem;">
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th style="width:100px;">Publish Date</th>
+                    <th></th>
+                </tr>                
+                {results}
+            </table>
+            {pagination}
+          </div>
+    </div>
+
+  </body>
+</html>

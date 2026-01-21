@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{metatitle}</title>
+
+
+
+        <meta name="description" content="{metadesc}" />
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+        <meta http-equiv="Content-Language" content="{contentlanguage}">
+
+
+
+        <link rel="canonical" href="{canonical}" />
+
+        <link rel="alternate" hreflang="en-us" href="https://superviral.io/instagram-video-downloader/" />
+        <link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/instagram-video-downloader/" />
+
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+            rel="stylesheet">
+
+
+
+        <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/superviral-free-tools.css" />
+        <style>
+            .guide .block {
+                margin-bottom: 30px;
+            }
+
+            .guide .block .para b {
+                color: #000;
+            }
+
+            .guide .block .heading {
+                font-size: 24px;
+                margin-bottom: 18px;
+            }
+
+        </style>
+        
+    </head>
+
+    <body>
+        {header}
+
+        <div id="loading_overlay" style="display:none;"><span class="loading_overlay_spinner"></span></div>
+
+        <div class="superviral-free-tools-page video-downloader superviral-free-tools-page-uk">
+            <section class="banner">
+                <div class="main-container">
+                    <h1 class="title">{main-title-h1}</h1>
+                    <p class="subtitle">{main-subtitle-p}</p>
+                    <form method="post" id="idform" action="?load-data=true">
+                        <div class="input-group" id="inpUrlBox">
+                            <span class="instruction">{banner-instruction-1}</span>
+                            <div class="input-container">
+                                <input autocomplete="off" id="post_url" value="" placeholder="Insert URL Here..." />
+                                <!-- <button class="btn-paste">Paste</button> -->
+                            </div>
+                        </div>
+                        <div id="post" style="text-align: center;">
+    
+                        </div>
+                        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
+    
+                        <div class="input-group">
+                            <span class="instruction" id="secondPointTxt">{banner-instruction-2}</span>
+                     
+                            <span class="instruction" id="thirdPointTxt" {stylePoint3Text}>{banner-instruction-3}</span>
+                            <div style="text-align: center;">
+                                <button class="btn btn-primary btn-download" onclick="{onClickEvent}" style="text-align: center;border:0;width:100%;">
+                                    <span class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="12" viewBox="0 0 9 12"
+                                            fill="none">
+                                            <path d="M1 11.25H8M4.5 0.75V8.91667M4.5 8.91667L7.41667 6M4.5 8.91667L1.58333 6"
+                                                stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="spinner">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"
+                                            fill="none">
+                                            <path
+                                                d="M3.26562 8.57561C1.88641 7.09268 1.9108 4.76829 3.34367 3.325C3.90523 2.75689 4.63542 2.38558 5.42529 2.26646L5.38322 1C4.27437 1.13389 3.24348 1.63915 2.45834 2.43354C0.53829 4.36646 0.515121 7.4878 2.38334 9.46463L1.3218 10.5329L4.68142 10.7165L4.67227 7.15915L3.26562 8.57561ZM7.31851 1.28354L7.32765 4.84085L8.73431 3.425C10.1135 4.90915 10.0891 7.23354 8.65626 8.67561C8.0948 9.24386 7.36456 9.6152 6.57464 9.73415L6.61671 11C7.72555 10.8659 8.75652 10.361 9.5422 9.56707C11.4616 7.63293 11.4848 4.51158 9.61659 2.53598L10.6781 1.46646L7.31851 1.28354Z"
+                                                fill="white" stroke="white" stroke-width="0.25" />
+                                        </svg>
+                                    </span>
+                                    <span class="text">{banner-prompt-1}</span>
+                                </button>
+                            </div>
+                            <div style="text-align: center;">
+                                <button class="btn btn-primary btn-save-video" type="button" onclick="downloadVideo();" style="text-align: center;border:0;width:100%;justify-content: center;align-items: center;gap: 6px;">
+                                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="12" viewBox="0 0 9 12" fill="none"><path d="M1 11.25H8M4.5 0.75V8.91667M4.5 8.91667L7.41667 6M4.5 8.91667L1.58333 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                                    <span class="text">Save Video To Device</span>
+                                </button>
+                            </div>
+                            <div id="downloadanotherId" style="display:none;text-align: center;margin-top:10px;">
+                                <a style="color:#000;font-weight: bold;text-decoration: underline;display:inline-block;padding:5px;"
+                                    href="#" onclick="return location.reload();">Download Another Video</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section class="more-free-tools main-container">
+                <h2 class="title">More FREE tools 🔧</h2>
+                <div class="list">
+                    <a href="/uk/instagram-story-downloader/">
+                        <span class="text">Story Downloader</span>
+                        <span class="link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                                stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="/uk/instagram-video-downloader/">
+                        <span class="text">Video Downloader</span>
+                        <span class="link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="/uk/instagram-profile-picture-viewer/">
+                        <span class="text">Profile Picture Viewer</span>
+                        <span class="link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                                stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="/uk/instagram-follower-count/">
+                        <span class="text">Follower Counter</span>
+                        <span class="link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </section>
+            <section class="about main-container">
+                <div class="subtitle">{about-sub-heading}</div>
+                <h2 class="title">
+                    <span class="text">{about-heading-h1}</span>
+                    </h2>
+                    <p class="para">{about-para-p1}</p>
+                    <div class="checklist">
+                        <div class="item">
+                            <div class="label">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                        <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                        <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                    </svg>
+                                </span>
+                                <span class="txt">{about-check-label1}</span>
+                            </div>
+                            <div class="para">{about-check-para1}</div>
+                        </div>
+                        <div class="item">
+                            <div class="label">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                        <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                        <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                    </svg>
+                                </span>
+                                <span class="txt">{about-check-label2}</span>
+                            </div>
+                            <div class="para">{about-check-para2}</div>
+                        </div>
+                        <div class="item">
+                            <div class="label">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                        <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                        <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                    </svg>
+                                </span>
+                                <span class="txt">{about-check-label3}</span>
+                            </div>
+                            <div class="para">{about-check-para3}</div>
+                        </div>
+                        <div class="item">
+                            <div class="label">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                        <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                        <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                    </svg>
+                                </span>
+                                <span class="txt">{about-check-label4}</span>
+                            </div>
+                            <div class="para">{about-check-para4}</div>
+                        </div>
+                        <!-- <div class="item">
+                            <div class="label">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                        <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                        <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                    </svg>
+                                </span>
+                                <span class="txt">{about-check-label5}</span>
+                            </div>
+                            <div class="para">{about-check-para5}</div>
+                        </div> -->
+                    </div>
+                    <hr>
+            </section>
+            <section class="features about main-container">
+                <div class="item reasons">
+                    <h3 class="heading">{reason1-heading}</h3>
+                    <p class="para">{reason1-para}</p>
+                    <div class="sub-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <circle cx="30" cy="30" r="30" fill="#4D05BB"/>
+                                <path d="M20 42.6087H39.1304M29.5652 16.5217V36.2319M29.5652 36.2319L37.5362 28.2609M29.5652 36.2319L21.5942 28.2609" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="content">
+                            <h4 class="sub-heading">{reason1-sub1-heading}</h4>
+                            <p class="para">{reason1-sub1-p1}</p>
+                        </div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <circle cx="30" cy="30" r="30" fill="#4D05BB"/>
+                                <path d="M43 28.0459C43 29.0924 42.8732 30.1279 42.6197 31.1524C42.3772 32.1658 42.0024 33.0857 41.4954 33.9119C40.9884 34.727 40.3491 35.3825 39.5775 35.8782C38.8169 36.3629 37.913 36.6053 36.8659 36.6053C36.0392 36.6053 35.3062 36.407 34.6669 36.0104C34.0386 35.6138 33.5977 35.1016 33.3442 34.4737H33.0796C32.6167 35.0355 32.0104 35.5312 31.2609 35.9608C30.5113 36.3905 29.602 36.6053 28.5328 36.6053C26.5156 36.6053 24.9614 36.0049 23.8702 34.8042C22.7789 33.5924 22.2333 32.0061 22.2333 30.0453C22.2333 28.5251 22.5585 27.1867 23.2088 26.03C23.8592 24.8623 24.7851 23.948 25.9865 23.287C27.188 22.6261 28.6044 22.2956 30.2358 22.2956C31.305 22.2956 32.4017 22.3947 33.526 22.593C35.1249 22.8567 36.135 24.3169 36.0579 25.9355L35.8573 30.1444C35.8353 30.3758 35.8187 30.6071 35.8077 30.8384C35.8077 31.0698 35.8077 31.2185 35.8077 31.2846C35.8077 32.2209 35.9345 32.8433 36.188 33.1518C36.4525 33.4492 36.7446 33.5979 37.0643 33.5979C37.5713 33.5979 37.9957 33.3446 38.3374 32.8378C38.6791 32.3311 38.9382 31.6536 39.1145 30.8054C39.2909 29.9572 39.3791 29.0263 39.3791 28.0129C39.3791 26.1291 38.9933 24.5263 38.2217 23.2044C37.4611 21.8715 36.414 20.858 35.0802 20.164C33.7575 19.459 32.2529 19.1065 30.5664 19.1065C28.7918 19.1065 27.2266 19.3874 25.8708 19.9492C24.515 20.511 23.3742 21.2987 22.4483 22.3121C21.5334 23.3256 20.8389 24.5208 20.365 25.8978C19.902 27.2748 19.6705 28.7785 19.6705 30.4088C19.6705 32.4357 20.0343 34.1542 20.7618 35.5643C21.4893 36.9743 22.5585 38.0428 23.9694 38.7699C25.3913 39.4969 27.1274 39.8605 29.1776 39.8605C30.4893 39.8605 31.8506 39.7173 33.2615 39.4308C33.8942 39.2985 34.5029 39.152 35.0876 38.9913C36.1059 38.7114 37.1635 39.449 37.1635 40.5051C37.1635 41.1155 36.7987 41.6719 36.222 41.8717C35.3943 42.1585 34.5012 42.3969 33.5426 42.5869C32.2088 42.8623 30.7979 43 29.3099 43C26.5101 43 24.1182 42.5043 22.1341 41.5129C20.15 40.5214 18.6289 39.0949 17.5707 37.2332C16.5236 35.3605 16 33.1187 16 30.508C16 28.459 16.3362 26.5588 17.0086 24.8072C17.692 23.0447 18.6675 21.508 19.9351 20.1971C21.2027 18.8752 22.7293 17.8452 24.515 17.1071C26.3117 16.369 28.3178 16 30.5334 16C32.9473 16 35.0912 16.4902 36.9651 17.4706C38.85 18.44 40.327 19.8225 41.3962 21.6181C42.4654 23.4137 43 25.5563 43 28.0459ZM26.0692 30.1114C26.0692 31.3452 26.3227 32.2375 26.8298 32.7882C27.3478 33.328 28.0423 33.5979 28.913 33.5979C30.0484 33.5979 30.8475 33.1848 31.3105 32.3586C31.7734 31.5324 32.0435 30.4529 32.1206 29.12L32.3356 25.4682C32.0821 25.4131 31.7955 25.3745 31.4758 25.3525C31.1562 25.3195 30.8089 25.3029 30.4342 25.3029C29.365 25.3029 28.5107 25.5398 27.8714 26.0135C27.2321 26.4761 26.7691 27.0765 26.4825 27.8146C26.207 28.5416 26.0692 29.3072 26.0692 30.1114Z" fill="white" stroke="#4D05BB" stroke-width="0.5"/>
+                                <path d="M21.7391 18.8715L44.0363 38.2083" stroke="#4D05BB" stroke-width="8" stroke-linecap="round"/>
+                                <path d="M17.9493 15.3406L44.3478 38.2609" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="content">
+                            <h4 class="sub-heading">{reason1-sub2-heading}</h4>
+                            <p class="para">{reason1-sub2-p1}</p>
+                        </div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <circle cx="30" cy="30" r="30" fill="#4D05BB"/>
+                                <path d="M28.8742 17.7057C28.9855 16.5099 30.2003 15.526 31.4249 16.2431C33.971 17.7758 36.3745 19.521 38.698 21.3892C41.5649 23.7157 43.8684 25.9106 45.4978 27.6632C46.2058 28.4249 46.1389 29.6296 45.4625 30.357C43.8585 32.0815 42.1312 33.6858 40.349 35.2121C37.5122 37.5983 34.576 39.9115 31.3783 41.7661C30.2932 42.395 29.1187 41.6757 28.9091 40.5613L28.885 40.3913L28.5521 35.0164C25.895 35.0739 23.3219 36.0126 21.2639 37.7575L20.8767 38.0922C20.8135 38.1456 20.7511 38.1976 20.6893 38.2484L20.3271 38.5373C20.2681 38.5828 20.2099 38.6269 20.1523 38.6697L19.8157 38.909C19.7064 38.983 19.6 39.0512 19.4966 39.1132L19.1952 39.2805C17.7816 39.9973 17 39.363 17 36.5173C17 29.8941 21.749 24.0013 28.1682 23.1075L28.5477 23.0607L28.8742 17.7057ZM31.6675 19.9225L31.3873 25.1437C31.3674 25.5124 31.09 25.8118 30.7327 25.8502L28.7404 26.0641C24.255 26.6141 20.697 30.2178 20.0368 34.928C22.217 33.2773 24.807 32.273 27.5517 32.0521L28.1314 32.0171L30.6257 31.963C31.0202 31.9546 31.3502 32.2689 31.3717 32.6737L31.6599 38.0809C34.006 36.5453 36.2424 34.7791 38.4852 32.8931C39.9335 31.6523 41.3306 30.3569 42.6667 28.9899L42.2894 28.6061L41.4758 27.8038C40.1974 26.5676 38.6592 25.1904 36.8892 23.7538C35.1833 22.3824 33.4526 21.0954 31.6675 19.9225Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="content">
+                            <h4 class="sub-heading">{reason1-sub3-heading}</h4>
+                            <p class="para">{reason1-sub3-p1}</p>
+                        </div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <circle cx="30" cy="30" r="30" fill="#4D05BB"/>
+                                <rect x="17" y="17" width="26" height="26" rx="8" stroke="white" stroke-width="4"/>
+                                <path d="M30 25L30 36" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+                                <path d="M25 30L35 30" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="content">
+                            <h4 class="sub-heading">{reason1-sub4-heading}</h4>
+                            <p class="para">{reason1-sub4-p1}</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="item">
+                    <div class="body">
+                        <div class="content">
+                            <h3 class="heading">{reason2-heading}</h3>
+                            <p class="para">{reason2-para}</p>
+                            <ul>{reason2-bullets}</ul>
+                        </div>
+                        <div class="img-container">
+                            <img data-src="/imgs/video-downloader-icon1.svg" src="" alt="icon" class="square_img lazy">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="item">
+                    <h3 class="heading">{stepper-heading}</h3>
+                    <p class="para">{stepper-para}</p>
+                    <div class="guideline">
+                        <div class="guide">
+                            <div class="seqNum">1</div>
+                            <div class="para">
+                                {step-1}
+                            </div>
+                        </div>
+                        <div class="guide">
+                            <div class="seqNum">2</div>
+                            <div class="para">
+                                {step-2}
+                            </div>
+                        </div>
+                        <div class="guide">
+                            <div class="seqNum">3</div>
+                            <div class="para">
+                                {step-3}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="item">
+                    <div class="body">
+                        <div class="content">
+                            <h3 class="heading">{feature1-heading}</h3>
+                            <p class="para">{feature1-para}</p>
+                        </div>
+                        <div class="img-container">
+                            <img data-src="/imgs/video-downloader-icon6.svg" src="" alt="icon" class="tall_img lazy">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="item">
+                    <div class="body">
+                        <div class="content">
+                            <h3 class="heading">{feature2-heading}</h3>
+                            <p class="para">{feature2-para}</p>
+                            <div class="sub-item">
+                                <h4 class="sub-heading">{feature2-sub1-heading}</h4>
+                                <p class="para">{feature2-sub1-p1}</p>
+                            </div>
+                            <div class="sub-item">
+                                <h4 class="sub-heading">{feature2-sub2-heading}</h4>
+                                <p class="para">{feature2-sub2-p1}</p>
+                            </div>
+                        </div>
+                        <div class="img-container">
+                            <img data-src="/imgs/video-downloader-icon2.svg" src="" alt="icon" class="tall_img lazy">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="item">
+                    <div class="body">
+                        <div class="content">
+                            <h3 class="heading">{feature3-heading}</h3>
+                            <p class="para">{feature3-para}</p>
+                        </div>
+                        <div class="img-container">
+                            <img data-src="/imgs/video-downloader-icon4.svg" src="" alt="icon" class="tall_img lazy">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="item">
+                    <div class="body">
+                        <div class="content">
+                            <h3 class="heading">{feature4-heading}</h3>
+                            <p class="para">{feature4-para}</p>
+                        </div>
+                        <div class="img-container">
+                            <img data-src="/imgs/video-downloader-icon3.svg" src="" alt="icon" class="tall_img lazy">
+                        </div>
+                    </div>
+                    
+                </div>
+                <hr>
+            </section>
+            <section class="faq main-container">
+                <h4 class="heading">{faq-heading}</h4>
+                <h2 class="title">{faq-title}</h2>
+                <p class="para">{faq-subtitle}</p>
+                <div class="faq-part">
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q1}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                        {faq-a1}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q2}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                            {faq-a2}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q3}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                            {faq-a3}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q4}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                            {faq-a4}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q5}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                            {faq-a5}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q6}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                            {faq-a6}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q7}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                        {faq-a7}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q8}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                        {faq-a8}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q9}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                        {faq-a9}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q10}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                        {faq-a10}
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="question">
+                            <span class="txt">{faq-q11}</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                    <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="answer">
+                        {faq-a11}
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center;"><a href="javascript:void(0);" class="btn btn3" onclick="questionModal();">ASK A QUESTION</a></div>
+            </section>
+
+            <section class="download-prompt main-container">
+                <!-- <h4 class="heading">{download-prompt-heading}</h4> -->
+                <h2 class="title">{download-prompt-title}</h2>
+                <div style="text-align: center;"><a href="#" class="btn color4">{download-prompt-link}</a></div>
+            </section>
+        </div>
+        {footer}
+        <script src="/common/superviral-free-tools.js"></script>
+        <script src="/common/lazy-loading.js"></script>
+        <script>
+            {headerscript}
+            function questionModal() {
+                var widthPopup = "356";
+                var heightPopup = "472";
+
+                var signDiv = document.createElement("div");
+                signDiv.id = 'signDiv';
+                document.body.appendChild(signDiv);
+
+                var questionHTML = '<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+                questionHTML += '<div style="overflow: hidden; z-index:9999;width:' + widthPopup + 'px;height:' + heightPopup + 'px;position:fixed;left:50%;margin-left:-' + (widthPopup / 2) + 'px;top:50%;margin-top:-' + (heightPopup / 2) + 'px;border:0">';
+                questionHTML += '<iframe src="{loclink}/userquestions.php?page=buy-instagram-followers" style="overflow: hidden;width:100%;height:' + (heightPopup - 35) + 'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe><div onclick="closequestionDiv();" style="text-align:center;color:#fff;font-size:15px;">Close window X</div></div>';
+
+                document.getElementById('signDiv').innerHTML = questionHTML;
+
+                return false;
+            }
+
+            function closequestionDiv(msg) {
+                document.body.removeChild(document.getElementById('signDiv'));
+                // exitout="1";
+                if (msg == "Question submitted successfully - thank you for the feedback!") {
+                    addMsgs(msg);
+                }
+            }
+
+            function addMsgs(msg) {
+                document.getElementById("successMsgAddQues").innerHTML = msg;
+                document.getElementById("successMsgAddQues").style.display = "block";
+                document.getElementById("successMsgBtn").click();
+            }
+
+            function onSubmitData(event) {
+                event.preventDefault();
+                grecaptcha.ready(function () {
+                    grecaptcha.execute('{googlev3recaptchakey}', { action: 'submit' }).then(function (token) {
+                        // spinFunction();
+                        document.getElementById('g-recaptcha-response').value = token;
+                        getUserInfo("on", event);
+                    });
+                });
+            }
+
+            function getUserInfo(captcha, event) {
+                event.preventDefault();
+                var post_url = document.getElementById('post_url').value;
+                if (post_url.trim() == "") {
+                    alert('Post url is required');
+                    return;
+                }
+
+                var dataArr = {
+                    "post_url": post_url,
+                    "type": 'post',
+                };
+
+                if (captcha == "on") {
+                    var grecaptcharesponse = document.getElementById('g-recaptcha-response').value;
+                    dataArr['g-recaptcha-response'] = grecaptcharesponse;
+                }
+
+                document.getElementById("loading_overlay").style.display = "flex";
+                const downloadBtn = document.querySelector('.banner .input-group .btn-download');
+                // downloadBtn.classList.add("loading");
+                // downloadBtn.querySelector(".text").textContent = "downloading...";
+
+                document.getElementById('post').style.display = "block";
+                // document.getElementById('post').innerHTML = 'Loading....';
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/free_tools_ajax.php", true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function () {
+                    document.getElementById("loading_overlay").style.display = "none";
+                    downloadBtn.classList.remove("loading");
+
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.message == 'success') {
+                        var htm;
+                        if (response.data.post.media_type != 2) {
+                            htm = 'Video media type url required, this is image';
+                        } else {
+                            htm = '<img src="' + response.data.post.url + '" >';
+                            htm += '<video src="' + response.data.post.video_url + '" controls id="videoPlayer" style="display:none;"></video>';
+                            downloadBtn.style.display = "none";
+                            document.querySelector('.banner .input-group .btn-save-video').style.display = 'flex';
+                            document.getElementById('secondPointTxt').style.display = "none";
+                            document.getElementById('thirdPointTxt').style.display = "none";
+                            document.getElementById('downloadanotherId').style.display = "block";
+                            document.getElementById('inpUrlBox').style.display = "none";
+                        }
+                        document.getElementById('post').innerHTML = htm;
+                    } else {
+                        alert(response.message);
+                        if (response.message == 'Recaptcha Error' || response.message == 'Not found, please try again later!') {
+                            location.reload();
+                        }
+                    }
+                };
+                const urlEncodedData = new URLSearchParams(dataArr);
+                xhr.send(urlEncodedData);
+            }
+
+            function downloadVideo() {
+                var videoSrc = document.getElementById('videoPlayer').src;
+                var videoUrl = videoSrc;
+
+                const savingBtn = document.querySelector('.banner .input-group .btn-save-video');
+                savingBtn.querySelector(".text").textContent = "saving...";
+
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', videoUrl, true);
+                xhr.responseType = 'blob';
+                xhr.onload = function () {
+                    let urlCreator = window.URL || window.webkitURL;
+                    let videoUrl = urlCreator.createObjectURL(this.response);
+                    let tag = document.createElement('a');
+                    tag.href = videoUrl;
+                    tag.target = '_blank';
+                    let randomStr = Math.random().toString(36).substring(2, 8);
+                    let timestamp = new Date().getTime();
+                    let uniqueId = randomStr + '-' + timestamp;
+                    tag.download = uniqueId + '.mp4'.includes('.mp4') ? uniqueId + '.mp4' : uniqueId + '.mp4';
+                    document.body.appendChild(tag);
+                    tag.click();
+                    document.body.removeChild(tag);
+                    savingBtn.querySelector(".text").textContent = "SAVE VIDEO";
+                };
+                xhr.onerror = (err) => { };
+                xhr.send();
+            }
+        </script>
+    <!-- {recaptchaUrl} -->
+    <script src="https://www.google.com/recaptcha/api.js?render={googlev3recaptchakey}"></script>
+
+    </body>
+</html>

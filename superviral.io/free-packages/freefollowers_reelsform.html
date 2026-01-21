@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<head>
+
+
+
+
+
+
+
+    <title></title>
+
+
+
+
+
+
+
+    <meta name="description" content="{metadesc}" />
+
+
+
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+    <meta http-equiv="Content-Language" content="{contentlanguage}">
+
+
+
+
+
+
+
+    <link rel="canonical" href="{canonical}" />
+
+
+
+
+
+
+
+    <link rel="alternate" hreflang="en-us" href="https://us.superviral.io/instagram-story-downloader/" />
+
+
+
+
+
+
+
+    <link rel="alternate" hreflang="en-gb" href="https://uk.superviral.io/instagram-story-downloader/" />
+
+
+
+
+
+
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+
+
+
+
+
+    <link
+
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+
+        rel="stylesheet">
+
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/buystyle.min.css?time=1646054328">
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/superviral-free-tools.css" />
+
+    <link rel="stylesheet" href="/intlinput/build/css/intlTelInput.css">
+
+    <style>
+
+        .section-form * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        .section-form h2 {
+
+            font-size: 32px;
+
+            max-width: 305px;
+
+            margin: 0 auto 44px;
+
+            text-align: center;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        .section-form h2 .txt-special {
+
+            background: linear-gradient(246deg, #4D05BB 34.81%, #BD385C 80.81%);
+
+            background-clip: text;
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+        }
+
+
+
+        .section-form a {
+
+            cursor: pointer;
+
+        }
+
+
+
+        .section-form .main-container {
+
+            padding: 0 20px;
+
+        }
+
+
+
+        .section-form {
+
+            background-color: #FFF;
+
+            padding: 55px 0 0;
+
+            height: 100vh;
+
+        }
+
+
+
+        .section-form .form-group {
+
+            font-family: "Source Sans Pro", sans-serif;
+
+            font-size: 14px;
+
+        }
+
+
+
+        .section-form label {
+
+            color: #8B8B8B;
+
+        }
+
+
+
+        .section-form .input-group {
+
+            margin-top: 10px;
+
+            margin-bottom: 13px;
+
+        }
+
+
+
+        .section-form input {
+
+            border-radius: 4px;
+
+            border: 1px solid #BBB;
+
+            padding: 12px 10px;
+
+            width: 100%;
+
+        }
+
+
+
+        .button-primary {
+
+            font-family: "Open Sans", sans-serif;
+
+            border-radius: 20px;
+
+            background: #1A73E7;
+
+            color: #FFF;
+
+            border: 0;
+
+            padding: 10px 0;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .section-form form .button-primary {
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            width: 100%;
+
+            margin-bottom: 25px;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        .section-form .link-primary {
+
+            color: #000;
+
+            font-family: "Source Sans Pro", sans-serif;
+
+            font-size: 12px;
+
+            text-decoration: underline;
+
+        }
+
+
+
+
+
+        /* Overlay */
+
+        .overlay,
+
+        .loader-overlay {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: rgba(215, 215, 215, 0.50);
+
+            backdrop-filter: blur(4px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            visibility: hidden;
+
+            opacity: 0;
+
+            transition: visibility 0s, opacity 0.5s;
+
+        }
+
+
+
+        /* Popup */
+
+        .popup {
+
+            background: #FFFFFF;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            width: 80%;
+
+            max-width: 400px;
+
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        }
+
+
+
+        .popup h2 {
+
+            font-size: 15px;
+
+            font-family: "Open Sans", sans-serif;
+
+            font-weight: 700;
+
+            color: #000000;
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .popup .separator {
+
+            height: 0.5px;
+
+            background-color: #E7E7E7;
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .popup p {
+
+            font-size: 12px;
+
+            margin-bottom: 20px;
+
+            font-family: "Source Sans Pro", sans-serif;
+
+            text-align: center;
+
+            color: #000000;
+
+        }
+
+
+
+        .popup .button-container {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 100%;
+
+            gap: 20px;
+
+        }
+
+
+
+        .popup button {
+
+            font-size: 12px;
+
+            border-radius: 50px;
+
+            padding: 5px;
+
+            width: 70px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .popup .button-transparent {
+
+            background-color: transparent;
+
+            color: #000000;
+
+            border: 0.5px solid #E8E8E8;
+
+        }
+
+
+
+
+
+        /* Show overlay and popup */
+
+        .overlay.show,
+
+        .loader-overlay.show {
+
+            visibility: visible;
+
+            opacity: 1;
+
+        }
+
+
+
+        .loader-container {
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background-color: #FFFFFF;
+
+            width: 130px;
+
+            height: 130px;
+
+            border-radius: 35px;
+
+        }
+
+
+
+        .loader-container svg {
+
+            animation: spin 2s linear infinite;
+
+        }
+
+
+
+        @keyframes spin {
+
+            from {
+
+                transform: rotate(0deg);
+
+            }
+
+
+
+            to {
+
+                transform: rotate(360deg);
+
+            }
+
+        }
+
+
+
+        .loading-text {
+
+            position: absolute;
+
+            top: 65%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            z-index: 9999;
+
+            font-family: "Source Sans Pro";
+
+        }
+
+
+
+        @media only screen and (min-width: 768px) {
+
+            .section-form h2 {
+
+                font-size: 42px;
+
+                max-width: unset;
+
+            }
+
+
+
+            .section-form .main-container {
+
+                padding: 0;
+
+                max-width: 330px;
+
+                margin: 0 auto;
+
+            }
+
+
+
+            .section-form .form-group {
+
+                font-size: 16px;
+
+            }
+
+
+
+            .section-form .input-group {
+
+                margin-top: 12px;
+
+                margin-bottom: 14px;
+
+            }
+
+
+
+            .section-form form .button-primary {
+
+                font-size: 16px;
+
+            }
+
+
+
+            .section-form .link-primary {
+
+                font-size: 13px;
+
+            }
+
+
+
+            .popup h2 {
+
+                font-size: 16px;
+
+            }
+
+
+
+            .popup p {
+
+                font-size: 13px;
+
+            }
+
+
+
+        }
+
+        .iti__flag-container{
+
+            padding: 10px;
+
+        }
+
+    </style>
+
+
+
+</head>
+
+
+
+
+
+<body>
+
+
+
+
+
+
+
+    {header}
+
+    <section class="section-form">
+
+        <div class="main-container">
+
+            <h2>claim your FREE
+
+                <span class="txt-special">{followeramount} followers!</span>
+
+            </h2>
+
+            <form method="POST" id="idform">
+
+                <div class="form-group">
+
+                    <label for="ig-username">Your Instagram username:</label>
+
+                    <div class="input-group">
+
+                        <input type="text" id="ig-username" name="username" value="{igusername}" required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="phone1">Your contact number:<br>
+
+                        <font style="font-size:14px;font-style:italic;">(for free status notification on your followers)
+
+                        </font>
+
+                    </label>
+
+                    <div class="input-group">
+
+                        <input type="tel" class="input inputcontact" name="contactnumber" id="phone1">
+
+                        <input type="hidden" id="output" name="input" value="">
+
+                    </div>
+
+                </div>
+
+                <button class="button button-primary" type="submit" id="claim-button"
+
+                    onclick="event.preventDefault()">claim now</button>
+
+            </form>
+
+            <div style="text-align: center;">
+
+                <a class="link-primary">No, I don't want to claim the followers</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Overlay and Popup -->
+
+    <div class="overlay" id="overlay">
+
+        <div class="popup" id="popup">
+
+            <h2>Confirmation</h2>
+
+            <div class="separator"></div>
+
+            <p>Are you sure you don’t want to claim the followers?</p>
+
+            <div class="button-container">
+
+                <button class="button-primary" id="close-popup">No</button>
+
+                <button class="button-transparent" id="confirm-button">Yes</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Loader -->
+
+    <div class="loader-overlay" id="loader-overlay">
+
+        <div class="loader-container">
+
+            <svg width="60" height="59" viewBox="0 0 60 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                <path fill-rule="evenodd" clip-rule="evenodd"
+
+                    d="M28.8975 0.0874013C28.065 0.357401 27.585 0.837401 27.3525 1.62115C27.2213 2.0599 27.1988 3.0799 27.1988 8.4049C27.1988 15.4587 27.1913 15.3687 27.9113 16.0887C28.875 17.0487 31.125 17.0487 32.0888 16.0887C32.8088 15.3687 32.8013 15.4587 32.8013 8.4049C32.8013 1.5799 32.79 1.4599 32.235 0.799901C31.77 0.248651 31.2713 0.0649013 30.15 0.0349013C29.5988 0.0199013 29.0363 0.0424013 28.8975 0.0874013ZM10.3238 7.4974C9.73128 7.7674 8.85753 8.6224 8.55378 9.2299C8.23878 9.86365 8.22378 10.5687 8.50878 11.1987C8.78628 11.8174 17.5013 20.5624 18.1875 20.9111C19.1588 21.4099 20.1563 21.1662 21.1613 20.1837C22.1513 19.2162 22.4138 18.1662 21.9113 17.1874C21.5625 16.5012 12.8175 7.78615 12.1988 7.50865C11.6288 7.2499 10.8788 7.24615 10.3238 7.4974ZM48.1988 7.5574C47.7375 7.77115 46.95 8.5099 43.1925 12.2787C39.7388 15.7399 38.685 16.8574 38.5163 17.2249C38.2313 17.8437 38.235 18.5599 38.52 19.1674C38.7825 19.7299 39.645 20.6149 40.2263 20.9186C40.815 21.2262 41.6888 21.2224 42.3 20.9111C42.9263 20.5886 51.5888 11.9262 51.9113 11.2999C52.2225 10.6924 52.2263 9.8149 51.9225 9.23365C51.615 8.6449 50.82 7.8649 50.22 7.56115C49.5488 7.2199 48.93 7.2199 48.1988 7.5574ZM2.62128 26.3449C1.51503 26.6936 0.967529 27.5749 0.967529 28.9962C0.971279 30.4474 1.51128 31.3174 2.61753 31.6474C3.06003 31.7787 4.04628 31.8011 9.40503 31.8011C14.9888 31.8011 15.735 31.7824 16.1925 31.6324C16.8675 31.4149 17.415 30.8674 17.6325 30.1924C17.955 29.1987 17.7938 27.7887 17.28 27.0912C17.1675 26.9412 16.845 26.6899 16.5638 26.5361L16.05 26.2512L9.55128 26.2287C4.32003 26.2137 2.96628 26.2362 2.62128 26.3449ZM44.0438 26.2924C43.5825 26.4049 42.945 26.7912 42.72 27.0949C42.2063 27.7887 42.045 29.1987 42.3675 30.1924C42.585 30.8674 43.1325 31.4149 43.8075 31.6324C44.265 31.7824 45.0113 31.8011 50.595 31.8011C55.9538 31.8011 56.94 31.7787 57.3825 31.6474C58.4888 31.3174 59.0288 30.4474 59.0325 28.9962C59.0325 27.5524 58.4813 26.6861 57.3375 26.3412C56.9513 26.2249 55.74 26.2024 50.61 26.2099C47.1675 26.2174 44.2125 26.2549 44.0438 26.2924ZM18.1988 37.5574C17.7375 37.7711 16.95 38.5099 13.1925 42.2787C9.73878 45.7399 8.68503 46.8574 8.51628 47.2249C8.23128 47.8437 8.23503 48.5599 8.52003 49.1674C8.78253 49.7299 9.64503 50.6149 10.2263 50.9187C10.815 51.2262 11.6888 51.2224 12.3 50.9112C12.9263 50.5887 21.5888 41.9262 21.9113 41.2999C22.2225 40.6924 22.2263 39.8149 21.9225 39.2337C21.615 38.6449 20.82 37.8649 20.22 37.5611C19.5488 37.2199 18.93 37.2199 18.1988 37.5574ZM40.3238 37.4974C39.7313 37.7674 38.8575 38.6224 38.5538 39.2299C38.2388 39.8637 38.2238 40.5686 38.5088 41.1987C38.7863 41.8174 47.5013 50.5624 48.1875 50.9112C49.1588 51.4099 50.1563 51.1661 51.1613 50.1837C52.1513 49.2162 52.4138 48.1661 51.9113 47.1874C51.5625 46.5012 42.8175 37.7862 42.1988 37.5087C41.6288 37.2499 40.8788 37.2461 40.3238 37.4974ZM29.0438 41.2887C28.575 41.4087 27.9413 41.7949 27.72 42.0949C27.2025 42.7924 27.1988 42.8412 27.1988 49.5837C27.1988 54.9537 27.2213 55.9399 27.3525 56.3824C27.6825 57.4887 28.5563 58.0287 30 58.0287C31.4438 58.0287 32.3175 57.4887 32.6475 56.3824C32.88 55.5874 32.8763 43.5311 32.64 42.8374C32.415 42.1774 32.1563 41.8624 31.575 41.5474C31.1625 41.3224 30.9225 41.2662 30.2138 41.2399C29.7375 41.2212 29.2125 41.2437 29.0438 41.2887Z"
+
+                    fill="black" />
+
+            </svg>
+
+
+
+        </div>
+
+        <div class="loading-text">Processing...</div>
+
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="/intlinput/build/js/intlTelInput.js?68"></script>
+
+
+
+    <script>
+
+
+
+        var input = document.querySelector("#phone1"), output = document.querySelector("#output");
+
+
+
+        var iti = window.intlTelInput(input, {
+
+
+
+            nationalMode: true,
+
+
+
+            initialCountry: "auto",
+
+
+
+            geoIpLookup: function (callback) {
+
+
+
+                $.get('https://ipinfo.io', function () { }, "jsonp").always(function (resp) {
+
+
+
+                    var countryCode = (resp && resp.country) ? resp.country : "";
+
+
+
+                    callback(countryCode);
+
+
+
+                });
+
+
+
+            },
+
+
+
+            utilsScript: "/intlinput/build/js/utils.js" // just for formatting/placeholders etc
+
+
+
+        });
+
+
+
+
+
+
+
+        var handleChange = function () {
+
+
+
+            var text = iti.getNumber();
+
+
+
+            var textNode = document.createTextNode(text);
+
+
+
+            output.innerHTML = "";
+
+
+
+            output.appendChild(textNode);
+
+
+
+            $(output).val(text);
+
+
+
+        };
+
+
+
+
+
+        // listen to "keyup", but also "change" to update when the user selects a country
+
+
+
+        input.addEventListener('change', handleChange);
+
+            
+
+        input.addEventListener('keyup', handleChange);
+
+
+
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Show the overlay when the "link" is clicked
+
+            document.querySelector(".link-primary").addEventListener("click", function () {
+
+                document.getElementById("overlay").classList.add("show");
+
+            });
+
+
+
+            // Close the popup
+
+            document.getElementById("close-popup").addEventListener("click", function () {
+
+                document.getElementById("overlay").classList.remove("show");
+
+            });
+
+
+
+            // success
+
+            document.getElementById("confirm-button").addEventListener("click", function () {
+
+                window.location = "/buy-instagram-followers/";
+
+            });
+
+            // Close the popup when clicking outside of it
+
+            document.getElementById("overlay").addEventListener("click", function (event) {
+
+                if (event.target === this) {
+
+                    this.classList.remove("show");
+
+                }
+
+            });
+
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Show the overlay when the "CLAIM NOW" button is clicked
+
+            document.querySelector("#claim-button").addEventListener("click", function () {
+
+                document.getElementById("loader-overlay").classList.add("show");
+
+                document.getElementById("idform").submit();
+
+            });
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+
+</body>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,278 @@
+<!-- @meta -->
+
+<title>Content Page</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+
+<style>
+    .content-page .box23 {
+        margin: 66px auto;
+        max-width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .content-page h1 {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .content-page .label {
+        margin-top: 35px;
+    }
+
+    .content-page .container div input,
+    .content-page .selectric,
+    .content-page .input,
+    .content-page .btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .content-page .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    .content-page .cke_reset_all {
+        background: #f7f7f7 !important;
+    }
+
+    .content-page .articles {
+        width: 100%;
+    }
+
+    .content-page .articles tr td {
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #000;
+        padding: 10px;
+        vertical-align: top
+    }
+
+    .content-page .articles tr:first-child td {
+        background: #f1f1f1;
+        font-weight: bold;
+    }
+
+    .content-page .status {
+        font-weight: bold;
+        height: 23px;
+        width: 55px;
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .content-page .btn {
+        margin: 0 !important;
+        width: 152px;
+    }
+
+    .content-page textarea {
+        font-family: 'Open Sans';
+        height: 400px;
+    }
+
+
+    .content-page .previouscontent {
+        width: 100%
+    }
+
+    .content-page .previouscontent tr td {
+        padding: 10px;
+        border-bottom: 1px solid grey;
+    }
+
+    .content-page .previouscontent tr td .foo {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 18px;
+    }
+
+    .content-page .language-less {
+        width: 1px;
+        height: 1px;
+        resize: none;
+    }
+
+    .content-page .form-common .input-group {
+        margin-bottom: 10px;
+    }
+</style>
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<script>
+    (function () {
+
+        // Get the elements.
+        // - the 'pre' element.
+
+
+        var pre = document.getElementsByClassName('foo');
+
+
+        // Add a copy button in the 'pre' element.
+        // which only has the className of 'language-'.
+
+        for (var i = 0; i < pre.length; i++) {
+            var isLanguage = pre[i].children[0].className.indexOf('language-');
+
+            /*
+            if ( isLanguage === 0 ) {
+                var button           = document.createElement('button');
+                        button.className = 'copy-button';
+                        button.textContent = 'Copy';
+    
+                        pre[i].appendChild(button);
+            }*/
+        };
+
+        // Run Clipboard
+
+        var copyCode = new Clipboard('.copy-button', {
+            target: function (trigger) {
+                return trigger.previousElementSibling;
+            }
+        });
+
+        // On success:
+        // - Change the "Copy" text to "Copied".
+        // - Swap it to "Copy" in 2s.
+        // - Lead user to the "contenteditable" area with Velocity scroll.
+
+        copyCode.on('success', function (event) {
+            event.clearSelection();
+            event.trigger.textContent = 'Copied';
+            window.setTimeout(function () {
+                event.trigger.textContent = 'Copy';
+            }, 2000);
+
+        });
+
+
+    })();
+</script>
+<!-- @script_tags -->
+
+
+
+<main class="content-page">
+    <div class="box23">
+        {reviewmessage}
+        <form method="POST" class="form-common">
+            <div class="input-group">
+                <label> Country:</label>
+                <div class="input-container">
+                        <select class="input" id="company" name="company">
+                            <option disabled unselected>Select a company</option>
+                            <!-- @brand_options -->
+                            <option>{name}</option>
+                            <!-- @brand_options -->
+                        </select>        
+                </div>
+            </div>
+            <div class="input-group">
+                <label> Country:</label>
+                <div class="input-container">
+                    <select name="country" class="input inputcontact">
+                        {country}
+                    </select>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Page:</label>
+                <div class="input-container">
+                    <select class="input inputcontact" id="pages" name="page">{pages1}</select>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Name/key:</label>
+                <div class="input-container">
+                    <input class="input inputcontact" name="name" value="{newname}">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Content:</label>
+                <div class="input-container">
+                    <textarea class="input inputcontact" name="content" placeholder="Content"></textarea>
+                </div>
+            </div>
+            <button class="btn btn-primary color3" name="submit" value="1" type="submit">submit content</button>
+        </form>
+
+
+    </div>
+
+    <div class="box23">
+
+
+        <table class="previouscontent">
+
+            {previouscontent}
+
+        </table>
+
+
+    </div>
+
+</main>
+
+<script>
+	
+    (function(){
+    
+        // Get the elements.
+        // - the 'pre' element.
+    
+        
+        var pre = document.getElementsByClassName('foo');
+        
+    
+        // Add a copy button in the 'pre' element.
+        // which only has the className of 'language-'.
+        
+        for (var i = 0; i < pre.length; i++) {
+            var isLanguage = pre[i].children[0].className.indexOf('language-');
+            
+            /*
+            if ( isLanguage === 0 ) {
+                var button           = document.createElement('button');
+                        button.className = 'copy-button';
+                        button.textContent = 'Copy';
+    
+                        pre[i].appendChild(button);
+            }*/
+        };
+        
+        // Run Clipboard
+        
+        var copyCode = new Clipboard('.copy-button', {
+            target: function(trigger) {
+                return trigger.previousElementSibling;
+        }
+        });
+    
+        // On success:
+        // - Change the "Copy" text to "Copied".
+        // - Swap it to "Copy" in 2s.
+        // - Lead user to the "contenteditable" area with Velocity scroll.
+        
+        copyCode.on('success', function(event) {
+            event.clearSelection();
+            event.trigger.textContent = 'Copied';
+            window.setTimeout(function() {
+                event.trigger.textContent = 'Copy';
+            }, 2000);
+    
+        });
+    
+    
+    })();
+    </script>

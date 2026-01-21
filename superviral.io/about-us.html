@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<head>
+<title>{title}</title>
+<meta name="description" content="{metadesc}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="Content-Language" content="{contentlanguage}">
+<link rel="canonical" href="{canonical}" />
+<link rel="alternate" hreflang="en-us" href="https://superviral.io/us/about-us/" />
+<link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/about-us/" />
+<link rel="alternate" hreflang="x-default" href="https://superviral.io/about-us/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/orderform.css">
+<style type="text/css">
+	
+
+    h1{color:#000;text-align: left;    max-width: 100%;width:100%;}
+
+    body{background:#f5f7fe;}
+
+    .officelocation{width:100%;}
+
+
+    .container{height: initial;
+    width: 100%;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #fff;
+    margin: 14px 0;}
+    .container .containerholder span{color:#000;}
+    .container div span, .container label{margin-top:0;}
+    .container .containerinfo .containerinfotext span.text,.container .containerinfo .containerinfotext p.text{font-size:15px;color:#000;margin:0;}
+    .container .containerinfo .containerinfotext span.heading{font-size:15px;color:grey;margin-top:15px;}
+    .containeroffice{padding:0;}
+    .containerinfo{padding: 10px;}
+
+    .containerholder p{font-size:14px;}
+
+    .contactusbtn{border: 1px solid #000;
+    margin: 5px 0 0 0!important;
+    padding: 10px;
+    width: 120px;}
+
+    @media only screen and (min-width: 768px) {
+
+    h2{margin: 10px 0;}
+
+    .officelocation {
+    width: 50%;
+    float: left;
+    margin: 13px;
+    }
+
+    .containerinfo {
+    margin: 10px;
+    display: block;
+    float: left;
+    padding-left: 0;
+    }
+
+    .container .containerinfo .containerinfotext span.heading:nth-child(1){margin-top:0;}
+
+
+    }
+
+    @media only screen and (min-width: 992px) {
+
+    .officelocation{margin:0;}
+    .containerinfotext{margin:15px 15px 0 15px;}
+    .container .containerholder{width:88%;margin:0 auto;text-align:center;}
+    .containerholder p {text-align:left;}
+    .container{max-width:950px;}
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+
+    }
+
+
+</style>	
+</head>
+
+	<body>
+
+
+        {header}
+
+
+		<div class="color2 se1" align="center">
+
+			<div class="cnwidth">
+
+				<h1>{h1}</h1>
+                <span class="contactusspan">{h1desc}</span>
+
+                <div class="container containeroffice">
+
+                	<img class="officelocation" src="/imgs/{officelocationfile}">
+                	<div class="containerinfo">
+
+                		<div class="containerinfotext">
+                            
+                            <!--{1-content-1}-->
+                            {1-content-2}
+                            {1-content-3}
+                            {1-content-4}
+                            {1-content-5}
+
+
+
+                		</div>
+
+                	</div>
+
+                </div>
+
+                <div class="container">
+
+                	<div class="containerholder">
+
+                        <h2>{2-h2}</h2>
+                        
+                        {2-p}
+
+                    </div>
+
+                </div>
+
+                <div class="container">
+
+                	<div class="containerholder">
+
+                		<h2>{3-h2}</h2>
+
+                        {3-p}
+
+              		</div>
+
+              	</div>
+
+
+
+			</div>
+		</div>
+
+
+
+		
+
+{footer}
+
+<script type="text/javascript">
+
+
+{headerscript}
+
+
+
+</script>
+
+	</body>
+</html>

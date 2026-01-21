@@ -1,0 +1,1295 @@
+{errorstyle}
+
+
+
+
+
+
+
+<style>
+
+
+    .svstars{    margin-bottom: 52px;}
+
+    .orderfield {
+
+        position: relative;
+
+    }
+
+
+
+    .orderfield input {
+
+        padding-left: 45px !important;
+
+    }
+
+
+
+    .orderfield svg {
+
+        fill: #4e03e0;
+
+        position: absolute;
+
+        height: 21px;
+
+        bottom: 19px;
+
+        left: 16px;
+
+    }
+
+
+
+    .stepsbar {
+
+        background: rgb(78, 3, 224);
+
+        height: 100%;
+
+        width: 15%;
+
+    }
+
+    .stepsbar.animate { 	
+        -webkit-animation: animateThis 1s ease forwards; 	
+        animation: animateThis 1s ease forwards;
+    }
+
+    #order-about{}
+
+    @media (max-width:767px){
+
+        #order-about{padding:2rem 1rem;background:#f5f5f5;margin:auto;width:75%;max-width:500px}
+
+    }
+
+
+
+    .maintestimonialholder {
+
+        text-align: center;
+
+        width: 370px;
+
+        margin-top: -30px;
+
+    }
+
+    @media (max-width:767px){
+
+        .maintestimonialholder{margin-top:0;width: initial;}
+
+    }
+
+
+
+    .maintestimonialholder .maintestimonialholderthumb {
+
+        width: 104px;
+
+        margin: 0 auto;
+
+        background: linear-gradient(to right, red, purple);
+
+        height: 103px;
+
+        padding-top: 3px;
+
+        border-radius: 80px;
+
+        margin-bottom: 20px;
+
+    }
+
+
+
+    .maintestimonialholder .maintestimonialholderthumb .userthumbnail {
+
+        border-radius: 80px;
+
+        width: 100px;
+
+        display: block;
+
+        margin: 0 auto;
+
+        margin-bottom: 30px;
+
+    }
+
+
+
+    .maintestimonialholder .testimonialquote {
+
+        max-width: 360px;
+
+        display: inline-block;
+
+        margin: auto;
+
+        line-height: 30px;
+
+        margin-bottom: 20px;
+
+        font-size: 18px;
+
+    }
+
+
+    .maintestimonialholder .testimonialcompany {
+
+        max-width: 360px;
+
+        display: inline-block;
+
+        margin: auto;
+
+        line-height: 30px;
+
+        margin-bottom: 20px;
+
+        font-size: 21px;
+
+        font-weight: bold;
+    
+       width: 100%;
+
+
+    }
+
+
+
+font-weight: bold;width:100%;
+
+
+
+
+    .icons-section{
+
+        margin-top: 40px;
+
+    }
+
+    .icons-section .icon-container { 
+
+        display: flex;
+
+        justify-content: space-around;
+
+        align-items: center;
+
+    }
+
+
+
+    .icons-section .icon-container .icon .title{
+
+        color: #4D05BB;
+
+        font-size: 25px;  
+
+        font-weight: bolder;
+
+        margin-bottom: 15px;
+
+    }
+
+
+
+    .icons-section .icon-container .icon .title .subtitle{
+
+        display: block;
+
+        font-size: 15px;
+
+        color: #000000;
+
+        font-weight: 400;
+
+    }
+
+
+
+    .icons-section .line {
+
+        width: 90%;
+
+        height: 1px;
+
+        background-color: silver;
+
+        margin-bottom: 50px;
+
+    }
+
+
+
+    @media (max-width:900px){
+
+        .icons-section .icon-container {
+
+            flex-direction: column;
+
+            gap: 50px;
+
+        }
+
+    }
+
+
+
+    @-webkit-keyframes animateThis {
+
+        0% {
+
+            width: 15%;
+
+        }
+
+
+
+        100% {
+
+            width: 50%;
+
+        }
+
+    }
+
+
+
+    @keyframes animateThis {
+
+        0% {
+
+            width: 15%;
+
+        }
+
+
+
+        100% {
+
+            width: 50%;
+
+        }
+
+    }
+
+
+
+    @media only screen and (min-width: 768px) {
+
+        .maintestimonialholder {
+
+            margin-top: 10px;
+
+        }
+
+    }
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<div class="orderbody" align="center">
+
+
+
+
+
+
+
+
+
+
+
+    <div class="cnwidth">
+
+
+
+
+
+
+
+        {discountnotifcart}
+
+
+
+
+
+        <div class="liveholder"><span class="livebox"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+
+                    class="livesvg">
+
+                    <path d="M256 0C115.4 0 0 115.4 0 256s115.4 256 256 256 256-115.4 256-256S396.6 0 256 0z" />
+
+                </svg> Live</span><span id="livecount" class="livecount"></span>{usercheckoutlabel}</div>
+
+
+
+
+
+
+
+        <form id="idform" class="gtm-form" method="POST" style="padding-bottom:50px;">
+
+
+
+            <div class="container dshadow">
+
+
+
+
+
+
+
+                <h1>{h1}</h1>
+
+
+
+
+
+
+
+                <div class="orderfield input-group">
+
+
+
+                    <span>{label1}</span>
+
+
+
+                    <span class="error error1 error-msg">{error1}</span>
+
+
+
+                    <input autocomplete="off" name="username" id="userName" type="text" value="{username}"
+
+                        onchange="{callSocialMediaFunc}" style="padding-left: 15px !important;">
+
+
+
+                </div>
+
+
+
+                <!-- {displayemailaddress} -->
+
+                <div class="orderfield input-group" {displayemailaddress}>
+
+
+
+                    <span>{label2}</span>
+
+
+
+                    <span class="error error2 error-msg">{error2}</span>
+
+                    <span class="error validateError">{validateError}</span>
+
+                    <input autocomplete="off" name="emailaddress" type="email" value="{emailaddress}"
+
+                        style="padding-left: 15px !important;">
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
+                    <input type='hidden' name='submitForm' value='1' />
+
+                </div>
+
+
+
+                <div class="input-group">
+
+
+
+                    <span>{label3}</span>
+
+
+
+
+
+                    <style type="text/css">
+
+                        .selectric .button {
+
+                            display: none;
+
+                        }
+
+                    </style>
+
+                    <select id="get_value" class="gtm-package-change" onchange="changePackage()">
+
+
+
+                        {packages}
+
+
+
+                    </select>
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+
+                <div style="">
+                    <label style="">
+                        <input type="checkbox" name="email_optin" style="width: initial;display: inline-block;vertical-align: middle;margin: 0;" checked="">
+                        I consent to receiving updates only about my order by email
+                    </label>
+                </div>
+
+
+                <!-- =========================
+
+          Code by Didarul Start
+
+          ========================= -->
+
+
+
+                <style type="text/css">
+
+                    #custom-loader {
+
+                        position: absolute;
+
+                        top: 7px;
+
+                        right: 20px;
+
+                        width: 20px;
+
+                        height: 20px;
+
+                        border-radius: 50%;
+
+                        border: 5px solid;
+
+                        border-color: #ffffff;
+
+                        border-right-color: #1a73e7;
+
+                        animation: s2 1s infinite linear;
+
+                        display: none;
+
+                    }
+
+
+
+                    @keyframes s2 {
+
+                        to {
+
+                            transform: rotate(1turn)
+
+                        }
+
+                    }
+
+                </style>
+
+
+
+
+
+
+                <div style="position: relative;">
+
+                    <!-- <input  name="submitForm"  value="{nextbtn} &raquo;" class="color4 btn" onclick="onSubmitData(event);" id="spin-btn" style="text-align: center;" readonly> -->
+                    {submitBtn}
+                    <div id="custom-loader"></div>
+
+                </div>
+
+
+
+
+                <!-- =========================
+
+                Code by Didarul end
+
+                ========================= -->
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+            <svg width="0" height="0" class="hidden">
+
+
+
+                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346.86 63.37" id="star">
+
+
+
+                    <path fill="#00814e"
+
+                        d="M57.25.37H5.75A5.75 5.75 0 0 0 0 6.12v51.5a5.74 5.74 0 0 0 5.75 5.75h51.5A5.75 5.75 0 0 0 63 57.62V6.12A5.76 5.76 0 0 0 57.25.37zM45.85 54L31.5 46.42 17.14 54l2.74-16L8.27 26.66l16.05-2.33L31.5 9.79l7.17 14.54 16 2.33L43.11 38zm81.26-54h-51.5a5.75 5.75 0 0 0-5.75 5.75v51.5A5.74 5.74 0 0 0 75.61 63h51.5a5.75 5.75 0 0 0 5.75-5.75V5.75A5.76 5.76 0 0 0 127.11 0zm-11.4 53.59l-14.35-7.54L87 53.59l2.74-16-11.61-11.3L94.18 24l7.18-14.54L108.53 24l16 2.33L113 37.61zM197.11 0h-51.5a5.75 5.75 0 0 0-5.75 5.75v51.5a5.74 5.74 0 0 0 5.75 5.75h51.5a5.75 5.75 0 0 0 5.75-5.75V5.75A5.76 5.76 0 0 0 197.11 0zm-11.4 53.59l-14.35-7.54L157 53.59l2.74-16-11.61-11.3L164.18 24l7.18-14.54L178.53 24l16.05 2.33L183 37.61zM267.11 0h-51.5a5.75 5.75 0 0 0-5.75 5.75v51.5a5.74 5.74 0 0 0 5.75 5.75h51.5a5.75 5.75 0 0 0 5.75-5.75V5.75A5.76 5.76 0 0 0 267.11 0zm-11.4 53.59l-14.35-7.54L227 53.59l2.74-16-11.61-11.3L234.18 24l7.18-14.54L248.53 24l16 2.33L253 37.61zM341.11 0h-51.5a5.75 5.75 0 0 0-5.75 5.75v51.5a5.74 5.74 0 0 0 5.75 5.75h51.5a5.75 5.75 0 0 0 5.75-5.75V5.75A5.76 5.76 0 0 0 341.11 0zm-11.4 53.59l-14.35-7.54L301 53.59l2.74-16-11.61-11.3L308.18 24l7.18-14.54L322.53 24l16.05 2.33L327 37.61z">
+
+                    </path>
+
+
+
+                </symbol>
+
+
+
+            </svg>
+
+
+
+
+
+
+
+
+
+            <div id="order-about">
+
+                <div class="maintestimonialholder">
+
+
+
+                    <div class="maintestimonialholderthumb"><img id="img" class="userthumbnail" src=""></div>
+
+
+
+                    <div id="testimonialquote" class="testimonialquote" align="center"></div>
+
+                    <div id="testimonialcompany" class="testimonialcompany" align="center"></div>                  
+
+
+                    <svg class="svstars"><use xlink:href="#star" style=" transform-origin: 0px 0px;"></use></svg>
+
+                </div>
+
+
+
+                <section class="icons-section">
+
+                    <div class="line"></div>
+
+                    <div class="icon-container">
+
+                        <div class="icon">
+
+                            <svg style="fill:#4d05bb;" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="Layer_1" width="179" height="86.5" x="0" y="0" style="enable-background:new 0 0 179 86.5" version="1.1"><style>.st0{fill:#4d05bb}</style><path d="m92.2 5.5 10.7 21.7c.4.8 1.1 1.3 1.9 1.4l23.9 3.5c2.1.3 3 2.9 1.4 4.4l-17.3 16.9c-.6.6-.9 1.5-.7 2.3l4.1 23.8c.4 2.1-1.9 3.7-3.8 2.7L91 71c-.8-.4-1.7-.4-2.4 0L67.2 82.2c-1.9 1-4.1-.6-3.8-2.7l4.1-23.8c.1-.8-.1-1.7-.7-2.3L49.5 36.5c-1.5-1.5-.7-4.1 1.5-4.4l23.9-3.5c.8-.1 1.6-.7 1.9-1.4L87.5 5.5c1-1.9 3.7-1.9 4.7 0zM156.1 43.3l4.7 9.6c.4.8 1.1 1.3 1.9 1.4l10.6 1.5c2.1.3 3 2.9 1.4 4.4l-7.6 7.4c-.6.6-.9 1.5-.7 2.3l1.8 10.5c.4 2.1-1.9 3.7-3.8 2.7l-9.4-5c-.8-.4-1.7-.4-2.4 0l-9.4 5c-1.9 1-4.1-.6-3.8-2.7l1.8-10.5c.1-.8-.1-1.7-.7-2.3l-7.6-7.4c-1.5-1.5-.7-4.1 1.4-4.4l10.6-1.5c.8-.1 1.6-.7 1.9-1.4l4.7-9.6c.9-2 3.7-2 4.6 0zM28.2 43.3l4.7 9.6c.4.8 1.1 1.3 1.9 1.4l10.6 1.5c2.1.3 3 2.9 1.4 4.4l-7.6 7.4c-.6.6-.9 1.5-.7 2.3l1.8 10.5c.4 2.1-1.9 3.7-3.8 2.7l-9.4-5c-.8-.4-1.7-.4-2.4 0l-9.4 5c-1.9 1-4.1-.6-3.8-2.7l1.8-10.5c.1-.8-.1-1.7-.7-2.3L5 60.2c-1.5-1.5-.7-4.1 1.4-4.4L17 54.3c.8-.1 1.6-.7 1.9-1.4l4.7-9.6c.9-2 3.6-2 4.6 0z" /></svg>
+
+                            <div class="title">1 Million+ <span class="subtitle">Happy Customers</span></div>
+
+                        </div>
+
+                        <div class="icon">
+
+                            {iconPackage}
+
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="Layer_1" width="179" height="86.5" x="0" y="0" style="enable-background:new 0 0 179 86.5" version="1.1"><style>.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#4d05bb}.st1{fill:none;stroke:#4d05bb;stroke-width:3.087;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style><path id="truck_00000074412838011544957010000016086435254879338144_" d="M110.9 3.2H50.4c-2.4 0-4.4 2-4.4 4.4v46.2c0 .3.1.6.3.8.2.2.5.3.8.3h66.5c.3 0 .7-.1.9-.4.2-.3.4-.6.4-.9V7.2c0-2.2-1.8-4-4-4zM93.3 29.8 80.4 42 67.5 29.8c-3.2-3-3.3-8.1-.3-11.3 3-3.2 8.1-3.3 11.3-.3l1.9 1.8 1.9-1.8c3.2-3 8.2-2.9 11.3.3 3 3.2 2.9 8.3-.3 11.3z" /><path d="M169.5 60v5.7c0 1.6-1.3 2.9-2.9 2.9h-5.4c-1.1-8-7.9-14-16-14s-14.9 6-16 14H89.3c-.4-3.2-1.8-6.2-4-8.6h35.4V15.4c0-2.1 1.7-3.8 3.8-3.8h26.3c2.1 0 4 1.6 5.2 3.3l10.5 14.6c2 2.7 3 6 3 9.4V60z" /><circle cx="145.2" cy="70.8" r="12.6" /><circle cx="73.4" cy="70.8" r="12.6" /><path d="M9.5 44.8H34M23.8 52.3h15.6M13.3 60.5h26.1" class="st1"/><path d="M61.3 60c-2.1 2.4-3.6 5.3-4 8.6h-9.2c-1.2 0-2.1-1-2.1-2.1v-5.2c0-.7.6-1.3 1.3-1.3h14z" /></svg> -->
+
+                            <div class="title">{titlePackage}<span class="subtitle">Delivered in the past 24 hours</span></div>
+
+                        </div>
+
+                        <div class="icon">
+
+                            <svg style="height:85px;fill:#4d05bb;" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="Layer_1" x="0" y="0" style="enable-background:new 0 0 116.3 114.3" version="1.1" viewBox="0 0 116.3 114.3"><style>.st0{fill:#4d05bb}</style><path d="M108.6 23.3 115 3.1 94.4 7.7l-20.7 4.5 9.5 10.4-70.3 64.2 9.6 10.4L92.8 33l9.4 10.4zM98.7 101.5l6.4-20.1 6.4-20.2-20.7 4.6-20.6 4.5 9.5 10.4-23.8 21.7 9.6 10.4 23.7-21.7zM50.4 21.6l6.4-20.2L36.2 6l-20.7 4.5L25 20.9 1.3 42.6l9.5 10.5 23.8-21.7L44 41.7z" /></svg>
+
+                            <div class="title">Atleast 11X <span class="subtitle">Increase in engagement</span></div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+
+        </form>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+
+<script src="/js/orderform.js"></script>
+
+
+ {recaptchaUrl}
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+gtmFormSubmit();
+
+const mainForm = document.getElementById("idform");
+const loader = document.getElementById("custom-loader");
+const formSubmitBtn = document.getElementById('submitbtnthis');
+
+document.addEventListener("DOMContentLoaded", function () {
+    try{
+        setTimeout(()=>document.querySelector(".stepsbar").classList.add("animate"), 300);
+        loader.style.display = "none";
+    } catch(error) {
+        console.error(error);
+    }
+});
+
+window.addEventListener("pageshow", (event) => {
+  try {
+    if (event.persisted) {
+      // Reset your element's state here
+        loader.style.display = "none";
+        formSubmitBtn.disabled = false;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+const packageElement =  document.getElementById("get_value");
+let package = packageElement.options[packageElement.selectedIndex].text;
+
+function changePackage(event) {
+    let temp = package;
+    package = packageElement.options[packageElement.selectedIndex].text;
+    dataLayer.push({
+            'event': 'packageChanged',
+            'packageName': package,
+            'prevPackageName': temp
+        });
+}
+
+function onSubmitData(event) {
+       var name = $('#userName').val().trim();
+       var check = isValidInstagramUsername(name);
+
+       if(name != ""){
+         event.preventDefault();
+         formSubmitBtn.disabled = true;
+         grecaptcha.ready(function() {
+         grecaptcha.execute('{recaptchaClient}', {action: 'submit'}).then(function(token) {
+             $('#g-recaptcha-response').val(token);
+             loader.style.display = "block";
+             mainForm.submit();
+         });
+        
+       });
+       }  
+ }
+
+ function isValidInstagramUsername(username) {
+    if (username.length < 1 || username.length > 30) {
+        return false;
+    }
+    const Pattern = /^(?!.*\.\.)(?!\.$)[a-zA-Z0-9._]+(?<!\.)$/;
+
+    return Pattern.test(username);
+}
+
+ function submitWOCaptcha(event) {
+       
+       var name = $('#userName').val().trim();
+
+       var check = isValidInstagramUsername(name);
+
+        if(!check){
+            alert("Please enter a valid username");
+            return false;
+        }
+        loader.style.display = "block";
+        mainForm.submit();
+ }
+
+    $('#get_value')
+
+
+
+        .on('change', function () {
+
+
+
+
+
+
+
+
+
+
+
+            var $newvalue = $('#get_value').val();
+
+
+
+
+
+
+
+            $('#idform').append('<input type="hidden" name="package" value="' + $newvalue + '" />');
+
+
+
+
+
+
+
+
+
+
+
+        });
+
+
+    let isFetching = false;
+
+    function fetchLiveUsers() {
+        if (isFetching) return; // Prevent overlapping requests
+        isFetching = true;
+
+        $.ajax({
+            type: "GET",
+            url: "/livecheckout.php",
+            success: function (response) {
+                $('.livecount').html(response);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching live users:", status, error);
+            },
+            complete: function () {
+                isFetching = false; // Reset the flag
+            }
+        });
+    }
+
+    setInterval(fetchLiveUsers, 3000);
+
+
+
+
+
+
+
+
+    var $typeofpackage = '{typeofpackage}';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Returns a random integer from 0 to 4:
+
+
+
+    
+
+    if('{loclink}'==''){
+
+
+        var randomquote = Math.floor(Math.random() * 10);
+
+        }
+
+    if('{loclink}'=='/us'){
+
+
+        const selectquote = ["0", "1", "3", "4", "5", "6", "7"];
+
+        const randomq = Math.floor(Math.random() * selectquote.length);
+
+        var randomquote = selectquote[randomq];
+
+
+
+    }
+
+
+    if('{loclink}'=='/uk'){
+
+        const selectquote = ["0", "1", "2", "9", "4"];
+
+        const randomq = Math.floor(Math.random() * selectquote.length);
+
+        var randomquote = selectquote[randomq];
+
+
+
+    }
+
+
+
+
+    if (randomquote == 0) {
+
+
+        //FORBES
+
+        document.getElementById("img").src = '/imgs/odethums/lw.png';
+
+        document.getElementById("testimonialcompany").innerHTML = '— LA Weekly';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;Superviral is the most trusted Instagram growth platform to buy followers. Influencers chose them as the safest option, as some of these influencers specified that their accounts have over 200k followers&#8221;';
+
+
+    }
+
+
+
+    if (randomquote == 1) {
+
+
+        document.getElementById("img").src = '/imgs/odethums/fr.png';
+
+
+        document.getElementById("testimonialcompany").innerHTML = '— Forbes';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;According to the latest data compiled by US & UK-based service platform Superviral, Instagram could be a crucial part of a social media marketing strategy.&#8221;';
+
+    }
+
+
+    if (randomquote == 2) {
+
+        document.getElementById("img").src = '/imgs/odethums/de.png';
+
+        document.getElementById("testimonialcompany").innerHTML = '— Daily Express';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;Superviral helps millions of users boost their interaction through real Instagram followers and likes, and agreed with many of Mr Glenwright’s comments.&#8221;';
+
+    }
+
+
+    if (randomquote == 3) {
+
+
+        document.getElementById("img").src = '/imgs/odethums/wcp.png';
+
+        document.getElementById("testimonialcompany").innerHTML = '— Washington City Paper';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;The real followers come from Superviral’s network of just over a million real Instagram users, which has been around since 2012 and allows you to quickly buy Instagram followers.&#8221;';
+
+    }
+
+
+
+    if (randomquote == 4) {
+
+        document.getElementById("img").src = '/imgs/odethums/vv.png';
+
+        document.getElementById("testimonialcompany").innerHTML = '— The Village Voice';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;After hours of research, we have decided that Superviral is the best and fastest service when it comes to real Instagram likes. Influencers have voted Superviral number 1 for its excellent service in delivering real Instagram likes at an affordable rate&#8221;';
+
+    }
+
+
+    if (randomquote == 5) {
+
+        document.getElementById("img").src = '/imgs/odethums/sdr.png';
+
+        document.getElementById("testimonialcompany").innerHTML = '— San Diego Reader';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;Superviral, with its excellent reputation and top-notch customer service, it has been voted as the number-one provider by influencers and users alike.&#8221;';
+
+    }
+
+
+    if (randomquote == 6) {
+
+        document.getElementById("img").src = '/imgs/odethums/a10.png';
+
+        document.getElementById("testimonialcompany").innerHTML = '— ABC 10';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;Whether you\'re seeking to generate more likes on your captivating photos or increase the viewership of your captivating videos, Superviral has the perfect solution.&#8221;';
+
+    }
+
+    if (randomquote == 7) {
+
+        document.getElementById("img").src = '/imgs/odethums/a15.png';
+
+        document.getElementById("testimonialcompany").innerHTML = '— ABC 15';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;Gaining real Instagram likes may seem tricky, but utilizing all your strengths can surely get you ahead of the competition with Superviral!&#8221;';
+
+    }
+
+
+    if (randomquote == 8) {
+
+        document.getElementById("img").src = '/imgs/odethums/wh.png';
+
+        document.getElementById("testimonialcompany").innerHTML = '— We Heart! Magazine';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;We used Superviral from December 1st 2022 to February 12th 2023, and it was a hoot! We got a high-quality followers.&#8221;';
+
+    }
+
+
+    if (randomquote == 9) {
+
+        document.getElementById("img").src = '/imgs/odethums/b24.png';
+
+        document.getElementById("testimonialcompany").innerHTML = '— Bristol 24/7';
+
+        document.getElementById("testimonialquote").innerHTML = '&#8220;Superviral is one of the most established brands when it comes to Instagram likes!&#8221;';
+
+    }
+
+
+
+
+    var
+
+        scrollEnabled = true;
+
+
+
+    $('body').scrollTop();
+
+
+
+    function disableScroll() {
+
+        // temporarily disable action
+
+        scrollEnabled = false;
+
+
+
+        // set a timer to enable again it 1 second from now
+
+        setTimeout(function () {
+
+            scrollEnabled = true;
+
+        }, 2500);
+
+    }
+
+
+
+    var lastScrollTop = 0;
+
+    $(window).scroll(function (event) {
+
+        var st = $(this).scrollTop();
+
+        if (st > lastScrollTop) { //scroll down and focused, call Ajax!
+
+
+
+
+
+            if (scrollEnabled) {
+
+                bs = $('body').scrollTop();
+
+
+
+                if (bs > 101 || bs < 98) {
+
+                    disableScroll();
+
+                    callAjaxPreloadPost();
+
+                    // console.log("Scroll detected -> disable Ajax!");
+
+                }
+
+
+
+                $('body').scrollTop();
+
+            }
+
+            //  console.log("Scroll detected -> Call Ajax!");
+
+            //callAjaxPreloadPost();
+
+
+
+
+
+        }
+
+        lastScrollTop = st;
+
+    });
+
+
+
+    ///////////////////////////////////
+
+
+
+
+
+
+
+    // logged in user preload request call
+    var socialMediaType = "{socialMediaType}";
+    var requestDataArrTik = [];
+    var requestDataArr = [];
+
+    if(socialMediaType == "tt"){
+        callAjaxPreloadPostTikoid();
+    }else{
+        callAjaxPreloadPost();
+    }
+
+
+
+    function callAjaxPreloadPost() {
+
+
+
+
+
+
+
+        var uName = $("#userName").val().trim();
+
+
+
+        if (uName == requestDataArr["data"] && uName != "") {
+
+
+
+
+
+
+
+        } else {
+
+
+
+            $.ajax({
+
+                url: "/api-load-2/",
+
+                type: "POST",
+
+                async: true,
+
+                dataType: 'json',
+
+                data: {
+
+                    "username": uName,
+
+                    "datatype": 'thumbs',
+
+                    "videosonly": '{videosonly}',
+
+                    "ordersession": '{ordersession}'
+
+                },
+
+                success: function (response) {
+
+                   // console.log(response);
+
+
+
+                }
+
+            }),
+
+
+
+                $.ajax({
+
+                    url: "/api-load-1/",
+
+                    type: "POST",
+
+                    async: true,
+
+                    dataType: 'json',
+
+                    data: {
+
+                        "username": uName,
+
+                        "datatype": 'thumbs',
+
+                        "videosonly": '{videosonly}',
+
+                        "ordersession": '{ordersession}'
+
+                    },
+
+                    success: function (response) {
+
+                      //  console.log(response);
+
+
+
+                    }
+
+                });
+
+
+
+
+
+            requestDataArr["data"] = uName;
+
+            return;
+
+        }
+
+
+
+
+
+        if (uName == "") {
+
+
+
+            return;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    function callAjaxPreloadPostTikoid(){   
+
+var uName = $("#userName").val().trim();
+if(uName == requestDataArrTik["data"] && uName !=""){
+
+}else{    
+
+    $.ajax({  
+      url: "/api-load-1-tiktok/", 
+      type: "POST",   
+      async: true,    
+      dataType:'json',    
+      data: { 
+      "username" : uName, 
+      "datatype" : 'thumbs'   
+      },  
+      success: function(response){    
+         console.log(response);       
+
+      }   
+    });
+
+    requestDataArrTik["data"] = uName;
+    return;
+}
+// requestDataArrTik["data"] = uName; 
+
+if(uName == ""){  
+
+  return;
+} 
+// console.log("ajax");
+
+}
+
+
+
+
+</script>

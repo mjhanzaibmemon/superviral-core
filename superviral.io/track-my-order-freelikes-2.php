@@ -1,0 +1,206 @@
+<?php
+
+$db=1;
+include('header.php');
+
+$hash = addslashes($_GET['hash']);
+
+if(empty($_POST['posts_selected'])){header('Location: track-my-order-freelikes.php?&hash='.$hash);}
+
+$notextupdate = addslashes($_GET['notextupdate']);
+if($notextupdate=='true'){
+$therefresh = '<script>window.top.location.reload();</script>';
+echo $therefresh;die;
+}
+
+$q = mysql_query("SELECT * FROM `orders` WHERE `order_session` = '$hash' AND `freelikes` = '0' LIMIT 1");
+if(mysql_num_rows($q)=='0'){die('Free likes already claimed - You can get more Instagram Likes on Superviral!');}
+
+$info = mysql_fetch_array($q);
+
+
+$submitted_values = json_decode($_POST['posts_selected'],true);
+foreach($submitted_values as $value){$valuesd = addslashes($value);}
+$valuesd = explode('###', $valuesd);//$valuesd = $valuesd[1];
+
+if(!empty($valuesd[0])){
+
+$freelikespost = $valuesd[0];
+
+
+//////
+
+//EMULATE ORDERFULFILL
+$added = time();
+$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+$info['packageid'] = '20';
+$username = $info['igusername'];
+
+$hash = md5($info['packageid'].$valuesd[0]);
+
+$insertfulfill = mysql_query("INSERT INTO `orders` SET 
+  `brand` = 'sv',
+  `packagetype` = 'freelikes',
+	`country` = '{$info['country']}',
+	`order_session` = '$hash',
+	`amount` = '50',
+	`added` = '$added',
+	`price` = '0.00',
+	`emailaddress` = '{$info['emailaddress']}',
+	`contactnumber` = '',
+  `ipaddress` = '$ipaddress',
+	`chooseposts` = '$freelikespost',
+	`igusername` = '$username'");
+
+//////
+
+include('orderfulfill.php');
+
+mysql_query("UPDATE `orders` SET `freelikes` = '1' WHERE `id` = '{$info['id']}' LIMIT 1 ");
+
+
+
+}
+
+?>
+<!DOCTYPE html>
+<head>
+<title>Superviral</title>
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/orderform.css">
+</head>
+
+  <body>
+
+<style type="text/css">
+h1{    text-align: left;
+    font-size: 23px;
+    width: 100%;
+    display: block;
+    max-width: 100%;}
+h2{text-align: left;font-size:17px;margin:5px 0;}
+p{text-align: left;margin-bottom:30px;color:#525252;font-size:15px;    line-height: 26px;}
+ul{    padding: 0;
+    list-style: none;}
+ul li{text-align: left;
+    font-size: 13px;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 9px;
+    line-height: 26px;}
+.tick{    width: 20px;
+    height: 20px;
+    background: url(/imgs/all-images.png) no-repeat 0 -26px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 3px;}
+
+.btn{margin-bottom:15px;}
+.container div span, .container label{display: initial;}
+
+.nothankyou{    text-decoration: underline;
+    width: 100%;
+    display: block;
+    text-align: center;
+        font-size: 18px;
+    margin-top: 27px;}
+
+
+
+
+  .orderstatus{    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;}
+  .selectedposts{float: left;
+    margin-top: 14px!important;
+    color: #000!important;font-size:12px;}
+
+    .selectedposts .amount_of_posts,.selectedposts .likes_per_post{ font-weight:bold;   display: unset!important; font-size: inherit!important;margin-top:0!important;color: #000;}
+  
+  .btn{width: 100%;
+    text-align: center;
+    margin: 0!important;
+    padding: 9px 15px!important;
+    font-size: 15px;}
+
+  .image_checkboxes{overflow-y:scroll;height:275px;}
+  .image_checkboxes div{position:relative;display:inline-block;width:30%;height:94px;float:left;border:2px solid transparent;overflow:hidden;    box-sizing: border-box;margin:4px;}
+  .image_checkboxes div .amount{position:absolute;display:none;color: #fff;
+      background: rgba(0,0,0,.65);
+      height: 30px;
+      text-align: center;
+      box-sizing: border-box;
+      width: 100%;margin:0;
+    font-size: 14px;
+      line-height: 25px;}
+  .image_checkboxes div img{width:100%;height:100%;}
+  .image_checkboxes .active{border-color:#4e03e0;}
+  .image_checkboxes .active .amount{display:block;}
+
+  .whichpackage{    text-align: center!important;
+    font-size: 15px;
+    color: #464646;}
+    .whichpackage a{    color: #4e03e0;
+    text-decoration: underline;}
+
+.servicetbl{border:1px solid #ccc;width: 100%;border-spacing: 0;    font-size: 13px;}
+.servicetbl tr td{padding:5px;border-right:1px solid #ccc;}
+.servicetbl tr td:last-child{border-right:0}
+.servicetbl tr:first-child td{border-bottom:1px solid #ccc;color: grey;}
+
+@media only screen and (min-width: 768px){
+.container {
+
+    padding: 37px 3%!important;
+}
+
+}
+
+
+</style>
+  <script>
+    document.body.className += ' variation-' + window.chosenVariation;
+  </script>
+
+		<div  class="orderbody" align="center">
+
+
+			<div class="cnwidth">
+
+
+				<div class="container tycontainer dshadow">
+
+                    <h2>Thank you! Your Instagram likes are on its way.</h2>
+                    <div style="margin-top:30px;">
+
+                    	<table class="servicetbl">
+                    		<tr><td>Post</td><td>Service</td><td>Cost</td></tr>
+                    		<tr><td><img width="50" height="50" style="width:50px;height:50px;"src="<?=$valuesd[1]?>"></td><td>50 Instagram Likes</td><td>Free</td></tr>
+                    	</table>
+
+                    </div>
+      
+
+      <a target="_parent" href="/buy-instagram-likes/" class="color3 btn" style="margin-top:30px!important;">Get More Instagram Likes</a>
+      <a href="?notextupdate=true&hash=<?=$order_session?>&id=<?=$id?>" class="nothankyou">x close</a>
+                
+
+
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+
+  </body>
+</html>

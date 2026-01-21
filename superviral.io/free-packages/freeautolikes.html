@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<head>
+
+
+
+	<title>Freelikes</title>
+
+
+
+	<meta name="description" content="{metadesc}" />
+
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+	<meta http-equiv="Content-Language" content="{contentlanguage}">
+
+
+
+	<link rel="canonical" href="{canonical}" />
+
+
+
+
+
+
+
+	<link rel="alternate" hreflang="en-us" href="https://superviral.io/freelikes/" />
+
+
+
+	<link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/freelikes/" />
+
+
+
+
+
+
+
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+		rel="stylesheet">
+
+
+
+	<link rel="stylesheet" type="text/css" href="/css/buystyle.min.css?time=1646054328">
+
+	<link rel="stylesheet" type="text/css" href="/css/accountstyle.css">
+
+
+
+
+
+
+
+
+
+	<style>
+		.page-heading {
+
+
+
+			color: #000;
+
+
+
+			text-align: center;
+
+
+
+			font-family: Source Sans Pro;
+
+
+
+			font-size: 39px;
+
+
+
+			font-weight: 600;
+
+
+
+			max-width: 354px;
+
+
+
+			margin-bottom: 10px;
+
+
+
+		}
+
+
+
+
+
+
+
+		.linear-gradient {
+
+
+
+			width: 140px;
+
+
+
+			height: 25px;
+
+
+
+			display: flex;
+
+
+
+			align-items: center;
+
+
+
+			justify-content: center;
+
+
+
+			background: transparent;
+
+
+
+			/* position: relative; */
+
+
+
+			/* overflow: hidden; */
+
+
+
+			border-radius: 100px;
+
+
+
+			border: 1px solid #4D05BB;
+
+
+
+			/* border-image: linear-gradient(to right, #4D05BB, #BD385C);
+
+
+
+			border-image-slice: 1; */
+
+
+
+			margin-bottom: 15px;
+
+
+
+		}
+
+
+
+
+
+
+
+		/* .linear-gradient::before {
+
+
+
+		content: "";
+
+
+
+		position: absolute;
+
+
+
+		top: 0;
+
+
+
+		left: 0;
+
+
+
+		width: 100%;
+
+
+
+		height: 100%;
+
+
+
+		border: 1px solid;
+
+
+
+		border-image: linear-gradient(to right, #4D05BB, #BD385C);
+
+
+
+		border-image-slice: 1;
+
+
+
+		border-radius: inherit;
+
+
+
+		box-sizing: border-box;
+
+
+
+		} */
+
+
+
+
+
+
+
+		.linear-gradient span {
+
+
+
+			font-family: Source Sans Pro;
+
+
+
+			font-size: 14px;
+
+
+
+			font-weight: 700;
+
+
+
+			background: linear-gradient(265deg, #4D05BB 17.72%, #BD385C 72.89%);
+
+
+
+			background-clip: text;
+
+
+
+			-webkit-background-clip: text;
+
+
+
+			-webkit-text-fill-color: transparent;
+
+
+
+		}
+
+
+
+
+
+
+
+		.check-list {
+
+
+
+			display: flex;
+
+
+
+			flex-direction: column;
+
+
+
+			width: fit-content;
+
+
+
+			margin: 25px auto 25px;
+
+
+
+		}
+
+
+
+
+
+
+
+		.check-list .list-item {
+
+
+
+			margin-bottom: 10px;
+
+
+
+			text-align: left;
+
+
+
+			display: flex;
+
+
+
+			align-items: center;
+
+
+
+		}
+
+
+
+
+
+
+
+		.check-list .list-item:last-child {
+
+
+
+			margin-bottom: 0;
+
+
+
+		}
+
+
+
+
+
+
+
+		.check-list .list-item .icon {
+
+
+
+			min-width: 18px;
+
+
+
+			min-height: 18px;
+
+
+
+			border-radius: 50%;
+
+
+
+			background-color: #229F20;
+
+
+
+			display: flex;
+
+
+
+			justify-content: center;
+
+
+
+			align-items: center;
+
+
+
+		}
+
+
+
+
+
+
+
+		.check-list .list-item .icon img {
+
+
+
+			width: 10px;
+
+
+
+		}
+
+
+
+
+
+
+
+		.check-list .text {
+
+
+
+			font-size: 11px;
+
+
+
+			font-weight: 400;
+
+
+
+			padding-left: 7px;
+
+
+
+		}
+
+
+
+
+
+
+
+		.check-list .text b {
+
+
+
+			font-weight: 600;
+
+
+
+		}
+
+
+
+
+
+
+
+		.form-wrapper {
+
+
+
+
+
+
+
+			text-align: left;
+
+
+
+			width: 80%;
+
+
+
+			max-width: 355px;
+
+
+
+			margin: 0 auto 40px;
+
+
+
+		}
+
+
+
+
+
+
+
+		.form-wrapper .input-group {
+
+
+
+			margin-bottom: 20px;
+
+
+
+		}
+
+
+
+
+
+
+
+		.form-wrapper .input-group .input-container {
+
+
+
+
+
+
+
+			position: relative;
+
+
+
+			width: 100%;
+
+
+
+			display: inline-block;
+
+
+
+			height: 55px;
+
+
+
+		}
+
+
+
+
+
+
+
+		.form-wrapper .input-group .input-container label {
+
+
+
+			font-family: Source Sans Pro;
+
+
+
+			font-size: 14px;
+
+
+
+			font-weight: 400;
+
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		.form-wrapper .input-group .input-container .input-wrapper .icon {
+
+
+
+
+
+
+
+			position: absolute;
+
+
+
+			top: 85%;
+
+
+
+			left: 20px;
+
+
+
+			height: 24px;
+
+
+
+			transform: translate(-50%, -50%);
+
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		.form-wrapper .input-group .input-container .input-wrapper input {
+
+
+
+
+
+
+
+			text-indent: 40px;
+
+
+
+
+
+
+
+			font-size: 16px;
+
+
+
+
+
+
+
+			font-weight: 400;
+
+
+
+
+
+
+
+			color: #000000;
+
+
+
+
+
+
+
+			background-color: #FFFFFF;
+
+
+
+
+
+
+
+			border: 1px solid #C2C2C2;
+
+
+
+
+
+
+
+			border-radius: 5px;
+
+
+
+
+
+
+
+			width: 100%;
+
+
+
+
+
+
+
+			height: 36px;
+
+
+
+
+
+
+
+			outline: none;
+
+
+
+
+
+
+
+		}
+
+
+
+
+
+
+
+		@media (min-width: 768px) {
+
+
+
+			.page-heading {
+
+
+
+				font-size: 50px;
+
+
+
+				margin-top: 20px;
+
+
+
+				margin-bottom: 15px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.linear-gradient {
+
+
+
+				width: 186px;
+
+
+
+				height: 30px;
+
+
+
+				margin-bottom: 40px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.linear-gradient span {
+
+
+
+				font-size: 20px;
+
+
+
+
+
+
+
+			}
+
+
+
+
+
+
+
+			.check-list {
+
+
+
+				margin-bottom: 50px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.check-list .list-item {
+
+
+
+				margin-bottom: 15px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.check-list .list-item .icon {
+
+
+
+				min-width: 25px;
+
+
+
+				min-height: 25px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.check-list .list-item .icon img {
+
+
+
+				width: 15px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.check-list .text {
+
+
+
+				font-size: 16px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.form-wrapper {
+
+
+
+				max-width: 515px;
+
+
+
+				height: 195px;
+
+
+
+				background-color: #FFF;
+
+
+
+				display: flex;
+
+
+
+				flex-direction: column;
+
+
+
+				justify-content: center;
+
+
+
+				padding: 0 30px;
+
+
+
+				margin-bottom: 80px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.form-wrapper .input-group .input-container label {
+
+
+
+				font-size: 20px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.form-wrapper .input-group .input-container .input-wrapper .icon {
+
+
+
+				top: 92%;
+
+
+
+			}
+
+
+
+
+
+
+
+			.button-wrapper {
+
+
+
+				margin-bottom: 10px;
+
+
+
+			}
+
+
+
+
+
+
+
+			.btn {
+
+
+
+				font-size: large;
+
+
+
+			}
+
+
+
+		}
+	</style>
+
+
+
+
+
+
+
+	<script type="application/ld+json">
+
+
+
+	{
+
+
+
+	  "@context": "https://schema.org/",
+
+
+
+	  "@type": "BreadcrumbList",
+
+
+
+	  "itemListElement": [
+
+
+
+		{
+
+
+
+		  "@type": "ListItem",
+
+
+
+		  "position": 1,
+
+
+
+		  "name": "Home",
+
+
+
+		  "item": "https://superviral.io/{loclocation}"
+
+
+
+		},
+
+
+
+		{
+
+
+
+		  "@type": "ListItem",
+
+
+
+		  "position": 2,
+
+
+
+		  "name": "Freelikes"
+
+
+
+		}
+
+
+
+	  ]
+
+
+
+	}
+
+
+
+</script>
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+
+
+	{header}
+
+
+
+	<div class="color1" align="center" style="width:100%;">
+
+
+
+
+
+
+
+		<div class="cnwidth" style="padding: 20px 0;">
+
+
+
+			<h1 class="page-heading">Get FREE Real Instagram Likes</h1>
+
+			{success}
+
+
+
+			<div class="linear-gradient">
+
+
+
+				<span>COMPLETELY FREE</span>
+
+
+
+			</div>
+
+
+
+
+
+
+
+			<div class="check-list">
+
+
+
+				<div class="list-item"><span class="icon"><img src="/imgs/checked-white.svg" alt=""></span><span
+						class="text">Delivery Begins <b>Instantly</b></span></div>
+
+
+
+				<div class="list-item"><span class="icon"><img src="/imgs/checked-white.svg" alt=""></span><span
+						class="text"><b>Rapid chance</b> to reach <b>Explore Page</b></span></div>
+
+
+
+				<div class="list-item"><span class="icon"><img src="/imgs/checked-white.svg" alt=""></span><span
+						class="text"><b>Real Likes</b> from <b>Real</b> Users</span></div>
+
+
+
+				<div class="list-item"><span class="icon"><img src="/imgs/checked-white.svg" alt=""></span><span
+						class="text"><b>Safe &amp; Secure</b> since 2012</span></div>
+
+
+
+				<div class="list-item"><span class="icon"><img src="/imgs/checked-white.svg" alt=""></span><span
+						class="text">Optionally split likes</span></div>
+
+
+
+				<div class="list-item"><span class="icon"><img src="/imgs/checked-white.svg" alt=""></span><span
+						class="text"><b>No Password</b> required</span></div>
+
+
+
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+			<div class="form-wrapper">
+
+
+
+				{form}
+
+
+
+				<!-- <div class="input-group ">
+
+
+
+					<div class="input-container">
+
+
+
+						<label for="username">Instagram Username:</label>
+
+
+
+						<div class="input-wrapper" style="margin-top: 5px;">
+
+
+
+							<img class="icon" src="/imgs/insta-purple.svg">
+
+
+
+							<input type="text" name="username">
+
+
+
+						</div>
+
+
+
+					</div>
+
+
+
+				</div> -->
+
+
+
+
+
+
+
+				<!-- <div class="button-wrapper">
+
+
+
+					<button class="btn color4" style="border: none; width: 100%;">ACTIVATE AUTOLIKES</button>
+
+
+
+				</div> -->
+
+
+
+
+
+
+
+			</div>
+
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	{footer}
+
+	<script>
+		const queryString = window.location.search;
+		const queryParams = new URLSearchParams(queryString);
+		const freeAutoLikesId = queryParams.get("id");
+		const emailtype = queryParams.get("emailtype");
+		if (emailtype === "freeautolikes") {
+			if (localStorage.getItem("freeAutoLikesId") !== freeAutoLikesId) {
+				dataLayer.push({
+					'event': 'email_CTR',
+					'emailType': emailtype
+				});
+				localStorage.setItem("freeAutoLikesId", freeAutoLikesId);
+			}
+			const form = document.querySelector(".form-wrapper form");
+			if (form)
+				form.addEventListener("submit", () => {
+					const inputUsername = form.querySelector(".input-wrapper input[name='igusername']");
+					if (inputUsername && inputUsername.value)
+						dataLayer.push({
+							'event': 'email_CR',
+							'emailType': emailtype
+						});
+				})
+		}
+	</script>
+
+</body>
+
+
+
+
+
+
+
+</html>

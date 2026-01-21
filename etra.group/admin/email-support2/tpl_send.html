@@ -1,0 +1,134 @@
+<!-- <div><h1 style="text-align: center;">Review & Send</h1></div> -->
+
+
+        <div class="container container-md">
+
+            <div style="border:solid 1px #ddd;border-radius:12px;padding:15px;margin-bottom:15px;{displayAlDetails}">
+                <div style="margin-bottom: 7px;"><b>Update Automatic Likes</b></div>
+                <!-- @update_al_ui -->
+                <div style="display:flex;align-items: center;padding-bottom: 7px;margin-bottom: 7px;border-bottom: solid 1px;">
+                    <div style="flex-grow: 1;">@{al_uname} - {al_order}</div><select class="input updateSelect" data-id="{al_id}" style="height: initial;width:50%;flex-grow:0;"><option {a_selected}>Active</option><option {p_selected}>Pause</option></select>
+                </div>
+                <!-- @update_al_ui -->
+            </div>
+
+            <div style="border:solid 1px #ddd;border-radius:12px;padding:15px;margin-bottom:15px;{offer_refund}">
+                <div style="margin-bottom: 7px;"><b>Offer Refunds</b></div>
+                {refundError}
+                <div style="display:flex;align-items: center;">
+                    <div style="padding-right: 10px;{onrefSucess}"><select id="orderSelect" class="input" style="height: initial;width: 100%;">{htmOption}</select></div>                
+                    <form method="POST" style="display: flex;align-items: center;gap:10px;flex-grow:1;{onrefSucess}">
+                        <span id="refund_paymentid">#########</span>
+                        <input name="ramount" autocomplete="off" id="amountRefund" value="" class="input" type="text" placeholder="Enter percentage or 'full'" style="flex-grow: 1;">
+                        <input name="reason" autocomplete="off" id="reasonRefund" value="" class="input" type="text" placeholder="Reason for refund" style="flex-grow: 1;">
+                        <input type="hidden" id="refund_id" name="rid">
+                        <button class="btn3" name="refund" value="1" id="refundBtnId" style="width:100px;" fdprocessedid="i4if2">Issue Refund</button>
+                    </form>
+                    <div style="padding: 20px;border-radius: 12px;background: #a6ffb6;{refSucess}">Refund Issued</div>
+                </div>
+            </div>
+            
+            <div style="border:solid 1px #ddd;border-radius:12px;padding:15px;margin-bottom:15px;{offer_free_followers}">
+                <div id="of-form">
+                    <div class="offer-tabs tabs">
+                        <span data-target="#offerFollowersResend" class="offer-tab tab active" onclick="showTab(this,'#offerFollowersResend')">Resend Followers</span>
+                        <span data-target="#offerFollowersNew" class="offer-tab tab" onclick="showTab(this,'#offerFollowersNew')">Offer Followers</span>
+                    </div>
+                    <div class="collapses">                    
+                        <div id="offerFollowersResend" class="offer-tab-collapse collapse" style="display:block;">
+                            <div style="display: flex;align-items: center;gap:10px;" class="mt-common">
+                                <div style="padding-right: 10px;flex-grow:1;"><select id="orderSelectFollower" class="input" style="height: initial;width: 100%;">{followerHtmOption}</select></div>
+                                <span id="resend_follower_id">#########</span>
+                                <input type="hidden" id="resendFollowerOrderId">
+                                <button class="btn3" onclick="ResendFollowers();" style="width:100px;" fdprocessedid="i4if2">Resend Order</button>
+                            </div>
+                        </div>
+                        <div id="offerFollowersNew" class="offer-tab-collapse collapse" style="display:none;">
+                            <div style="display: flex;align-items: center;gap:10px;" class="mt-common">
+                                <select id="offerSocialMedia" class="input" name="socialmedia" style="max-width:105px;">
+                                    <option class="offer-sm-option" value="ig">IG</option>
+                                    <option class="offer-sm-option" value="tt">TT</option>
+                                </select>
+                                <input autocomplete="off" id="username" value="{infoaun}" class="input" placeholder="kevinhart" fdprocessedid="hjnmdb" style="flex-grow: 1;">
+                                <input autocomplete="off" id="amount" value="{missingAmount}" class="input" type="text" placeholder="Minimum amount 10" fdprocessedid="ner70n" style="flex-grow: 1;">
+                                <input type="hidden" value="{latestOrderId}" id="latestOrderId">
+                                <input type="hidden" value="{latestBrand}" id="latestBrand">
+                                <form id="userInfo">
+                                    <input type="hidden" name="account_id" value="{account_id}">
+                                    <input type="hidden" name="emailaddress" value="{custEmail}">
+                                    <input type="hidden" name="country"  value="{country}">
+                                    <input type="hidden" name="ipaddress"  value="{ipaddress}">
+                                </form>
+                                <button class="btn3" onclick="offerFreeFollowers();" style="width:100px;" fdprocessedid="i4if2">Create Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="of-success" style="padding: 20px;border-radius: 12px;background: #a6ffb6;display: none;" >Order created. Order ID: <a id="of-id">#123</a></div>
+            </div>
+            
+            <div style="border:solid 1px #ddd;border-radius:12px;padding:15px;margin-bottom:15px;{offer_free_likes}">
+                <div class="offer-tabs tabs">
+                    <span data-target="#offerLikesResend" class="offer-tab tab active" onclick="showTab(this,'#offerLikesResend')">Resend Likes</span>
+                    <span data-target="#offerLikesNew" class="offer-tab tab" onclick="showTab(this,'#offerLikesNew')">Offer Likes</span>
+                </div>
+                <div class="collapses">
+                    <div id="offerLikesResend" class="offer-tab-collapse collapse" style="display:block;">
+                        <div style="display: flex;align-items: center;gap:10px;" class="mt-common">
+                            <div style="padding-right: 10px;flex-grow:1;"><select id="orderSelectLike" class="input" style="height: initial;width: 100%;">{likeHtmOption}</select></div>
+                            <span id="resend_like_id">#########</span>
+                            <input type="hidden" id="resendLikeOrderId">
+                            <button class="btn3" onclick="ResendLikes();" style="width:100px;">Resend Order</button>
+                        </div>                        
+                    </div>
+                    <div id="offerLikesNew" class="offer-tab-collapse collapse" style="display:none;">
+                        <div style="display:flex;align-items: start;">
+                            <div style="padding-right:20px;">
+                                Username<br>
+                                <input autocomplete="off" id="fl_username" value="{infoaun}" class="input" placeholder="kevinhart" fdprocessedid="hjnmdb" style="max-width:200px;">
+                            </div>
+                            <div style="flex-grow:1;">
+                                Posts<br>
+                                <div id="dynamicInput">
+                                    <div class="input-container" id="inputDiv0">
+                                        <input autocomplete="off" name="myInputs[]" value="{missingAmount}" class="input" placeholder="https://www.instagram.com/p/CEG6R7_FGdD/" fdprocessedid="q335h">
+                                    </div>                    
+                                </div>
+                                <div style="text-align: right;"><input class="btn btn3 report copy-button" type="button" value="Add another post" onClick="addInput('dynamicInput');" style="background:white;color:black;border-color:black;"></div>
+                                <div style="align-items: center;gap:10px;max-width: 270px;margin-left: auto;text-align: right;margin-top: 35px;" class="mt-common">
+                                    Amount per post<br>
+                                    <div style="display:flex;">
+                                        <input autocomplete="off" id="amountFL" value="" class="input" type="text" placeholder="Minimum amount 100" fdprocessedid="ner70n" style="flex-grow: 1;">
+                                    </div>
+                                    <div style="text-align:right;"><button class="btn3" onclick="offerFreeLikes();" style="width:100px;margin-top:15px;" fdprocessedid="zrb7ay">Create Order</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                <div style="padding: 20px;border-radius: 12px;background: #a6ffb6;display: none;" id="showOFLSuccess">Order created. Order ID: <br><a id="OFLOrderId">#123</a><br></div>            
+            </div>
+    
+            <div style="border:solid 1px #ddd;border-radius:12px;">
+                <div class="mb-common" style="padding:20px;">
+                    <b>Conversation</b>
+                    <div id="es-conversations" class="padding-common mt-common">
+                        {responses}
+                    </div>
+                </div>
+            </div>
+            <div class="padding-common pw-md-0" style="background-color: var(--bg-primary-color);">
+                <b>Send Reply</b>
+                <textarea id="replybox">{selected_generated_tpl}</textarea>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+                    <div>
+                        <button class="btn-secondary" onclick="markDone();">Mark done</button>
+                        <button class="btn-secondary modal-button" id="submitReportBtnId" href="#submitReportModal">Submit Report</button>
+                    </div>
+                    <button type="button" onclick="submitReport({ticketId});" class="btn3" style="width: 120px">Submit Reply</button>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="{recentSubject}" id="subjectId">
+        <input type="hidden" value="{globLastEmailUid}" id="EmailUidId">
+  

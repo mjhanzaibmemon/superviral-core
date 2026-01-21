@@ -1,0 +1,123 @@
+<!-- @meta -->
+
+<title>Mass Refill</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<style>
+    .refill-mass{width:80%;margin:auto;}
+    table {
+        width:100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #FFF;
+    }
+
+    table th,
+    table td {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+
+    table thead {
+        color: #000;
+        height: 60px;
+        font-weight: bolder;
+        background-color: #D1E0F1;
+    }
+
+
+    table tbody tr td {
+        color: grey;
+        font-weight: 300;
+    }
+
+    .btn-transparent {
+        background: #F3F8FE;
+        border: 1px solid #000;
+        color: #000;
+        font-size: 14px;
+    }
+
+    table tbody tr:nth-child(even) {
+        background-color: #F3F8FE;
+    }
+
+    .report:hover{background-color:#000;color:#FFF;}
+    .nlbtn{margin-bottom:0px!important;border:1px solid grey;padding: 12px 19px;border-radius:50px;}
+</style>
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<!-- @script_tags -->
+
+<main class="refill-mass" style="padding-bottom:20px;">
+    <h1 style="text-align:center;margin-top:35px;">Refill Mass</h1>
+    <h3 style="text-align:center;margin-top:35px;">{msg}</h3>
+    <div style="display:flex;align-items: center;justify-content: space-between;width:100%;">
+        <h2>Refill Needed</h2>
+        <form method ="POST" id="idForm">
+            <label for=""></label>
+            <input type="hidden" id="hiddenCheckboxValues" name="checkedValues" value="{allvalues}">
+            <input type="button" onclick="checkIfAnySelected();" name = "refillSubmit" value= "Refill All ({count})" class="btn report nlbtn btnchkAll">
+        </form>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th><div class="bold">Supplier Id</div></th>
+                <th><div class="bold">Package</div></th>
+                <th><div class="bold">Email</div></th>
+                <th>Username</th>
+                <th>Order Made On</th>
+            </tr>
+        </thead>
+        <tbody>{refillData}</tbody>
+    </table>
+
+    <br><br>
+    <div style="display:flex;align-items: center;justify-content: space-between;width:100%;"></div>
+        <h2>Recent Refills</h2>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th><div class="bold">Supplier Id</div></th>
+                <th><div class="bold">Package</div></th>
+                <th><div class="bold">Email</div></th>
+                <th>Username</th>
+                <th>Refilled On</th>
+            </tr>
+        </thead>
+        <tbody>{pastRefillData}</tbody>
+    </table>
+
+</main>
+
+<script>
+
+    function checkIfAnySelected() {
+
+        if (confirm("Are you sure to refill?")) {
+            const checkedValues = document.getElementById('hiddenCheckboxValues').value;
+
+            if (checkedValues) {
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'refillSubmit';
+                hiddenInput.value = 'Refill Mass';
+                document.getElementById('idForm').appendChild(hiddenInput);
+
+                document.getElementById('idForm').submit();
+            } else {
+                alert('Please select any one to refill');
+            }
+        }
+
+    }
+</script>

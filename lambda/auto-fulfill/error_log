@@ -1,0 +1,135 @@
+[29-Aug-2024 12:08:32 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[29-Aug-2024 12:08:32 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[29-Aug-2024 12:08:32 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[29-Aug-2024 12:08:32 Europe/London] PHP Warning:  Undefined variable $amazonkey in /home/etra/public_html/etra.group/lambda/core.php on line 13
+[29-Aug-2024 12:08:32 Europe/London] PHP Warning:  Undefined variable $amazonpassword in /home/etra/public_html/etra.group/lambda/core.php on line 14
+[29-Aug-2024 12:08:54 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[29-Aug-2024 12:08:54 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[29-Aug-2024 12:08:54 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[29-Aug-2024 12:08:54 Europe/London] PHP Warning:  Undefined variable $amazonkey in /home/etra/public_html/etra.group/lambda/core.php on line 13
+[29-Aug-2024 12:08:54 Europe/London] PHP Warning:  Undefined variable $amazonpassword in /home/etra/public_html/etra.group/lambda/core.php on line 14
+[29-Aug-2024 12:11:22 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[29-Aug-2024 12:11:22 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[29-Aug-2024 12:11:22 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[29-Aug-2024 12:11:22 Europe/London] PHP Warning:  Undefined variable $amazonkey in /home/etra/public_html/etra.group/lambda/core.php on line 13
+[29-Aug-2024 12:11:22 Europe/London] PHP Warning:  Undefined variable $amazonpassword in /home/etra/public_html/etra.group/lambda/core.php on line 14
+[05-Sep-2024 14:06:26 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:06:26 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:06:26 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:06:30 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:06:30 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:06:30 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:06:32 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:06:32 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:06:32 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:07:09 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:07:09 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:07:09 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:11:02 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:11:02 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:11:02 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:11:50 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Undefined array key "data" in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 90
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 113
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 115
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 116
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 117
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 122
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Undefined variable $brand in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 134
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 153
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 168
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 333
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Undefined variable $order1 in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Attempt to read property "error" on null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Undefined variable $orderid in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354
+[05-Sep-2024 14:11:50 Europe/London] PHP Warning:  Undefined variable $order_status in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:12:31 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Undefined array key "data" in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 90
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 113
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 115
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 116
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 117
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 122
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Undefined variable $brand in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 134
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 153
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 168
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 333
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Undefined variable $order1 in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Attempt to read property "error" on null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Undefined variable $orderid in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354
+[05-Sep-2024 14:12:31 Europe/London] PHP Warning:  Undefined variable $order_status in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:12:53 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Undefined array key "data" in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 90
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 113
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 115
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 116
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 117
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 122
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Undefined variable $brand in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 134
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 153
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 168
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 333
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Undefined variable $order1 in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Attempt to read property "error" on null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Undefined variable $orderid in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354
+[05-Sep-2024 14:12:53 Europe/London] PHP Warning:  Undefined variable $order_status in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:13:23 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Undefined array key "data" in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 90
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 113
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 115
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 116
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 117
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 122
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Undefined variable $brand in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 134
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 153
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 168
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 333
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Undefined variable $order1 in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Attempt to read property "error" on null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Undefined variable $orderid in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354
+[05-Sep-2024 14:13:23 Europe/London] PHP Warning:  Undefined variable $order_status in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:13:46 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Undefined array key "data" in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 90
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 113
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 115
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 116
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 117
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 122
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Undefined variable $brand in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 134
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 141
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 153
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 168
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 190
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Trying to access array offset on value of type null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 333
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Undefined variable $order1 in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Attempt to read property "error" on null in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 352
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Undefined variable $orderid in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354
+[05-Sep-2024 14:13:46 Europe/London] PHP Warning:  Undefined variable $order_status in /home/etra/public_html/etra.group/lambda/functions/auto-fulfill/autofulfill-lambda.php on line 354

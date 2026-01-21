@@ -1,0 +1,305 @@
+<style>
+    h1 {
+        margin-bottom: 15px;
+    }
+
+    .greenbtn {
+        background: #80bd29;
+
+        width: initial;
+
+        display: inline-block;
+
+        margin: 0 !important;
+
+        padding: 10px;
+
+        font-size: 15px;
+
+        -webkit-border-radius: 5px !important;
+
+        -moz-border-radius: 5px !important;
+
+        border-radius: 5px !important;
+    }
+
+    .ordertbl .thewidth .thewidthleft,
+    .ordertbl .thewidth .thewidthright {
+        width: 50%;
+    }
+
+    .discounttbl {
+        margin-top: 25px;
+    }
+
+
+
+    .discounttbl .thewidth .thewidthleft .package {
+        padding-top: 10px;
+    }
+
+
+
+    .tickadded {
+        position: relative;
+    }
+
+    .tickadded .tick {
+        width: 20px;
+
+        height: 20px;
+
+        background: url(/imgs/all-images.png) no-repeat 0 -26px;
+
+        display: block;
+
+        position: absolute;
+
+        left: 0;
+
+        top: 9px;
+    }
+
+
+
+    .tickadded span {
+        margin-top: 0 !important;
+        padding-left: 26px;
+
+        color: #008000 !important;
+    }
+
+
+
+    .remove {
+        font-size: 14px;
+
+        color: grey;
+    }
+
+
+
+    .ups {
+        margin-top: 15px;
+        display: block;
+    }
+
+
+
+    .thewidth .thewidthleft .dp {
+        display: none;
+    }
+
+
+
+    @media only screen and (min-width: 768px) {
+
+        .container {
+
+
+
+            padding: 37px 5% !important;
+
+        }
+
+    }
+</style>
+
+<div class="orderbody" align="center">
+
+
+
+
+
+    <div class="cnwidth">
+
+
+
+        {discountnotifcart}
+
+
+
+
+
+        <div class="steps">
+
+
+
+
+
+            <div class="number">1</div>
+
+            <div class="numlabel">Details</div>
+
+            <svg class="greyarrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.5 31.5">
+                <path
+                    d="M21.2 5c-0.4-0.4-1.1-0.4-1.6 0 -0.4 0.4-0.4 1.1 0 1.6l8 8H1.1C0.5 14.6 0 15.1 0 15.7c0 0.6 0.5 1.1 1.1 1.1h26.6l-8 8c-0.4 0.4-0.4 1.2 0 1.6 0.4 0.4 1.2 0.4 1.6 0l10-10c0.4-0.4 0.4-1.1 0-1.6L21.2 5z" />
+            </svg>
+
+
+
+
+
+            <div class="number numbergrey">2</div>
+
+            <div class="numlabel labelgrey">Payment</div>
+
+            <svg class="greyarrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.5 31.5">
+                <path
+                    d="M21.2 5c-0.4-0.4-1.1-0.4-1.6 0 -0.4 0.4-0.4 1.1 0 1.6l8 8H1.1C0.5 14.6 0 15.1 0 15.7c0 0.6 0.5 1.1 1.1 1.1h26.6l-8 8c-0.4 0.4-0.4 1.2 0 1.6 0.4 0.4 1.2 0.4 1.6 0l10-10c0.4-0.4 0.4-1.1 0-1.6L21.2 5z" />
+            </svg>
+
+
+
+
+
+            <div class="number numbergrey">3</div>
+
+            <div class="numlabel labelgrey">Complete</div>
+
+
+
+        </div>
+
+
+
+        <div class="container container2 dshadow">
+
+
+
+            <h1>Review your order</h1>
+
+
+
+            <div class="ordertbl">
+
+                <div class="orderheader thewidth">
+
+
+
+                    <span class="thewidthleft">ITEM</span>
+
+                    <span class="thewidthright">PRICE</span>
+
+
+
+                </div>
+
+
+
+                <div class="thewidth">
+
+                    <iframe id="result" style="display:none;" src="about:blank"></iframe>
+
+                    <div class="thewidthleft"><span class="package">{packagetitle}</span><span
+                            class="username">@{igusername}</span><img {profilepicturedisplay} id="dp" class="dp"
+                            height="65" width="65">{posts}<div class="tickadded"><span class="tick"></span><span
+                                style="">Ready for delivery</span></div>
+                    </div>
+
+
+
+                    <div class="thewidthright">{currency}{price}</div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+            <div class="ordertbl discounttbl">
+
+                <div class="thewidth">
+
+
+
+                    <div class="thewidthleft"><span class="package">{discounttitle}</span></div>
+
+                    <div class="thewidthright">{discountbtn}</div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <div class="container  container2 dshadow">
+
+
+
+            <div class="h1">Order summary</div>
+
+
+
+            {discounton}
+
+
+
+            <div class="summary thewidth">
+
+                <div class="thewidthleft"><span class="package">{packagetitle}</span>{summaryupsell1}</div>
+
+                <div class="thewidthright">{currency}{price}{summaryupsell2}</div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+            {discountreview}
+
+
+
+            <div class="finalsummary thewidth">
+
+                <div class="thewidthleft"><span class="package">Total</span></div>
+
+                <div class="thewidthright">{currency}{totalprice}</div>
+
+            </div>
+
+
+
+
+
+
+
+            <div>
+                <form method="POST" action="/order/payment/"><input type="submit" value="Proceed to payment &raquo;"
+                        class="color4 btn dshadow"></form>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

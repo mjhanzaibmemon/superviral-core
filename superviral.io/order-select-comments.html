@@ -1,0 +1,3194 @@
+<style type="text/css">
+  body {
+    padding-bottom: 110px;
+  }
+
+  .custom-scrollbar {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #555555 #dddddd;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #646464;
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #E6E6E6;
+    border-radius: 50px;
+  }
+
+  /* input[type="checkbox"] {
+    
+      background-color: #3498db; 
+    }
+
+input[type="checkbox"]:checked {
+     
+      background-color: #2ecc71; } */
+
+
+
+  .orderstatus {
+
+
+
+    display: inline-block;
+
+
+
+    width: 100%;
+
+
+
+    padding: 10px;
+
+
+
+    background-color: #f5f7fe;
+
+
+
+    box-sizing: border-box;
+
+
+
+    margin: 41px 0;
+
+
+
+  }
+
+
+
+
+
+
+
+  .selectedposts {
+
+
+
+    margin-bottom: 9px !important;
+
+
+
+    color: #000 !important;
+
+
+
+    font-size: 14px;
+
+
+
+    text-align: center !important;
+
+
+
+  }
+
+
+
+
+
+
+
+  .selectedposts .amount_of_posts,
+
+
+
+  .selectedposts .likes_per_post {
+
+
+
+    font-weight: bold;
+
+
+
+    display: unset !important;
+
+
+
+    font-size: inherit !important;
+
+
+
+    margin-top: 0 !important;
+
+
+
+    color: #000;
+
+
+
+  }
+
+
+
+
+
+
+
+  .btn {
+
+
+
+    width: 100% !important;
+
+
+
+    text-align: center;
+
+
+
+    margin: 0 !important;
+
+
+
+    padding: 9px 15px !important;
+
+
+
+    border-color: #1a73e7;
+
+
+
+  }
+
+
+
+
+
+
+
+  .btn1 {
+
+
+
+    width: 80% !important;
+
+
+
+    float: none;
+
+
+
+    text-align: center;
+
+
+
+    padding: 9px 15px !important;
+
+
+
+    margin-top: 30px !important;
+
+
+
+    font-size: 16px;
+
+
+
+    border-radius: 30px !important;
+
+
+
+    box-sizing: border-box;
+
+
+
+    outline: 0;
+
+
+
+    border: 1px solid #bbb;
+
+
+
+    color: #fff;
+
+
+
+    display: block;
+
+
+
+    margin: 5px auto;
+
+
+
+    font-weight: bold;
+
+
+
+  }
+
+
+
+
+
+
+
+  .btnnxt {
+
+
+
+    width: initial !important;
+
+
+
+    display: inline-block;
+
+
+
+  }
+
+
+
+
+
+
+
+  .image_checkboxes {
+
+
+
+    min-height: 150px;
+
+
+
+    display: flex;
+
+
+
+    flex-wrap: wrap;
+
+
+
+    position: relative;
+
+
+
+  }
+
+
+
+
+
+
+
+  .image_checkboxes .img-responsive {
+
+
+
+    position: relative;
+
+
+
+    display: inline-block;
+
+
+
+    width: 33% !important;
+
+
+
+    height: 120px;
+
+
+
+    float: left;
+
+
+
+    border: 2px solid transparent;
+
+
+
+    overflow: hidden;
+
+
+
+    box-sizing: border-box;
+
+
+
+    margin: 0 !important;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .image_checkboxes .img-responsive .amount {
+
+
+
+    position: absolute;
+
+
+
+    display: none;
+
+
+
+    color: #fff;
+
+
+
+    background: #1a73e7;
+
+
+
+    margin: 0 !important;
+
+
+
+    height: 26px !important;
+
+
+
+    text-align: center;
+
+
+
+    box-sizing: border-box;
+
+
+
+    width: 100% !important;
+
+
+
+    margin: 0;
+
+
+
+    font-size: 14px;
+
+
+
+    line-height: 25px;
+
+
+
+    bottom: 0;
+
+
+
+    z-index: 9999;
+
+
+
+    font-weight: bold;
+
+
+
+  }
+
+
+
+
+
+
+
+  .image_checkboxes .img-responsive .tick {
+
+
+
+    width: 100%;
+
+
+
+    height: 100%;
+
+
+
+    background: rgb(0 0 0 / 35%);
+
+
+
+    z-index: 9999;
+
+
+
+    position: absolute;
+
+
+
+    text-align: center;
+
+
+
+    display: none;
+
+
+
+  }
+
+
+
+
+
+
+
+  .image_checkboxes .img-responsive .tick img {
+
+
+
+    height: initial;
+
+
+
+    width: 44px;
+
+
+
+    margin-top: 26px;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .image_checkboxes .img-responsive img {
+
+
+
+    width: 100%;
+
+
+
+    height: 100%;
+
+
+
+  }
+
+
+
+
+
+
+
+  .image_checkboxes .active {
+
+
+
+    border-color: #1a73e7;
+
+
+
+  }
+
+
+
+
+
+
+
+  .image_checkboxes .active .amount {
+
+
+
+    display: block;
+
+
+
+  }
+
+
+
+
+
+
+
+  .image_checkboxes .active .tick {
+
+
+
+    display: block;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .whichpackage {
+
+
+
+    text-align: center !important;
+
+
+
+    font-size: 13px;
+
+
+
+    color: #464646;
+
+
+
+    margin-top: 3px;
+
+
+
+    margin-bottom: 30px;
+
+
+
+  }
+
+
+
+
+
+
+
+  .whichpackage a {
+
+
+
+    color: #4e03e0;
+
+
+
+    text-decoration: underline;
+
+
+
+  }
+
+
+
+
+
+
+
+  .problem li {
+
+
+
+    margin-bottom: 15px;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .image_checkboxes .lds-dual-ring {
+
+
+
+    display: inline-block;
+
+
+
+    width: 92px;
+
+
+
+    height: initial;
+
+
+
+    position: absolute;
+
+
+
+    margin-left: auto;
+
+
+
+    margin-right: auto;
+
+
+
+    left: 0;
+
+
+
+    right: 0;
+
+
+
+  }
+
+
+
+
+
+
+
+  .lds-dual-ring:after {
+
+
+
+    content: " ";
+
+
+
+    display: block;
+
+
+
+    width: 64px;
+
+
+
+    height: 64px;
+
+
+
+    margin: 8px;
+
+
+
+    border-radius: 50%;
+
+
+
+    border: 6px solid #1a73e7;
+
+
+
+    border-color: #4e03e0 transparent #4e03e0 transparent;
+
+
+
+    animation: lds-dual-ring 0.6s linear infinite;
+
+
+
+  }
+
+
+
+
+
+
+
+  #shownopostmsg {
+
+
+
+    display: none;
+
+
+
+  }
+
+
+
+
+
+
+
+  .bottomorderstatus {
+
+
+
+    display: none;
+
+
+
+  }
+
+
+
+
+
+
+
+  .mobilenext {
+
+    display:none;
+
+    bottom: 0;
+
+
+
+    position: fixed;
+
+
+
+    width: 100%;
+
+
+
+    z-index: 99999;
+
+
+
+    padding: 10px;
+
+
+
+    box-sizing: border-box;
+
+
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+
+
+    height: 93px;
+
+
+
+  }
+
+
+
+
+
+
+
+  .mobilenext .selectedposts {
+
+
+
+    margin-top: 0px !important;
+
+
+
+    color: #fff !important;
+
+
+
+    font-size: 12px;
+
+
+
+    text-align: center;
+
+
+
+    float: none;
+
+
+
+    margin-bottom: 8px;
+
+
+
+  }
+
+
+
+
+
+
+
+  .mobilenext .selectedposts .likes_per_post,
+
+
+
+  .mobilenext .selectedposts .amount_of_posts {
+
+
+
+    color: #fff
+  }
+
+
+
+
+
+
+
+  .mobilenext .btn {
+
+
+
+    width: 100% !important;
+
+
+
+    border: 1px solid #1a73e7;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .container {
+
+
+
+    padding: 5px;
+
+
+
+  }
+
+
+
+
+
+
+
+  #shownopostmsg {
+
+
+
+    padding: 22px;
+
+
+
+  }
+
+
+
+
+
+
+
+  @keyframes lds-dual-ring {
+
+
+
+    0% {
+
+
+
+      transform: rotate(0deg);
+
+
+
+    }
+
+
+
+
+
+
+
+    100% {
+
+
+
+      transform: rotate(360deg);
+
+
+
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #progressbar {
+
+
+
+    background-color: #f5f7fe;
+
+
+
+    border-radius: 21px;
+
+
+
+    padding: 8px;
+
+
+
+    width: 196px;
+
+
+
+    height: 20px;
+
+
+
+    border: 1px solid #c8acff;
+
+
+
+    position: absolute;
+
+
+
+    margin-left: auto;
+
+
+
+    margin-right: auto;
+
+
+
+    left: 0;
+
+
+
+    right: 0;
+
+
+
+    top: 111px;
+
+
+
+  }
+
+
+
+
+
+
+
+  #progressbar .innerbar {
+
+
+
+    background-color: #4e03e0;
+
+
+
+    width: 100%;
+
+
+
+    height: 20px;
+
+
+
+    border-radius: 10px;
+
+
+
+
+
+
+
+    -webkit-animation: animateThis {
+
+
+
+      loadtime
+    }
+
+
+
+
+
+
+
+    s ease;
+
+
+
+
+
+
+
+    animation: loadingposts {
+
+
+
+      loadtime
+    }
+
+
+
+
+
+
+
+    s ease;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @-webkit-keyframes loadingposts {
+
+
+
+    0% {
+
+
+
+      width: 15%;
+
+
+
+    }
+
+
+
+
+
+
+
+    100% {
+
+
+
+      width: 100%;
+
+
+
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+  @keyframes loadingposts {
+
+
+
+    0% {
+
+
+
+      width: 15%;
+
+
+
+    }
+
+
+
+
+
+
+
+    100% {
+
+
+
+      width: 100%;
+
+
+
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #shownopostmsg {
+
+
+
+    display: none;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media only screen and (min-width:540px) {
+
+
+
+
+
+
+
+    .image_checkboxes .img-responsive {
+
+
+
+      width: 150px !important;
+
+
+
+      height: 150px !important;
+
+
+
+      margin: 4px !important;
+
+
+
+    }
+
+
+
+
+
+
+
+    .image_checkboxes .img-responsive .tick img {
+
+
+
+      width: 50px;
+
+
+
+      margin-top: 40px;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  @media only screen and (min-width: 768px) {
+
+
+
+
+
+
+
+    body {
+
+
+
+      padding: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    .container {
+
+
+
+
+
+
+
+      padding: 37px 3% !important;
+
+
+
+    }
+
+
+
+
+
+
+
+    .bottomorderstatus {
+
+
+
+      display: inline-block;
+
+
+
+    }
+
+
+
+
+
+
+
+    .mobilenext {
+
+
+
+      display: none;
+
+
+
+    }
+
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .stepsbar {
+
+
+
+    -webkit-animation: animateThis 1s ease;
+
+
+
+    animation: animateThis 1s ease;
+
+
+
+    background: rgb(78, 3, 224);
+
+
+
+    height: 100%;
+
+
+
+    width: 75%;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  @-webkit-keyframes animateThis {
+
+
+
+    0% {
+
+
+
+      width: 50%;
+
+
+
+    }
+
+
+
+
+
+
+
+    100% {
+
+
+
+      width: 75%;
+
+
+
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+  @keyframes animateThis {
+
+
+
+    0% {
+
+
+
+      width: 50%;
+
+
+
+    }
+
+
+
+
+
+
+
+    100% {
+
+
+
+      width: 75%;
+
+
+
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+  #custom-loader {
+
+
+
+    position: absolute;
+
+
+
+    top: 6px;
+
+
+
+    right: 20px;
+
+
+
+    width: 20px;
+
+
+
+    height: 20px;
+
+
+
+    border-radius: 50%;
+
+
+
+    border: 5px solid;
+
+
+
+    border-color: #ffffff;
+
+
+
+    border-right-color: #1a73e7;
+
+
+
+    animation: s2 1s infinite linear;
+
+
+
+    display: none;
+
+
+
+  }
+
+
+
+
+
+
+
+  @keyframes s2 {
+
+
+
+    to {
+
+
+
+      transform: rotate(1turn)
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /* -------------------
+
+
+
+   Dani styles 
+
+
+
+------------------- */
+
+
+
+
+
+
+
+  .orderbody * {
+
+
+
+    font-family: 'Open Sans', sans-serif !important;
+
+
+
+    box-sizing: border-box;
+
+
+
+  }
+
+
+
+
+
+
+
+  .order-body button,
+
+
+
+  .orderbody a {
+
+
+
+    cursor: pointer;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .main-container {
+
+
+
+    width: 100%;
+
+
+
+    padding: 12px;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .button-wrapper {
+
+
+
+    text-align: center;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .page-title {
+
+
+
+    text-align: center;
+
+
+
+    margin-bottom: 55px;
+
+
+
+    font-size: 34px;
+
+
+
+    font-weight: 600;
+
+
+
+    max-width: 100%;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .package {
+
+
+
+    display: flex;
+
+
+
+    font-size: 15px;
+
+
+
+    font-weight: 600;
+
+    padding: 0 10px;
+
+
+
+    /* align-items: start; */
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .package img {
+
+
+
+    width: 160px;
+
+
+
+    height: 160px;
+
+
+
+    margin-right: 14px;
+
+
+
+    object-fit: contain;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .section-heading {
+
+
+
+    font-size: 25px;
+
+
+
+    font-weight: 600;
+
+
+
+    margin-bottom: 0;
+
+    padding: 0 10px;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .section-subtitle {
+
+
+
+    color: #5B5B5B;
+
+
+
+    font-size: 15px;
+
+
+
+    margin-bottom: 30px;
+
+    padding: 0 10px;
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .comments-section .themes {
+
+
+
+    display: flex;
+
+
+
+    flex-wrap: wrap;
+
+
+
+    justify-content: space-between;
+
+
+
+    align-items: center;
+
+
+
+    overflow: hidden;
+
+    padding: 10px;
+
+    position: relative;
+  }
+
+
+
+
+  .orderbody .comments-section .themes.minimized::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 43px;
+    background: linear-gradient(transparent, #FFFFFF 36%);
+    pointer-events: none;
+  }
+
+
+
+  .orderbody .comments-section .themes.minimized {
+
+
+
+    max-height: 425px;
+
+
+
+  }
+
+
+
+
+  .orderbody .comments-section .themes .theme {
+
+    display: flex;
+
+    flex-direction: column;
+
+    font-size: 13px;
+
+
+
+    font-weight: 600;
+
+
+
+    color: #525252;
+
+
+    box-shadow: 0px 1px 11px 2px rgba(0, 0, 0, 0.06);
+
+
+    border-radius: 16px;
+
+
+
+    border: 2px solid #FFF;
+
+
+
+    width: 48%;
+
+    height: 126px;
+
+
+
+    display: flex;
+
+
+
+    justify-content: center;
+
+
+
+    align-items: center;
+
+
+
+    /* padding: 12px 0; */
+
+
+
+    margin-bottom: 20px;
+
+
+
+    cursor: pointer;
+
+
+
+  }
+
+
+  .orderbody .comments-section .themes .theme span {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .orderbody .comments-section .themes .theme img {
+    width: 41px;
+    height: 41px;
+  }
+
+
+
+
+  .orderbody .comments-section .themes .theme.active {
+
+    border: 2px solid #4E03E0;
+
+    /* background-color: #4E03E0;
+
+
+
+    border: 2px solid #4E03E0; */
+
+
+
+    color: #4E03E0;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .comments-section .button-wrapper {
+
+    margin-bottom: 35px;
+
+  }
+
+
+
+
+
+
+
+  .orderbody .comments-section .button-more,
+
+
+
+  .orderbody .comments-section .button-less {
+
+
+
+    color: #000;
+
+
+
+    font-size: 18px;
+
+
+
+    font-weight: 600;
+
+
+
+    border-radius: 100px;
+
+    border: 2px solid #000;
+
+
+
+    border-radius: 100px;
+
+    background: #FFF;
+
+    padding: 10px 20px;
+
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .comments-section .button-less {
+
+
+
+    display: none;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .comments-section .button-more:hover,
+
+
+
+  .orderbody .comments-section .button-less:hover {
+
+
+
+    background-color: #FFF;
+    color: grey;
+    border: 2px solid grey;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .customize-comments-section {
+
+
+
+    margin-bottom: 50px;
+
+
+
+    display: none;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .customize-comments-section .seperator {
+
+
+
+    height: 1px;
+
+
+
+    background: #C8C8C8;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .customize-comments-section .options {
+
+
+
+    margin-bottom: 15px;
+
+
+
+    max-height: 440px;
+
+
+
+    overflow-y: scroll;
+
+    padding-right: 2rem;
+
+  }
+
+
+
+
+
+
+
+  .orderbody .customize-comments-section .options .checkbox-container {
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    font-size: 20px;
+
+
+
+    margin-bottom: 15px;
+
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .customize-comments-section .options .checkbox-container input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    min-width: 25px;
+    height: 25px;
+    margin-right: 12px;
+    border-radius: 7px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .orderbody .customize-comments-section .options .checkbox-container input::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #D6D6D6;
+  }
+
+  .orderbody .customize-comments-section .options .checkbox-container input::after {
+    /* content: "\2714"; 
+    font-size: 18px; 
+    color: white;  */
+    content: '';
+    width: 20px;
+    height: 16px;
+    background: url('/imgs/comments-checkmark.svg');
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  .orderbody .customize-comments-section .options .checkbox-container input.active::before {
+    background-color: #4E03E0;
+  }
+
+  .orderbody .customize-comments-section .options .checkbox-container label {
+
+    font-size: 13px;
+  }
+
+
+
+  .orderbody .customize-comments-section .section-button {
+
+
+
+    color: #000;
+
+
+
+    background-color: #FFFFFF;
+
+
+
+    padding: 10px 0;
+
+
+
+    width: 100%;
+
+
+
+    font-size: 18px;
+
+
+
+    font-weight: 600;
+
+
+
+    border-radius: 100px;
+
+
+
+    border: 2px solid #000;
+    margin-bottom: 10px !important;
+
+
+  }
+
+
+
+
+
+
+
+  .orderbody .customize-comments-section .section-button:hover {
+
+
+
+    background-color: #FFF;
+    color: grey;
+    border: 2px solid grey
+  }
+
+
+  .orderbody .customize-comments-section .section-button.active {
+    border-color: transparent;
+    color: white;
+    background: #0075ff;
+  }
+
+  .orderbody .customize-comments-section .selected-cmnt-info {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+
+  .orderbody .order-section #nextBtn {
+
+
+
+    width: 100%;
+
+
+
+    font-size: 20px;
+
+
+
+    font-weight: 700;
+
+
+
+    border-radius: 100px;
+
+
+
+    background: #1A73E7;
+
+
+
+    padding: 10px 0;
+
+
+
+    color: #FFFFFF;
+
+
+
+    border: none;
+
+
+
+    display: inline-block;
+
+
+
+  }
+
+
+  .orderbody .order-section #nextBtn.disabled {
+    opacity: 0.5;
+  }
+
+
+
+
+
+
+
+  .orderbody .order-section #nextBtn:not(.disabled):hover {
+
+
+
+    background-color: #4E03E0;
+
+
+
+  }
+
+
+
+
+
+
+
+  @media (max-width: 450px) {
+
+
+
+
+
+
+
+    .orderbody .comments-section .themes.minimized {
+
+
+
+      max-height: 425px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .orderbody .comments-section .themes .theme {
+
+
+
+      /* width: 100%; */
+
+
+
+    }
+
+
+
+  }
+
+
+  @media (min-width: 575px) {
+    .orderbody .comments-section .themes .theme {
+      font-size: 18px;
+    }
+
+    /* .orderbody .customize-comments-section .options .checkbox-container input {
+      min-width: 25px;
+      height: 25px;
+    } */
+
+    .orderbody .customize-comments-section .options .checkbox-container label {
+
+      font-size: 15px;
+    }
+
+  }
+
+
+
+
+  @media (min-width: 768px) {
+
+
+
+    .orderbody {
+
+
+
+      background-color: #F5F7FE;
+
+
+
+    }
+
+
+
+
+
+
+
+    .orderbody .main-container {
+
+
+
+      padding: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    .orderbody .order-section {
+
+
+
+      background-color: #FFFFFF;
+
+
+
+      max-width: 630px;
+
+
+
+      margin: 0 auto;
+
+
+
+      padding: 35px 45px 50px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .orderbody .page-title {
+
+
+
+      font-size: 36px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .orderbody .package,
+
+
+
+    .orderbody .section-subtitle {
+
+
+
+      font-size: 18px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .orderbody .comments-section .themes .theme,
+
+
+
+    .orderbody .comments-section .button-more,
+
+
+
+    .orderbody .comments-section .button-less {
+
+
+
+      font-size: 20px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .orderbody .order-section #nextBtn {
+      display: inline-block;
+    }
+
+    .orderbody .customize-comments-section .options .checkbox-container input {
+      min-width: 30px;
+      height: 30px;
+    }
+
+    .orderbody .customize-comments-section .options .checkbox-container label {
+
+      font-size: 20px;
+    }
+
+    /* .orderbody .comments-section .themes .theme {
+      font-size: 20px;
+    } */
+
+
+
+  }
+</style>
+
+
+
+
+
+
+
+<div id="mobilenext" class="mobilenext">
+
+
+
+  <div class="selectedposts">{selectedposts}</div>
+
+
+
+  <div style="position: relative;">
+
+
+
+    <a onclick="submitform();" href="#" class="color4 btn" style="width:100%!important" id="spin-btn">{nextbtn}</a>
+
+
+
+    <div id="custom-loader"></div>
+
+
+
+  </div>
+
+
+
+  <script>
+
+
+
+  </script>
+
+
+
+</div>
+
+
+
+<div class="orderbody">
+
+
+
+  <div class="main-container">
+
+
+
+    {discountnotifcart}
+
+
+
+    <div class="liveholder" style="text-align: center;"><span class="livebox"> <svg xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512" class="livesvg">
+
+
+
+          <path d="M256 0C115.4 0 0 115.4 0 256s115.4 256 256 256 256-115.4 256-256S396.6 0 256 0z" />
+
+
+
+        </svg> Live</span><span id="livecount" class="livecount"></span> {usercheckoutlabel}</div>
+
+
+
+    <form action="" id="commentsFormId" method="POST">
+
+
+
+      <div class="order-section">
+
+
+
+        <h1 class="page-title">Easily Select Comments</h1>
+
+        <div class="comments-section">
+
+
+
+          <h2 class="section-heading">Comments Theme</h2>
+
+
+
+          <div class="section-subtitle">Select all that apply</div>
+
+
+
+          <div class="themes minimized">
+
+
+
+            {igCommentsCategories}
+
+
+
+          </div>
+
+
+
+          <div class="button-wrapper">
+
+
+
+            <button class="button-more" type="button">Show More</button>
+
+
+
+            <button class="button-less" type="button">Show Less</button>
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <div class="customize-comments-section">
+          <div class="seperator"></div>
+          <h2 class="section-heading">Select your comments</h2>
+          <div class="section-subtitle">This is optional (re-generated if needed)</div>
+          <div class="options custom-scrollbar" id="commentsDivId"></div>
+          <button class="btn section-button" id="regenerateBtnId" type="button" disabled>Uncheck To Regenerate</button>
+          <input type="hidden" id="commentSelectedId" name="comments_selected" value="">
+          <input type="hidden" id="commentSelectedTagsId" name="comments_selected_tags" value="">
+          <div class="selected-cmnt-info"><span class="selected"></span>/<span class="total"></span> comments selected
+          </div>
+          <button id="nextBtn" onclick="submitForm();" type="button">Next</button>
+        </div>
+
+
+
+      </div>
+
+
+
+    </form>
+
+
+
+
+
+  </div>
+
+
+
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+
+<script src="/js/orderform.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+  let selectedThemes = [];
+  const minSelectedCmnts = 48;
+
+
+  const themes = document.querySelector(".orderbody .comments-section .themes");
+  const selectedCmnts = document.querySelector(".orderbody .customize-comments-section .selected-cmnt-info .selected");
+  const totalCmnts = document.querySelector(".orderbody .customize-comments-section .selected-cmnt-info .total");
+  const nextBtn = document.getElementById("nextBtn");
+
+
+  const moreButton = document.querySelector(".orderbody .comments-section .button-more");
+
+
+
+  const minButton = document.querySelector(".orderbody .comments-section .button-less");
+
+
+
+  moreButton.addEventListener("click", () => {
+
+
+
+    themes.classList.remove("minimized");
+
+
+
+    moreButton.style.display = "none";
+
+
+
+    minButton.style.display = "inline-block";
+
+
+
+  })
+
+
+
+  minButton.addEventListener("click", () => {
+
+
+
+    themes.classList.add("minimized");
+
+
+
+    minButton.style.display = "none";
+
+
+
+    moreButton.style.display = "inline-block";
+
+
+
+  });
+
+
+
+  // custom comment section
+
+
+
+  const custCmntSec = document.querySelector(".orderbody .customize-comments-section");
+
+
+
+  const themesList = themes.querySelectorAll(".theme");
+
+
+
+  var id;
+
+
+
+  var ids = [];
+
+
+
+  // go through all themes and add on-click event listeners to them
+
+
+
+  themesList.forEach((theme, index) => {
+
+    theme.addEventListener("click", () => {
+
+      theme.classList.toggle("active");
+
+
+
+      id = theme.getAttribute("data-id");
+
+
+
+      let themeSelected = false;
+      themesList.forEach((item) => {
+        if (item.classList.contains("active"))
+          themeSelected = true;
+      })
+
+      if (theme.classList.contains("active")) {
+
+
+
+        selectedThemes.push(theme.textContent);
+
+        ids.push(id);
+
+
+
+      } else {
+
+        selectedThemes = selectedThemes.filter((element) => element !== theme.textContent);
+
+        ids.pop(id);
+
+      }
+
+
+
+      var dataArr = {
+
+        "ids": ids,
+
+        'type': 'categoryWiseComments'
+
+      };
+
+
+
+      $.ajax({
+
+        url: "/buy-instagram-comments-ajax.php",
+
+        type: "POST",
+
+        async: true,
+
+        dataType: 'json',
+
+        data: dataArr,
+
+        success: function (response) {
+
+          // console.log(response);
+
+          var i;
+
+          var htm = '';
+          var tag = "";
+          const length = response.categoryWiseComments.length;
+          selectedCmnts.textContent = length;
+          totalCmnts.textContent = length;
+          for (i = 0; i < length; i++) {
+
+
+
+            tag = getCommentTag(response.categoryWiseComments[i].cat_id);
+
+            htm += '<div class="checkbox-container"><input type="checkbox" data-comments= "' + response.categoryWiseComments[i].comment + '"  data-tags = "' + tag + '" data-commentId = "' + response.categoryWiseComments[i].id + '" onchange="handleCheckBoxChange(event)" class="checkbox-input active"><label class="checkbox-label">' + response.categoryWiseComments[i].comment + '</label></div>';
+
+
+
+
+          }
+
+
+
+          $('#commentsDivId').html(htm);
+
+
+
+        },
+
+      });
+
+      // show custom comment section if any theme is selected, otherwise hide it
+
+      if (selectedThemes.length)
+        custCmntSec.style.display = "block";
+      else
+        custCmntSec.style.display = "none";
+      
+      nextBtn.classList.remove("disabled");
+    })
+  });
+
+  function regenerateButtonActive() {
+
+    if ($('.checkbox-input.active').length == $('.checkbox-input').length) {
+
+      $('#regenerateBtnId').removeClass('active');
+
+
+      $('#regenerateBtnId').prop('disabled', true);
+
+    } else {
+
+      $('#regenerateBtnId').addClass('active');
+
+
+      $('#regenerateBtnId').removeAttr('disabled');
+
+    }
+
+  }
+
+  function handleCheckBoxChange(event) {
+    event.target.classList.toggle("active");
+    const boxes = document.querySelectorAll(".orderbody .customize-comments-section .options .checkbox-container input");
+    let checkedCount = 0;
+    boxes.forEach((box) => {
+      if (box.classList.contains("active"))
+        checkedCount++;
+    })
+    selectedCmnts.textContent = checkedCount;
+    if (checkedCount < minSelectedCmnts)
+      nextBtn.classList.add("disabled");
+    else
+      nextBtn.classList.remove("disabled");
+    regenerateButtonActive();
+  }
+
+
+
+  var regenBtn = document.getElementById('regenerateBtnId');
+
+  regenBtn.addEventListener("click", function () {
+
+
+
+    var commentsCheckbox = document.getElementsByClassName('checkbox-input');
+
+    var item;
+
+    var uncheckedCommentIds = [];
+
+    var checkedCommentIds = [];
+
+    for (var i = 0; i < commentsCheckbox.length; ++i) {
+
+      item = commentsCheckbox[i];
+
+      if (item.classList.contains("active")) {
+
+        commentId = item.getAttribute('data-commentId');
+
+        checkedCommentIds.push(commentId);
+
+      } else {
+
+        commentId = item.getAttribute('data-commentId');
+
+        uncheckedCommentIds.push(commentId);
+
+      }
+
+
+
+    }
+
+
+
+    var dataArr = {
+
+      "checkedCommentIds": checkedCommentIds,
+
+      "uncheckedCommentIds": uncheckedCommentIds,
+
+      ids: ids,
+
+      'type': 'regenerateComments'
+
+    };
+
+
+
+    $.ajax({
+
+      url: "/buy-instagram-comments-ajax.php",
+
+      type: "POST",
+
+      async: true,
+
+      dataType: 'json',
+
+      data: dataArr,
+
+      success: function (response) {
+
+        // console.log(response);
+
+        var i;
+
+        var htm = '';
+        var tag = '';
+        const length = response.allComments.length;
+        selectedCmnts.textContent = length;
+        totalCmnts.textContent = length;
+        for (i = 0; i < length; i++) {
+
+
+
+          tag = getCommentTag(response.allComments[i].cat_id);
+
+          htm += '<div class="checkbox-container"><input type="checkbox" data-comments= "' + response.allComments[i].comment + '" data-tags = "' + tag + '" data-commentId = "' + response.allComments[i].id + '" onchange="handleCheckBoxChange(event)" class="checkbox-input active"><label class="checkbox-label">' + response.allComments[i].comment + '</label></div>';
+
+
+        }
+
+        $('#regenerateBtnId').removeClass('active');
+
+        $('#regenerateBtnId').prop('disabled', true);
+
+        $('#commentsDivId').html(htm);
+
+        // show custom comment section if any theme is selected, otherwise hide it
+
+        if (selectedThemes.length)
+
+
+
+          custCmntSec.style.display = "block";
+
+
+
+        else
+
+
+
+          custCmntSec.style.display = "none";
+
+      },
+
+    });
+    nextBtn.classList.remove("disabled");
+
+
+  })
+
+
+
+  function submitForm() {
+    if (nextBtn.classList.contains("disabled")) {
+      alert("minimum " + minSelectedCmnts + " comments need to selected");
+      return;
+    }
+    var commentsCheckbox = document.getElementsByClassName('checkbox-input');
+
+    var item;
+
+    var checkedCommentIds = [];
+    var checkedCommentTags = [];
+
+    for (var i = 0; i < commentsCheckbox.length; ++i) {
+
+      item = commentsCheckbox[i];
+
+      if (item.classList.contains("active")) {
+
+        comment = item.getAttribute('data-comments');
+        checkedCommentIds.push(comment);
+        tags = item.getAttribute('data-tags');
+        checkedCommentTags.push(tags);
+
+
+      }
+
+    }
+
+
+
+    $('#commentSelectedId').val(JSON.stringify(checkedCommentIds));
+    $('#commentSelectedTagsId').val(JSON.stringify(checkedCommentTags));
+
+
+    // check if comments selected 
+
+    if (ids.length > 0 && checkedCommentIds.length > 0 && checkedCommentIds.length == commentsCheckbox.length) {
+
+
+
+      document.getElementById("commentsFormId").submit();
+
+    } else {
+
+      alert('Please select categories and all comments');
+
+      return;
+
+    }
+
+
+
+  }
+  function getCommentTag(cat_id) {
+
+    var tag = "";
+    switch (cat_id) {
+      case '1':
+        tag = 'male';
+        break;
+      case '2':
+        tag = 'female';
+        break;
+      case '3':
+        tag = 'fitness';
+        break;
+      case '4':
+        tag = 'fashion';
+        break;
+      case '5':
+        tag = 'travel';
+        break;
+      case '6':
+        tag = 'art';
+        break;
+      case '7':
+        tag = 'beauty';
+        break;
+      case '8':
+        tag = 'business';
+        break;
+      case '9':
+        tag = 'investment';
+        break;
+      case '10':
+        tag = 'food';
+        break;
+      case '11':
+        tag = 'funny';
+        break;
+      case '12':
+        tag = 'game';
+        break;
+      case '13':
+        tag = 'home';
+        break;
+      case '14':
+        tag = 'memes';
+        break;
+      case '15':
+        tag = 'quotes';
+        break;
+      case '16':
+        tag = 'music';
+        break;
+      case '17':
+        tag = 'parenting';
+        break;
+      case '18':
+        tag = 'pets';
+        break;
+      case '19':
+        tag = 'photo';
+        break;
+      default:
+        tag = 'notag';
+    }
+
+    return tag;
+  }
+
+
+function liveusers(){
+
+    var feedback = $.ajax({
+
+        type: "GET",
+
+        url: "/livecheckout.php",
+
+        async: false
+
+    }).complete(function(){
+
+        setTimeout(function(){liveusers();}, 3000);
+
+    }).responseText;
+
+
+
+    $('.livecount').html(feedback);
+
+
+
+
+
+}
+
+
+
+liveusers();
+
+
+</script>

@@ -1,0 +1,6 @@
+* @rabban-etra @mac-etra
+
+
+# Restrict editing of workflows to specific users
+.github/workflows/* @rabban-etra
+.github/codeowners @rabban-etra

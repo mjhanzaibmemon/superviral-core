@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Banner Editor</h1>
+
+        <!-- Banner Preview Area -->
+        <div class="banner-container">
+            <div id="editable-banner" class="banner">
+                <!-- Background will be controlled by CSS -->
+                <div class="banner-content" id="banner-content">
+                    <!-- HTML content will be inserted here -->
+                </div>
+                
+                <!-- Image container -->
+                <div id="inner-image-container" class="inner-image-container">
+                    <div class="inner-image">
+                        <img src="{vector_image}"
+                            alt="Banner image">
+                            <input type="hidden" id="article_id" value="{article_id}">
+                            <input type="hidden" id="edit_param" value="{edit}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Inline Controls Section -->
+        <div class="editor-controls">
+            <div class="form-group">
+                <label>Background Color</label>
+                <div class="color-inputs">
+                    <input type="color" id="bg-color-start" value="#c31d8c">
+                    <span>to</span>
+                    <input type="color" id="bg-color-end" value="#3931a8">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Text</label>
+                <textarea id="html-content"><div style="font-size: 48px;font-weight: bold;line-height: 1.2;margin-bottom: 20px;">{article_title}</div>
+                </textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Text Width</label>
+                <div class="content-width">
+                    <div>
+                        <input type="number" id="content-width" value="500" min="10" max="1000">
+                        <span>px</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Image Width</label>
+                <div class="image-width">
+                    <div>
+                        <input type="number" id="image-width" value="320" min="100" max="500">
+                        <span>px</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Image Position</label>
+                <div class="position-controls">
+                    <div>
+                        <label>Top:</label>
+                        <input type="number" id="inner-top" value="50" min="0" max="500">
+                        <span>px</span>
+                    </div>
+                    <div>
+                        <label>Right:</label>
+                        <input type="number" id="inner-right" value="50" min="0" max="500">
+                        <span>px</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="button-container">
+            <button id="set-thumb" class="btn">Set Thumbnail</button>
+            <button id="export-button" class="btn">Export Banner</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

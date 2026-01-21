@@ -1,0 +1,86 @@
+name: Deploy Lambda via Serverless (Multi-Env)
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Select environment"
+        required: true
+        type: choice
+        default: "stage"
+        options:
+          - dev
+          - stage
+          - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      SERVERLESS_ROOT: ./lambda
+
+    steps:
+      # ----------------------------------------
+      # Checkout Code
+      # ----------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ----------------------------------------
+      # Setup Node.js
+      # ----------------------------------------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # ----------------------------------------
+      # Install Serverless Framework v3
+      # ----------------------------------------
+      - name: Install Serverless Framework v3
+        run: npm install -g serverless@3
+
+      # ----------------------------------------
+      # Set AWS credentials based on selected env
+      # ----------------------------------------
+      - name: Set AWS credentials
+        run: |
+          echo "Selected environment: ${{ github.event.inputs.env }}"
+
+          case "${{ github.event.inputs.env }}" in
+            dev)
+              echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_DEV }}" >> $GITHUB_ENV
+              echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}" >> $GITHUB_ENV
+              ;;
+            stage)
+              echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_STAGE }}" >> $GITHUB_ENV
+              echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_STAGE }}" >> $GITHUB_ENV
+              ;;
+            main)
+              echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_PROD }}" >> $GITHUB_ENV
+              echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}" >> $GITHUB_ENV
+              ;;
+          esac
+
+      # ----------------------------------------
+      # Verify AWS identity
+      # ----------------------------------------
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
+      # ----------------------------------------
+      # Validate Serverless configuration
+      # ----------------------------------------
+      - name: Validate Serverless config
+        run: |
+          cd $SERVERLESS_ROOT
+          serverless print --stage ${{ github.event.inputs.env }}
+
+      # ----------------------------------------
+      # Deploy to selected environment
+      # ----------------------------------------
+      - name: Deploy using Serverless
+        run: |
+          cd $SERVERLESS_ROOT
+          serverless deploy --stage ${{ github.event.inputs.env }} --verbose

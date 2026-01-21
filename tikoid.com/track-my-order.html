@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>Order #{ordernum} - Track My Order - Tikoid</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta http-equiv="Content-Language" content="en-us">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="/css/buystyle.min.css">
+
+<style type="text/css">
+
+
+
+    .cnwidthtracking{max-width:600px;}
+
+
+
+        h1{    color: #000;
+
+    text-align: center;
+
+    margin: 0;padding-top:25px;
+
+    font-size: 43px;}
+
+
+
+    .dnone42{display: none;}
+
+
+
+    .trackingnumber{font-size: 18px;font-weight:bold;}
+
+
+
+    .thehref{text-decoration: underline;color:blue;}
+
+
+
+    .deliverytime{    font-size: 29px;
+
+    margin-top: 90px;
+
+    color: #009900;padding: 0 20px;}
+
+
+
+    .progressbar{position:relative;height:30px;margin-top:40px;display:inline-block;}
+
+    .greybar{position:relative;height:100%;background-size: 580px 15px;} 
+
+    .greybar img{width:380px;}
+
+
+
+    .greenbar{position:absolute;    z-index: 999;overflow: hidden;width:{percentbar}%;}
+
+
+
+    .trackbartick{position:absolute;left:{tickbar}%;z-index:9999;top:-3px;}
+
+
+
+    .box{margin: 75px 15px 35px 15px;background:#fff;-webkit-border-radius: 5px;
+
+-moz-border-radius: 5px;
+
+border-radius: 5px;text-align: left;padding:15px;}
+
+
+
+    .box .boxheading{font-size:17px;font-weight:bold;margin-bottom:10px;}
+
+
+
+    .datelabel{    background: #f5f7fe;
+
+    font-size: 14px;
+
+    padding-left: 10px!important;}
+
+
+
+    .box .contents div{    padding: 11px 0;}
+
+
+
+    .box .contents table{font-size:13px;}
+
+    .box .contents table tr td{padding: 8px 0;box-sizing:border-box;}
+
+    .box .contents table tr td:first-child{padding-right:15px;color:grey;font-weight: normal;}
+
+
+
+    .trackingtbl tr td{width:75%; vertical-align: text-top;border-bottom:1px solid #f5f7fe;}
+
+    .trackingtbl tr td:first-child{width:25%;color: #009900!important;}
+
+
+
+
+
+    @media only screen and (min-width: 768px){
+
+        h1{font-size:43px;}
+
+
+
+        .deliverytime{padding:0;}
+
+
+
+        .box{    margin: 75px 0 35px 0;}
+
+
+
+    .progressbar{position:relative;height:30px;margin-top:40px;display:block;}
+
+    .greybar{position:relative;height:100%;background-size: 580px 15px;} 
+
+    .greybar img,.greenbar img{width:580px;}
+
+    .greenbar{position:absolute;    z-index: 999;overflow: hidden;}
+
+    
+
+    }
+
+
+
+    @media only screen and (min-width:992px){
+
+
+
+
+
+    }
+
+
+
+    @media only screen and (min-width:1200px){
+
+
+
+    }
+
+
+
+    @media only screen and (min-width:1500px){
+
+
+
+    }
+
+
+
+
+
+</style>    
+
+</head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+
+
+
+
+        {header}
+
+
+
+        <div class="stickyheader dshadow"><a href="#" class="buyigservice btn color3">Buy Instagram Likes</a></div>
+
+
+
+        <div class="color1" align="center" style="width:100%;">
+
+
+
+        <div class="cnwidth cnwidthtracking">
+
+
+
+            <h1 class="color3 textcolor3">Order #{ordernum}</h1>
+
+            <span class="trackingnumber">Tracking number: {trackingnumber}</span>
+
+
+
+            {textnotifsbtn}
+
+        
+
+                <div class="deliverytime">{deliverystatus}</div>
+
+
+
+                <div class="progressbar">
+
+
+
+                    <div class="trackbartick"><img src="/imgs/trackbartick.png"></div>
+
+
+
+                    <div class="greybar greenbar">
+
+
+
+                        <img src="/imgs/trackbargreen.png">
+
+
+
+                    </div>
+
+
+
+                    <div class="greybar">
+
+
+
+                        <img src="/imgs/trackbargrey.png">
+
+   
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="box dshadow">
+
+                    <div class="boxheading">Order details</div>
+
+                    <div class="contents">
+
+                        <table>
+
+
+
+                            <tr><td>Username:</td><td>{igusername}</td></tr>
+
+                            <tr><td>Service:</td><td>{amount} Super High Quality {service}</td></tr>
+
+                            <tr><td>Tracking number:</td><td>{trackingnumber}</td></tr>
+
+                            <tr><td>Delivery status:</td><td>{status}</td></tr>
+
+                            <tr><td>Delivery notification:</td><td>{contactnumber}</td></tr>
+
+
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="box dshadow">
+
+                    <div class="boxheading">Service quality</div>
+
+                        <div class="contents">
+
+                        <table>
+
+
+
+                            <tr><td>Quality of {service}:</td><td>Super High Quality (free with Tikoid)</td></tr>
+
+                            <tr><td>Order speed:</td><td>Tikoid RapidDelivery™ (free with Tikoid)</td></tr>
+
+                            <tr><td>Order priority:</td><td>Top priority (free with Tikoid)</td></tr>
+
+                            <tr><td>Operations manager:</td><td>sarah.m@superviral.co.uk</td></tr>
+
+
+
+                        </table>
+
+                        </div>
+
+                </div>
+
+
+
+
+
+                <div class="box dshadow" id="trackinghistory">
+
+                    <div class="boxheading">Tracking history</div>
+
+                    <div class="contents">
+
+                        <div class="datelabel" style="display:none;">Saturday, 12/02/2020</div>
+
+                        <table class="trackingtbl">
+
+
+
+                            {trackingtable}
+
+
+
+                        </table>                        
+
+
+
+                    </div>
+
+
+
+                </div>
+
+            
+
+
+
+        </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+{footer}
+
+
+
+        
+
+        <script type="text/javascript">
+
+
+
+{headerscript}
+
+
+
+
+
+
+
+function signup(){
+
+
+
+var widthPopup="356";var heightPopup="492";
+
+
+
+var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+
+var signupHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+
+signupHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+
+signupHTML+='<iframe src="/track-my-order-number.php?id={ordernum}&hash={hash}" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+
+document.getElementById('signDiv').innerHTML=signupHTML;
+
+return false;
+
+
+
+}
+
+
+
+function closesignupDiv(){
+
+document.body.removeChild(document.getElementById('signDiv'));
+
+exitout="1";
+
+return false;
+
+}
+
+
+
+
+
+</script>
+
+    </body>
+
+</html>

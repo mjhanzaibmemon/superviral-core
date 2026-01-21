@@ -1,0 +1,45 @@
+[12-Sep-2024 11:35:18 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[12-Sep-2024 11:35:18 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:35:18 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:35:18 Europe/London] PHP Warning:  Undefined array key "submit" in /home/etra/public_html/etra.group/accountancy/index.php on line 6
+[12-Sep-2024 11:35:18 Europe/London] PHP Warning:  Undefined array key "submit" in /home/etra/public_html/etra.group/accountancy/index.php on line 46
+[12-Sep-2024 11:35:18 Europe/London] PHP Warning:  Undefined array key "type" in /home/etra/public_html/etra.group/accountancy/index.php on line 82
+[12-Sep-2024 11:35:18 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/accountancy/index.php on line 82
+[12-Sep-2024 11:35:18 Europe/London] PHP Warning:  Undefined variable $style in /home/etra/public_html/etra.group/accountancy/index.php on line 98
+[12-Sep-2024 11:35:18 Europe/London] PHP Warning:  Undefined variable $msg in /home/etra/public_html/etra.group/accountancy/index.php on line 100
+[12-Sep-2024 11:35:18 Europe/London] PHP Warning:  Undefined variable $msg in /home/etra/public_html/etra.group/accountancy/index.php on line 118
+[12-Sep-2024 11:35:32 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[12-Sep-2024 11:35:32 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:35:32 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:35:33 Europe/London] PHP Warning:  Undefined array key "type" in /home/etra/public_html/etra.group/accountancy/index.php on line 82
+[12-Sep-2024 11:35:33 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/accountancy/index.php on line 82
+[12-Sep-2024 11:35:33 Europe/London] PHP Warning:  Undefined variable $style in /home/etra/public_html/etra.group/accountancy/index.php on line 98
+[12-Sep-2024 11:36:06 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[12-Sep-2024 11:36:06 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:36:06 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:36:06 Europe/London] PHP Warning:  Undefined array key "type" in /home/etra/public_html/etra.group/accountancy/index.php on line 82
+[12-Sep-2024 11:36:06 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/accountancy/index.php on line 82
+[12-Sep-2024 11:36:06 Europe/London] PHP Warning:  Undefined variable $style in /home/etra/public_html/etra.group/accountancy/index.php on line 98
+[12-Sep-2024 11:36:11 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[12-Sep-2024 11:36:11 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:36:11 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:36:11 Europe/London] PHP Warning:  Undefined array key "submit" in /home/etra/public_html/etra.group/accountancy/index.php on line 6
+[12-Sep-2024 11:36:11 Europe/London] PHP Warning:  Undefined array key "submit" in /home/etra/public_html/etra.group/accountancy/index.php on line 46
+[12-Sep-2024 11:36:11 Europe/London] PHP Warning:  Undefined variable $msg in /home/etra/public_html/etra.group/accountancy/index.php on line 100
+[12-Sep-2024 11:36:11 Europe/London] PHP Warning:  Undefined variable $style1 in /home/etra/public_html/etra.group/accountancy/index.php on line 117
+[12-Sep-2024 11:36:11 Europe/London] PHP Warning:  Undefined variable $msg in /home/etra/public_html/etra.group/accountancy/index.php on line 118
+[12-Sep-2024 11:36:13 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[12-Sep-2024 11:36:13 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:36:13 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:36:13 Europe/London] PHP Warning:  Undefined variable $style1 in /home/etra/public_html/etra.group/accountancy/index.php on line 117
+[12-Sep-2024 11:43:23 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[12-Sep-2024 11:43:23 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:43:23 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:45:46 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/etra.group/sm-db.php on line 287
+[12-Sep-2024 11:45:46 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:45:46 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/etra.group/sm-db.php on line 325
+[12-Sep-2024 11:45:46 Europe/London] PHP Warning:  Undefined array key "submit" in /home/etra/public_html/etra.group/accountancy/index.php on line 6
+[12-Sep-2024 11:45:46 Europe/London] PHP Warning:  Undefined array key "submit" in /home/etra/public_html/etra.group/accountancy/index.php on line 46
+[12-Sep-2024 11:45:46 Europe/London] PHP Warning:  Undefined variable $msg in /home/etra/public_html/etra.group/accountancy/index.php on line 100
+[12-Sep-2024 11:45:46 Europe/London] PHP Warning:  Undefined variable $style1 in /home/etra/public_html/etra.group/accountancy/index.php on line 117
+[12-Sep-2024 11:45:46 Europe/London] PHP Warning:  Undefined variable $msg in /home/etra/public_html/etra.group/accountancy/index.php on line 118

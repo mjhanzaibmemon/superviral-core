@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner Editor</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        
+.cover-spin {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cover-spin::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    border-top-color: transparent;
+    border-width: 4px;
+    border-radius: 50%;
+    -webkit-animation: spin 0.8s linear infinite;
+    animation: spin 0.8s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="cover-spin">Images Processing</div>
+
+    <div class="container">
+        <!-- <h1>Banner Editor</h1> -->
+        {iframes}
+       
+    </div>
+    <input type="hidden" id="txtCount" value="0">
+    <!-- Scripts -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+<script>
+
+    setInterval(function() {
+        const params = new URLSearchParams(window.location.search);
+        const idsParam = params.get('ids');
+
+        let count = 0;
+        if (idsParam) {
+            const idsArray = idsParam.split(',');
+            count = idsArray.filter(id => id.trim() !== '').length;
+            
+            let imgG = parseInt(count * {numberOfImages});
+        
+            let imgC = parseInt(document.getElementById('txtCount').value);
+        
+            if(imgC == imgG){
+                console.log('All images are generated');
+                const lowestId = Math.min(...idsArray);
+                window.location.href = '/admin/articles/editarticle.php?id=' + lowestId + '&ids=' + idsParam;
+            }
+        }
+    }, 2000)
+
+</script>
+
+</html>

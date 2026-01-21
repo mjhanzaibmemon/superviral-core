@@ -1,0 +1,2556 @@
+<!DOCTYPE html>
+
+<head>
+    <title></title>
+    <meta name="description" content="{metadesc}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap"
+        rel="stylesheet">
+    
+    <style>
+
+h1{font-size:44px;}
+
+a, font, input, td, div{font-family : "Open Sans", sans-serif;}
+
+a{text-decoration: none;color:#000;}
+
+
+
+body{font-family : "Open Sans", sans-serif; margin:0;padding:0;}
+
+.h2FontSize{
+    font-size: 2em;
+}
+
+
+.contentWidth{
+
+    max-width:65%;
+
+    margin:auto;
+
+}
+
+.aboutContentWidth{
+    max-width:80%;
+    margin:auto;
+}
+
+
+
+.bgColorWhite{
+
+    background-color: #fff;
+
+}
+
+
+
+.textCenter{
+
+    text-align: center;
+
+}
+
+
+
+
+
+.color1{background-color: #eeeeee;}
+
+
+
+.header{    height: 65px;
+
+    padding: 9px 15px;
+
+    box-sizing: border-box;
+
+    width: 100%;
+
+    background: #fff;
+
+}
+
+
+
+.mobilemenubtn{margin-top:9px;}
+
+
+
+.logo{float:left;}
+
+.logo img{}
+
+.logo svg{    width: 164px;
+
+    height: 36px;}
+
+.navigation{float:right;}
+
+
+
+.show {display: block !important;}
+
+
+
+.flexDisplay{
+
+    display: flex;
+
+}
+
+
+
+.headernew{    height: 63px;
+
+    padding: 9px 15px;
+
+    box-sizing: border-box;
+
+    width: 100%;
+
+    background: #fff;
+
+}
+
+
+
+.headernew .cnwidth{position:relative;}
+
+
+
+.mobilemenubtnnew{margin-top:6px;}
+
+
+
+.logonew{display: inline-block;}
+
+.logonew img{}
+
+.logonew svg{    width: 164px;
+
+    height: 36px;}
+
+
+
+.navigationnew{float:right;}
+
+.mobilenavigationbtnnew{left:0;position: absolute;}
+
+.accountbtn{right:0;position: absolute;}
+
+
+
+.dropdown-contentnew {
+
+    display: none;
+    background-color: #ffffff;
+    width: 100%;
+    border-top: 1px solid #ccc;
+
+}
+
+
+
+.dropdown-contentnew a {
+
+  color: black;
+
+  padding: 12px 16px;
+
+  text-decoration: none;
+
+  display: block;
+
+}
+
+
+
+.desktopnavnew{display:none;}
+
+
+
+
+
+.footer{    
+    padding: 15px;
+    box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    border-top:1px solid #ccc;
+}
+
+
+
+.footer .row1{text-align: left;}
+
+
+
+.footer .row1 .logo {
+
+    position: relative;
+
+    float: none;
+
+    height: 47px;
+
+    width: 100%;
+
+    display: block;
+
+    float: none;
+
+    padding: 15px 0;
+
+}
+
+
+
+.footer .row1 .footerlinks{width: 100%;
+
+    padding: 0;
+
+    list-style: none;
+
+    margin: 0;
+
+    margin-bottom: 30px;}
+
+.footer .row1 .footerlinks li{padding:0;font-size:14px;}
+
+.footer .row1 .footerlinks li:first-child{font-weight: bold;font-size:16px;}
+
+.footer .row1 .footerlinks li a{color:#000;}
+
+.footer .row1 .footerlinks li a:hover{text-decoration: underline;}
+
+
+
+.footer .row2{    text-align: left;}
+
+
+
+.footer  .row2 .accepted{width:320px;height:28px;margin-top:15px;background: url('/imgs/all-images.png') 0 0;}
+
+.footer  .row2 .copyright{color:#737373;font-size: 14px;}
+
+
+/* .footerAbout{
+    height:100%;
+} */
+
+
+
+.error{display:none!important;font-size:14px;color:#ff2626!important;    margin: 0!important;}
+
+
+
+.fe{width:100%;text-align: center;padding-bottom:20px;}
+
+.se1{text-align: center;padding: 20px;}
+
+
+
+/* .btn{color:#fff;background: #1a73e7;display:block;width:250px;padding:9px;-webkit-border-radius: 21px;
+
+-moz-border-radius: 21px;
+
+border-radius: 21px;margin:5px auto;font-weight:bold;} */
+
+
+
+.btn:hover{cursor: pointer;}
+
+
+
+.btn2{color:#000;background:#fff;margin-bottom:10px;}
+
+
+
+
+
+h2{font-size:23px;}
+
+
+
+h1, h2, h3, h4 {
+
+  font-family : "Source Sans Pro", sans-serif;
+
+}
+
+
+
+
+
+.bgbg{background-image: url('/imgs/header-bg.png');}
+
+
+
+.color3,.owl-nav .owl-prev,.owl-nav .owl-next,.owl-theme .owl-nav [class*=owl-],.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot{background: #4a00e0;
+
+background: -moz-linear-gradient(top,  #4a00e0 1%, #8e2de2 100%);
+
+background: -webkit-linear-gradient(top,  #4a00e0 1%,#8e2de2 100%);
+
+background: linear-gradient(to bottom,  #4a00e0 1%,#8e2de2 100%);
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a00e0', endColorstr='#8e2de2',GradientType=0 );
+
+}
+
+
+
+.color4,.faqcontainer .faq .opentitle .btnicon{background:#1a73e7;}
+
+
+
+.fedesc{color:#fff;padding: 19px;}
+
+
+
+
+
+.se1desc{font-size:13px;display:block;text-align:center;margin-bottom:25px;}
+
+
+
+
+
+h3{display: block;
+
+    height: 100%;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+
+    font-size:18px;}
+
+
+
+
+
+.container{
+
+  overflow: hidden;height:250px;
+
+
+
+
+
+}
+
+
+
+.testbtn{background:#1a73e7;overflow: hidden}
+
+
+
+.sliding-background {
+
+  background: url("/imgs/scrolling-div.png") repeat-x;
+
+  height: 149px;
+
+  width: 5000px;
+
+  animation: slide 40s linear infinite;margin-top:50px;
+
+}
+
+
+
+@keyframes slide{
+
+  0%{
+
+    transform: translate3d(0, 0, 0);
+
+  }
+
+  100%{
+
+    transform: translate3d(-1221px, 0, 0);
+
+  }
+
+}
+
+
+
+.dshadow{
+
+-webkit-box-shadow: -1px 0px 5px 1px rgba(230,230,230,1);
+
+-moz-box-shadow: -1px 0px 5px 1px rgba(230,230,230,1);
+
+box-shadow: -1px 0px 5px 1px rgba(230,230,230,1);
+
+}
+
+
+
+
+
+
+
+#slides{
+
+    position: relative;
+
+    height: 150px;
+
+    margin: 0px;
+
+    list-style-type: none;
+
+    font-size: 13px;
+
+    font-style: italic;
+
+}
+
+
+
+.slide{
+
+    position: absolute;
+
+    left: 0px;
+
+    top: 0px;
+
+    width: 100%;
+
+    height: 100%;
+
+    opacity: 0;
+
+    z-index: 1;
+
+    padding: 0 35px;
+
+    -webkit-transition: opacity 1s;
+
+    -moz-transition: opacity 1s;
+
+    -o-transition: opacity 1s;
+
+    transition: opacity 1s;
+
+        box-sizing: border-box;
+
+}
+
+
+
+.showing{
+
+    opacity: 1;
+
+    z-index: 2;
+
+}
+
+
+
+.desktopnav{display:none;}
+
+
+
+
+
+
+
+        .featuredonholder{    background: #341662;
+
+            height: 110px;
+
+            text-align: center;
+
+            color: #fff;
+
+            /* padding-top: 22px; */
+
+            font-size: 17px;
+
+            overflow: hidden;
+
+            font-weight: bold;}
+
+
+
+            .featuredonholder1{    background: #341662;
+
+                height: 110px;
+
+                text-align: center;
+
+                color: #fff;
+
+                /* padding-top: 22px; */
+
+                font-size: 17px;
+
+                overflow: hidden;
+
+                font-weight: bold;}
+
+
+
+        .featuredon{
+
+            height: 50px;
+
+            margin-top: 15px;
+
+            animation: slide 40s linear infinite;
+
+            width: 5000px;
+
+            background: url(media/featuredon.png) repeat-x;
+
+            background-size: 1273px 30px;
+
+            }
+
+
+
+
+
+       .svstars{width: 174px;
+
+        height: 34px;
+
+        margin-bottom: 15px;}
+
+        
+
+
+
+
+
+
+
+        .showmo{margin-top: 15px;}
+
+
+
+        .socialproof1{display:none;}
+
+        .socialproof2{width:100%;}
+
+
+
+    
+
+        .bs{height: 100%;
+
+        position: absolute;
+
+        width: 90px;
+
+        z-index: 2;display: block;}
+
+
+
+        .bs.left{left:0;
+
+                    background: -moz-linear-gradient(left, #f5f7fe 0%, rgba(255,255,255,0) 100%);
+
+        background: -webkit-linear-gradient(left,  #f5f7fe 0%,rgba(255,255,255,0) 100%);
+
+        background: linear-gradient(to right,  #f5f7fe 0%,rgba(255,255,255,0) 100%);
+
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f7fe', endColorstr='#00f5f7fe',GradientType=1 );
+
+        }
+
+
+
+        .bs.right{right:0;
+
+        background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, #f5f7fe 100%);
+
+        background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,#f5f7fe 100%);
+
+        background: linear-gradient(to right,  rgba(255,255,255,0) 0%, #f5f7fe 100%);
+
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f5f7fe', endColorstr='#f5f7fe',GradientType=1 );
+
+        }
+
+
+
+    .owlcontainer{width: 100%;
+
+    z-index: 2;position:relative;margin:auto;height:580px;}
+
+
+
+    .owl-theme .item{background:#fff;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;border:1px solid #bfbfbf;margin-top:12px;}
+
+    
+
+    .owl-theme  .item .pricecut{position: absolute;
+
+    margin: 0 auto;
+
+    top: 13px;
+
+    font-size: 14px;
+
+    left: 0;
+
+    right: 0;
+
+    display: inline-block;
+
+    background: #febd69;
+
+    width: fit-content;
+
+    padding: 0 12px;
+
+    height: 32px;
+
+    line-height: 32px;
+
+    -webkit-border-top-left-radius: 5px;
+
+    -webkit-border-top-right-radius: 5px;
+
+    -moz-border-radius-topleft: 5px;
+
+    -moz-border-radius-topright: 5px;
+
+    border-top-left-radius: 5px;
+
+    border-top-right-radius: 5px;
+
+    border: 1px solid #ccc;
+
+    border-bottom: 0;}
+
+
+
+    .owl-theme .item .brought{margin-bottom: 8px;
+
+    margin-top: 0;font-size:13px;font-style: italic;color:#585858;}
+
+
+
+
+
+    .owl-theme .item .amount{    font-weight: 700;
+
+    height: 49px;
+
+    padding: 19px;
+
+    font-size : 41px;
+
+    padding-top: 8px;}
+
+    .owl-theme .item .amount .label{
+
+    font-weight: 400;
+
+    font-size: 16px;
+
+    margin-top: -10px;
+
+    display: block;}
+
+    .owl-theme .item .price{  height : 54px;
+
+  line-height : 47px;
+
+  font-size : 39px;color: #008000;}
+
+    .owl-theme .item .mainprice{    display: inline-block;
+
+    font-weight: 300;
+
+    font-size: 32px;}
+
+    .owl-theme .item .price .sign{font-size:16px;}
+
+    .owl-theme .item .price .decimal{font-size:12px;}
+
+    .owl-theme .item .listctn{    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size : 13px;
+
+    text-align: left;
+
+    display: inline-block;}
+
+    .owl-theme .item .listctn li{    margin: 0;
+
+    padding:3px;padding-left: 28px;
+
+    line-height: 30px;
+
+    position:relative;}
+
+    .owl-theme .item .listctn li .tick{    width: 20px;
+
+    height: 20px;
+
+    background: url(/imgs/check.svg) no-repeat;
+
+    display: block;
+
+    position: absolute;
+
+    left: 0;
+
+    top: 9px;
+
+}
+
+    .owl-theme .item .buyctn{padding: 20px 20px 10px 20px;}
+
+    .owl-theme .item .buyctn .btn{width:70%;}
+
+
+
+    .labelmain{font-size : 17px;}
+
+
+
+
+
+    .owl-nav .owl-prev,.owl-nav .owl-next,.owl-theme .owl-nav [class*=owl-],.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot{   margin: 10px 0!important;
+
+    padding: 8px!important;
+
+    }
+
+
+
+    .owl-prev,.owl-next{border: 1px solid #4100bb;height:40px;}
+
+    .owl-prev{border-right:0;-webkit-border-top-left-radius: 5px;
+
+-webkit-border-bottom-left-radius: 5px;
+
+-moz-border-radius-topleft: 5px;
+
+-moz-border-radius-bottomleft: 5px;
+
+border-top-left-radius: 5px;
+
+border-bottom-left-radius: 5px;}
+
+    .owl-next{-webkit-border-top-right-radius: 5px;
+
+-webkit-border-bottom-right-radius: 5px;
+
+-moz-border-radius-topright: 5px;
+
+-moz-border-radius-bottomright: 5px;
+
+border-top-right-radius: 5px;
+
+border-bottom-right-radius: 5px;}
+
+
+
+
+
+.applepayiconpckg{width:50px;margin-bottom:15px;}
+
+
+
+        .navbtn{    height: 50px;
+
+    width: 50px;
+
+    -webkit-border-radius: 50px;
+
+    -moz-border-radius: 50px;
+
+    border-radius: 50px;
+
+    background: #484848;
+
+    display: block;
+
+    padding-top: 17px;
+
+    box-sizing: border-box;
+
+    position: absolute;
+
+    top:40%;}
+
+    .navbtn svg{height: 18px}
+
+    .customPrevBtn{left: 20px;}
+
+    .customNextBtn{right:20px;}
+
+
+
+
+
+
+
+    .informationpt{position: relative;text-align: left;padding-bottom:220px;margin: 30px 0 80px 0;}
+
+    .informationpt h3{display:block;width:100%;margin: 0 0 15px 0;font-size:18px;}
+
+    .informationpt p, .informationpt ul li,.informationpt ol li{font-size:14px;color:#4c4c4c;}
+
+    .informationpt p a{text-decoration: underline;color:#193054;}
+
+    .informationpt img{position: absolute;bottom:0;width:207px;height:184px;}
+
+    .informationptfi{padding-bottom: 370px;}
+
+    .informationptfi img{    width: 179px;
+
+    height: initial;}
+
+
+
+
+
+
+
+    .faqcontainer{text-align: left;}
+
+    .faqcontainer .faqchild .faq{margin-top: 18px;font-size:14px;    -webkit-border-radius: 5px;
+
+    -moz-border-radius: 5px;
+
+    border-radius: 5px;}
+
+    .faqcontainer .faqchild .faq .opentitle{position:relative;padding:15px 10px;border-bottom: 1px solid #dedede;padding-right: 48px;}
+
+    .faqcontainer .faqchild .faq .opentitle .btnicon{position: absolute;
+
+    right: 9px;
+
+    height: 30px;
+
+    width: 30px;
+
+    top: 10px;
+
+    font-size: 23px;
+
+    line-height: 30px;
+
+    color: #fff;
+
+    text-align: center;
+
+    -webkit-border-radius: 17px;
+
+    -moz-border-radius: 17px;
+
+    border-radius: 17px;}
+
+    .faqcontainer .faqchild .faq .message{padding:10px;display:none;}
+
+
+
+
+
+    .faqcontainer .faqchild .showfaq{border:1px solid #ccc;background: #fff;}
+
+    .faqcontainer .faqchild .showfaq .opentitle{color:#000;font-weight:bold;}
+
+    .faqcontainer .faqchild .showfaq .message{display:block!important;}
+
+    .faqcontainer .faqchild .showfaq .opentitle .btnicon{}
+
+
+
+    .faqcontainer .faqchild .faq .opentitle h3{float: none;
+
+    margin: 0;}
+
+
+
+
+
+    .reviewbox{text-align: left;background:#fff; -webkit-border-radius: 5px;
+
+    -moz-border-radius: 5px;
+
+    border-radius: 5px;box-sizing:border-box;padding:9px;}
+
+    .reviewbox .title{padding-left: 59px;
+
+    position: relative;
+
+    line-height: 54px;}
+
+    .reviewbox .title svg{    left: 12px;
+
+    top: 10px;
+
+    position: absolute;
+
+    height: 30px;}
+
+    .reviewbox input.btn{width:90%;border:0;margin:10px;}
+
+    .reviewinput{text-align: left;}
+
+    .reviewinput tr td{padding:3px;font-size:13px;    vertical-align: top;}
+
+    .reviewinput tr td input,.reviewinput tr td textarea{border:1px solid #ccc;width:100%;font-family : "Open Sans", sans-serif;padding:3px;box-sizing: border-box;}
+
+
+
+    .rating{display:inline-block;position:relative;font-size: 27px!important;
+
+    line-height: 15px!important;}
+
+    .rating label{position:absolute;    top: 3px;
+
+    left: 3px;height:100%;cursor:pointer;}
+
+    .rating label:last-child{position:static;}
+
+    .rating label:nth-child(1){z-index:5;}
+
+    .rating label:nth-child(2){z-index:4;}
+
+    .rating label:nth-child(3){z-index:3;}
+
+    .rating label:nth-child(4){z-index:2;}
+
+    .rating label:nth-child(5){z-index:1;}
+
+    .rating label input{position:absolute;top:0;left:0;opacity:0;}
+
+    .rating label .icon{float:left;color:transparent;}
+
+    .rating label:last-child .icon{color:#000;}
+
+    .rating:not(:hover) label input:checked ~ .icon,.rating:hover label:hover input ~ .icon{color:#1a73e7;}
+
+    .rating label input:focus:not(:checked) ~ .icon:last-child{color:#000;text-shadow:0 0 5px #09f;}
+
+
+
+    .testimonialsmainrow{display:inline-block;}
+
+
+
+    .testimonialsbox .test{text-align:left;padding: 12px;
+
+        background-color: #f5f7fe;
+
+        border-radius: 5px;
+
+        width: 100%;
+
+        float: left;
+
+        margin: 5px;
+
+        box-sizing: border-box;}
+
+    .testimonialsbox .test .name{font-size: 13px;
+
+        font-weight: 400;
+
+        color: #676767cc;
+
+        margin-top: 9px;
+
+        display: block;}
+
+    .testimonialsbox .test .tratingbg{    height: 27px;
+
+    color: #1a73e7;
+
+    font-size: 19px;
+
+    line-height: 21px;}
+
+
+
+    .testimonialsbox .test .review{    margin: 0;
+
+    font-weight:700;
+
+    font-size: 13px;
+
+     overflow: hidden;
+
+   text-overflow: ellipsis;
+
+   display: -webkit-box;
+
+   line-height: 16px;
+
+   max-height: 50px; 
+
+   -webkit-box-orient: vertical;
+
+   color: #4e4e4e;    -webkit-line-clamp: 2;
+
+}
+
+
+
+    .testimonialsbox{max-height: 475px;
+
+    overflow: hidden;}
+
+    .testimonialsboxsho{overflow-y:scroll;}
+
+    .testimonialsbox .test .testfeat {font-size:12px;color:#ccc;margin-top:7px;}
+
+    .testimonialsbox .test .testfeat a{color:#4f4f4f;}
+
+    .testimonialsbox .test .showmorerev{    overflow: unset;
+
+    max-height: none;
+
+    -webkit-line-clamp: unset;
+
+    -webkit-box-orient: unset;
+
+    text-overflow: unset;}
+
+    .testimonialsbox .test .more{font-size:13px;}
+
+
+
+
+
+
+
+    .testimonialsbox .test .title{font-weight: 700;
+
+    font-size: 13px;    
+
+    float: none!important;
+
+    margin: 0;
+
+    margin-bottom: 10px;
+
+    height:initial;}
+
+
+
+
+
+
+
+
+
+
+
+    .testp{width: 100%;padding:10px;box-sizing:border-box;float:none;display:none;}
+
+    .testp .testpbox{width:100%;background-color: #f9f9f9;    padding: 28px 14px;
+
+        box-sizing: border-box;-webkit-border-radius: 7px;
+
+    -moz-border-radius: 7px;
+
+    border-radius: 7px;position: relative;height:321px;}
+
+    .testp .testpbox .rating{    color: #1a73e7;
+
+        font-size: 19px;margin-bottom: 23px;}
+
+    .testp .testpbox .quote{    font-size: 14px;margin-bottom: 23px;}
+
+    .testp .testpbox .name{font-size: 14px;
+
+        color: #868b90;
+
+        margin-bottom: 21px;}
+
+    .testp .testpbox .logo{text-align:center;float:none;}
+
+    .testp .testpbox .arrow{    background-color: #f9f9f9;width:22px;height:22px;
+
+        -webkit-transform: rotate(45deg) translate(-50%, 0px);
+
+        -ms-transform: rotate(45deg) translate(-50%, 0px);
+
+        transform: rotate(45deg) translate(-50%, 0px);
+
+        position: absolute;
+
+        left: 50%;
+
+        bottom: -19px;}
+
+    .testp .testpimg{text-align: center;margin-top: 37px;}
+
+    .testp .testpimg img{width: 60px;height:60px;}
+
+
+
+
+
+
+
+
+
+
+
+    .btn3{    color: #000;
+
+    border: 1px solid #000;
+
+    background: transparent;
+
+    font-size: 15px;
+
+    padding: 6px;
+
+    width: 220px;
+
+    font-weight: 400;}
+
+
+
+    .emailsuccess{    background: #a3ffa3;
+
+    padding: 8px;
+
+    -webkit-border-radius: 5px;
+
+    -moz-border-radius: 5px;
+
+    border-radius: 5px;}
+
+
+
+    .emailfailed{background:#ffadb8;}
+
+
+
+
+
+   
+
+
+
+    .textcolor3{-webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;}
+
+
+
+
+
+  .imgHero{
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    display: block;
+
+    width: 315px;
+
+    margin-top: 10px;
+
+    max-width: 100%;
+
+}    
+
+
+
+
+
+
+    .btn{color:#fff;background: #1a73e7;display:block;width:210px;padding:10px;-webkit-border-radius: 21px;
+        -moz-border-radius: 21px;
+        border-radius: 50px;font-weight:bold;text-align: center;margin: 25px 0px;}
+    
+
+
+* {box-sizing: border-box}
+
+.mySlides {display: none;     padding: 15px;}
+
+
+
+
+
+/* Slideshow container */
+
+.slideshow-container {
+
+    max-width: 1000px;
+
+    position: relative;
+
+    margin: auto;
+
+  }
+
+  
+
+  /* Next & previous buttons */
+
+  .prev, .next {
+
+    cursor: pointer;
+
+    position: absolute;
+
+    top: 50%;
+
+    width: auto;
+
+    /* padding: 16px; */
+
+    margin-top: -19px;
+
+    color:grey;
+
+    /* font-weight: bold; */
+
+    font-size: 30px;
+
+    transition: 0.6s ease;
+
+    border-radius: 0 3px 3px 0;
+
+    user-select: none;
+
+  }
+
+  
+
+  /* Position the "next button" to the right */
+
+  .next {
+
+    right: 0;
+
+    border-radius: 3px 0 0 3px;
+
+  }
+
+  
+
+  /* On hover, add a black background color with a little bit see-through */
+
+  .prev:hover, .next:hover {
+
+    background-color: rgba(0,0,0,0.8);
+
+  }
+
+  
+
+  /* Caption text */
+
+  .text {
+
+    color: #f2f2f2;
+
+    font-size: 15px;
+
+    padding: 8px 12px;
+
+    position: absolute;
+
+    bottom: 8px;
+
+    width: 100%;
+
+    text-align: center;
+
+  }
+
+  
+
+  /* Number text (1/3 etc) */
+
+  .numbertext {
+
+    color: #f2f2f2;
+
+    font-size: 12px;
+
+    padding: 8px 12px;
+
+    position: absolute;
+
+    top: 0;
+
+  }
+
+  
+
+  /* The dots/bullets/indicators */
+
+  .dot {
+
+    cursor: pointer;
+
+    height: 15px;
+
+    width: 15px;
+
+    margin: 0 2px;
+
+    background-color: #bbb;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    transition: background-color 0.6s ease;
+
+  }
+
+  
+
+  .active, .dot:hover {
+
+    background-color: #717171;
+
+  }
+
+  
+
+  /* Fading animation */
+
+  .fade {
+
+    animation-name: fade;
+
+    animation-duration: 1.5s;
+
+  }
+
+  
+
+  @keyframes fade {
+
+    from {opacity: .4} 
+
+    to {opacity: 1}
+
+  }
+
+  
+
+  /* On smaller screens, decrease text size */
+
+  @media only screen and (max-width: 300px) {
+
+    .prev, .next,.text {font-size: 11px}
+
+  }
+
+  
+
+  .secondaryColor {
+
+    color: #1a73e7;
+
+  }
+
+
+
+  .contentCenter{
+
+    margin: 0 auto;
+
+    justify-content: center;
+
+  }
+
+
+
+  .imgShield{
+
+    width: 55%;
+
+    margin-top: 30px;
+
+    float: right;
+
+        /* margin-left: 32px; */
+
+}
+
+.imgShield2{
+
+    width: 55%;
+
+    margin-top: 30px;
+
+    float: right;
+
+    /* margin-left: 32px; */
+
+}
+
+.imgShield3{
+
+    width: 55%;
+
+    margin-top: 30px;
+
+    float: right;
+
+        /* margin-left: 32px; */
+
+}
+
+.imgShield4{
+
+    margin: auto;
+
+    padding: 10%;
+
+    display: block;
+
+    width: 50%;
+
+}
+
+
+
+.fontHeading{
+
+    font-size: 1.4em;
+
+}
+
+
+
+/* about us */
+
+
+
+.mainAboutUsImg{
+
+    max-width: 100%;
+
+    width: 1000px;
+
+    margin-top: 25px;
+
+    max-height: 390px;
+
+    /* object-fit: contain; */
+
+}
+
+
+
+.font16{
+
+    font-size: 18px;
+
+}
+
+
+
+.aboutUsLeftPoints{
+
+    margin-top: 25px;
+
+    font-weight: 600;
+
+    font-size: 17px;
+
+    display: block;
+
+}
+
+
+
+.bulletPointTitle{
+
+    padding: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #4d05bb;
+
+    color: #fff;
+
+    border-radius: 7px 0px 0px 7px;
+
+    font-size: 25px;
+
+}
+
+
+
+.bulletPointDesc{
+
+    background: #fff;
+
+    border-radius: 0px 7px 7px 0px;
+
+    padding: 15px;
+
+}
+
+
+
+.bulletPointDiv{
+
+    max-height: 300px;
+
+    overflow-y: auto;
+
+    margin: auto;
+
+    margin-bottom: 40px;
+
+    max-width: 350px;
+
+    display: grid;
+
+}
+
+
+
+.achvBox{
+
+    background-color: #f5f7fe;
+
+    padding: 20px;
+
+    text-align: center;
+
+    margin-right: 10px;
+
+    margin-bottom: 10px;
+
+    min-width: 140px;
+
+    /* max-width: 110px; */
+
+    height: 100px;
+
+}
+
+
+
+.achCount{
+
+    color: #4d05bb; 
+    font-weight: 800;
+    font-size: 18px;
+
+}
+
+.alignAchBoxCenter{
+
+    display: grid;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+
+/* contact us */
+
+.inputcontact,.btncontact{    padding: 12px;
+
+    width: 100%;
+
+    font-size:15px;
+
+    -webkit-border-radius: 5px;
+
+    -moz-border-radius: 5px;
+
+    border-radius: 5px;
+
+    border: 1px solid #bbb;
+
+    margin-top: 15px;
+
+    box-sizing: border-box;outline:0;}
+
+
+    .min1024pxDivShow{
+        display: none;
+    }
+
+    .max768pxDivShow{
+        display: grid;
+    }
+
+    .wSVTItle{
+        padding-bottom: 25px;
+        margin-top: -20px;
+    }
+
+    .max1024StatsView{
+        display: grid !important;
+    }
+
+    .min1024StatsView{
+        display: none !important;
+    }
+
+@media only screen and (max-width: 425px) {
+
+
+
+
+
+    .min425pxFont{
+
+        font-size: 27px;
+
+    }
+
+
+
+    .max425pxFontAboutLeftPoint{
+        font-size: 15px;
+    }
+
+    .imgShieldMaxWidth425px {
+        /* height: 98px; */
+        width: 72%;
+        margin-top: 22px;
+        /* margin-left: 143px; */
+        float: right;
+    
+    }
+
+    .imgShield3MaxWidth425px {
+        /* height: 98px; */
+        width: 52%;
+        /* margin-left: 100px; */
+        margin-top: 30px;
+        float: right;
+    
+    }
+
+    .titleShield3MaxWidth425px{
+        padding-top: 50px !important;
+    }
+
+    .achBoxDescPointMaxWidth425px{
+        font-size: 14px;
+    }
+
+    .btn{
+        padding: 6px;
+    }
+
+    .accepted{
+        width: 100% !important;
+    }
+}
+
+
+
+
+
+@media only screen and (min-width: 425px) {
+
+
+    .btnmin425px{
+        width: 192px !important;
+    }
+
+    .min1024pxSS{
+        height: 320px !important;
+    }
+  
+
+    .featuredonholder{    
+
+        height: 110px;
+
+    }
+
+
+
+    .featuredon{    
+
+        background-size: 1506px 36px;
+
+    }
+
+  
+
+    .fontHeading{
+
+        font-size: 2em;
+
+    }
+
+    
+
+   
+
+    .imgShield{
+
+        min-width: 120px;
+
+        margin-top: 30px;
+
+        /* margin-left: 32px; */
+
+        float: right;
+
+    }
+
+    .imgShield2{
+
+        min-width: 120px;
+
+        margin-top: 30px;
+
+        float: right;
+
+        /* margin-left: 32px; */
+
+    }
+
+    .imgShield3{
+
+        min-width: 120px;
+
+        margin-top: 30px;
+
+        float: right;
+
+        /* margin-left: 32px; */
+
+    }
+
+    .imgShield4{
+
+        margin: auto;
+
+        padding: 10%;
+
+        display: block;
+
+        width: 50%;
+
+    }
+
+    /* about us */
+
+
+
+    .achCount{
+
+        font-size: 20px;
+
+    }
+
+
+
+    .achvBox{
+
+        min-width: 145px;
+
+        max-width: 145px;
+
+    }
+
+    .contentWidth{
+
+        max-width: 80%;
+        
+        }
+
+        .btn{
+            padding:20px ;
+        }
+
+}
+
+   
+
+
+
+
+
+@media only screen and (min-width: 768px) {
+
+
+     /* about us */
+
+
+
+    .achCount{
+
+        font-size: 30px;
+
+    }
+
+
+
+    .achvBox{
+
+        min-width: 200px;
+
+        max-width: 200px;
+
+    }
+
+    .min768txtCenter{
+
+        text-align: center;
+
+    }
+
+
+
+    .min768MaxWidth{
+        max-width: 350px;
+    }
+
+    .flexClass{
+        display: flex;
+    }
+
+    .indexBannerMin768px{
+        max-width: 55%;
+    }
+
+    .h1{
+        font-size: 50px;
+    }
+
+    .imgHeroMin768px{
+        margin-top: 106px;
+    }
+
+    .bannermin768pxContent{
+        max-width: 90%;
+
+    }
+
+    .min768txtCenter{
+        text-align: center;
+    }
+
+    .hidemax768Para{
+         display: none;
+    }
+
+    .showmin768Para{
+        display: block !important;
+    }
+
+    .imgShield {
+        min-width: 120px;
+        margin-top: 45px;
+        float: right;
+        width: 60%;
+    }
+
+    .imgShield2 {
+        min-width: 120px;
+        margin-top: 45px;
+        float: right;
+        width: 60%;
+    }
+
+    .imgShield3 {
+        width: 48%;
+    }
+
+    .min1024padding {
+        padding-top: 0px !important;
+    }
+
+    .min768WidthTxt{
+        max-width: 600px !important;
+    }
+
+    .bulletPointDiv{
+
+        max-width: 100%;
+    }
+
+    .wSVTItle{
+        margin-top: -25px;
+    }
+    .footer .cnwidth{
+        display: inline-block;
+        box-sizing: border-box;
+    }
+
+}
+
+
+
+
+
+@media only screen and (min-width: 992px) {
+
+
+    .bulletPointDiv{
+
+        max-width: 470px;
+    }
+
+    .footer .cnwidth{
+        padding: 10px;
+    }
+
+
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 1024px) {
+
+    .max1024StatsView{
+        display: none !important;
+    }
+
+    .min1024StatsView{
+        display: grid !important;
+    }
+
+
+
+    .wSVTItle{
+        margin-top: -40px;
+      }
+
+    /* .flexClass{
+
+        display: flex;
+
+    } */
+
+
+
+    .min1024txtCenter{
+
+        text-align: center;
+
+    }
+
+
+
+    .showmin1024Para{
+
+        display: block !important;
+
+    }
+
+
+
+    /* .hidemax1024Para{
+
+        display: none;
+
+    }
+
+    .min1024padding{
+
+        padding-top: 0px !important;
+
+    } */
+
+
+
+    .min1024maxWidth{
+
+        margin: auto;max-width: 45%;
+        margin-left: 0px;
+    }
+
+
+
+    .imgShield4{
+
+        margin: auto;
+
+        padding: 10%;
+
+        display: block;
+
+        width: 65%;
+
+    }
+
+
+
+    .min1024readMore{
+
+        padding: 25px 20px !important;
+
+    }
+
+
+
+    .buyctn{
+
+        float: right;
+
+        margin-top: -40px;
+
+    }
+
+/* 
+
+    .imgShield{
+
+        width: 55%;
+
+        margin-top: 30px;
+
+        float: right;
+
+    } */
+
+
+
+    .min1024contactUsBanner2{
+
+        display: grid;
+
+        padding-left: 25px;
+
+        margin-left:25px;
+
+    }
+
+
+
+    .min1024contactUsBanner{
+
+        display: flex;
+
+    }
+
+    
+
+    .min1024contactUsBanner1{
+
+        margin-top: 20px;
+
+
+
+    }
+
+    .lookingHdng768px{
+        font-size: 60px;
+    }
+
+    .imgHero{
+        width: 360px;
+    }
+
+    .min1024pxScWidth{
+        max-width: 685px !important;
+    }
+
+    .min1024pxSS{
+        height: 420px !important;
+    }
+
+    .min1024pxFeedbackWidth{
+        max-width: 730px !important;
+    }
+
+    .min1024MaxWidthFeature{
+        max-width: 510px !important;
+    }
+
+    .fontHeadingMin1024px{
+        font-size: 50px !important;
+    }
+
+    .min1024pxDivShow{
+        display: grid;
+    }
+
+    .max768pxDivShow{
+        display: none;
+    }
+}
+
+
+
+
+
+@media only screen and (min-width: 1200px) {
+
+    .aboutContentWidth{
+        max-width:60%;
+        /* margin:auto; */
+    }
+
+    .mobilemenubtnnew{
+
+        display: none;
+
+    }
+
+
+
+    .featuredonholder1, .bulletPointTitle{
+
+        background-color: #341662;
+
+    }
+
+    .contentWidth{
+
+        max-width:55%;
+
+        margin:auto;
+
+    }
+
+  
+    .imgHero{
+        width: 380px;
+    }
+
+    .logonewAbout{
+        margin-top: -7px;
+        float: left;
+    }
+
+    
+
+.desktopnavnew{    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin:0;}
+.desktopnavnew li{list-style: none;
+    border-right: 1px solid #d8d8d8;
+    padding: 0 15px;}
+
+    .desktopnavnew li a{    color: #000;
+    font-weight: 600;font-size:14px;}
+
+.desktopnavnew li:nth-child(5){border-right:0;padding-right: 15px;}
+.desktopnavnew li:last-child{border-right:0;padding-right:0;}
+.desktopnavnew li:last-child a{    border: 1px solid #000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 8px 10px 8px 34px;position: relative;}
+
+.desktopnavnew li:last-child a svg{    position: absolute;
+    left: 8px;
+    top: 9px;}
+
+    .footer .cnwidth{max-width: 100%;}
+
+    .footer .cnwidth{width:1200px;}
+
+.footer .row1{    width: 100%;
+    height: 118px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 17px;
+    padding-left:0;}
+
+.footer .row1 .logo{position:relative;float:left;height:100%;width:25%;}
+.footer .row1 .logo svg{float:left;margin-top:-20px;}
+
+.footer .row1 .footerlinks{width:25%;float:left;margin-bottom: 0;}
+.footer .row1 .footerlinks li{float:none;text-align: left;}
+
+
+.footer .row2{display:block;}
+
+.footer .row2 .copyright {
+    color: #737373;
+    text-align: right;
+    margin: 3px 0;
+}
+
+.footer .row2 .accepted {
+    width: 320px;
+    height: 28px;
+    margin-top: 15px;
+    background: url(/app/media/all-images.png) 0 0;
+    float:right;
+}
+/* .footerAbout{
+    height:300px;
+} */
+
+.headernew{
+    padding: 10px 0 0 0;
+    height: 81px;
+}
+.headernew .cnwidth{
+    width: 95%;
+    padding: 10px;
+    max-width: 95%;
+}
+
+}
+
+
+@media only screen and (min-width:1440px){
+
+    .imgShield{
+        margin-top: 100px;
+        width: 65%;
+    }
+
+    .imgShield2{
+        margin-top: 100px;
+        width: 65%;
+    }
+
+    .imgShield3{
+        margin-top: 100px;
+        width: 50%;
+    }
+
+    .desktopnavnew li{padding: 0 20px;border-right: 0;}
+
+    .desktopnavnew li a {font-size: 15px}
+
+    .desktopnavnew li:nth-child(5) {
+border-right: 0;
+padding-right: 21px;
+  }
+
+}
+
+@media only screen and (min-width:1500px){
+
+
+
+}
+
+
+
+        .lookingHdng {
+            padding-top: 30px;
+            margin-bottom: 0px;
+            padding-bottom: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="headernew" align="center">
+
+<div class="cnwidth">
+
+   
+
+    <div class="logonew"><a title="Superviral" href="/" style="position:relative;">
+
+            <svg xmlns="http://www.w3.org/2000/svg" id="logo" x="0" y="0" viewBox="0 0 567.3 114"
+                style="enable-background:new 0 0 567.3 114;version:1">
+                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="11.9" y1="17.7" x2="90.6"
+                    y2="96.3">
+                    <stop offset="0" stop-color="#DA4453" />
+                    <stop offset="0.55" stop-color="#89216B" />
+                    <stop offset="1" stop-color="#4A00E8" />
+                </linearGradient>
+                <path
+                    d="M18.5 92.7c-2.5-0.2-5.1-0.2-7.5-0.7C2.5 90.3-2.2 81.6 1 73.5c1.3-3.2 3-6.2 4.9-9.1 3.2-5 3.3-9.8 0-14.8 -1.7-2.6-3.3-5.3-4.5-8.1 -4.3-9.8 1.9-19.6 12.5-20 2.9-0.1 5.9-0.1 8.8 0 5.4 0.1 9.3-2.1 11.9-6.9 1.5-2.8 3.1-5.6 4.9-8.2 3.6-5.3 8.6-7.2 14.9-6C57.9 1 60.6 3 62.6 5.8c1.7 2.4 3.3 4.9 4.5 7.5 2.9 6 7.6 8.5 14.2 8.2 3.4-0.2 6.9-0.2 10.3 0.5 8.4 1.6 13.1 10.3 9.9 18.4 -1.2 2.9-2.7 5.8-4.5 8.4 -3.7 5.5-3.8 10.8 0 16.4 1.6 2.3 3 4.9 4.1 7.5 4.2 9.6-1.9 19.4-12.4 19.9 -2.9 0.1-5.9 0.1-8.8 0 -5.5-0.1-9.5 2.1-12.1 7 -1.5 2.8-3.1 5.6-4.9 8.2 -3.5 5.2-8.5 7.1-14.7 6 -3.6-0.7-6.3-2.7-8.4-5.6 -1.6-2.3-3.1-4.6-4.3-7.1 -3-6.4-7.9-9.1-14.8-8.5 -0.7 0.1-1.5 0-2.3 0C18.5 92.6 18.5 92.7 18.5 92.7z"
+                    style="clip-rule:evenodd;fill-rule:evenodd;fill:url(#SVGID_1_)" />
+                <path
+                    d="M159.1 43.7c-2.7 0-4.7 1.8-4.7 4.3 0 2.6 0.3 2.8 8.6 5.4 10.7 3.3 14.1 7.2 14.1 14.7 0 9.6-8 17.1-18.2 17.1 -10.1 0-17.4-5.4-18.6-17.1h12.3c1.2 4.3 3.2 6.1 6.8 6.1 3.1 0 5.5-2.1 5.5-4.9 0-2.9-0.5-3.7-8.6-6.4 -10.1-3.3-14.1-7.5-14.1-14.9 0-8.6 7.4-15.3 16.9-15.3 8.6 0 16.3 5.6 16.7 15h-11.9C163.4 45 161.7 43.7 159.1 43.7L159.1 43.7zM218.5 84v-4.8c-4.6 4.4-8.4 6-14.6 6 -11.8 0-19.4-6.8-19.4-24.5V33.8h12.2v24.6c0 13.3 3.8 15.8 9.6 15.8 4.1 0 7.4-1.7 9.3-4.6 1.4-2.3 1.9-5.3 1.9-12V33.8h12.2V84H218.5L218.5 84zM267.9 85.2c-6.2 0-11-1.8-15.6-5.9v21.5H240v-67h11.2v5.9c3.9-4.5 9.8-7.1 16.7-7.1 14.7 0 25.4 11 25.4 26.1C293.3 73.9 282.6 85.2 267.9 85.2L267.9 85.2zM266.4 43.7c-8.5 0-14.9 6.5-14.9 15.1 0 8.8 6.4 15.3 15.1 15.3 8.1 0 14.4-6.6 14.4-15.1C281 50.3 274.7 43.7 266.4 43.7L266.4 43.7zM351.5 64.2h-39.4c1.5 6.1 6.8 9.9 14.1 9.9 5.1 0 8.1-1.4 11.2-5h13.3c-3.4 10.3-14 16-24.2 16 -15.5 0-27.6-11.4-27.6-26.1 0-14.8 11.8-26.5 26.8-26.5 15.2 0 26.3 11.4 26.3 27C352 61.4 351.9 62.5 351.5 64.2L351.5 64.2zM325.9 43.7c-7.3 0-12.2 3.5-14.1 10H340C338.4 47.2 333.4 43.7 325.9 43.7L325.9 43.7zM372.6 56.1V84h-12.2V33.8h11.2v4.9c3.2-4.6 5.8-6.1 11-6.1h0.9v11.6C376.2 44.4 372.6 48.3 372.6 56.1L372.6 56.1zM416.9 84h-9.7l-20.5-50.2h13.6L412.1 67l11.6-33.3h13.8L416.9 84 416.9 84zM443.6 26.5V14.5h12.2v12.1H443.6L443.6 26.5zM455.7 84h-12.2V33.8h12.2V84L455.7 84zM478.2 56.1V84H466V33.8h11.2v4.9c3.2-4.6 5.8-6.1 11-6.1h0.9v11.6C481.8 44.4 478.2 48.3 478.2 56.1L478.2 56.1zM534.3 84v-6.5c-4.9 5.4-9.7 7.7-16.9 7.7 -14.9 0-25.6-11-25.6-26.1 0-15.3 10.8-26.5 25.9-26.5 7.4 0 12.4 2.4 16.6 7.9v-6.7h11.2V84H534.3L534.3 84zM519 43.7c-8.7 0-14.9 6.5-14.9 15.7 0 8.8 6.2 14.8 15.1 14.8 9.3 0 14.8-6.5 14.8-14.9C533.9 50.1 527.7 43.7 519 43.7L519 43.7zM555.1 84V17h12.2v67H555.1L555.1 84z"
+                    fill="#231F20" />
+            </svg>
+
+            <span
+                style="position: absolute;right: -3px;bottom: -2px;font-size: 11px;color: #1a73e7;font-weight: bold;">since 2012</span>
+
+        </a>
+    </div>
+
+   
+
+</div>
+</div>
+
+    <div class="color1 " style="padding-top: 20px;">
+        <div class="contentWidth bannermin768pxContent flexClass">
+            <div class="min1024maxWidth indexBannerMin768px">
+                <h1 class="lookingHdng lookingHdng768px" style="padding-top: 0px;">Looking for <span class="color3 textcolor3">Superviral?</span></h1>
+                <p>
+                    Superviral is the largest Instagram service provider. With thousands of happy customers, they’re the #1 company in the IG growth. They have just what you need to become Instagram famous!
+                </p>
+
+                <div class=""><a title="" class="btn color4" href="">Visit Superviral</a></div>
+            </div>
+            <div>
+                <img alt="" class="imgHero imgHeroMin768px" src="media/Superviral-Hero-img.png">
+            </div>
+            
+
+
+        </div>
+
+        <div class="featuredonholder">
+            <p>AS SEEN IN</p>
+            <div class="featuredon">
+
+                
+            </div>
+        </div>
+        <div class="bgColorWhite wSVTItle">
+            <div class="contentWidth">
+                <h2 class="lookingHdng min425pxFont min768txtCenter lookingHdng768px h2FontSize">What makes <span class="color3 textcolor3">Superviral</span> unique?</h2>
+
+                <p class="min768txtCenter min768WidthTxt min1024pxFeedbackWidth" style="margin: auto;max-width: 750px;margin-top: 12px;">
+    Superviral has ensured that IG users have access to affordable and high-quality engagement. They tailor their services to all types of customers, ranging from influencers to small businesses to big brands.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="contentWidth bannermin768pxContent">
+            <h3 class="lookingHdng se1 hidemax768Para"><span class="color3 textcolor3">Retention is what sets Superviral apart</span></h3>
+
+            <div class="flexDisplay">
+
+                <div class="min768MaxWidth min1024MaxWidthFeature" style="min-width: 110px;">
+                    <p class="showmin768Para" style="font-weight: 800;font-size: 17px;display: none;padding-top: 15px;"><span class="color3 textcolor3">Retention is what sets Superviral apart</span></p>
+
+                    <h2 class="lookingHdng fontHeading fontHeadingMin1024px h2FontSize" style="padding-top: 0px;">Superviral is the leading marketing partner</h2>
+                    
+                    <p class="showmin768Para" style="display: none;">
+                            At Superviral, their primary goal has always been to provide customers with the best service that money can buy. With over a decade's worth of research, their system and delivery of IG services have been polished into the state-of-the-art service provider it is today. Cost-friendly pricing and 24/7 support are just some of the reasons why their customers buy again!
+                    </p>
+                
+                </div>
+                <div>
+                    <img alt="Buy Instagram Followers" class="imgShield imgShieldMaxWidth425px" src="media/sv-img-shield.png">
+                </div>
+
+            </div>
+
+            <p class="hidemax768Para">
+                At Superviral, their primary goal has always been to provide customers with the best service that money can buy. With over a decade's worth of research, their system and delivery of IG services have been polished into the state-of-the-art service provider it is today. Cost-friendly pricing and 24/7 support are just some of the reasons why their customers buy again!
+            </p>
+
+
+        </div>
+
+        <div class="contentWidth bannermin768pxContent">
+            <h3 class="lookingHdng se1 hidemax768Para"><span class="color3 textcolor3">Quality comes first</span></h3>
+
+            <div class="flexDisplay">
+
+                <div class="min768MaxWidth min1024MaxWidthFeature" style="min-width: 110px;">
+                    <p class="showmin768Para" style="font-weight: 800;font-size: 17px;display: none;"><span class="color3 textcolor3">Quality comes first</span></p>
+
+                    <h2 class="lookingHdng fontHeading fontHeadingMin1024px h2FontSize" style="padding-top: 0px;">Why are their services different?
+                    </h2>
+                    <p class="showmin768Para" style="display: none;">
+                    Their company is constantly working to adapt our services to different clienteles needs. For example, their Instagram growth service can help you reach the bigger brands, which means your Instagram posts will have more engagement without you having to lift a finger.
+                    <br><br>
+                They guarantee quick delivery in their services, and their team really care about your growth!
+                    </p>
+                </div>
+                <div>
+                    <img alt="Buy Instagram Followers" class="imgShield2 imgShieldMaxWidth425px" src="media/sv-img-2.png">
+                </div>
+
+            </div>
+
+            <p class="hidemax768Para">
+                     Their company is constantly working to adapt our services to different clienteles needs. For example, their Instagram growth service can help you reach the bigger brands, which means your Instagram posts will have more engagement without you having to lift a finger.
+                    <br><br>
+                They guarantee quick delivery in their services, and their team really care about your growth!
+            </p>
+
+
+        </div>
+
+        <div class="contentWidth bannermin768pxContent">
+            <h3 class="lookingHdng se1 hidemax768Para"><span class="color3 textcolor3">30-days Unbeatable Guarantee</span></h3>
+
+            <div class="flexDisplay">
+
+                <div class="min768MaxWidth min1024MaxWidthFeature" style="min-width: 110px;">
+                    <p class="showmin768Para" style="font-weight: 800;font-size: 17px;display: none;">
+                        <span class="color3 textcolor3">30-days Unbeatable Guarantee</span></p>
+
+                    <h2 class="lookingHdng min1024padding fontHeading titleShield3MaxWidth425px fontHeadingMin1024px h2FontSize" style="padding-top: 72px;">The Superviral promise</h2>
+                    <p class="showmin768Para" style="display: none;">
+                    The reason Superviral started in 2012, was to provide customers with the best Instagram service and products out there. A decade later, they can happily say that they have never been closer to achieving this goal!
+                    <br>
+                    <br>
+                    Just to show you how confident they are in the quality of their products, they also offer a 30-day refund guarantee; if you're not satisfied, you get your money back - no questions asked!
+                    </p>
+                </div>
+                <div>
+                    <img alt="Buy Instagram Followers" class="imgShield3 imgShield3MaxWidth425px" src="media/sv-img-3.png">
+                </div>
+
+            </div>
+
+            <p class="hidemax768Para">
+                    The reason Superviral started in 2012, was to provide customers with the best Instagram service and products out there. A decade later, they can happily say that they have never been closer to achieving this goal!
+                    <br>
+                    <br>
+                    Just to show you how confident they are in the quality of their products, they also offer a 30-day refund guarantee; if you're not satisfied, you get your money back - no questions asked!
+            </p>
+
+
+        </div>
+        <!-- feedback section -->
+        <div class="bgColorWhite" style=" padding-bottom: 30px;">
+            <div class="contentWidth">
+                <h2 class="lookingHdng min768txtCenter min425pxFont lookingHdng768px h2FontSize">Verified Feedback & Reviews</h2>
+
+
+                <div class="slideshow-container" style="max-width: 400px;">
+
+                    <div class="mySlides fade">
+                        <div class="testimonialsbox">
+                            <div class="test">
+                                <div class="tratingbg">★★★★★</div>
+                                <p class="review">Just wow! I ordered from superviral today, and my instagram audience has grown - feels amazing I highly recommend superviral!</p>
+                                <div>
+                                    <span class="name">@levonstevens</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="testimonialsbox">
+                            <div class="test">
+                                <div class="tratingbg">★★★</div>
+                                <p class="review">Feels amazing, just received amazing engagement on our post. Helped me in growing my Instagram account, and every time I had some questions, you respond quickly. Keep it up!</p>
+                                <div>
+                                    <span class="name">@jj.33</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="testimonialsbox">
+                            <div class="test">
+                                <div class="tratingbg">★★★★</div>
+
+                                <p class="review">The joy is unreal, great service, respond on time. Thanks and will order again.</p>
+                                <div>
+                                    <span class="name">@michelle</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+
+                </div>
+                <br>
+
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="bgColorWhite" style="padding: 40px 0px;background-color: #eeee;">
+            <div class="contentWidth">
+                <h2 class="textCenter lookingHdng768px h2FontSize">Still unsure? <br>Here's a free trial</h2>
+
+                <p class="textCenter" style="    max-width: 424px;margin: auto; margin-bottom: 30px;">
+                    If you're still unsure about Superviral, feel free to try out trial, completely free of charge.
+                </p>
+                <div class=""><a title="" style="margin:auto;" class="btn color4" href="">Get a free trial</a>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="featuredonholder min1024pxSS" style="padding-top: 25px; height:260px;padding-bottom: 40px;">
+        <p>Still scrolling?</p>
+        <h2 class="lookingHdng768px h2FontSize">Let's get you <br>Viral!</h2>
+        <div class=""><a title="" style="margin:auto;width: 180px;" class="btn color4 btnmin425px" href="">Visit
+                Superviral.io</a></div>
+    </div>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+</body>
+
+</html>

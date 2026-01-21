@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Etra Group - The Future of Web Applications</title>
+
+    <meta name="description"
+        content="From B2C, D2C and B2B, we create powerful web applications that shape the future for a better world." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
+    <link rel="manifest" href="/site.webmanifest">
+
+    <style>
+        @font-face {
+            font-family: primaryFont;
+            src: url('/fonts/AllianceNo2Medium.otf');
+        }
+
+        @font-face {
+            font-family: secondaryFont;
+            src: url('/fonts/SourceSansPro-Light.ttf');
+        }
+
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 18px;
+        }
+
+        .main-container {
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .header {
+            position: absolute;
+            width: 100%;
+            /* background-color: transparent; */
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            /* transition: all 0.3s ease-in-out;*/
+            z-index: 9999;
+            transition: background-color 0s;
+        }
+
+        .header .navbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        /* .toggleNavbar{
+            position: fixed;
+            background-color: #FFF;
+        } */
+
+        .change-bg {
+            background-color: #000;
+        }
+
+        .header .navbar .desktop-menu {
+            display: none;
+        }
+
+        .header .navbar .hamburger {
+            cursor: pointer;
+            height: 33px;
+            width: 33px;
+            border: 2px solid #FFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+
+        }
+
+        .header .navbar .hamburger.change-color {
+            border: 2px solid #FFF;
+        }
+
+        .header .navbar .hamburger.change-to-white {
+            border: 2px solid #FFF;
+        }
+
+        .header .navbar .hamburger .bar {
+            width: 15px;
+            height: 2px !important;
+            background-color: #FFF;
+        }
+
+        .header .navbar .hamburger .middle-bar {
+            width: 10px;
+        }
+
+        .menu-open {
+            background: black;
+        }
+
+        .mobile-menu {
+            width: 100%;
+            min-height: calc(100vh - 60px);
+            background: #000;
+            -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+            display: none;
+            opacity: 1;
+            z-index: 9999;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .mobile-menu ul li .item {
+            border-bottom: 1px #FFF solid;
+            padding: 10px 0;
+        }
+
+        .mobile-menu ul li {
+            list-style: none;
+            padding: 0 25px;
+        }
+
+        .mobile-menu ul li .delay-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+
+        .mobile-menu ul li .item a {
+            font-size: 20px;
+            font-weight: 400;
+            color: #FFF;
+            font-family: primaryFont;
+            text-decoration: none;
+        }
+
+        .mobile-menu ul li .item a .link {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            margin-bottom: 22px;
+            /* background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3)); */
+            overflow: hidden;
+        }
+
+        .background-clip {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+        }
+
+
+        .banner .banner-text {
+            color: #FFF;
+            font-family: primaryFont;
+            font-size: 40px;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .big-heading {
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid transparent;
+            width: 0;
+            animation: typewriter 1s steps(30) forwards var(--delay);
+        }
+
+        @keyframes typewriter {
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .banner .banner-text .big-heading {
+            display: block;
+        }
+
+        .writing {
+            opacity: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid transparent;
+
+        }
+
+        .typewriting {
+            opacity: 1;
+            animation: typewriterHeading 2s steps(20) forwards;
+        }
+
+
+        @keyframes typewriterHeading {
+
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .title-heading,
+        .benefits-wrapper .benefits .title {
+            color: #000;
+            font-family: primaryFont;
+            font-size: 25px;
+            font-weight: 400;
+            margin-bottom: 20px;
+
+        }
+
+        .para {
+            color: #000;
+            font-family: secondaryFont;
+            font-weight: 300;
+            margin-bottom: 27px;
+        }
+
+        .separator {
+            background-color: #000;
+            width: 0;
+            height: 1px;
+            margin: 0 auto 30px;
+            transition: width 0.5s;
+        }
+
+        .animate-me {
+            width: 100%;
+
+        }
+
+        .vision .image-wrapper,
+        .career .image-wrapper,
+        .contact .image-wrapper {
+            /* background-color: #000; */
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .vision .image-wrapper img,
+        .career .image-wrapper img,
+        .contact .image-wrapper img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+
+        .career .image-wrapper {
+            margin-bottom: 40px;
+        }
+
+        .vision .para {
+            margin-bottom: 35px;
+        }
+
+        .benefits-wrapper {
+            display: flex;
+            margin-bottom: 36px;
+        }
+
+        .benefits-wrapper .benefits .para {
+            margin-bottom: 0;
+        }
+
+        .benefits {
+            width: 50%;
+            padding-right: 21px;
+            margin-bottom: 48px;
+        }
+
+        .other-benefits {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+
+
+        .other-benefits .salary,
+        .other-benefits .great-benefit,
+        .other-benefits .friendly {
+            display: flex;
+            flex-direction: column;
+            padding-left: 33px;
+            margin-bottom: 27px;
+            border-left: 1px solid #000;
+            padding-bottom: 7px;
+            padding-top: 7px;
+        }
+
+        .other-benefits .friendly {
+            margin-bottom: 0;
+        }
+
+        .other-benefits .salary .icon {
+            width: 43px;
+            height: 43px;
+            margin-bottom: 15px;
+        }
+
+        .other-benefits .great-benefit .icon {
+            width: 38px;
+            height: 52px;
+            margin-bottom: 15px;
+        }
+
+        .other-benefits .friendly .icon {
+            width: 53px;
+            height: 53px;
+            margin-bottom: 15px;
+        }
+
+
+        .other-benefits .salary .icon img,
+        .other-benefits .great-benefit .icon img,
+        .other-benefits .friendly .icon img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+
+        .other-benefits .salary .title,
+        .other-benefits .great-benefit .title,
+        .other-benefits .friendly .title {
+            margin-bottom: 15px;
+            color: #000;
+            color: #000;
+            font-family: primaryFont;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .job .job-section {
+            padding: 20px 0;
+            border-bottom: 1px solid #CDCDCD;
+            border-top: 1px solid #CDCDCD;
+            /* margin-bottom: 40px; */
+        }
+
+        .job .job-section:last-child {
+            border-bottom: 1px solid #CDCDCD;
+            /* margin-bottom: 37px; */
+        }
+
+
+        .job .job-section .job-title {
+            color: #000;
+            font-family: primaryFont;
+
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .job .job-section .job-location {
+            display: block;
+            color: #000;
+            font-family: secondaryFont;
+
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        .job .job-section .view-btn {
+            background: transparent;
+            border: none;
+            font-family: secondaryFont;
+            font-size: 18px;
+            color: #000;
+            /* text-decoration: underline; */
+            font-weight: 400;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .viewMoreButton::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            background: #000;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: width 0.5s ease 0.8s;
+        }
+
+        .viewMoreButton.underline-on-scroll::after {
+            width: 100%;
+        }
+
+        .job .job-section .content {
+            display: none;
+        }
+
+        .job .job-section .content.expand {
+            display: block;
+        }
+
+        .job .job-section .job-heading {
+            color: #000;
+            font-family: primaryFont;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .job .job-section .content ul {
+            color: #000;
+            font-family: secondaryFont;
+            font-size: 18px;
+            font-weight: 300;
+            padding: 0 25px;
+        }
+
+        /* .job .job-section:last-child {
+                border-bottom: 1px solid #000;
+            } */
+
+        .job .job-section .content .get-in-touch-btn {
+            display: flex;
+            justify-content: end;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-family: secondaryFont;
+            color: #000;
+            text-decoration: underline;
+            font-weight: 400;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .contact .contact-list {
+            margin-bottom: 28px;
+        }
+
+        .contact .contact-list span {
+            display: block;
+            margin-bottom: 18px;
+
+        }
+
+        .contact .separator {
+            margin-bottom: 35px;
+        }
+
+        .footer-text {
+            margin-bottom: 33px;
+        }
+
+        .footer-text p {
+            color: #000;
+            font-family: secondaryFont;
+
+            font-weight: 300;
+        }
+
+        .bp-375 {
+            display: block;
+        }
+
+        .bp-650 {
+            display: none;
+        }
+
+        .bp-650-separator {
+            display: none;
+        }
+
+        .banner-bp-650 {
+            display: none;
+        }
+
+        .banner-bp-375 {
+            display: block;
+        }
+
+        .bp-650-link {
+            display: none;
+        }
+
+        .logo .icon img,
+        .hamburger img {
+            height: 25px;
+        }
+
+
+        @media (min-width:650px) {
+
+            .main-container,
+            .mobile-menu ul li {
+                padding: 0 37px;
+            }
+
+            .logo .icon img,
+            .hamburger img {
+                height: 33px;
+            }
+
+
+            .banner {
+                margin-bottom: 35px;
+            }
+
+            .banner .banner-text {
+                font-size: 55px;
+            }
+
+            .separator {
+                margin: 0 auto 40px;
+            }
+
+            .title-heading,
+            .benefits-wrapper .benefits .title {
+                font-size: 30px;
+                margin-bottom: 35px;
+            }
+
+            /* .job .job-section .view-btn,
+            .job .job-section .content .get-in-touch-btn {
+                font-size: 18px;
+            } */
+
+
+            .other-benefits .salary,
+            .other-benefits .great-benefit,
+            .other-benefits .friendly {
+                margin-bottom: 48px;
+            }
+
+            .other-benefits .salary .title,
+            .other-benefits .great-benefit .title,
+            .other-benefits .friendly .title {
+                font-size: 23px;
+
+            }
+
+            .vision .para {
+                margin-bottom: 60px;
+            }
+
+            .career .para,
+            .contact .para {
+                margin-bottom: 42px;
+            }
+
+            .vision .image-wrapper,
+            .career .image-wrapper,
+            .contact .image-wrapper {
+                margin-bottom: 49px;
+            }
+
+            .mobile-menu ul li .item {
+                padding: 20px 0;
+            }
+
+            .mobile-menu ul li .item a {
+                font-size: 30px;
+            }
+
+            .mobile-menu ul li .item .link img {
+                width: 20px;
+            }
+
+            .bp-650 {
+                display: flex;
+            }
+
+            .bp-375 {
+                display: none;
+            }
+
+            .bp-650 .career {
+                display: none;
+            }
+
+            .bp-650-career-job {
+                order: 1;
+                width: 60%;
+            }
+
+            .bp-650 .benefits-wrapper {
+                display: flex;
+                flex-direction: column;
+                order: 2;
+                width: 40%;
+            }
+
+            .benefits {
+                padding-right: 0;
+                width: 80%;
+            }
+
+            .job .job-section {
+                width: 80%;
+                padding: 27px 0;
+            }
+
+            .job .title-heading {
+                width: 80%;
+                padding: 0 0 27px;
+            }
+
+            .job .job-section .job-heading {
+                font-size: 18px;
+            }
+
+            .contact .separator {
+                margin-bottom: 50px;
+            }
+
+            .footer-text {
+                margin-bottom: 40px;
+            }
+
+
+        }
+
+        @media(min-width:991px) {
+            body {
+                font-size: 22px;
+            }
+
+            .header .navbar {
+                height: 80px;
+            }
+
+            .main-container,
+            .mobile-menu ul li {
+                padding: 0 65px;
+            }
+
+            .main-container .career {
+                display: none;
+            }
+
+            .mobile-menu {
+                min-height: calc(100vh - 80px);
+            }
+
+            .banner-bp-375 {
+                display: none;
+            }
+
+            .banner-bp-650 {
+                display: block;
+            }
+
+            .bp-375-link {
+                display: none;
+            }
+
+            .bp-650-link {
+                display: block;
+            }
+
+            .banner .banner-text {
+                font-size: 70px;
+            }
+
+            .bp-650 .career {
+                display: block;
+            }
+
+            .career .image-wrapper {
+                width: 80%;
+            }
+
+            .bp-650 .benefits-wrapper {
+                margin-top: 9rem;
+                margin-bottom: 0;
+            }
+
+            .bp-650-separator {
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: #000;
+                margin-bottom: 60px;
+            }
+
+            .mobile-menu ul li .item a {
+                font-size: 35px;
+            }
+
+            .mobile-menu ul li .item .link img {
+                width: 25px;
+            }
+
+            .job .job-section .job-heading,
+            .job .job-section .view-btn,
+            .job .job-section .content .get-in-touch-btn {
+                font-size: 22px;
+            }
+
+            .job .job-section .content ul {
+                font-size: 22px;
+            }
+
+            .job .job-section .job-heading {
+                font-size: 22px;
+            }
+
+            /* .job .job-section:last-child {
+                border-bottom: none;
+            } */
+
+            .title-heading,
+            .benefits-wrapper .benefits .title {
+                font-size: 35px;
+            }
+
+
+            .no-border {
+                border-bottom: none !important;
+            }
+
+            .no-border:last-child {
+                border-bottom: none !important;
+            }
+
+
+        }
+
+        @media (min-width:1440px) {
+            .main-container {
+                max-width: 1200px;
+                padding: 0 2.5rem;
+            }
+
+            .mobile-menu ul li {
+                max-width: 1200px;
+                padding: 0 2.5rem;
+                margin: 0 auto;
+            }
+
+            .footer-text p {
+                color: #000;
+                font-family: secondaryFont;
+                display: inline;
+                font-weight: 300;
+            }
+
+            /* .job .job-section:last-child {
+                border-bottom: none;
+            } */
+        }
+
+        /* styles for non-touch devices */
+        @media (hover: hover) {
+            .header .navbar .hamburger.change-color:hover {
+                /* border: 2px solid #FFF !important; */
+                background-color: #000;
+            }
+
+            .header .navbar .hamburger.change-color:hover .bar {
+                background-color: #FFF !important;
+            }
+
+            .header .navbar .hamburger.change-to-white:hover {
+                /* border: 2px solid #000 !important; */
+                background-color: #FFF;
+            }
+
+            .header .navbar .hamburger.change-to-white:hover .bar {
+                background-color: #000 !important;
+            }
+        }
+    </style>
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+    <header class="header">
+
+
+        <!-- @main-hader -->
+        <nav class="navbar main-container">
+
+
+            <div class="logo-box">
+
+                <div class="logo">
+
+                    <a href="/" class="icon"><img class="logo-img" src="/assets/images/etra-group-logo.svg" alt="logo">
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hamburger hamburger-img">
+
+                <!-- <img class="hamburger-img" src="/assets/images/hamburger-menu.svg" alt="menu-icon"> -->
+                <span class="bar"></span>
+                <span class="bar middle-bar"></span>
+                <span class="bar"></span>
+
+            </div>
+
+        </nav>
+
+        <div class="menu mobile-menu">
+
+            <div class="main_menu">
+
+                <ul>
+
+                    <li>
+
+                        <div class="item delay-animation" style="border-top: 1px solid #FFF;">
+
+                            <a class="about-us-btn" href="#about-us-section">
+
+                                <div class="link">
+                                    <span class="link-text">We Are Etra</span>
+                                    <img class="arrow-icon" src="/assets/images/arrow.svg" alt="arrow-icon" />
+                                </div>
+
+
+                            </a>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <div class="item delay-animation">
+
+                            <a class="our-vision-btn" href="#our-vision-section">
+
+                                <div class="link">
+                                    <span class="link-text">Our Vision</span>
+                                    <img class="arrow-icon" src="/assets/images/arrow.svg" alt="arrow-icon" />
+                                </div>
+
+
+                            </a>
+
+                        </div>
+
+                    </li>
+
+                    <li class="bp-375-link">
+
+                        <div class="item delay-animation">
+
+                            <a class="careers-btn" href="#careers-section">
+
+                                <div class="link">
+                                    <span class="link-text">Careers</span>
+                                    <img class="arrow-icon" src="/assets/images/arrow.svg" alt="arrow-icon" />
+                                </div>
+
+
+                            </a>
+
+                        </div>
+
+
+                    </li>
+
+                    <li class="bp-650-link">
+
+                        <div class="item delay-animation">
+
+                            <a class="careers-btn-lg" href="#careers-section-lg">
+
+                                <div class="link">
+                                    <span class="link-text">Careers</span>
+                                    <img class="arrow-icon" src="/assets/images/arrow.svg" alt="arrow-icon" />
+                                </div>
+
+
+                            </a>
+
+                        </div>
+
+
+                    </li>
+
+                    <li>
+
+                        <div class="item delay-animation">
+
+                            <a class="contact-btn" href="#contact-section">
+
+                                <div class="link">
+                                    <span class="link-text">Get In Touch</span>
+                                    <img class="arrow-icon" src="/assets/images/arrow.svg" alt="arrow-icon" />
+                                </div>
+
+
+                            </a>
+
+                        </div>
+
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </header>
+
+    <section class="banner">
+        <video autoplay loop muted plays-inline class="background-clip" src="/videos/banner-video.mp4"
+            type="video/mp4"></video>
+
+        <div class="banner-text main-container banner-bp-375">
+            <span class="big-heading" style="--delay: 0s;">Technology</span>
+            <span class="big-heading" style="--delay: 0.5s;">Innovation</span>
+            <span class="big-heading" style="--delay: 1s;">The Future</span>
+        </div>
+
+        <div class="banner-text main-container banner-bp-650">
+            <span class="big-heading" style="--delay: 0s;">Technology, Innovation, </span>
+            <span class="big-heading" style="--delay: 1s;">The Future</span>
+
+        </div>
+
+        <div class="overlay"></div>
+    </section>
+
+    <section class="main-container">
+        <div class="about" id="about-us-section">
+            <h2 class="title-heading writing">We are Etra</h2>
+            <p class="para">From B2C, D2C and B2B, we create powerful web applications that shape the future for a
+                better world.</p>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="vision" id="our-vision-section">
+            <h2 class="title-heading writing">Our Vision</h2>
+            <p class="para">Our vision going 2022 and onwards is to create life-changing
+                web applications. Think Google
+                Maps, Uber Eats, or the Apple iPhone.<br><br>
+
+                Our world is surrounded by companies placing profits first over global impact. We want to change that,
+                particularly in mental health, recruitment, social media marketing, and financial investing.<br><br>
+
+                The Etra team consists of over 50 years combined of industry experience.</p>
+
+
+            <div class="image-wrapper">
+                <img src="/assets/images/vision.jpg" alt="image">
+            </div>
+
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="career" id="careers-section">
+            <h2 class="title-heading writing">Careers</h2>
+            <p class="para">Join us in innovating the future of technology.</p>
+
+            <div class="image-wrapper">
+                <img src="/assets/images/careers.jpg" alt="image">
+            </div>
+
+        </div>
+        <div class="bp-375">
+            <div class="benefits-wrapper">
+                <div class="benefits">
+                    <h3 class="title writing">Benefits</h3>
+                    <p class="para">
+                        Join us in innovating the future of technology.
+                    </p>
+                </div>
+                <div class="other-benefits">
+                    <div class="salary">
+                        <div class="icon">
+                            <img src="/assets/images/graph.svg">
+                        </div>
+                        <h3 class="title">Competitive Salary</h3>
+                        <p class="para" style="margin-bottom: 0;">Work from where you want, when you want.</p>
+                    </div>
+                    <div class="great-benefit">
+                        <div class="icon">
+                            <img src="/assets/images/badge.svg">
+                        </div>
+                        <h3 class="title">Great Benefits</h3>
+                        <p class="para" style="margin-bottom: 0;">Work from where you want, when you want.</p>
+                    </div>
+                    <div class="friendly">
+                        <div class="icon">
+                            <img src="/assets/images/globe.svg">
+                        </div>
+                        <h3 class="title">Remote Friendly</h3>
+                        <p class="para" style="margin-bottom: 0;">Work from where you want, when you want.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="job">
+                <h3 class="title-heading writing" style="padding: 0 0 20px ;margin-bottom: 0;">
+                    Job Openings</h3>
+                <div class="job-section">
+                    <h4 class="job-title">Executive assistant</h4>
+                    <span class="job-location">Birmingham, United Kingdom</span>
+                    <button class="view-btn viewMoreButton">View ></button>
+                    <div class="content expandableDiv"></div>
+                </div>
+                <!-- <div class="job-section">
+                    <h4 class="job-title">Executive assistant</h4>
+                    <span class="job-location">Birmingham, United Kingdom</span>
+                    <button class="view-btn viewMoreButton">View ></button>
+                    <div class="content expandableDiv"></div>
+
+                </div> -->
+                <!-- <div class="job-section">
+                    <h4 class="job-title">Executive assistant</h4>
+                    <span class="job-location">Birmingham, United Kingdom</span>
+                    <button class="view-btn viewMoreButton">View ></button>
+                    <div class="content expandableDiv">
+                    </div>
+
+                </div> -->
+
+            </div>
+
+        </div>
+
+        <!--/////////////////////////////////
+            mobile breakpoint min-width 650px
+        ///////////////////////////////////// -->
+
+        <div class="bp-650">
+            <div class="benefits-wrapper">
+                <div class="benefits">
+                    <h3 class="title writing">Benefits</h3>
+                    <p class="para">
+                        Join us in innovating the future of technology.
+                    </p>
+                </div>
+                <div class="other-benefits">
+                    <div class="salary">
+                        <div class="icon">
+                            <img src="/assets/images/graph.svg">
+                        </div>
+                        <h3 class="title">Competitive Salary</h3>
+                        <p class="para" style="margin-bottom: 0;">Work from where you want, when you want.</p>
+                    </div>
+                    <div class="great-benefit">
+                        <div class="icon">
+                            <img src="/assets/images/badge.svg">
+                        </div>
+                        <h3 class="title">Great Benefits</h3>
+                        <p class="para" style="margin-bottom: 0;">Work from where you want, when you want.</p>
+                    </div>
+                    <div class="friendly">
+                        <div class="icon">
+                            <img src="/assets/images/globe.svg">
+                        </div>
+                        <h3 class="title">Remote Friendly</h3>
+                        <p class="para" style="margin-bottom: 0;">Work from where you want, when you want.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bp-650-career-job">
+                <div class="career" id="careers-section-lg">
+                    <h2 class="title-heading writing">Careers</h2>
+                    <p class="para">Join us in innovating the future of technology.</p>
+
+                    <div class="image-wrapper">
+                        <img src="/assets/images/careers.jpg" alt="image">
+                    </div>
+                </div>
+
+                <div class="job">
+                    <h3 class="title-heading writing" style="padding: 0 0 20px ; margin-bottom: 0;">
+                        Job Openings</h3>
+                    <div class="job-section">
+                        <h4 class="job-title">Executive assistant</h4>
+                        <span class="job-location">Birmingham, United Kingdom</span>
+                        <button class="view-btn viewMoreButton">View ></button>
+                        <div class="content expandableDiv"></div>
+                    </div>
+                    <!-- <div class="job-section">
+                        <h4 class="job-title">Executive assistant</h4>
+                        <span class="job-location">Birmingham, United Kingdom</span>
+                        <button class="view-btn viewMoreButton">View ></button>
+                        <div class="content expandableDiv"></div>
+                    </div> -->
+                    <!-- <div class="job-section last-child">
+                        <h4 class="job-title">Executive assistant</h4>
+                        <span class="job-location">Birmingham, United Kingdom</span>
+                        <button class="view-btn viewMoreButton">View ></button>
+                        <div class="content expandableDiv"></div>
+                    </div> -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="bp-650-separator"></div>
+
+        <!--/////////////////////////////////
+            mobile breakpoint min-width 650px
+        ///////////////////////////////////// -->
+
+        <div class="contact" id="contact-section" style="margin-top: 40px;">
+            <h2 class="title-heading writing">Get In Touch</h2>
+            <p class="para">We'd love to hear from you.</p>
+
+            <div class="image-wrapper">
+                <img src="/assets/images/get-in-touch.jpg" alt="image">
+            </div>
+
+            <div class="contact-department" style="margin-bottom: 30px;">
+                <span class="para">Contact by department:</span>
+            </div>
+            <div class="contact-list">
+                <span class="para"><b>General: </b>contact-us@etra.group</span>
+                <span class="para"><b>Press release: </b>press@etra.group</span>
+                <span class="para"><b>Legal: </b>legal@etra.group</span>
+                <span class="para"><b>Investor relations: </b>investors@etra.group</span>
+                <span class="para"><b>Marketing team: </b>marketing@etra.group</span>
+                <span class="para"><b>Tech team: </b>tech@etra.group</span>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+
+
+    </section>
+
+    <footer>
+        <div class="footer-text main-container">
+            <p>© 2025 Etra Group Ltd, Company Number: 11987123</p>
+            <p>Registered Address: 107-111 Fleet Street, London, EC4A 2AB United Kingdom</p>
+        </div>
+    </footer>
+
+
+
+
+
+</body>
+
+
+<script>
+    // headings and separators will start animation on scroll
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('typewriting');
+            }
+
+        });
+    });
+    const headings = document.querySelectorAll('.writing');
+
+    headings.forEach(heading => {
+        observer.observe(heading);
+    });
+
+
+    // animation for view more buttons
+    const observer3 = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('underline-on-scroll');
+            }
+        });
+    });
+
+    const viewBtn = document.querySelectorAll('.viewMoreButton');
+
+    viewBtn.forEach(el => {
+        observer3.observe(el);
+    });
+
+
+    // animation for the separator
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-me');
+            }
+        });
+    });
+
+    const separators = document.querySelectorAll('.separator');
+
+    separators.forEach(separator => {
+        observer2.observe(separator);
+    });
+
+    window.addEventListener('load', updateHeaderColor);
+
+
+    // header changes it's background color  on scroll
+    let mobileMenu = document.querySelector(".mobile-menu");
+    let menuIcon = document.querySelector(".hamburger");
+    let header = document.querySelector(".header");
+    let banner = document.querySelector(".banner");
+
+    let isMenuOpen = false;
+    let isBlack = false;
+
+    // Function to update the header color and hover effect
+    function updateHeaderColor() {
+        const bannerHeight = banner.clientHeight;
+        const logoImage = document.querySelector(".logo-img");
+        const hamburgerImage = document.querySelector(".hamburger-img");
+        const bars = document.querySelectorAll(".bar");
+        const scrollY = window.scrollY;
+
+        if (scrollY > bannerHeight) {
+
+            if (!isMenuOpen) {
+                header.style.backgroundColor = '#FFF';
+                header.style.position = "fixed";
+                logoImage.src = '/assets/images/etra-group-logo-black.svg';
+                hamburgerImage.style.border = "2px solid #000";
+                for (var i = 0; i < bars.length; i++) {
+                    bars[i].style.backgroundColor = "#000";
+                }
+                hamburgerImage.classList.add("change-color");
+                hamburgerImage.classList.remove("change-to-white");
+            }
+            else if (isMenuOpen) {
+                header.style.backgroundColor = "black";
+                header.style.position = "absolute";
+                logoImage.src = '/assets/images/etra-group-logo.svg';
+                hamburgerImage.style.border = "2px solid #FFF";
+                for (var i = 0; i < bars.length; i++) {
+                    bars[i].style.backgroundColor = "#FFF";
+                }
+            }
+        } else if (scrollY < bannerHeight) {
+            if (!isMenuOpen) {
+                header.style.backgroundColor = "transparent";
+                header.style.position = "absolute";
+                logoImage.src = '/assets/images/etra-group-logo.svg';
+                hamburgerImage.style.border = "2px solid #FFF";
+                for (var i = 0; i < bars.length; i++) {
+                    bars[i].style.backgroundColor = "#FFF";
+                }
+                hamburgerImage.classList.remove("change-color");
+                hamburgerImage.classList.add("change-to-white");
+            }
+
+        }
+
+    }
+
+    // Event listener for scrolling
+    window.addEventListener('scroll', updateHeaderColor);
+
+    // Event listener for menu button click
+    menuIcon.addEventListener('click', () => {
+        try {
+            const logoImage = document.querySelector(".logo-img");
+            const hamburgerImage = document.querySelector(".hamburger-img");
+            isMenuOpen = !isMenuOpen;
+            isBlack = !isBlack;
+            mobileMenu.classList.toggle("show");
+            const delayItems = document.querySelectorAll(".delay-animation");
+
+            if (isMenuOpen) {
+                //animation for menu-links
+                setTimeout(function () {
+                    delayItems.forEach(function (item, index) {
+                        setTimeout(function () {
+                            item.style.opacity = 1;
+                            item.style.transform = "translateY(0)";
+                        }, index * 200);
+                    });
+                }, 300);
+                header.style.position = "fixed";
+                header.style.backgroundColor = "black";
+                logoImage.src = '/assets/images/etra-group-logo.svg';
+                hamburgerImage.style.border = "2px solid #FFF";
+                const bars = document.querySelectorAll(".bar");
+                for (var i = 0; i < bars.length; i++) {
+                    bars[i].style.backgroundColor = "#FFF";
+                }
+                hamburgerImage.classList.remove("change-color");
+                hamburgerImage.classList.remove("change-to-white");
+            }
+            else {
+                header.style.backgroundColor = "transparent";
+                header.style.position = "absolute";
+                delayItems.forEach(function (item, index) {
+                    item.style.opacity = 0;
+                    item.style.transform = "";
+                });
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
+
+    //Job Description content
+    const htmlContent = `
+   
+                            <h5 class="job-heading" style="margin: 20px 0">Job Description</h5>
+                            <p class="para">Established in 2018, we're a market-leading group specializing in
+                                high-growth
+                                platforms. Under
+                                our group, we've run brands in eCommerce, social media growth, and recruitment. Our
+                                services
+                                are
+                                based primarily in the United Kingdom and the United States.<br><br>
+                                The Etra Group specializes in bringing innovation into industries falling behind in
+                                the tech
+                                industry. These projects will
+                                disrupt several industries and innovate, causing new industries to be created in the
+                                process.
+                                The potential to make life-changing projects are here. Our vision for 2022 and
+                                onwards is to
+                                expand our portfolio and develop companies that bring about change on a global
+                                scale.
+                            <ul> The industries we're targeting include:
+                                <li> Mental health (Similar to Mind app) </li>
+                                <li> Sleep health (Similar to Fitbit - primarily for insomnia)</li>
+                                <li> Investment (new industry with innovation)</li>
+                                <li> Social media</li>
+                                <li> B2B growth</li>
+                                <li> Recruitment </li>
+                            </ul><br>
+                            </p>
+                            <p class="para">As we imbue a start-up culture, you'll work directly with the CEO,
+                                supercharging your career experience with a once-in-a-lifetime opportunity.</p>
+
+                            <h5 class="job-heading" style="margin: 30px 0 20px">The Role</h5>
+                            <p class="para">Our group serves over 50,000 customers every year. As we've grown from
+                                year to
+                                year,
+                                the CEO
+                                requires additional help taking the company to the next level, including:.<br>
+
+                            <ul>
+                                <li> Provide administrative support to the CEO </li>
+                                <li> Use administrative skills to get in contact with other companies</li>
+                                <li> Organize CEOs schedule</li>
+                                <li> Make decisions on behalf of the CEO</li>
+                                <li> Produce, design and proofread complex documents</li>
+                                <li> Inbox management where required </li>
+                                <li> Organize meetings </li>
+                                <li> Manage and delegate tasks to employees</li>
+                                <li> Plan and support team events</li>
+                                <li> Maintaining strict confidentiality </li>
+                                <li> Oversee current projects and their progress</li>
+                                <li> Updating our milestone board every 3-months to keep the team happy and
+                                    motivated</li>
+                            </ul>
+                            </p>
+
+                            <h5 class="job-heading" style="margin: 30px 0 20px">Your future and growth in career
+                                development
+                            </h5>
+                            <p class="para">As you spend more time with the CEO, you'll decision-making and
+                                experience will
+                                mirror that of the CEO . In addition, spending the most time with the CEO means you
+                                will
+                                possess
+                                the most experience with the CEO among all employees.<br><br>
+
+                                For the CEO, the executive assistant is the most valued employee. Therefore, the CEO
+                                seeks
+                                to
+                                invest the most into the executive assistant.<br><br>
+
+                                Due to rapid growth, the company is looking to relocate to a bigger office. For this
+                                reason,
+                                you
+                                will work remotely (from home), and once we've migrated to a larger office, you will
+                                attend
+                                there for your role our executive assistant.
+                            </p>
+
+                            <h5 class="job-heading" style="margin: 30px 0 20px">Experience & Skills required:</h5>
+                            <p class="para">
+                                Essential, minimum of 3-year administrative skills in:
+                            </p>
+                            <ul>
+                                <li> MS Word, Excel,</li>
+                                <li> Great telephone communication skills </li>
+                                <li> High levels of flexibility and adaptability</li>
+                                <li> Make decisions on behalf of the CEO</li>
+                                <li> Work under pressure and reach deadlines</li>
+                                <li> Problem-solving and decision-making skills </li>
+                                <li> Strong business acumen </li>
+                                <li> Thinking outside of the box to resolve problems</li>
+                            </ul>
+
+                            <h5 class="job-heading" style="margin: 30px 0 20px">Benefits</h5>
+                            <ul>
+                                <li> Work from home: no need to commute to work and home</li>
+                                <li> 25 days holiday</li>
+                                <li> Laptop to work from home</li>
+                                <li> More benefits to come as our company grows!</li>
+                            </ul>
+
+                            <h5 class="job-heading" style="margin: 30px 0 20px">Being your authentic self at work is
+                                vital
+                                to
+                                success</h5>
+                            <p class="para">
+                                We want an executive assistant who loves bringing ideas to life through the power of
+                                thinking
+                                outside of the box. As the company grows further, so will the assistant's vision of
+                                the
+                                future.<br> <br>
+
+                                The most valuable and limited aspect of life is time. But, unfortunately, time is
+                                something
+                                we'll never get back. At Etra, we want every second of yours to be worthwhile, and
+                                joining
+                                us
+                                will make you exceptional. At Apple, it's not the iPhone that makes them successful.
+                                It's
+                                the
+                                team that built it. <br> <br>
+                                If you want to make an impact, send your CV through! We look forward to
+                                seeing you! Job Types: Full-time, Permanent There are no COVID-19 precautions, just
+                                the
+                                comfort
+                                of your own home!
+                            </p>
+
+                         <a class="get-in-touch-btn" href="#contact-section">Get In Touch ></a> 
+                       
+`;
+
+    //View Job Description
+
+    const buttons = document.querySelectorAll(".viewMoreButton");
+    const contents = document.querySelectorAll(".expandableDiv");
+    const jobSections = document.querySelectorAll(".job-section");
+
+    buttons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            const content = contents[index];
+            content.classList.toggle("expand");
+            content.innerHTML = htmlContent;
+            for (var i = 0; i < jobSections.length; i++) {
+                jobSections[i].classList.toggle("no-border")
+            }
+
+            button.innerHTML = content.classList.contains("expand") ? "Close" : "View >";
+        });
+    });
+
+    //link buttons to respective sections
+    const contactusBtn = document.querySelector(".get-in-touch-btn");
+    const contactSection = document.getElementById("contact-section");
+    contactusBtn.addEventListener("click", function () {
+        contactSection.scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+
+    const contactBtn = document.querySelector(".contact-btn");
+    contactBtn.addEventListener("click", function () {
+        contactSection.scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+
+    const aboutUsBtn = document.querySelector(".about-us-btn");
+    const aboutUsSection = document.getElementById("about-us-section");
+    aboutUsBtn.addEventListener("click", function () {
+        aboutUsSection.scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+
+    const visionBtn = document.querySelector(".our-vision-btn");
+    const visionSection = document.getElementById("our-vision-section");
+    visionBtn.addEventListener("click", function () {
+        visionSection.scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+
+    const careerBtn = document.querySelector(".careers-btn");
+    const careerSection = document.getElementById("careers-section");
+    careerBtn.addEventListener("click", function () {
+        careerSection.scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+
+    const careerBtnLg = document.querySelector(".careers-btn-lg");
+    const careerSectionLg = document.getElementById("careers-section-lg");
+    careerBtnLg.addEventListener("click", function () {
+        careerSectionLg.scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+
+
+
+</script>
+
+
+</html>

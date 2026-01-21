@@ -1,0 +1,359 @@
+<!-- @meta -->
+
+<title>Check Auto Likes</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+
+<style>
+    {dontdosupportcss}
+    .box23 {
+        margin: 66px auto;
+        width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+    h1 {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .label {
+        margin-top: 35px;
+    }
+
+    .container div input,
+    .selectric,
+    .input,
+    .btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    .cke_reset_all {
+        background: #f7f7f7 !important;
+    }
+
+    .articles {
+        width: 100%;
+    }
+
+    .articles tr td {
+        border-bottom: 1px solid #f1f1f1;
+        padding: 19px 10px;
+        vertical-align: top
+    }
+
+    .articles tr td:first-child {
+        font-size: 19px;
+        width: 34%;
+        vertical-align: middle;
+    }
+
+    .articles tr:last-child td {
+        border-bottom: 0;
+    }
+
+    .status {
+        font-weight: bold;
+        height: 23px;
+        width: 55px;
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .btn {
+        margin: 0 !important;
+    }
+
+
+    .adminmenu {
+        display: inline-block;
+        background-color: white;
+        border-top: 1px solid #ccc;
+        width: 100%;
+    }
+
+    .adminmenu a {
+        float: left;
+        padding: 15px;
+    }
+
+    .perorder {
+        width: 100%;
+    }
+
+    .perorder tr:first-child td {
+        background-color: #ccc;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .perorder tr td:first-child {
+        width: 30%;
+        vertical-align: top;
+    }
+
+    .perorder tr td {
+        padding: 14px 5px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .perorder tr.grey td {
+        color: grey;
+    }
+
+    .perorder a {
+        text-decoration: underline;
+        color: blue;
+    }
+
+    .perorder a:hover {
+        color: darkblue;
+    }
+
+    .trackinginfo {
+        border-bottom: 1px dashed #e8e8e8;
+        margin-bottom: 2px;
+        padding: 11px;
+        font-size: 14px;
+        color: grey;
+    }
+
+    .trackinginfo .trackingheader {
+        font-weight: bold;
+    }
+
+    .report {
+        float: left;
+        width: initial;
+        margin-right: 10px !important;
+        text-decoration: none !important;
+        color: #000;
+        background: #FFF;
+        border: 1px solid #000;
+    }
+
+    .report:hover {
+        color: #FFF;
+        background-color: #000;
+    }
+
+    .reportmessage {
+        float: left;
+        width: 100%;
+        height: 120px;
+        box-sizing: border-box;
+        margin: 0px;
+        margin-bottom: 20px;
+        resize: vertical;
+        padding: 10px;
+        font-family: 'Open Sans';
+    }
+
+    .adminnotif {
+        font-size: 15px;
+        padding: 11px;
+        margin-bottom: 10px;
+    }
+
+    .language-less {
+        width: 1px;
+        height: 1px;
+        resize: none;
+    }
+
+    .foo {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 18px;
+    }
+
+    .rectifyinput {
+        width: 181px;
+        float: left;
+        margin-top: 0;
+        margin-right: 10px;
+    }
+
+    .summarytbl {
+        font-size: 14px;
+    }
+
+    .summarytbl tr:hover {
+        background-color: #e4fbff;
+    }
+
+    .summarytbl tr td {
+        border-bottom: 1px solid #dadada;
+        padding: 7px;
+    }
+
+    .searchspan {
+        font-size: 13px;
+        color: #4747bf;
+        line-height: 22px;
+        display: block;
+    }
+
+    .perorder tr td .billinghistory {
+        width: 100%;
+        border: 1px solid blue;
+    }
+
+    .perorder tr td .billinghistory tr td {
+        background: #fff;
+        font-size: initial;
+        font-weight: initial;
+        font-size: 12px;
+        width: initial;
+        vertical-align: inherit;
+    }
+
+
+    .paid td {
+        background-color: #f9f15b !important;
+    }
+
+    .free td {
+        background-color: #ccc !important;
+    }
+
+    .input {
+        width: 100%;
+        border-radius: 6px;
+        border: 1px solid #BEBEBE;
+    }
+</style>
+
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<!-- @script_tags -->
+
+
+
+<main class="check-user">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <section class="check-user-section main-container">
+
+        <h1 style="text-align:center;margin-top:35px;">Check Auto Likes 😄</h1>
+{dontdosupportdiv}
+
+        <div class="box23">
+
+
+
+            
+            <form method="POST" action="">
+                <table class="articles">
+                    <tr>
+                        <td>🏢 Company:</td>
+                        <td>
+                            <select class="input" id="company" name="company">
+                                <option disabled unselected>Select a company</option>
+                                <!-- @brand_options -->
+                                <option>{name}</option>
+                                <!-- @brand_options -->
+                            </select>                        
+                        </td>
+    
+                    </tr>
+
+                    <tr>
+                        <td>Type:</td>
+                        <td>
+                            <select class="input" id="type" name="type">
+                                <option disabled unselected>Select type</option>
+                                <option {paidTypeSelected}>Paid</option>
+                                <option {freeTypeSelected}>Free</option>
+                            </select>                        
+                        </td>
+    
+                    </tr>
+                    
+                    <tr>
+                        <td>👨👩 User:<span class="searchspan">Search by:<br>- IG username<br>- email address</span>
+                        </td>
+                        <td><input name="user" class="input" value="{user}" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td>❤️ Auto Likes:<span class="searchspan">Search by:<br>- Order ID<br>- Last Four Card Number
+                                e.g. 1234 <br>- Payment Id</span></td>
+                        <td><input name="orderid" class="input" value="{orderid}" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input style="float:left;" type="submit" name="submit" class="btn btn-primary color3" value="Search"><a
+                                href="/admin/check-al/" class="btn btn-primary report"
+                                style="float:right;">Reset Search</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+
+
+
+        </div>
+
+{summaryresults}
+        {results}
+
+        <script>
+            (function () {
+
+                var pre = document.getElementsByClassName('foo');
+
+                for (var i = 0; i < pre.length; i++) {
+                    var isLanguage = pre[i].children[0].className.indexOf('language-');
+
+                };
+
+            
+
+                var copyCode = new Clipboard('.copy-button', {
+                    target: function (trigger) {
+                        return trigger.previousElementSibling;
+                    }
+                });
+
+                copyCode.on('success', function (event) {
+                    event.clearSelection();
+                    event.trigger.textContent = 'Copied';
+                    window.setTimeout(function () {
+                        event.trigger.textContent = 'Copy';
+                    }, 2000);
+
+                });
+
+                copyCode.on('error', function (event) {
+                    event.trigger.textContent = 'Press "Ctrl + C" to copy';
+                    window.setTimeout(function () {
+                        event.trigger.textContent = 'Copy';
+                    }, 5000);
+                });
+
+            })();
+        </script>
+
+    </section>
+
+</main>

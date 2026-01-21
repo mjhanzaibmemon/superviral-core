@@ -1,0 +1,118 @@
+<!-- @meta -->
+
+<title>Email Funnels</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+
+<style>
+    .email-funnels .box23 {
+        margin: 66px auto;
+        width: 540px;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .email-funnels h1 {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .email-funnels .label {
+        margin-top: 35px;
+    }
+
+    .email-funnels .container div input,
+    .email-funnels .selectric,
+    .email-funnels .input,
+    .email-funnels .btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .email-funnels .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    .email-funnels .cke_reset_all {
+        background: #f7f7f7 !important;
+    }
+
+    .email-funnels .funnels {
+        width: 100%;
+        background-color: white;
+        margin-bottom: 30px;
+    }
+
+    .email-funnels .funnels tr td {
+        padding: 10px;
+        vertical-align: top
+    }
+
+    .email-funnels .status {
+        font-weight: bold;
+        height: 23px;
+        width: 55px;
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .email-funnels .btn {
+        margin: 0 !important;
+    }
+
+    .email-funnels .thebody {
+        margin: 0;
+        font-size: 13px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 16px;
+        max-height: 50px;
+        -webkit-box-orient: vertical;
+        color: #4e4e4e;
+        -webkit-line-clamp: 2;
+    }
+
+    .email-funnels .adminmenu {
+        display: inline-block;
+        background-color: white;
+        border-top: 1px solid #ccc;
+        width: 100%;
+    }
+
+    .email-funnels .adminmenu a {
+        float: left;
+        padding: 15px;
+    }
+</style>
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<!-- @script_tags -->
+
+
+
+<main class="email-funnels">
+    <div class="adminmenu">
+        <a href="?type=cold">Cold funnels</a>
+        <a href="?type=warm">Warm funnels</a>
+        <a href="?type=hot">Hot funnels</a>
+    </div>
+    <div class="box23">
+        <h1>
+            <?=ucfirst($type) ?> Email Funnels
+        </h1><br>
+        <a class="btn color3" style="width:310px"
+            href="https://superviral.io/admin/editemailfunnels.php?id=new&type=<?=$type?>">Create a new
+            <?=$type?> funnel
+        </a>
+        <?=$funnels?>
+    </div>
+</main>

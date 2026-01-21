@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+
+    <title>{metatitle}</title>
+
+
+
+    <meta name="description" content="{metadesc}" />
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta http-equiv="Content-Language" content="{contentlanguage}">
+
+
+
+    <link rel="canonical" href="{canonical}" />
+
+    <link rel="alternate" hreflang="en-us" href="https://superviral.io/instagram-profile-picture-viewer/" />
+    <link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/instagram-profile-picture-viewer/" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+
+    <link
+
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+
+        rel="stylesheet">
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/buystyle.min.css?time=1646054328">
+
+    <link rel="stylesheet" type="text/css" href="/css/superviral-free-tools.css" />
+
+
+
+    <style>
+
+        .heading2 {
+        margin: 28px 0 12px;
+        font-size: 12px;
+        font-weight: 600;
+        float: unset;
+   
+        }
+
+        .heading2 {
+            font-size: 18px;
+            line-height: 24px;
+            margin: 30px 0 20px;
+        }
+
+        #download-btn-container {
+            text-align: center;
+        }
+
+
+        @media screen and (min-width: 767px) {
+            .heading2 {
+            font-size: 21px;
+           }
+        }
+
+        @media screen and (min-width: 991px) {
+            .heading2 {
+            font-size: 26px;
+           }
+        }
+
+
+    </style>
+
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+
+
+    {header}
+
+    <div id="loading_overlay" style="display:none;"><span class="loading_overlay_spinner"></span></div>
+
+
+    <div class="superviral-free-tools-page pp-viewer">
+
+        <section class="banner">
+
+            <div class="main-container">
+
+                <h1 class="title">{main-title-h1}</h1>
+
+                <p class="subtitle">{main-subtitle-p}</p>
+
+                    <span class="error validateError"></span>
+
+
+
+                
+
+                    <div class="orderfield input-group" id="usernameInp">
+
+                        <span class="instruction" >{banner-instruction-1}</span>
+
+            
+
+                        <span class="error error1">{banner-instruction-1-error}</span>
+
+
+
+                        <div class="input-container">
+
+                        <input autocomplete="off" id="userName" value="" placeholder="therock">
+
+                        <!-- <button class="btn-paste">Paste</button> -->
+
+                       </div>
+
+
+
+                    </div>
+
+
+
+                    <div id="profile_pic" style="text-align: center;margin: 30px 0 20px ;"></div>
+
+        
+
+                    <div class="input-group" id="next-btn-container">
+
+                        <span class="instruction" >{banner-instruction-2}</span>
+                        {recaptchaShow}
+                        <span class="instruction" {stylePoint3Text}>{banner-instruction-3}</span>
+
+
+                        <div style="text-align: center;">
+                            <input style="text-align: center;border:0;width:100%;padding-top: 12px;padding-bottom: 12px;" type="submit" onclick="getUserInfo();" value="{banner-prompt-1}" class="btn color4">
+                        </div>
+
+                    </div>
+
+                     
+
+                    <div class="input-group" id="download-btn-container" style="display:none;">
+
+
+
+                        <a href="" class="btn btn-primary" style="text-align: center;display: none;" id="postLink" download>Download</a>
+
+                    </div>
+
+                    
+
+                    <div style="text-align: center; font-family: Open Sans, sans-serif; margin-top: 20px;"><a href="" id="tryAnotherLinkId" style="display: none; color: #000 ; text-decoration-line: underline;">Try another profile</a></div>
+
+            </div>
+
+        </section>
+
+        <section class="more-free-tools main-container">
+            <h2 class="title">More FREE tools 🔧</h2>
+            <div class="list">
+                <a href="/instagram-story-downloader/">
+                    <span class="text">Story Downloader</span>
+                    <span class="link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                            <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                            stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </a>
+                <a href="/instagram-video-downloader/">
+                    <span class="text">Video Downloader</span>
+                    <span class="link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                            <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                                stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </a>
+                <a href="/instagram-profile-picture-viewer/">
+                    <span class="text">Profile Picture Viewer</span>
+                    <span class="link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                            <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                            stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </a>
+                <a href="/instagram-follower-count/">
+                    <span class="text">Follower Counter</span>
+                    <span class="link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                            <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                                stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <section class="about main-container">
+            <div class="subtitle">{about-sub-heading}</div>
+                <h2 class="title"><span class="text">{about-heading-h1}</span></h2>
+                <p class="para">{about-para-p1}</p>
+                <div class="checklist">
+                    <div class="item">
+                        <div class="label">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                    <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                    <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                  </svg>
+                            </span>
+                            <span class="txt">{about-check-label1}</span>
+                        </div>
+                        <div class="para">{about-check-para1}</div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                    <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                    <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                  </svg>
+                            </span>
+                            <span class="txt">{about-check-label2}</span>
+                        </div>
+                        <div class="para">{about-check-para2}</div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                    <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                    <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                  </svg>
+                            </span>
+                            <span class="txt">{about-check-label3}</span>
+                        </div>
+                        <div class="para">{about-check-para3}</div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                    <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                    <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                  </svg>
+                            </span>
+                            <span class="txt">{about-check-label4}</span>
+                        </div>
+                        <div class="para">{about-check-para4}</div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                    <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                    <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                                  </svg>
+                            </span>
+                            <span class="txt">{about-check-label5}</span>
+                        </div>
+                        <div class="para">{about-check-para5}</div>
+                    </div>
+                </div>
+                <hr>
+        </section>
+
+
+        <section class="features features-lg about main-container">
+            <div class="item">
+
+                <div class="body">
+                    <div class="content">
+                        <div class="subtitle">{feature1-heading1}</div>
+                        <h3 class="heading">{feature1-heading2}</h3>
+                        <p class="para">{feature1-p1}</p>
+                        <img data-src="/imgs/profile-pic-icon1.svg" src="/imgs/profile-pic-icon1.svg" alt="icon1" class="hideDesktop lazy">
+                        <p class="para">{feature1-p2}</p>
+                    </div>
+                    <div class="img-container">
+                        <img data-src="/imgs/profile-pic-icon1.svg" src="" class="lazy" alt="icon1">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="item">
+
+                <div class="body">
+                    <div class="content">
+                        <div class="subtitle">{feature2-heading1}</div>
+                        <h3 class="heading">{feature2-heading2}</h3>
+                        <p class="para">{feature2-p1}</p>
+                        <img data-src="/imgs/profile-pic-icon2.svg" src="" alt="icon1" class="hideDesktop lazy">
+                        <p class="para">{feature2-p2}</p>
+                    </div>
+                    <div class="img-container">
+                        <img data-src="/imgs/profile-pic-icon2.svg" src="" class="lazy" alt="icon1">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="item">
+                <div class="body">
+                    <div class="content">
+                        <div class="subtitle">{feature3-heading1}</div>
+                        <h3 class="heading">{feature3-heading2}</h3>
+                        <p class="para">{feature3-p1}</p>
+                        <img src="/imgs/profile-pic-icon3.svg" alt="icon1" class="hideDesktop square_img">
+                    </div>
+                    <div class="img-container">
+                        <img src="/imgs/profile-pic-icon3.svg" alt="icon1" class="square_img">
+                    </div>   
+                </div>
+            </div>
+            <hr>
+            <div class="item">
+
+
+
+                <div class="sub-item">
+                    <div class="body">
+                        <div class="content">
+                            <div class="subtitle">{feature4-heading1}</div>
+                            <h3 class="heading">{feature4-heading2}</h3>
+                            <p class="para">{feature4-p1}</p>
+                            <img data-src="/imgs/profile-pic-icon4.svg" src="" alt="icon1" class="hideDesktop lazy">
+                            <h4 class="sub-heading">{feature5-heading2}</h4>
+                            <p class="para">{feature5-p1}</p>
+                        </div>
+                        <div class="img-container">
+                            <img data-src="/imgs/profile-pic-icon4.svg" src="" class="lazy" alt="icon1">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <hr>
+            <div class="item">
+                <div class="sub-item">
+                    <div class="body">
+                        <div class="content">
+                            <div class="subtitle">{feature6-heading1}</div>
+                            <h3 class="heading">{feature6-heading2}</h3>
+                            <p class="para">{feature6-p1}</p>
+                            <img data-src="/imgs/profile-pic-icon5.svg" src="" alt="icon1" class="hideDesktop square_img lazy">
+                            <h4 class="sub-heading">{feature7-heading2}</h4>
+                            <p class="para">{feature7-p1}</p>
+                        </div>
+                        <div class="img-container">
+                            <img data-src="/imgs/profile-pic-icon5.svg" src="" alt="icon1" class="square_img lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="body">
+                        <div class="content">
+                            <img data-src="/imgs/profile-pic-icon6.svg" src="" alt="icon1" class="hideDesktop square_img lazy">
+                            <h4 class="sub-heading">{feature8-heading2}</h4>
+                            <p class="para">{feature8-p1}</p>
+                            <p class="para">{feature8-p2}</p>
+                        </div>
+                        <div class="img-container">
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="body">
+                        <div class="content">
+                            <img data-src="/imgs/profile-pic-icon7.svg" src="" alt="icon1" class="hideDesktop square_img lazy">
+                            <h4 class="sub-heading">{feature9-heading2}</h4>
+                            <p class="para">{feature9-p1}</p>
+                        </div>
+                        <div class="img-container">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </section>
+        <section class="faq main-container">
+            <div class="heading">{faq-heading}<div>
+            <h2 class="title">{faq-title}</h2>
+            <p class="para">{faq-subtitle}</p>
+            <div class="faq-part">
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q1}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                    {faq-a1}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q2}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a2}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q3}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a3}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q4}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a4}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q5}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a5}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q6}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a6}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q7}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                    {faq-a7}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q8}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                    {faq-a8}
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;"><a href="#!" class="btn btn3" onclick="questionModal();">{faq-btn-prompt}</a></div>
+
+        </section>
+        <section class="download-prompt main-container">
+            <div class="heading">{download-prompt-heading}</div>
+            <h2 class="title">{download-prompt-title}</h2>
+            <div style="text-align: center;"><a href="#" class="btn color4">{download-prompt-link}</a></div>
+        </section>
+
+    </div>
+
+
+
+
+
+    {footer}
+
+
+
+
+
+    <script src="/common/superviral-free-tools.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="../common/lazy-loading.js"></script>
+
+
+
+    <script>
+        {headerscript}
+
+function questionModal(){
+
+var widthPopup="356";var heightPopup="472";
+
+var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+var questionHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+questionHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+questionHTML+='<iframe src="{loclink}/userquestions.php?page=buy-instagram-followers" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe><div onclick="closequestionDiv();" style="text-align:center;color:#fff;font-size:15px;">Close window X</div></div>';
+
+document.getElementById('signDiv').innerHTML=questionHTML;
+
+return false;
+
+}
+
+function closequestionDiv(msg){
+document.body.removeChild(document.getElementById('signDiv'));
+// exitout="1";
+if(msg == "Question submitted successfully - thank you for the feedback!")
+addMsgs(msg);
+}
+
+function addMsgs(msg){
+    $("#successMsgAddQues").html(msg);
+    $("#successMsgAddQues").show();
+    document.getElementById("successMsgBtn").click();
+}
+
+        function getUserInfo() {
+
+
+
+           
+            var userName = $('#userName').val();
+
+            if (userName.trim() == "") {
+
+                alert('Username is required');
+
+                return;
+
+            }
+
+            {recaptchaRequired}
+
+            // $('#postLink').hide();
+
+            // $('#next-btn-container').hide();
+
+
+            var dataArr = {
+
+                "username": userName,
+
+                "type": 'dp',
+
+                {recaptchaParam}
+
+            };
+
+
+            $("#loading_overlay").show();
+            // $('#profile_pic').html('Loading....');
+
+            $.ajax({
+
+                url: "/free_tools_ajax.php",
+
+                type: "POST",
+
+                async: true,
+
+                dataType: 'json',
+
+                data: dataArr,
+
+                success: function (response) {
+
+                    // console.log(response);
+
+                    $("#loading_overlay").hide();
+
+                    if (response.message == 'success') {
+
+                        // $('#postLink').hide();
+
+                        $('#next-btn-container').hide();
+
+                        $('#profile_pic').html('<img style="border-radius: 75px" src="'+ response.data.profile_pic +'">');
+
+                        $('#postLink').attr('href',response.data.profile_pic);
+
+                        $('#postLink').show();
+
+                        $('#tryAnotherLinkId').show();
+
+                        $('#download-btn-container').show();
+
+                        $('#usernameInp').hide();
+
+
+
+                    } else {
+
+
+
+                        alert(response.message);
+                        if(response.message == 'Recaptcha Error' || response.message == 'Error while fetching, please try again!'){
+                            location.reload();
+                        }
+
+                    }
+
+                },
+
+            });
+
+        }
+
+    </script>
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+</body>
+
+
+
+</html>

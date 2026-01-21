@@ -1,0 +1,188 @@
+name: Build & Deploy Docker -> ECR -> EKS
+
+on:
+  workflow_dispatch:
+#  push:
+#    branches: [dev, stage, main]
+#    paths:
+#     - ".docker/php/Dockerfile"
+#     - "k8s/deployment.yaml"
+#     - "**/Dockerfile"
+#     - "**/*.php"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+ 
+    steps:
+    # -----------------------------
+    # Checkout code
+    # -----------------------------
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # -----------------------------
+    # Set AWS environment variables based on branch
+    # -----------------------------
+    - name: Set AWS environment variables
+      run: |
+        if [[ "${GITHUB_REF_NAME}" == "dev" ]]; then
+          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_DEV }}" >> $GITHUB_ENV
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}" >> $GITHUB_ENV
+          echo "AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_DEV }}" >> $GITHUB_ENV
+          echo "AWS_REGION=${{ secrets.AWS_REGION_DEV }}" >> $GITHUB_ENV
+          echo "ECR_REPO_NAME=${{ secrets.ECR_REPO_NAME_DEV }}" >> $GITHUB_ENV
+          echo "ECS_CONTAINER_NAME=${{ secrets.ECS_CONTAINER_NAME_DEV }}" >> $GITHUB_ENV
+          echo "ECS_SERVICE_NAME=${{ secrets.ECS_SERVICE_NAME_DEV }}" >> $GITHUB_ENV
+          echo "ECS_CLUSTER_NAME=${{ secrets.ECS_CLUSTER_NAME_DEV }}" >> $GITHUB_ENV
+
+        elif [[ "${GITHUB_REF_NAME}" == "stage" ]]; then
+          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_STAGE }}" >> $GITHUB_ENV
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_STAGE }}" >> $GITHUB_ENV
+          echo "AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_STAGE }}" >> $GITHUB_ENV
+          echo "AWS_REGION=${{ secrets.AWS_REGION_STAGE }}" >> $GITHUB_ENV
+          echo "ECR_REPO_NAME=${{ secrets.ECR_REPO_NAME_STAGE }}" >> $GITHUB_ENV
+          echo "ECS_CONTAINER_NAME=${{ secrets.ECS_CONTAINER_NAME_STAGE }}" >> $GITHUB_ENV
+          echo "ECS_SERVICE_NAME=${{ secrets.ECS_SERVICE_NAME_STAGE }}" >> $GITHUB_ENV
+          echo "ECS_CLUSTER_NAME=${{ secrets.ECS_CLUSTER_NAME_STAGE }}" >> $GITHUB_ENV
+        else
+          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_PROD }}" >> $GITHUB_ENV
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}" >> $GITHUB_ENV
+          echo "AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_PROD }}" >> $GITHUB_ENV
+          echo "AWS_REGION=${{ secrets.AWS_REGION_PROD }}" >> $GITHUB_ENV
+          echo "ECR_REPO_NAME=${{ secrets.ECR_REPO_NAME_PROD }}" >> $GITHUB_ENV
+          echo "ECS_CONTAINER_NAME=${{ secrets.ECS_CONTAINER_NAME_PROD }}" >> $GITHUB_ENV
+          echo "ECS_SERVICE_NAME=${{ secrets.ECS_SERVICE_NAME_PROD }}" >> $GITHUB_ENV
+          echo "ECS_CLUSTER_NAME=${{ secrets.ECS_CLUSTER_NAME_PROD }}" >> $GITHUB_ENV
+        fi
+
+    # -----------------------------
+    # Configure AWS
+    # -----------------------------
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    # -----------------------------    # -----------------------------
+    - name: Login to Amazon ECR
+      run: |
+        aws ecr get-login-password --region $AWS_REGION | \
+        docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+
+    # -----------------------------
+    # Build & Push Docker Image
+    # -----------------------------
+    - name: Build & Push Docker Image
+      run: |
+        # short SHA tag
+        IMAGE_TAG=${GITHUB_SHA::8}
+        IMAGE_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}:${IMAGE_TAG}
+
+        echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+        echo "IMAGE_URI=$IMAGE_URI" >> $GITHUB_ENV
+    
+        # Build image from REPO ROOT using your Dockerfile
+        docker build \
+          -f .docker/php/Dockerfile \
+          -t etra-server-v2:${IMAGE_TAG} \
+          .
+
+        # Retag to ECR format
+        docker tag etra-server-v2:${IMAGE_TAG} $IMAGE_URI
+    
+        # Push to ECR
+        docker push $IMAGE_URI
+
+    
+    # -----------------------------
+    # Deploy to ECS: register new task definition revision and update service
+    # -----------------------------
+    - name: Deploy to ECS (register task def + update service)
+      env:
+        IMAGE_URI: ${{ env.IMAGE_URI }}
+        CLUSTER: ${{ env.ECS_CLUSTER_NAME }}
+        SERVICE: ${{ env.ECS_SERVICE_NAME }}
+        CONTAINER_NAME: ${{ env.ECS_CONTAINER_NAME }}
+      run: |
+        set -euo pipefail
+        echo "Deploying image: $IMAGE_URI to ECS cluster: $CLUSTER service: $SERVICE"
+
+        # Get current task definition ARN for the service
+        CURRENT_TASK_DEF_ARN=$(aws ecs describe-services --cluster "$CLUSTER" --services "$SERVICE" --query 'services[0].taskDefinition' --output text)
+        if [ -z "$CURRENT_TASK_DEF_ARN" ] || [ "$CURRENT_TASK_DEF_ARN" == "None" ]; then
+          echo "ERROR: Could not get current task definition for $SERVICE in $CLUSTER"
+          exit 1
+        fi
+
+        echo "Current task definition: $CURRENT_TASK_DEF_ARN"
+
+        TASKDEF_JSON=$(aws ecs describe-task-definition --task-definition "$CURRENT_TASK_DEF_ARN" --query 'taskDefinition' --output json)
+
+        # Build new task definition JSON by replacing container image
+        NEW_TASKDEF_JSON=$(echo "$TASKDEF_JSON" | jq --arg img "$IMAGE_URI" --arg cname "$CONTAINER_NAME" '
+          . | { 
+            family: .family, 
+            taskRoleArn: .taskRoleArn, 
+            executionRoleArn: .executionRoleArn, 
+            networkMode: .networkMode, 
+            containerDefinitions: (.containerDefinitions | map(if .name==$cname then .image=$img else . end)), 
+            volumes: .volumes, 
+            requiresCompatibilities: .requiresCompatibilities, 
+            cpu: .cpu, 
+            memory: .memory
+          }')
+
+        echo "Registering new task definition revision..."
+        REGISTER_OUT=$(aws ecs register-task-definition --cli-input-json "$NEW_TASKDEF_JSON")
+        NEW_TASKDEF_ARN=$(echo "$REGISTER_OUT" | jq -r '.taskDefinition.taskDefinitionArn')
+
+        if [ -z "$NEW_TASKDEF_ARN" ]; then
+          echo "ERROR: failed to register new task definition"
+          echo "$REGISTER_OUT"
+          exit 1
+        fi
+
+        echo "New task definition ARN: $NEW_TASKDEF_ARN"
+
+        echo "Updating service to use new task definition and forcing new deployment..."
+        aws ecs update-service --cluster "$CLUSTER" --service "$SERVICE" --task-definition "$NEW_TASKDEF_ARN" --force-new-deployment
+
+        echo "Waiting for deployment to stabilize..."
+        aws ecs wait services-stable --cluster "$CLUSTER" --services "$SERVICE"
+
+        echo "ECS deployment complete."
+       
+    # -----------------------------
+    # Display LoadBalancer URL
+    # -----------------------------
+    - name: Get LoadBalancer URL
+      run: |
+        set -euo pipefail
+        echo "Deployment successful! Fetching LoadBalancer DNS (if any)..."
+        CLUSTER=${{ env.ECS_CLUSTER_NAME }}
+        SERVICE=${{ env.ECS_SERVICE_NAME }}
+
+        TG_ARN=$(aws ecs describe-services --cluster "$CLUSTER" --services "$SERVICE" --query 'services[0].loadBalancers[0].targetGroupArn' --output text 2>/dev/null || true)
+        if [ -z "$TG_ARN" ] || [ "$TG_ARN" == "None" ]; then
+          echo "No load balancer attached to ECS service or cannot determine target group. Use 'aws ecs describe-services' for details."
+          exit 0
+        fi
+
+        LB_ARNS=$(aws elbv2 describe-target-groups --target-group-arns "$TG_ARN" --query 'TargetGroups[0].LoadBalancerArns' --output json)
+        if [ "$LB_ARNS" == "null" ] || [ -z "$LB_ARNS" ]; then
+          echo "No LoadBalancer ARN found for target group $TG_ARN"
+          exit 0
+        fi
+
+        # take first LB ARN
+        LB_ARN=$(echo "$LB_ARNS" | jq -r '.[0]')
+        DNS=$(aws elbv2 describe-load-balancers --load-balancer-arns "$LB_ARN" --query 'LoadBalancers[0].DNSName' --output text 2>/dev/null || true)
+
+        if [ -z "$DNS" ] || [ "$DNS" == "None" ]; then
+          echo "Could not determine LoadBalancer DNS. Describe the load balancer ARN: $LB_ARN"
+        else
+          echo "Application should be reachable at: http://$DNS"
+        fi

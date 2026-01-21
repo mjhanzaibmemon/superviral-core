@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>Superviral</title>
+
+<meta name="description" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+
+<link rel="stylesheet" type="text/css" href="/css/orderform.css">
+
+</head>
+
+
+
+  <body>
+
+
+
+<style type="text/css">
+
+h1{    text-align: left;
+
+    font-size: 23px;
+
+    width: 100%;
+
+    display: block;
+
+    max-width: 100%;}
+
+h2{text-align: left;font-size:17px;margin:5px 0;}
+
+p{text-align: left;margin-bottom:30px;color:#525252;font-size:15px;    line-height: 26px;}
+
+ul{    padding: 0;
+
+    list-style: none;}
+
+ul li{text-align: left;
+
+    font-size: 13px;
+
+    position: relative;
+
+    padding-left: 28px;
+
+    margin-bottom: 9px;
+
+    line-height: 26px;}
+
+.tick{    width: 20px;
+
+    height: 20px;
+
+    background: url(/imgs/all-images.png) no-repeat 0 -26px;
+
+    display: block;
+
+    position: absolute;
+
+    left: 0;
+
+    top: 3px;}
+
+
+
+.btn{margin-bottom:15px;}
+
+.container div span, .container label{display: initial;}
+
+
+
+.nothankyou{    text-decoration: underline;
+
+    width: 100%;
+
+    display: block;
+
+    text-align: center;
+
+      font-size: 14px;}
+
+
+
+
+
+
+
+
+
+  .orderstatus{    display: inline-block;
+
+    width: 100%;
+
+    padding: 10px;
+
+    box-sizing: border-box;}
+
+  .selectedposts{float: left;
+
+    margin-top: 14px!important;
+
+    color: #000!important;font-size:12px;}
+
+
+
+    .selectedposts .amount_of_posts,.selectedposts .likes_per_post{ font-weight:bold;   display: unset!important; font-size: inherit!important;margin-top:0!important;color: #000;}
+
+  
+
+  .btn{width: 100%;
+
+    text-align: center;
+
+    margin: 0!important;
+
+    padding: 9px 15px!important;
+
+    font-size: 15px;}
+
+
+
+  .image_checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y:scroll;
+    height:275px; position: relative;
+  }
+
+  .image_checkboxes::-webkit-scrollbar {
+                width: 0px;
+            }
+
+            .image_checkboxes::-webkit-scrollbar-track {
+                background-color: transparent;
+                border-radius: 5px;
+            }
+
+            .image_checkboxes::-webkit-scrollbar-thumb {
+                background-color: #808080;
+                border-radius: 5px;
+            }
+
+
+  .image_checkboxes .img-responsive{position:relative;display:inline-block;width:33%;height:105px;float:left;border:2px solid transparent;overflow:hidden; box-sizing: border-box;}
+
+  .image_checkboxes .img-responsive .amount{position:absolute;display:none;color: #fff;
+
+      background: #1a73e7;
+
+      height: 26px;
+
+      text-align: center;
+
+      box-sizing: border-box;
+
+      width: 100%;margin:0;
+
+    font-size: 14px;
+
+      line-height: 25px;
+
+    bottom:0;
+
+  z-index: 9999;
+
+  font-weight: bold;}
+
+
+
+     .image_checkboxes .img-responsive .tick {
+
+      width: 100%;
+
+      height: 100%;
+
+      background: rgb(0 0 0 / 35%);
+
+      z-index: 9999;
+
+      position: absolute;
+
+      text-align: center;
+
+      top: 0;
+
+      left: 0;
+
+    }
+
+    .image_checkboxes .img-responsive.load-error .tick {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image_checkboxes .img-responsive.load-error .tick .error-text {
+      color: #4e4e4e;
+      margin: 0;
+      font-size:12px;
+    } 
+
+
+
+    .image_checkboxes .img-responsive .tick img{    
+      display: none;
+      height: initial;
+      width: 35px;
+      margin-top: 25px;
+    }
+
+    .image_checkboxes .img-responsive.loaded .tick img {
+      display: inline;
+    }
+
+  .image_checkboxes .img-responsive img{width:100%;height:100%;}
+
+  .image_checkboxes .active{border-color:#4e03e0;}
+
+  .image_checkboxes .active .amount{display:block;}
+
+  .image_checkboxes .active .tick {display: block;}
+
+  .whichpackage{    text-align: center!important;
+
+    font-size: 15px;
+
+    color: #464646;}
+
+    .whichpackage a{    color: #4e03e0;
+
+    text-decoration: underline;}
+
+  .image_checkboxes .img-responsive .main-img {
+    display: none;
+  }
+
+  .image_checkboxes .img-responsive.loaded .main-img {
+    display: initial;
+  }
+
+  .image_checkboxes .img-responsive .img-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #f3f3f3;
+    /* Light gray border */
+    border-top: 3px solid #3498db;
+    /* Blue border for loader animation */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    /* Loader animation */
+  }
+
+  .image_checkboxes .img-responsive.loaded .img-loader, 
+  .image_checkboxes .img-responsive.load-error .img-loader {
+    display: none;
+  }
+
+  @keyframes spin {
+
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+.image_checkboxes .lds-dual-ring {
+
+  display: inline-block;
+
+      width: initial;
+
+    height: initial;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.lds-dual-ring:after {
+
+  content: " ";
+
+  display: block;
+
+  width: 64px;
+
+  height: 64px;
+
+  margin: 8px;
+
+  border-radius: 50%;
+
+  border: 6px solid #1a73e7;
+
+  border-color: #1a73e7 transparent #1a73e7 transparent;
+
+  animation: lds-dual-ring 0.6s linear infinite;
+
+}
+
+
+
+
+
+@keyframes lds-dual-ring {
+
+  0% {
+
+    transform: rotate(0deg);
+
+  }
+
+  100% {
+
+    transform: rotate(360deg);
+
+  }
+
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 768px){
+
+.container {
+
+
+
+    padding: 37px 3%!important;
+
+}
+
+
+
+}
+
+   /* Ensures the overlay and iframe are styled correctly */
+   #signDiv {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9998;
+        }
+
+        #signDiv iframe {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 0px 0px rgba(50, 50, 50, 0.75);
+            -webkit-box-shadow: 1px 1px 0px 0px rgba(50, 50, 50, 0.75);
+            z-index: 9999;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+
+</style>
+
+  <script>
+
+    document.body.className += ' variation-' + window.chosenVariation;
+
+  </script>
+
+
+
+		<div  class="orderbody" align="center">
+
+
+
+
+
+			<div class="cnwidth">
+
+
+
+
+
+				<div class="container tycontainer dshadow">
+
+
+
+					<h1>Get {likesperpost} Free Likes Instantly!</h1>
+
+                    <h2>Please select your post to deliver likes:</h2>
+
+
+
+      <form id="idform" method="POST" action="/account/al-missing-posts-2.php?hash={hash}">
+
+      
+
+      <div id="loadpic" class="image_checkboxes">
+
+              <div id="loadingdiv" class="lds-dual-ring"></div>
+
+      </div>
+
+
+
+        <div class="orderstatus">
+
+
+
+
+
+        <div class="selectedposts" style="display:none;">
+
+
+
+
+
+          <span class="amount_of_posts">0</span> <b>posts</b> Selected / <span class="likes_per_post">0</span> <b>likes</b> per post
+
+
+
+
+
+        </div>
+
+
+
+
+
+          <input type="hidden" id="posts_selected" name="posts_selected">
+
+          <input type="submit" value="submit" style="display: none;">
+
+        
+
+          
+
+        <a onclick="submitform();" href="#" class="color4 btn">Deliver Likes Now &raquo;</a>
+
+
+
+      </div>
+
+
+
+      <a href="?notextupdate=true&hash={hash2}&id={id}" class="nothankyou">Close</a>
+
+      </form>
+
+                
+
+
+
+
+
+				</div>
+
+
+
+
+
+
+
+
+
+			</div>
+
+
+
+		</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+
+<script type="text/javascript">
+
+  function addLoadBtnStyles() {
+    try {
+      $("#loadMoreBtnId").wrap(`<div style="display:flex;width:100%;"></div>`).css({
+        'padding': '9px 15px',
+        'background-color': '#FFF',
+        'color': '#000',
+      })
+      const loadBtn = document.getElementById("loadMoreBtnId");
+      if (loadBtn)
+        loadBtn.style.setProperty('border', '1px solid #000', 'important');
+    } catch(error){
+      console.error(error);
+    }
+  }
+
+  function addImageLoaded() {
+    try {
+        const items = document.querySelectorAll(".image_checkboxes .img-responsive");
+
+        items.forEach((item) => {
+
+            const image = item.querySelector(".main-img");
+
+            const loader = item.querySelector(".img-loader");
+
+            image.onload = () => {
+                item.classList.add("loaded");
+            };
+
+            image.onerror = () => {
+                item.classList.add("load-error");
+                item.querySelector(".tick").innerHTML = "<span class='error-text'>Image load error</span>";
+            };
+
+        })
+    } catch (error) {
+        console.error(error);
+    }
+
+  }
+
+$("#loadpic").load("https://superviral.io/api-v2/?datatype=thumbs&username={igusername}", function(){
+  addLoadBtnStyles();
+  addImageLoaded();
+});
+
+
+
+   var selected_list = JSON.parse('{}');
+
+   var limit = 1;
+
+   var max_amount_likes = {likesperpost};
+
+   var amount_of_posts = Object.keys(selected_list).length;
+
+
+
+    update_selected_list();    
+
+
+
+   $('.image_checkboxes').on( "click", "div", function() {
+      var image = this;
+      if (image.classList.contains("loaded")){
+        var input = $(this).prev();
+
+        var value = $(image).attr('data-value');
+
+        if(typeof value != "undefined"){
+
+          if(value in selected_list){
+
+            delete selected_list[value];
+
+          }else{
+
+            if(amount_of_posts >= limit){return max_limit_hit();}
+
+            selected_list[value] = value
+
+          }
+        }
+        amount_of_posts = Object.keys(selected_list).length;
+
+        
+
+        update_selected_list();
+
+      }
+      
+  });
+
+
+
+   function max_limit_hit(){
+
+    alert('You can only select 1 post to give 50 likes.');
+
+    return;
+
+   }
+
+
+
+  function loadPosts(itr){
+      
+       let url = "";
+
+       let userId = $("#instaUserId").val();
+
+       if(itr == 'second') 
+
+       var nextPageId = $("#nextPageId").val();
+
+
+
+       if(itr == 'third') 
+
+       var nextPageId = $("#nextPageId2").val();
+
+       
+
+       let thirdItrData = $("#thirdIterationData").html();
+
+
+
+        url = "/api-load-more-post/?datatype=thumbs&packagetype={packagetype}&ordersession={ordersession}&username={username}{videosonly}";
+
+       var loaderHtm = '<div id="loadingdiv" class="lds-dual-ring"></div>'+
+
+                         '<div id="progressbar" >'+
+
+                         '<div class="innerbar"></div>'+
+
+                       '</div>';
+
+                       $("#loaderLoadMoreId").html(loaderHtm);
+
+                       $('#loadpic').animate({ scrollTop: $('#loadpic')[0].scrollHeight }, 500);
+
+                       $("#loadMoreBtnId").hide();
+
+                       $("#loaderLoadMoreId").attr("style","margin-top: 165px;height: 165px;width: 100%;");
+
+                       if(itr == "second")
+
+                      //  $("#progressbar").attr("style",'top:640px;');
+
+                      $("#loadingdiv").attr("style" ,'position: relative; top: 30%; left: 50%; transform: translate(-50%, -50%);' )
+
+                       else
+
+                       $("#loadingdiv").attr("style" ,'position: relative; top: 30%; left: 50%; transform: translate(-50%, -50%);' );
+
+                        //  return;
+
+                       setTimeout(function(){
+
+                            callAjax(url, userId, itr, thirdItrData, nextPageId);
+
+                          },1000)
+
+
+
+}
+
+
+
+function callAjax(url, userId, itr, thirdItrData, nextPageId){
+
+  $.ajax({
+
+      url: url,
+
+      type:"POST",
+
+      async: false,
+
+      dataType:'json',
+
+      data: {
+
+          "userId" : userId,
+
+          "iteration": itr,
+
+          "thirdItrData" : thirdItrData,
+
+          "nextPageId" : nextPageId
+
+      },
+
+      success: function(response){
+
+        console.log(response); 
+
+        // console.log(response);
+
+        // if(itr == "")
+
+        //   $("#loadpic").html("");
+
+       
+
+        if(itr == ""){
+
+          // $("#loadpic").html(response.htmlPost + response.htmlBtn + response.htmlData);
+
+        }
+
+        else{
+
+          $("#loaderLoadMoreId").html("");
+
+          $("#loaderLoadMoreId").attr("style","");
+
+          $("#loaderLoadMoreId").attr('id','loaderLoadMoreId1');
+
+          
+
+          $("#loadMoreBtnId").attr('id','loadMoreBtnId1');
+
+        
+
+          if(response.htmlBtn == null){
+
+            response.htmlBtn = "";
+
+          }
+
+          $("#loadpic").append(response.htmlPost + response.htmlBtn + response.htmlData);
+
+        }
+
+
+
+        update_selected_list();
+
+      },
+
+  });
+
+
+}
+
+
+   function update_selected_list(){
+
+      var checkbox_cn = $('.img-responsive');
+
+      $(checkbox_cn).each(function(){  
+        
+      var image = this;      
+
+        var value = $(image).attr('data-value');
+
+        if(value in selected_list){
+
+          $(image).addClass('active');
+
+        }else{
+
+          $(image).removeClass('active');
+
+        }
+
+      });
+
+      $('#posts_selected').val(JSON.stringify(selected_list));
+
+      update_likes_statistics();
+      addLoadBtnStyles();
+      addImageLoaded();
+   }
+
+
+
+
+
+
+
+  function update_likes_statistics(){  
+
+    var likes_per_post =  Math.floor( max_amount_likes / amount_of_posts);
+
+    
+
+
+
+    if(likes_per_post == Infinity){likes_per_post=0;}
+
+
+
+    $('.likes_per_post').html(likes_per_post);
+
+    $('.amount_of_posts').html(amount_of_posts);
+
+    $('.image_checkboxes div .amount').html('+' + likes_per_post + ' likes');
+
+  }
+
+
+
+function submitform(){
+
+
+
+if(amount_of_posts=='0'){alert('Please select a post.');}else{document.getElementById('idform').submit();}
+
+
+
+}
+
+
+
+
+
+var parent = document.getElementById('container1');
+
+var child = document.getElementById('container2');
+
+child.style.paddingRight = child.offsetWidth - child.clientWidth + "px";
+
+
+
+
+
+
+
+  // Access the iframe
+  var iframe = document.getElementById('iframe');
+
+// Function to disable scrolling inside iframe
+function disableIframeScrolling() {
+    // Access the iframe document
+    var iframeDoc = iframe.contentWindow.document;
+    
+    // Add CSS to disable scrolling
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    style.innerHTML = 'body { overflow: hidden; }';
+    iframeDoc.head.appendChild(style);
+}
+
+// Wait for iframe to load before applying styles
+iframe.onload = function() {
+    disableIframeScrolling();
+};
+
+
+
+
+
+</script>
+
+
+
+  </body>
+
+</html>

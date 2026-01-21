@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{title}</title>
+<meta name="description" content="{metadesc}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="Content-Language" content="{contentlanguage}">
+<link rel="canonical" href="{canonical}" />
+
+<link rel="alternate" hreflang="en-us" href="https://superviral.io/contact-us/" />
+<link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/contact-us/" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="preload" href="/imgs/{officelocationfile}" as="image">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/orderform.css">
+<style type="text/css">
+    
+
+    h1{color:#000;text-align: center;    max-width: 100%;width:100%;}
+
+body{background:#f5f7fe;}
+
+.containercontactus{display:inline-block;width:100%;}
+.cn2{margin-top:20px!important;text-align:left;}
+
+.containercontactus .left,.containercontactus .right{width:100%;}
+
+
+
+.labelcontact{    font-size: 14px;
+    color: #8c8c8c !important;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: -5px;}
+.inputcontact,.btncontact{    padding: 12px;
+    width: 100%;
+    font-size:15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    margin-top: 9px;
+    box-sizing: border-box;outline:0;}
+
+    .textareacontact{height:300px;font-family:'Poppins';}
+
+    .mobofficeloc img{width:100%; height: auto;}
+
+    .emailsuccess{margin-bottom: 35px;}
+
+
+    @media only screen and (min-width: 768px) {
+
+        .contactusspan{display:block;margin-bottom:20px;}
+
+    }
+
+    @media only screen and (min-width: 992px) {
+
+        .containercontactus{max-width:768px;    margin: 0 auto;}
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+    }
+
+
+</style>    
+</head>
+
+    <body>
+
+
+        {header}
+
+
+        <div class="color2 se1" align="center">
+
+            <div class="cnwidth">
+
+                <h1>{h1}</h1>
+                <span class="contactusspan">{h1desc}</span>
+
+                <div class="container containercontactus">
+
+                    {emailsuccess}
+
+
+                    <div class="left">
+
+
+
+                    </div>
+
+                    <div class="right">
+
+
+                        <form method="POST" enctype="multipart/form-data">
+
+                            <div class="mobofficeloc"><img width="567" height="425" src="/imgs/{officelocationfile}" alt="image"></div>
+
+                            <div class="label labelcontact" style="display:none;">{writetous}</div>
+                            <div style="display:none;">[1-desc-1]</div>
+
+                            <div class="label labelcontact">{companyaddress}</div>
+                            <div>{1-desc-2}</div>
+
+                            <div class="label labelcontact">{contactuslabel}</div>
+                            <div>📞 {1-desc-3}</div>
+
+                            <h2>{prioritycontact}</h2>
+
+                            {noticemsg}
+
+                            <div>
+                                <label class="label labelcontact" for="name">{yournamelabel}</label>
+                                <input class="input inputcontact" id="name" name="name" value="">
+                              </div>
+                              <div>
+                                <label class="label labelcontact" for="emailaddress">{emailaddresslabel}</label>
+                                <input class="input inputcontact" id="emailaddress" name="emailaddress" value="">
+                              </div>
+                              <div>
+                                <label class="label labelcontact" for="orderid">{orderidlabel}</label>
+                                <input class="input inputcontact" id="orderid" name="orderid" value="">
+                              </div>
+                              <div>
+                                <label class="label labelcontact" for="subject">{subjectlabel}</label>
+                                <input class="input inputcontact" id="subject" name="subject" value="">
+                              </div>
+                              <div>
+                                <label class="label labelcontact" for="message">{msglabel}</label>
+                                <textarea id="message" name="message" class="input inputcontact textarea textareacontact"></textarea>
+                              </div>
+                              
+
+                             <div class="g-recaptcha" data-sitekey="6LfybP8ZAAAAAOz6JVgBFhqDutq7i5fs6fEBi0zR"></div>
+
+                            <input type="submit" class="btn color4" name="submit" value="{mainbtn}" style="padding: 9px;font-size: 16px;border-radius: 21px !important;">
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="container containercontactus cn2">
+
+                {1-desc-4}
+                </div>
+
+            </div>
+        </div>
+
+
+
+        
+
+{footer}
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script type="text/javascript">
+
+
+{headerscript}
+
+
+
+</script>
+    </body>
+</html>

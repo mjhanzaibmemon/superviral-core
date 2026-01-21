@@ -1,0 +1,5 @@
+.vscode/*
+error.log
+.env
+docker-compose.yml
+

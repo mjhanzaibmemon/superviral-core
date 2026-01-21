@@ -1,0 +1,79 @@
+<files *.html>
+SetOutputFilter DEFLATE
+</files>
+
+<FilesMatch "^\.env$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+
+Options All -Indexes
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^a/([^/]*)$ bitly.php?id=$1&%{QUERY_STRING} [L]
+
+
+RewriteRule ^buy-tiktok-followers/$ buy-tiktok-followers.php?&%{QUERY_STRING} [L]
+RewriteRule ^buy-tiktok-likes/$ buy-tiktok-likes.php?&%{QUERY_STRING} [L]
+RewriteRule ^buy-tiktok-views/$ buy-tiktok-views.php?&%{QUERY_STRING} [L]
+RewriteRule ^track-my-order/([^/]*)$ track-my-order.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^track-my-order/([^/]*)/([^/]*)$ track-my-order.php?id=$1&uid=$2&%{QUERY_STRING} [L]
+RewriteRule ^free-followers/$ freetrial.php?&%{QUERY_STRING} [L]
+RewriteRule ^activate-discount/$ discountcreator.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^about-us/$ about-us.php?&%{QUERY_STRING} [L]
+RewriteRule ^contact-us/$ contact-us.php?&%{QUERY_STRING} [L]
+RewriteRule ^faq/([^/]*)$ faq.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^terms-of-service/$ tos.php?&%{QUERY_STRING} [L]
+RewriteRule ^scholarship/$ scholarship.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^order/choose/([^/]*)$ orderselect.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^order/select/$ order2-select.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/details/$ order1.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/review/$ order2.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/payment/$ order3-acquired.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/payment-new/$ order3-acquired.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/payment-processing/$ order3-6.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/finish/$ order4.php?&%{QUERY_STRING} [L]
+
+
+RewriteRule ^order/payment-processing/$ order3-6.php?&%{QUERY_STRING} [L]
+
+
+RewriteRule ^forgot-password/$ account/forgotPassword.php?&%{QUERY_STRING} [L]
+RewriteRule ^reset-password/$ account/reset_pass.php?&%{QUERY_STRING} [L]
+RewriteRule ^sign-up/$ account/register.php?&%{QUERY_STRING} [L]
+RewriteRule ^login/$ account/login.php?&%{QUERY_STRING} [L]
+RewriteRule ^logout/$ account/logout.php?&%{QUERY_STRING} [L]
+RewriteRule ^account/settings/$ account/settings.php?&%{QUERY_STRING} [L]
+RewriteRule ^account/orders/$ account/orders.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^admin/login/$ admin/login.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^download-thumb/([^/]*)$ download-thumbs.php?shortcode=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^api-load-1/([^/]*)$ preloadpost.php?id=$1&%{QUERY_STRING} [L]
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php8_module>
+   php_flag log_errors Off
+</IfModule>
+<IfModule lsapi_module>
+   php_flag log_errors Off
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php81” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

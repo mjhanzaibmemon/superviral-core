@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<head>
+  <title>{title} | Superviral</title>
+  <meta http-equiv="Content-Language" content="{contentlanguage}">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="description" content="{description}">
+  <link rel="canonical" href="{sharelink}" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+  <style type="text/css">
+
+a,
+font,
+input,
+td,
+div {
+    font-family: "Open Sans";
+}
+
+
+
+body {
+    font-family: "Open Sans";
+    margin: 0;
+    padding: 0;
+}
+
+    .header {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .footer {
+      border-top: 1px solid #ccc;
+    }
+
+    h1 {
+      color: #000;
+      text-align: left;
+      margin: 0;
+      font-size: 38px;
+      padding: 0;
+    }
+
+    .articlebody h2 {
+      margin-bottom: 0;
+      margin-top: 68px;
+      font-size: 29px;
+    }
+
+    .articlebody h3 {
+      display: block;
+      float: none;
+      margin-left: 0;
+      font-size: 24px;
+      margin-top: 40px;
+    }
+
+    p {
+      margin: 35px 0;
+      font-size: 16px;
+      letter-spacing: .6px;
+    }
+
+    p img {
+      width: 100%;
+      border: 1px solid #000;
+    }
+
+    .social {
+      color: #fff;
+      height: 35px;
+      width: 82px;
+      padding: 0;
+      list-style: none;
+      overflow: hidden;
+    }
+
+    .social a {
+      padding: 5px 0;
+      font-size: 20px;
+      cursor: pointer;
+      width: 50%;
+      margin: 0;
+      text-align: center;
+      float: left;
+      display: block;
+    }
+
+    .social ul li:hover {
+      color: rgba(0, 0, 0, .5);
+    }
+
+    .social a.twitter {
+      background: #6CDFEA;
+    }
+
+    .social a.facebook {
+      background: #3B5998;
+    }
+
+    .social a svg {
+      height: 19px;
+      fill: #fff;
+    }
+    
+    .articlebody {
+      padding: 25px;
+    }
+
+
+    .articlebody a {
+      color: #305896;
+      text-decoration: underline;
+    }
+
+    .articlebody li {
+      margin: 19px 0;
+    }
+
+    .articlebody li p{margin:0;}
+
+    .article.toc {
+      position: relative;
+      padding: 35px 20px 10px;
+      border: 1px solid #CCC;;
+      border-radius: 30px;
+    }
+
+    .article.toc .title {
+      position: absolute;
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+      top: -25px;
+      left: 20px;
+      background: #FFF;
+      padding: 10px;
+    }
+
+
+    #table-of-contents {
+      text-decoration: none;
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    
+    #table-of-contents li {
+      margin: 0;
+    }
+
+    #table-of-contents>ul {
+      list-style-type: none;
+    }
+
+    #table-of-contents>ul,
+    #table-of-contents>li {
+      margin-bottom: 20px;
+    }
+
+    #table-of-contents>li {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    #table-of-contents>li::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 24px;
+      height: 18px;
+      background-image: url(/imgs/toc-link-pointer.svg);
+      background-repeat: no-repeat;
+    }
+    
+    #table-of-contents>li a {
+      color: #002D72;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    #table-of-contents>ul>li:before {
+      content: '\2014';
+      position: absolute;
+      margin-left: -25px;
+      color: #000;
+    }
+
+    #table-of-contents>ul>li a {
+      font-size: 20px;
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      border-bottom: 1px solid #000;
+    }
+
+    .maintitle {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .mainh1 {
+      padding-top: 0;
+      margin-top: 15px;
+    }
+
+    .summary {
+      margin: 0;
+      padding: 0 20px;
+      font-weight: 600;
+    }
+
+    .summary li {
+      margin: 15px 0;
+    }
+
+    .writtenby {
+      font-size: 14px;
+      padding: 10px 10px;
+    }
+
+    .date {
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    .mainh1,
+    .articlepoints {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .articlepoints {
+      border-top: 1px solid #ccc;
+    }
+
+    .articleshare {
+      position: relative;
+    }
+
+    .articleshare .sharecount {
+      position: absolute;
+      right: 10px;
+      top: 16px;
+      text-align: right;
+      line-height: 13px;
+    }
+
+    .articleshare .sharecount .amount {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .articleshare .sharecount .share {
+      font-size: 12px;
+    }
+
+    .articleimg {
+      padding: 0;
+    }
+
+    .articleimg img {
+      width: 100%;
+      height: initial;
+    }
+
+    .tabletsummary,
+    .tabletshare {
+      display: none;
+    }
+
+    .imgcaption {
+      background-color: #ccc;
+      padding: 5px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .about-author {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 60px;
+      padding: 25px;
+      background: #F6F6F6;
+      border-radius: 10px;
+    }
+
+    .author-image {
+      display: block;
+      border-radius: 55px;
+      object-fit: cover;
+    }
+
+    .about-author .author-name {
+      color: #000;
+      font-family: "Source Sans Pro";
+      font-size: 30px;
+      font-weight: 700;
+      margin: 20px 0 20px;
+    }
+
+    .about-author span {
+      color: #4D05BB;
+      font-family: "Source Sans Pro";
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .about-author .para {
+      font-family: "Source Sans Pro";
+      font-size: 15px;
+      margin: 0;
+      max-width: 400px;
+    }
+
+    .about-author .icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .about-author .icon-container .img {
+      width: 22px;
+      height: 22px;
+      margin-right: 30px;
+    }
+
+    @media only screen and (min-width:575px) {
+      .article.toc {
+        padding: 35px 45px 20px;
+      }
+
+      .article.toc .title {
+        padding-left: 7px;
+        padding-right: 7px;
+        left: 40px
+      }
+
+      #table-of-contents>ul,
+      #table-of-contents>li {
+        margin-bottom: 30px;
+      }
+    }
+
+    @media only screen and (min-width:768px) {
+      .articleholder {
+        width: 100%;
+      }
+
+      .articlebody {
+        width: 100%;
+        max-width: 768px;
+        margin: 0 auto;
+        padding: 25px;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        max-width: 100%;
+        font-size: 52px;
+        margin: 25px 0;
+      }
+
+      .articlebody h2 {
+        font-size: 37px;
+        margin-top: 110px;
+      }
+
+      .mainh1 {
+        margin-top: 25px;
+        padding: 10px 25px;
+      }
+
+      .tabletsummary,
+      .tabletshare {
+        display: block;
+      }
+
+      .tabletsummary {
+        margin: 16px 0;
+      }
+
+      .mobilesummary,
+      .mobileshare {
+        display: none;
+      }
+
+      .writtenby {
+        font-size: 15px;
+        padding: 8px 25px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .writtenby .date {
+        font-size: 14px;
+      }
+
+      .articleshare {
+        padding: 10px 25px;
+      }
+
+      .articleshare .sharecount {
+        right: initial;
+        left: 122px;
+      }
+
+      .articlepoints {
+        padding: 10px 25px;
+      }
+
+      .articleimg img {
+        border: 1px solid #000;
+      }
+
+      .summary li {
+        margin: 15px 0;
+        font-size: 18px
+      }
+    }
+
+    @media only screen and (min-width:992px) {
+      .article.toc {
+        padding: 48px 48px 20px;
+      }
+    }
+  </style>
+</head>
+<body> {header} <div class="articleholder">
+    <div class="articlebody mainh1">
+      <h1>{h1}</h1>
+      <ul class="summary tabletsummary" style="{summary_display}">
+        <li>{summary1}</li>
+        <li>{summary2}</li>
+        <li>{summary3}</li>
+      </ul>
+    </div>
+    <div class="articlebody writtenby">By {author}, <span class="date">{written}</span>
+      <br>{readtime}
+    </div>
+    <div class="articlebody articleshare tabletshare">
+      <div class="social">
+        <a class="twitter" href="https://twitter.com/home?status={sharelink}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M512 97.2c-19 8.4-39.3 13.9-60.5 16.6 21.8-13 38.4-33.4 46.2-58 -20.3 12.1-42.7 20.6-66.6 25.4C411.9 60.7 384.4 48 354.5 48c-58.1 0-104.9 47.2-104.9 105 0 8.3 0.7 16.3 2.4 23.9 -87.3-4.3-164.5-46.1-216.4-109.8 -9.1 15.7-14.4 33.7-14.4 53.1 0 36.4 18.7 68.6 46.6 87.2 -16.9-0.3-33.4-5.2-47.4-12.9 0 0.3 0 0.7 0 1.2 0 51 36.4 93.4 84.1 103.1 -8.5 2.3-17.9 3.5-27.5 3.5 -6.7 0-13.5-0.4-19.9-1.8 13.6 41.6 52.2 72.1 98.1 73.1 -35.7 27.9-81.1 44.8-130.1 44.8 -8.6 0-16.9-0.4-25.1-1.4C46.5 446.9 101.6 464 161 464c193.2 0 298.8-160 298.8-298.7 0-4.6-0.2-9.1-0.4-13.6C480.2 137 497.7 118.5 512 97.2z" />
+          </svg>
+          </li>
+        </a>
+        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={sharelink}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96.1 96.1">
+            <path d="M72.1 0L59.6 0C45.6 0 36.6 9.3 36.6 23.7v10.9H24c-1.1 0-2 0.9-2 2v15.8c0 1.1 0.9 2 2 2h12.5v39.9c0 1.1 0.9 2 2 2h16.4c1.1 0 2-0.9 2-2V54.3h14.7c1.1 0 2-0.9 2-2l0-15.8c0-0.5-0.2-1-0.6-1.4 -0.4-0.4-0.9-0.6-1.4-0.6H56.8v-9.2c0-4.4 1.1-6.7 6.8-6.7l8.4 0c1.1 0 2-0.9 2-2V2C74 0.9 73.2 0 72.1 0z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="articlebody articleimg" style="padding:0;">
+      <img src="{thumbnail}">
+    </div>
+    <div class="articlebody" style="background:#FFF;margin-top: 2rem;{toc_display}">
+      <div class="article toc">
+        <h4 class="title">Table of Contents</h4>
+         {toc}
+         <div class="categories"></div>
+      </div>
+    </div>
+    <div class="articlebody articleshare mobileshare">
+      <div class="social">
+        <a class="twitter" href="https://twitter.com/home?status={sharelink}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M512 97.2c-19 8.4-39.3 13.9-60.5 16.6 21.8-13 38.4-33.4 46.2-58 -20.3 12.1-42.7 20.6-66.6 25.4C411.9 60.7 384.4 48 354.5 48c-58.1 0-104.9 47.2-104.9 105 0 8.3 0.7 16.3 2.4 23.9 -87.3-4.3-164.5-46.1-216.4-109.8 -9.1 15.7-14.4 33.7-14.4 53.1 0 36.4 18.7 68.6 46.6 87.2 -16.9-0.3-33.4-5.2-47.4-12.9 0 0.3 0 0.7 0 1.2 0 51 36.4 93.4 84.1 103.1 -8.5 2.3-17.9 3.5-27.5 3.5 -6.7 0-13.5-0.4-19.9-1.8 13.6 41.6 52.2 72.1 98.1 73.1 -35.7 27.9-81.1 44.8-130.1 44.8 -8.6 0-16.9-0.4-25.1-1.4C46.5 446.9 101.6 464 161 464c193.2 0 298.8-160 298.8-298.7 0-4.6-0.2-9.1-0.4-13.6C480.2 137 497.7 118.5 512 97.2z" />
+          </svg>
+          </li>
+        </a>
+        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={sharelink}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96.1 96.1">
+            <path d="M72.1 0L59.6 0C45.6 0 36.6 9.3 36.6 23.7v10.9H24c-1.1 0-2 0.9-2 2v15.8c0 1.1 0.9 2 2 2h12.5v39.9c0 1.1 0.9 2 2 2h16.4c1.1 0 2-0.9 2-2V54.3h14.7c1.1 0 2-0.9 2-2l0-15.8c0-0.5-0.2-1-0.6-1.4 -0.4-0.4-0.9-0.6-1.4-0.6H56.8v-9.2c0-4.4 1.1-6.7 6.8-6.7l8.4 0c1.1 0 2-0.9 2-2V2C74 0.9 73.2 0 72.1 0z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="articlebody articlepoints color1 mobileshare">
+      <ul class="summary mobilesummary">
+        <li>{summary1}</li>
+        <li>{summary2}</li>
+        <li>{summary3}</li>
+      </ul>
+    </div>
+    <div class="articlebody articlemain">{article}</div>
+  </div>
+  <div class="articlebody" style="display:none;{authordisplay}">
+    <div class="about-author">
+      <div class="author-image-div">
+        <img class="author-image" src="{authorimage}" alt="author-image" width="90px" height="90px">
+      </div>
+      <h4 class="author-name">{author}</h4>
+      <span>Author Contributor</span>
+      <div class="icon-container">
+        <svg class="img" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10 15C12.7614 15 15 12.7614 15 10C15 7.23857 12.7614 5 10 5C7.23857 5 5 7.23857 5 10C5 12.7614 7.23857 15 10 15ZM10 13.3333C11.8409 13.3333 13.3333 11.8409 13.3333 10C13.3333 8.15905 11.8409 6.66667 10 6.66667C8.15905 6.66667 6.66667 8.15905 6.66667 10C6.66667 11.8409 8.15905 13.3333 10 13.3333Z" fill="#1A73E7" />
+          <path d="M15 3C14.4477 3 14 3.44772 14 4C14 4.55228 14.4477 5 15 5C15.5523 5 16 4.55228 16 4C16 3.44772 15.5523 3 15 3Z" fill="#1A73E7" />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0.594509 2.97824C0 4.14503 0 5.67245 0 8.72727V11.2727C0 14.3275 0 15.855 0.594509 17.0217C1.11745 18.0481 1.95189 18.8825 2.97824 19.4055C4.14503 20 5.67245 20 8.72727 20H11.2727C14.3275 20 15.855 20 17.0217 19.4055C18.0481 18.8825 18.8825 18.0481 19.4055 17.0217C20 15.855 20 14.3275 20 11.2727V8.72727C20 5.67245 20 4.14503 19.4055 2.97824C18.8825 1.95189 18.0481 1.11745 17.0217 0.594509C15.855 0 14.3275 0 11.2727 0H8.72727C5.67245 0 4.14503 0 2.97824 0.594509C1.95189 1.11745 1.11745 1.95189 0.594509 2.97824ZM11.2727 1.81818H8.72727C7.16986 1.81818 6.11114 1.8196 5.2928 1.88645C4.49567 1.95158 4.08804 2.06963 3.80367 2.21452C3.11945 2.56315 2.56315 3.11945 2.21452 3.80367C2.06963 4.08804 1.95158 4.49567 1.88645 5.2928C1.8196 6.11114 1.81818 7.16986 1.81818 8.72727V11.2727C1.81818 12.8302 1.8196 13.8888 1.88645 14.7072C1.95158 15.5044 2.06963 15.912 2.21452 16.1964C2.56315 16.8805 3.11945 17.4368 3.80367 17.7855C4.08804 17.9304 4.49567 18.0485 5.2928 18.1135C6.11114 18.1804 7.16986 18.1818 8.72727 18.1818H11.2727C12.8302 18.1818 13.8888 18.1804 14.7072 18.1135C15.5044 18.0485 15.912 17.9304 16.1964 17.7855C16.8805 17.4368 17.4368 16.8805 17.7855 16.1964C17.9304 15.912 18.0485 15.5044 18.1135 14.7072C18.1804 13.8888 18.1818 12.8302 18.1818 11.2727V8.72727C18.1818 7.16986 18.1804 6.11114 18.1135 5.2928C18.0485 4.49567 17.9304 4.08804 17.7855 3.80367C17.4368 3.11945 16.8805 2.56315 16.1964 2.21452C15.912 2.06963 15.5044 1.95158 14.7072 1.88645C13.8888 1.8196 12.8302 1.81818 11.2727 1.81818Z" fill="#1A73E7" />
+        </svg>
+        <svg class="img" xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7828 1.26995C19.1313 1.18587 19.3743 1.10321 19.5734 1.01639C19.8524 0.894706 20.0837 0.748939 20.4492 0.503447C20.7563 0.297125 21.1499 0.279159 21.4739 0.456664C21.7979 0.634169 22 0.97847 22 1.35302C22 2.45333 21.8653 3.35514 21.5535 4.14879C21.2911 4.81635 20.9225 5.35855 20.4816 5.85205C20.2954 9.27544 19.3219 11.9639 17.8336 14.0006C16.291 16.1117 14.2386 17.4636 12.0751 18.2207C9.91794 18.9755 7.63868 19.1442 5.59676 18.8886C3.56822 18.6347 1.69311 17.9511 0.386125 16.9164C0.0282064 16.633 -0.0976102 16.1399 0.0795862 15.715C0.256786 15.2901 0.692634 15.0398 1.14151 15.1052C2.42748 15.2922 3.66536 14.9945 4.68326 14.569C4.48288 14.4581 4.29395 14.338 4.11834 14.2142C3.19082 13.5606 2.44247 12.6733 2.10564 11.9875C1.96625 11.7038 1.96481 11.37 2.10175 11.0851C2.17239 10.938 2.27569 10.8127 2.40111 10.7171C1.04684 9.5794 0.500065 8.00579 0.500065 6.95159C0.500065 6.63813 0.641944 6.34215 0.884663 6.14926C0.986723 6.06815 1.10182 6.00906 1.22315 5.97347C1.12181 5.67141 1.04317 5.36623 0.983233 5.07078C0.717464 3.76086 0.741054 2.28237 1.02992 1.10615C1.12877 0.703642 1.45771 0.40249 1.86136 0.344937C2.265 0.287393 2.66257 0.484972 2.86625 0.844349C3.94375 2.7455 5.93122 3.90757 7.78091 4.59594C8.65055 4.91958 9.45594 5.12581 10.0596 5.2526C10.1899 4.01014 10.5307 2.98551 11.0538 2.17169C11.7439 1.09799 12.7064 0.462741 13.74 0.179484C15.5227 -0.309017 17.5008 0.247521 18.7828 1.26995ZM9.74844 7.26571C9.06334 7.12567 8.12176 6.89041 7.09417 6.508C5.73696 6.00292 4.16094 5.21534 2.84079 3.99539C2.86442 4.21989 2.89796 4.44248 2.9419 4.65903C3.16315 5.74956 3.57426 6.36031 3.94727 6.55015C4.40348 6.78235 4.6149 7.32684 4.43793 7.81381C4.19833 8.47312 3.56815 8.52717 2.99558 8.38151C3.45609 9.08428 4.28383 9.78502 5.66445 10.0192C6.14062 10.1001 6.49213 10.5156 6.49991 11.0069C6.5077 11.4983 6.16954 11.9251 5.69617 12.0215L4.82571 12.1987C4.95887 12.3165 5.10306 12.432 5.25676 12.5403C5.95368 13.0315 6.65341 13.2433 7.25751 13.0896C7.70996 12.9745 8.18052 13.1929 8.39168 13.6163C8.60283 14.0395 8.49851 14.5552 8.14023 14.859C7.49631 15.4047 6.7443 15.8425 5.99063 16.2058C5.63681 16.3764 5.2414 16.5447 4.81196 16.6929C5.14224 16.7647 5.48592 16.8235 5.84084 16.868C7.61141 17.0896 9.58214 16.9402 11.4249 16.2954C13.2614 15.6528 14.9589 14.5235 16.2289 12.7856C17.497 11.0501 18.382 8.6483 18.5007 5.3871C18.51 5.13034 18.6144 4.88667 18.7929 4.70499C19.2425 4.24728 19.6141 3.72265 19.7969 3.09819C19.477 3.19971 19.1168 3.28757 18.6878 3.37106C18.3623 3.4344 18.0272 3.32952 17.7929 3.09103C17.0284 2.3128 15.5164 1.80103 14.2599 2.14533C13.6686 2.30738 13.1311 2.65817 12.7274 3.28626C12.3153 3.92753 12 4.92653 12 6.44267C12 6.73072 11.8801 7.00528 11.6701 7.19829C11.1721 7.65583 10.334 7.3854 9.74844 7.26571Z" fill="#1A73E7" />
+        </svg>
+        <svg class="img" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M19 0C20.6569 0 22 1.34315 22 3V19C22 20.6569 20.6569 22 19 22H3C1.34315 22 0 20.6569 0 19V3C0 1.34315 1.34315 0 3 0H19ZM19 2C19.5523 2 20 2.44772 20 3V19C20 19.5523 19.5523 20 19 20H14V12.9999H16.0762C16.5066 12.9999 16.8887 12.7245 17.0249 12.3161L17.4679 10.9871C17.6298 10.5014 17.2683 9.9999 16.7564 9.9999H14V7.99992C14 7.49992 14.5 6.99992 15 6.99992H17C17.5523 6.99992 18 6.5522 18 5.99992V5.31393C18 4.99091 17.7937 4.7013 17.4813 4.61887C16.1705 4.27295 15 4.27295 15 4.27295C12.5 4.27295 11 5.99992 11 7.49992V9.9999H9C8.44772 9.9999 8 10.4476 8 10.9999V11.9999C8 12.5522 8.44771 12.9999 9 12.9999H11V20H3C2.44772 20 2 19.5523 2 19V3C2 2.44772 2.44772 2 3 2H19Z" fill="#1A73E7" />
+        </svg>
+      </div>
+      <p class="para" style="text-align: center;">{authordescription}</p>
+    </div>
+  </div> {footer} <script type="text/javascript">
+    {headerscript}
+  </script>
+  <script>
+    var tocItems = document.querySelectorAll('.toc-item');
+    tocItems.forEach(function(e) {
+      e.addEventListener('click', function(e) {
+        var text = e.target.innerHTML;
+        var page = document.documentElement.innerHTML;
+        window.scrollTo({
+          top: page.indexOf(text),
+          behavior: "smooth"
+        });
+      });
+    });
+
+  </script>
+</body>
+</html>

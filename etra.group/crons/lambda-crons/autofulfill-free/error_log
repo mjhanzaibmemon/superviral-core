@@ -1,0 +1,3 @@
+[13-Nov-2024 15:17:06 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 98
+[13-Nov-2024 15:17:06 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 132
+[13-Nov-2024 15:17:06 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 132

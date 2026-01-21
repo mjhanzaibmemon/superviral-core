@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<head>
+<title>{title}</title>
+<meta name="description" content="{metadesc}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="canonical" href="{canonical}" />
+<meta http-equiv="Content-Language" content="{contentlanguage}">
+<link rel="alternate" hreflang="en-us" href="https://superviral.io/blog/" />
+<link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/blog/" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<style type="text/css">
+	
+
+    h1{color:#000;text-align: center;    max-width: 100%;width:100%;}
+
+    h2{margin:0;padding:0;font-size:25px;text-align: left}
+
+    body{background:#f5f7fe;}
+
+    .container{height: initial;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #fff;
+    margin: 54px auto;max-width:758px;text-align: left;}
+    
+    .blogpoints{padding-left: 20px;}
+
+    .blogpoints li{font-size:14px;text-align: left;margin-bottom: 12px;}
+
+    .blogdesc{font-size:13px;margin-bottom: 14px;}
+
+    .btnblog {
+    width: 110px;
+    line-height: 22px!important;
+    margin: 0;
+    margin-top: 10px!important;
+    text-align: center;
+}
+
+.authortime{font-size: 15px;  
+display: block;  
+margin-top: 5px;  
+font-weight: bold;  
+color: #4d05bb;}
+
+    @media only screen and (min-width: 768px) {}
+
+    @media only screen and (min-width: 992px) {
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+
+    }
+
+    /* Pagination Styles */
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 22px;
+        flex-wrap: wrap;
+    }
+
+    .pagination-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 12px;
+        background-color: #e8e3ff;
+        color: #6b46c1;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        min-width: 36px;
+        height: 36px;
+        box-sizing: border-box;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .pagination-btn:hover {
+        background-color: #ddd6fe;
+        color: #5b21b6;
+    }
+
+    .pagination-btn.active {
+        background-color: #6b46c1;
+        color: white;
+    }
+
+    .pagination-btn.active:hover {
+        background-color: #5b21b6;
+    }
+
+    .pagination-prev,
+    .pagination-next {
+        gap: 4px;
+        padding: 8px 16px;
+    }
+
+    .pagination-dots {
+        color: #9ca3af;
+        font-weight: 500;
+        padding: 0 4px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        .pagination {
+            gap: 4px;
+        }
+        
+        .pagination-btn {
+            padding: 6px 10px;
+            font-size: 13px;
+            min-width: 32px;
+            height: 32px;
+        }
+        
+        .pagination-prev,
+        .pagination-next {
+            padding: 6px 12px;
+        }
+    }
+
+
+</style>	
+</head>
+
+	<body>
+
+
+        {header}
+
+
+		<div class="color2 se1" align="center">
+
+			<div class="cnwidth">
+
+				<h1>{h1}</h1>
+                <span class="contactusspan">{h1desc}</span>
+
+                {articles}
+<!--                 
+                <div class="pagination">
+                    <button class="pagination-btn pagination-prev">
+                        <span>‹</span> Back
+                    </button>
+                    <button class="pagination-btn pagination-number active">1</button>
+                    <button class="pagination-btn pagination-number">2</button>
+                    <button class="pagination-btn pagination-number">3</button>
+                    <span class="pagination-dots">...</span>
+                    <button class="pagination-btn pagination-number">12</button>
+                    <button class="pagination-btn pagination-next">
+                        Next <span>›</span>
+                    </button>
+                </div> -->
+                {pagination}
+
+
+			</div>
+		</div>
+
+
+
+		
+
+{footer}
+
+<script type="text/javascript">
+
+
+{headerscript}
+
+
+
+</script>
+
+	</body>
+</html>

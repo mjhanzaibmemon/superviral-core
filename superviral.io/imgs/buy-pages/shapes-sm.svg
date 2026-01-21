@@ -1,0 +1,18 @@
+<svg width="528" height="133" viewBox="0 0 528 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M196 0H264V64H196V0Z" fill="white"/>
+<path d="M264 0H332C332 35.3462 303.346 64 268 64H264V0Z" fill="white"/>
+<path opacity="0.3" d="M332 0H397V64H396C360.654 64 332 35.3462 332 0Z" fill="white"/>
+<path opacity="0.1" d="M196 0H131C131 35.3462 159.654 64 195 64H196V0Z" fill="white"/>
+<path opacity="0.6" d="M66 0H131C131 35.3462 102.346 64 67 64H66V0Z" fill="white"/>
+<path opacity="0.1" d="M462 0H528V64H526C490.654 64 462 35.3462 462 0Z" fill="white"/>
+<path opacity="0.3" d="M0 0H66V64H64C28.6538 64 0 35.3462 0 0Z" fill="white"/>
+<path opacity="0.5" d="M397 0H462C462 35.3462 433.346 64 398 64H397V0Z" fill="white"/>
+<path opacity="0.6" d="M196 64C160.101 64 131 93.1015 131 129V133H196V64Z" fill="white"/>
+<path opacity="0.1" d="M66 64C101.899 64 131 93.1015 131 129V133H66V64Z" fill="white"/>
+<path opacity="0.3" d="M462 130C462 93.5492 491.549 64 528 64V133H462V130Z" fill="white"/>
+<path opacity="0.6" d="M0 130C0 93.5492 29.5492 64 66 64V133H0V130Z" fill="white"/>
+<path opacity="0.6" d="M397 64C432.899 64 462 93.1015 462 129V133H397V64Z" fill="white"/>
+<path d="M196 64H264V133C226.445 133 196 102.555 196 65V64Z" fill="white"/>
+<path opacity="0.6" d="M264 64C301.555 64 332 94.4446 332 132V133H264V64Z" fill="white"/>
+<path opacity="0.1" d="M332 129C332 93.1015 361.101 64 397 64V133H332V129Z" fill="white"/>
+</svg>

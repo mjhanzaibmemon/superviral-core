@@ -1,0 +1,34 @@
+[30-Oct-2023 10:53:04 UTC] PHP Warning:  Undefined array key 1 in /home/etra/public_html/etra.group/admin/common/core/layout.php on line 103
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:53:04 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Warning:  Undefined array key 1 in /home/etra/public_html/etra.group/admin/common/core/layout.php on line 103
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[30-Oct-2023 10:55:49 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/etra/public_html/etra.group/admin/stats/index.php on line 16
+[28-Nov-2023 09:29:01 Europe/London] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'ias1.igusername' in 'on clause' in /home/etra/public_html/etra.group/admin/config/db.php:31
+Stack trace:
+#0 /home/etra/public_html/etra.group/admin/config/db.php(31): mysqli_query(Object(mysqli), 'SELECT ias2.* F...')
+#1 /home/etra/public_html/etra.group/admin/stats/index.php(42): mysql_query('SELECT ias2.* F...')
+#2 {main}
+  thrown in /home/etra/public_html/etra.group/admin/config/db.php on line 31
+[28-Nov-2023 09:29:50 Europe/London] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'ias1.igusername' in 'on clause' in /home/etra/public_html/etra.group/admin/config/db.php:31
+Stack trace:
+#0 /home/etra/public_html/etra.group/admin/config/db.php(31): mysqli_query(Object(mysqli), 'SELECT ias2.* F...')
+#1 /home/etra/public_html/etra.group/admin/stats/index.php(45): mysql_query('SELECT ias2.* F...')
+#2 {main}
+  thrown in /home/etra/public_html/etra.group/admin/config/db.php on line 31

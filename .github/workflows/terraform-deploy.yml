@@ -1,0 +1,239 @@
+
+name: Terraform Manual Deploy or Destroy
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Select action to perform (apply or destroy)"
+        required: true
+        default: "apply"
+        type: choice
+        options:
+          - apply
+          - destroy
+
+jobs:
+  terraform:
+    name: Terraform ${{ github.event.inputs.action }} (branch ${{ github.ref_name }})
+    runs-on: ubuntu-latest
+
+    # # 🔹 Attach ENTIRE JOB to the environment (this fixes approval!)
+    # environment: ${{ env.DEPLOY_ENV }}
+
+    env:
+      TF_WORKING_DIR: ./Terraform/config
+      AWS_REGION: us-east-1
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.11.4
+
+      # 🔹 Set AWS credentials based on branch
+      - name: Set environment-specific AWS credentials
+        run: |
+          BRANCH="${GITHUB_REF##*/}"
+          echo "Current branch: $BRANCH"
+
+          if [ "$BRANCH" == "dev" ]; then
+            echo "Using DEV AWS credentials"
+            echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_DEV }}" >> $GITHUB_ENV
+            echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}" >> $GITHUB_ENV
+            echo "state_bucket=${{ secrets.DEV_STATE_BUCKET }}" >> $GITHUB_ENV
+            echo "state_bucket_region=${{ secrets.DEV_STATE_BUCKET_REGION }}" >> $GITHUB_ENV
+            echo "DEPLOY_ENV=dev" >> $GITHUB_ENV
+
+          elif [ "$BRANCH" == "stage" ]; then
+            echo "Using STAGE AWS credentials"
+            echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_STAGE }}" >> $GITHUB_ENV
+            echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_STAGE }}" >> $GITHUB_ENV
+            echo "state_bucket=${{ secrets.STAGE_STATE_BUCKET }}" >> $GITHUB_ENV
+            echo "state_bucket_region=${{ secrets.STAGE_STATE_BUCKET_REGION }}" >> $GITHUB_ENV
+            echo "DEPLOY_ENV=stage" >> $GITHUB_ENV
+
+          elif [ "$BRANCH" == "main" ]; then
+            echo "Using PROD AWS credentials"
+            echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_PROD }}" >> $GITHUB_ENV
+            echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}" >> $GITHUB_ENV
+            echo "state_bucket=${{ secrets.PROD_STATE_BUCKET }}" >> $GITHUB_ENV
+            echo "state_bucket_region=${{ secrets.PROD_STATE_BUCKET_REGION }}" >> $GITHUB_ENV
+            echo "DEPLOY_ENV=prod" >> $GITHUB_ENV
+
+          else
+            echo "⚠️ Unknown branch: $BRANCH"
+            exit 1
+          fi
+
+          echo "AWS_REGION=${AWS_REGION}" >> $GITHUB_ENV
+          echo "AWS_DEFAULT_REGION=${AWS_REGION}" >> $GITHUB_ENV
+
+      - name: Verify AWS credentials
+        run: aws sts get-caller-identity
+
+      # 🔹 Fetch DB secrets from SSM
+      - name: Fetch DB secrets from SSM
+        run: |
+          BRANCH="${GITHUB_REF##*/}"
+          echo "Current branch: $BRANCH"
+
+          if [ "$BRANCH" == "dev" ]; then
+            SSM_PREFIX="/myapp/dev/db"
+          elif [ "$BRANCH" == "stage" ]; then
+            SSM_PREFIX="/myapp/stage/db"
+          elif [ "$BRANCH" == "main" ]; then
+            SSM_PREFIX="/myapp/prod/db"
+          else
+            echo "Unknown branch"
+            exit 1
+          fi
+
+          DB_USERNAME=$(aws ssm get-parameter --name "$SSM_PREFIX/username" --with-decryption --query "Parameter.Value" --output text)
+          DB_PASSWORD=$(aws ssm get-parameter --name "$SSM_PREFIX/password" --with-decryption --query "Parameter.Value" --output text)
+
+          echo "TF_VAR_rds_username=$DB_USERNAME" >> $GITHUB_ENV
+          echo "TF_VAR_rds_password=$DB_PASSWORD" >> $GITHUB_ENV
+
+      - name: Fetch ECR Image URI from SSM
+        run: |
+          set -x
+          echo "🔍 Fetching ECR Image URI from SSM Parameter Store..."
+          
+          ECR_IMAGE=$(aws ssm get-parameter --name "ECR_IMAGE_URI" --with-decryption --query "Parameter.Value" --output text 2>/dev/null || echo "")
+          
+          if [ -z "$ECR_IMAGE" ]; then
+            echo "⚠️  WARNING: ECR_IMAGE_URI not found in SSM Parameter Store!"
+            echo "❌ Please create SSM Parameter: ECR_IMAGE_URI"
+            exit 1
+          fi
+          
+          echo "✅ ECR Image URI found: $ECR_IMAGE"
+          echo "TF_VAR_ecs_container_image=$ECR_IMAGE" >> $GITHUB_ENV
+          set +x
+
+      - name: Terraform Init
+        run: |
+          terraform -chdir=${{ env.TF_WORKING_DIR }} init \
+            -backend-config="bucket=${{ env.state_bucket }}" \
+            -backend-config="key=infra/${{ env.DEPLOY_ENV }}/terraform.tfstate" \
+            -backend-config="region=${state_bucket_region}"
+
+      - name: Import pre-existing AWS resources (best-effort)
+        run: |
+          set -x
+          cd ${{ env.TF_WORKING_DIR }}
+
+          # derive resource names from terraform.tfvars when possible
+          RDS_IDENTIFIER=$(awk -F= '/^rds_identifier/ {gsub(/[" ]/,"",$2); print $2}' terraform.tfvars || true)
+          ECR_REPO_NAME=$(awk -F= '/^ecr_repository_name/ {gsub(/[" ]/,"",$2); print $2}' terraform.tfvars || true)
+          ALB_NAME=$(awk -F= '/^alb_name/ {gsub(/[" ]/,"",$2); print $2}' terraform.tfvars || true)
+
+          import_if_not_in_state() {
+            address="$1"
+            id_cmd="$2"
+
+            if terraform state list 2>/dev/null | grep -q -F "$address"; then
+              echo "SKIP: $address already in state"
+              return 0
+            fi
+
+            id=$(/bin/bash -lc "$id_cmd" 2>/dev/null || true)
+            if [ -z "$id" ]; then
+              echo "SKIP: no AWS resource found for $address"
+              return 0
+            fi
+
+            echo "IMPORT: $address -> $id"
+            terraform import -lock=false "$address" "$id" || echo "WARN: import failed for $address (continuing)"
+          }
+
+          # --- Adjust these identifiers if your resource names differ ---
+          import_if_not_in_state \
+            "module.cloudwatch_log_group.aws_cloudwatch_log_group.this" \
+            "aws logs describe-log-groups --log-group-name-prefix '/ecs/my-app-dev' --query \"logGroups[?logGroupName=='/ecs/my-app-dev'].logGroupName\" --output text"
+
+          import_if_not_in_state \
+            "module.ecs_task_execution_role.aws_iam_role.aws_iam_role" \
+            "aws iam get-role --role-name ecs_task_execution_role_dev --query 'Role.RoleName' --output text"
+
+          import_if_not_in_state \
+            "module.ecs_task_role.aws_iam_role.aws_iam_role" \
+            "aws iam get-role --role-name ecs_task_role_dev --query 'Role.RoleName' --output text"
+
+          import_if_not_in_state \
+            "module.rds_parameter_group.aws_db_parameter_group.this" \
+            "aws rds describe-db-parameter-groups --db-parameter-group-name mysql-parameters --query 'DBParameterGroups[0].DBParameterGroupName' --output text"
+
+          import_if_not_in_state \
+            "module.ecr.aws_ecr_repository.aws_ecr_repository" \
+            "aws ecr describe-repositories --repository-names ${ECR_REPO_NAME:-my-ecr-repo} --query 'repositories[0].repositoryName' --output text"
+
+          import_if_not_in_state \
+            "module.alb.aws_lb.this" \
+            "aws elbv2 describe-load-balancers --names ${ALB_NAME:-my-app-alb-dev} --query 'LoadBalancers[0].LoadBalancerArn' --output text"
+
+          import_if_not_in_state \
+            "module.rds_instance.aws_db_instance.this" \
+            "[ -n \"${RDS_IDENTIFIER}\" ] && aws rds describe-db-instances --db-instance-identifier ${RDS_IDENTIFIER} --query 'DBInstances[0].DBInstanceIdentifier' --output text || true"
+
+          echo "Import step finished (best-effort)."
+
+      - name: Terraform Validate
+        run: terraform -chdir=${{ env.TF_WORKING_DIR }} validate
+
+      - name: Terraform Plan
+        if: github.event.inputs.action == 'apply'
+        run: |
+          set -x
+          echo "🔹 Starting Terraform Plan..."
+          echo "📦 ECR Image: ${TF_VAR_ecs_container_image}"
+
+          terraform -chdir=${{ env.TF_WORKING_DIR }} plan \
+            -var="ecs_container_image=${TF_VAR_ecs_container_image}" || {
+            echo "❌ Terraform Plan FAILED!"
+            exit 1
+          }
+          
+          echo "✅ Terraform Plan Completed Successfully"
+          set +x
+
+      # # 🔹 Manual approval required BEFORE Terraform Apply
+      # - name: Manual Approval
+      #   if: github.event.inputs.action == 'apply'
+      #   uses: chrnorm/deployment-reviews@v1
+      #   with:
+      #     environment: ${{ env.DEPLOY_ENV }}
+
+      - name: Terraform Apply
+        if: github.event.inputs.action == 'apply'
+        run: |
+          set -x
+          echo "🚀 Starting Terraform Apply..."
+          echo "📦 ECR Image: ${TF_VAR_ecs_container_image}"
+
+          terraform -chdir=${{ env.TF_WORKING_DIR }} apply -auto-approve \
+            -var="ecs_container_image=${TF_VAR_ecs_container_image}" || {
+            echo "❌ Terraform Apply FAILED!"
+            exit 1
+          }
+          
+          echo "✅ Terraform Apply Completed Successfully"
+          set +x
+
+      - name: Terraform Destroy
+        if: github.event.inputs.action == 'destroy'
+        run: |
+          set -x
+          echo "🔴 Starting Terraform Destroy..."
+          
+          terraform -chdir=${{ env.TF_WORKING_DIR }} destroy -auto-approve || {
+            echo "❌ Terraform Destroy FAILED!"
+            exit 1
+          }
+          
+          echo "✅ Terraform Destroy Completed Successfully"
+          set +x

@@ -1,0 +1,63 @@
+[10-Oct-2024 17:18:43 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[10-Oct-2024 17:18:43 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[10-Oct-2024 17:18:43 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[10-Oct-2024 17:19:01 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[10-Oct-2024 17:19:01 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[10-Oct-2024 17:19:01 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[10-Oct-2024 17:19:04 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[10-Oct-2024 17:19:04 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[10-Oct-2024 17:19:04 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[10-Oct-2024 17:29:11 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[10-Oct-2024 17:29:11 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[10-Oct-2024 17:29:11 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[11-Oct-2024 11:36:37 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[11-Oct-2024 11:36:37 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[11-Oct-2024 11:36:37 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[11-Oct-2024 11:39:05 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[11-Oct-2024 11:39:05 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[11-Oct-2024 11:39:05 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[11-Oct-2024 11:39:05 Europe/London] PHP Warning:  Undefined array key "brand" in /home/etra/public_html/test/etra.group/crons/lambda-crons/refills/lambda-function.php on line 79
+[11-Oct-2024 11:39:05 Europe/London] PHP Deprecated:  http_build_query(): Passing null to parameter #2 ($numeric_prefix) of type string is deprecated in /home/etra/public_html/test/etra.group/common/s3/S3.php on line 2015
+[11-Oct-2024 11:39:05 Europe/London] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'brand' in 'where clause' in /home/etra/public_html/test/etra.group/sm-db.php:261
+Stack trace:
+#0 /home/etra/public_html/test/etra.group/sm-db.php(261): mysqli_query(Object(mysqli), 'UPDATE `ig_thum...')
+#1 /home/etra/public_html/test/etra.group/crons/lambda-crons/refills/lambda-function.php(102): mysql_query('UPDATE `ig_thum...')
+#2 {main}
+  thrown in /home/etra/public_html/test/etra.group/sm-db.php on line 261
+[18-Oct-2024 14:42:29 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 14:42:29 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 14:42:29 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 14:42:29 Europe/London] PHP Warning:  foreach() argument must be of type array|object, null given in /home/etra/public_html/test/etra.group/crons/lambda-crons/checkorderfulfilled/lambda-function.php on line 286
+[18-Oct-2024 14:42:29 Europe/London] PHP Warning:  foreach() argument must be of type array|object, null given in /home/etra/public_html/test/etra.group/crons/lambda-crons/checkorderfulfilled/lambda-function.php on line 286
+[18-Oct-2024 14:42:29 Europe/London] PHP Warning:  foreach() argument must be of type array|object, null given in /home/etra/public_html/test/etra.group/crons/lambda-crons/checkorderfulfilled/lambda-function.php on line 286
+[18-Oct-2024 14:42:29 Europe/London] PHP Warning:  Undefined variable $tooearly in /home/etra/public_html/test/etra.group/crons/lambda-crons/checkorderfulfilled/lambda-function.php on line 342
+[18-Oct-2024 14:42:29 Europe/London] PHP Warning:  Undefined variable $supplier_error in /home/etra/public_html/test/etra.group/crons/lambda-crons/checkorderfulfilled/lambda-function.php on line 366
+[18-Oct-2024 14:43:00 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 14:43:00 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 14:43:00 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 14:43:00 Europe/London] PHP Warning:  foreach() argument must be of type array|object, null given in /home/etra/public_html/test/etra.group/crons/lambda-crons/checkorderfulfilled/lambda-function.php on line 286
+[18-Oct-2024 14:43:00 Europe/London] PHP Warning:  Undefined variable $tooearly in /home/etra/public_html/test/etra.group/crons/lambda-crons/checkorderfulfilled/lambda-function.php on line 342
+[18-Oct-2024 16:49:31 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 16:49:31 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:31 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:47 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 16:49:47 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:47 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:48 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 16:49:48 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:48 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:50 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 16:49:50 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:50 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:51 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 16:49:51 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:51 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:53 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 16:49:53 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:49:53 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:50:13 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 16:50:13 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:50:13 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:50:25 Europe/London] PHP Warning:  Undefined variable $webhookbypass in /home/etra/public_html/test/etra.group/sm-db.php on line 293
+[18-Oct-2024 16:50:25 Europe/London] PHP Warning:  Undefined array key "loc" in /home/etra/public_html/test/etra.group/sm-db.php on line 331
+[18-Oct-2024 16:50:25 Europe/London] PHP Deprecated:  addslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /home/etra/public_html/test/etra.group/sm-db.php on line 331

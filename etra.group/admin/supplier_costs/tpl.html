@@ -1,0 +1,83 @@
+<!-- @meta -->
+
+<title>Stats</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+
+<style>
+    .superviral-stats .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    .superviral-stats .alignthis {
+        padding: 55px 0;
+    }
+
+
+    .superviral-stats .box23 {
+        margin: 66px auto;
+        max-width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+</style>
+
+<!-- @head_tags -->
+
+
+
+
+<main class="superviral-stats">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <div class="alignthis" align="center">
+        <h1 style="color:unset;">Supplier Costs 🔌</h1>
+    </div>
+
+    <div class="alignthis" align="center">
+        <h2>Daily cost per day</h2>
+        <canvas id="myChart" style="max-height:300px;margin:25px;"></canvas>
+    </div>
+
+    <div class="alignthis" align="center">
+        <h2>Avg costs per package (7d)</h2>
+        <canvas id="myChart2" style="max-height:300px;margin:25px;"></canvas>
+    </div>
+
+
+    <div class="alignthis" align="center">
+        <div class="box23">
+            <table style="width:100%">
+                <tr>
+                    <td><b>Total</b></td>
+                    <td><b>
+                            {totalcount}
+                        </b></td>
+                    <td><b>£{totalloss}
+                        </b></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</main>
+
+
+<script>
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [{label_7d}],
+            datasets: [{daily_avg_dataset}]
+        }
+    });
+
+
+</script>

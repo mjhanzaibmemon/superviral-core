@@ -1,0 +1,1 @@
+import{j as m}from"./ui-COtYBrY5.js";import{L as t}from"./loginSignup-DXzA34X1.js";import"./router-DvA5PWIB.js";import"./vendor-DJG_os-6.js";import"./index-BQ-7pB-t.js";import"./utils-B_r5y0TZ.js";const x=()=>m.jsx("div",{className:"mt-10 px-5 sm:px-0 sm:max-w-lg mx-auto",children:m.jsx(t,{})});export{x as default};

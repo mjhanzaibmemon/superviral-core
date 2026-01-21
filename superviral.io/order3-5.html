@@ -1,0 +1,395 @@
+
+		<style type="text/css">
+
+.hidden {
+  display: none;
+}
+
+.sr-field-error,.sr-result {
+     color: #E4584C;
+    text-align: center!important;
+    font-size: 15px;
+    margin: 12px 0;
+}
+
+.sr-result{color: #34D08C;}
+
+      .reassurept{padding-left:90px;margin-bottom:40px;position: relative;padding-top:5px;}
+      .reassurept svg{width:70px;position: absolute;left:0;fill: url(#color3) #479;}
+      .reassurept span{    font-weight: bold;font-size: 15px;margin: 0;color: #5a5a5a!important;margin-top:10px;margin-top:0!important;}
+      .reassurept p{margin: 0;
+    font-size: 14px;margin-top: 2px;color: #777;}
+
+.spinner,
+.spinner:before,
+.spinner:after {
+  border-radius: 50%;
+}
+.spinner {
+  color: #ffffff;
+  font-size: 22px;
+  text-indent: -99999px;
+  margin: 0px auto;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  box-shadow: inset 0 0 0 2px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.spinner:before,
+.spinner:after {
+  position: absolute;
+  content: "";
+}
+.spinner:before {
+  width: 10.4px;
+  height: 20.4px;
+  background: var(--accent-color);
+  border-radius: 20.4px 0 0 20.4px;
+  top: -0.2px;
+  left: -0.2px;
+  -webkit-transform-origin: 10.4px 10.2px;
+  transform-origin: 10.4px 10.2px;
+  -webkit-animation: loading 2s infinite ease 1.5s;
+  animation: loading 2s infinite ease 1.5s;
+}
+.spinner:after {
+  width: 10.4px;
+  height: 10.2px;
+  background: var(--accent-color);
+  border-radius: 0 10.2px 10.2px 0;
+  top: -0.1px;
+  left: 10.2px;
+  -webkit-transform-origin: 0px 10.2px;
+  transform-origin: 0px 10.2px;
+  -webkit-animation: loading 2s infinite ease;
+  animation: loading 2s infinite ease;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+    </style>
+
+    <div  class="orderbody" align="center">
+
+
+			<div class="cnwidth">
+
+        {discountnotifcart}
+
+
+				<div class="steps">
+
+
+					<div class="number numbergrey">1</div>
+					<div class="numlabel labelgrey">{checkoutnav1}</div>
+					<svg class="greyarrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.5 31.5"><path d="M21.2 5c-0.4-0.4-1.1-0.4-1.6 0 -0.4 0.4-0.4 1.1 0 1.6l8 8H1.1C0.5 14.6 0 15.1 0 15.7c0 0.6 0.5 1.1 1.1 1.1h26.6l-8 8c-0.4 0.4-0.4 1.2 0 1.6 0.4 0.4 1.2 0.4 1.6 0l10-10c0.4-0.4 0.4-1.1 0-1.6L21.2 5z"/></svg>
+
+
+					<div class="number">2</div>
+					<div class="numlabel">{checkoutnav2}</div>
+					<svg class="greyarrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.5 31.5"><path d="M21.2 5c-0.4-0.4-1.1-0.4-1.6 0 -0.4 0.4-0.4 1.1 0 1.6l8 8H1.1C0.5 14.6 0 15.1 0 15.7c0 0.6 0.5 1.1 1.1 1.1h26.6l-8 8c-0.4 0.4-0.4 1.2 0 1.6 0.4 0.4 1.2 0.4 1.6 0l10-10c0.4-0.4 0.4-1.1 0-1.6L21.2 5z"/></svg>
+
+
+					<div class="number numbergrey">3</div>
+					<div class="numlabel labelgrey">{checkoutnav3}</div>
+
+				</div>
+
+        <div class="liveholder"><span class="livebox"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="livesvg"><path d="M256 0C115.4 0 0 115.4 0 256s115.4 256 256 256 256-115.4 256-256S396.6 0 256 0z"/></svg> Live</span><span id="livecount" class="livecount"></span> {usercheckoutlabel}</div>
+
+				<div class="container dshadow">
+
+					<h1>{h1}</h1>
+
+					
+
+<script src="https://js.stripe.com/v3/"></script>
+
+
+          <form id="payment-form" class="sr-payment-form">
+  <label>
+    <span class="label">{label1}</span>
+    <input type="input" name="billingname" class="field is-empty input" placeholder="Please enter the billing name" autocomplete="off"/>
+  </label>
+
+  
+  <label>
+    <span class="label">{label2}</span>
+    <div class="sr-input sr-card-element input" id="card-element"></div>
+
+  </label>
+  
+  <div class="outcome">
+    <div class="sr-field-error" id="card-errors" role="alert"></div>
+    <div class="sr-result hidden">
+          <p>Payment completed</p></div>
+  </div>
+
+
+
+  <button id="submit" class="color3 btn dshadow">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">{maincta}</span><span id="order-amount"></span>
+  </button>
+
+</form>
+
+
+<div>
+
+    <div class="reassurept">
+       
+        
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M437.3 192h-32v-42.7C405.3 67 338.3 0 256 0S106.7 67 106.7 149.3V192h-32C68.8 192 64 196.8 64 202.7v266.7C64 492.9 83.1 512 106.7 512h298.7C428.9 512 448 492.9 448 469.3V202.7C448 196.8 443.2 192 437.3 192zM287.9 414.8c0.3 3-0.6 6-2.7 8.3 -2 2.3-4.9 3.6-7.9 3.6h-42.7c-3 0-5.9-1.3-7.9-3.6 -2-2.3-3-5.3-2.7-8.3l6.7-60.5c-10.9-7.9-17.5-20.5-17.5-34.3 0-23.5 19.1-42.7 42.7-42.7s42.7 19.1 42.7 42.7c0 13.8-6.5 26.4-17.5 34.3L287.9 414.8zM341.3 192H170.7v-42.7C170.7 102.3 208.9 64 256 64s85.3 38.3 85.3 85.3V192z"></path></svg>    
+        
+        <span>{2-h3-1}</span>
+        <p>{2-desc-1}</p>
+        
+    </div>
+
+    <div class="reassurept">
+       
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-38 0 512 512"><path d="M218 158.5C164.2 158.5 120.4 202.2 120.4 256 120.4 309.8 164.2 353.6 218 353.6 271.8 353.6 315.5 309.8 315.5 256 315.5 202.2 271.8 158.5 218 158.5ZM275.9 237.6L206 307.5C203.1 310.5 199.2 311.9 195.4 311.9 191.6 311.9 187.7 310.5 184.8 307.5L158.1 280.8C152.2 275 152.2 265.4 158.1 259.6 163.9 253.7 173.4 253.7 179.3 259.6L195.4 275.7 254.7 216.4C260.5 210.5 270 210.5 275.9 216.4 281.8 222.3 281.8 231.8 275.9 237.6ZM275.9 237.6" class="a"/><path d="M435.5 138.9L435.5 138.5C435.3 133.6 435.1 128.4 435 122.6 434.6 94.4 412.2 71 383.9 69.4 325.1 66.2 279.5 47 240.6 9L240.3 8.7C227.6-2.9 208.4-2.9 195.7 8.7L195.4 9C156.5 47 111 66.2 52.1 69.5 23.9 71 1.4 94.4 1 122.6 0.9 128.4 0.8 133.6 0.5 138.5L0.5 139.4C-0.6 199.5-2.1 274.2 22.9 342 36.7 379.3 57.5 411.7 84.8 438.3 115.9 468.7 156.6 492.8 205.8 509.9 207.4 510.5 209.1 510.9 210.8 511.3 213.2 511.8 215.6 512 218 512 220.4 512 222.8 511.8 225.2 511.3 226.9 510.9 228.6 510.5 230.2 509.9 279.4 492.7 320 468.6 351.1 438.3 378.4 411.6 399.2 379.2 413 341.9 438 273.9 436.6 199.1 435.5 138.9ZM218 383.6C147.6 383.6 90.4 326.4 90.4 256 90.4 185.6 147.6 128.4 218 128.4 288.4 128.4 345.6 185.6 345.6 256 345.6 326.4 288.4 383.6 218 383.6ZM218 383.6" class="a"/></svg>
+        
+        <span>{2-h3-2}</span>
+        <p>{2-desc-2}</p>
+        
+    </div>
+
+
+    <div class="reassurept">
+       
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M82.9 311.1c3.4 2.3 7.3 3.4 11.1 3.4 6.5 0 12.8-3.1 16.6-8.9 32.3-48.3 86.3-77.1 144.5-77.1 58 0 111.9 28.7 144.3 76.8 6.2 9.2 18.6 11.6 27.8 5.4 9.2-6.2 11.6-18.6 5.4-27.8 -25.8-38.4-62.9-66.7-105.2-81.9C352.8 180.3 369 148.8 369 113.5c0-62.3-50.7-113-113-113s-113 50.7-113 113c0 35 16 66.3 41.1 87.1 -43 15.1-80.6 43.8-106.7 82.8C71.2 292.6 73.7 305 82.9 311.1zM256 40.5c40.3 0 73 32.7 73 73s-32.7 73-73 73 -73-32.7-73-73S215.7 40.5 256 40.5zM335.8 354.6l-29.8 21.5c-4.4 3.2-6.3 8.9-4.6 14.1l12 34.8c0.5 1.6 0.7 3.1 0.6 4.5 -0.4 9.3-12.1 15.7-20.7 9.5l-29.8-21.5c-2.2-1.6-4.8-2.4-7.4-2.4 -2.6 0-5.2 0.8-7.4 2.4l-29.8 21.5c-8.6 6.2-20.4-0.2-20.7-9.5 -0.1-1.4 0.1-3 0.7-4.5l12-34.8c1.7-5.2-0.2-10.9-4.6-14.1l-29.8-21.5c-9.9-7.2-4.8-24.1 7.4-24.1h36.9c5.5 0 10.3-2.1 12-7.3l11.4-35c1.9-5.8 7-8.7 12-8.7 5.1 0 10.1 2.9 12 8.7l11.4 35c1.7 5.2 6.6 7.3 12 7.3h36.9C340.6 330.5 345.7 347.5 335.8 354.6zM506.8 424.6l-29.8 21.5c-4.4 3.2-6.3 8.9-4.6 14.1l12 34.8c0.5 1.6 0.7 3.1 0.6 4.5 -0.4 9.3-12.1 15.7-20.7 9.5l-29.8-21.5c-2.2-1.6-4.8-2.4-7.4-2.4s-5.2 0.8-7.4 2.4l-29.8 21.5c-8.6 6.2-20.4-0.2-20.7-9.5 -0.1-1.4 0.1-3 0.7-4.5l12-34.8c1.7-5.2-0.2-10.9-4.6-14.1l-29.8-21.5c-9.9-7.2-4.8-24.1 7.4-24.1h36.9c5.5 0 10.3-2.1 12-7.3l11.4-35c1.9-5.8 7-8.7 12-8.7s10.1 2.9 12 8.7l11.4 35c1.7 5.2 6.6 7.3 12 7.3h36.9C511.6 400.5 516.7 417.5 506.8 424.6zM164.8 424.6l-29.8 21.5c-4.4 3.2-6.3 8.9-4.6 14.1l12 34.8c0.5 1.6 0.7 3.1 0.6 4.5 -0.4 9.3-12.1 15.7-20.7 9.5L92.4 487.5c-2.2-1.6-4.8-2.4-7.4-2.4s-5.2 0.8-7.4 2.4l-29.8 21.5c-8.6 6.2-20.4-0.2-20.7-9.5 -0.1-1.4 0.1-3 0.7-4.5l12-34.8c1.7-5.2-0.2-10.9-4.6-14.1L5.2 424.6c-9.9-7.2-4.8-24.1 7.4-24.1h36.9c5.5 0 10.3-2.1 12-7.3l11.4-35c1.9-5.8 7-8.7 12-8.7s10.1 2.9 12 8.7l11.4 35c1.7 5.2 6.6 7.3 12 7.3h36.9C169.6 400.5 174.7 417.5 164.8 424.6z"/></svg>
+        
+        <span>{2-h3-3}</span>
+        <p>{2-desc-3}</p>
+        
+    </div>
+
+</div>
+
+					
+				</div>
+
+			</div>
+
+		</div>
+
+<svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+  <linearGradient id="color3" x2="1" y2="1">
+    <stop offset="0%" stop-color="#4a00e0" />
+    <stop offset="100%" stop-color="#8e2de2" />
+  </linearGradient>
+</svg>
+
+
+
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	    <script src="/js/orderform.js"></script>
+
+		
+<script type="text/javascript">
+
+      // A reference to Stripe.js
+var stripe;
+
+var orderData = {
+  currency: "gbp",
+  metadata: "[{ name: 'Rabban' }]",
+};
+
+// Disable the button until we have Stripe set up on the page
+document.querySelector("button").disabled = true;
+
+fetch("/pi/create-payment-intent.php?session={ordersession}{discounturl}", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(orderData)
+})
+  .then(function(result) {
+    return result.json();
+  })
+  .then(function(data) {
+    return setupElements(data);
+  })
+  .then(function({ stripe, card, clientSecret }) {
+
+
+    var input23 = document.querySelector('input[name="billingname"]');
+
+    document.querySelector("button").disabled = false;
+    // Handle form submission.
+    var form = document.getElementById("payment-form");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      // Initiate payment when the submit button is clicked
+      pay(stripe, card, clientSecret, input23);
+    });
+  });
+
+// Set up Stripe.js and Elements to use in checkout form
+var setupElements = function(data) {
+  stripe = Stripe(data.publishableKey);
+  var elements = stripe.elements();
+  var style = {
+    base: {
+      iconColor: '#8898AA',
+      color: '#000',
+      lineHeight: '36px',
+      fontWeight: 300,
+      fontFamily: '"Open Sans", Helvetica, sans-serif',
+      fontSize: '18px',
+
+      '::placeholder': {
+        color: '#8898AA',
+      },
+    },
+    invalid: {
+      iconColor: '#e85746',
+      color: '#e85746',
+    }
+  };
+
+
+
+  var card = elements.create("card", { style: style });
+  card.mount("#card-element");
+
+  return {
+    stripe: stripe,
+    card: card,
+    clientSecret: data.clientSecret
+  };
+};
+
+//////////////////////
+
+
+/*
+ * Calls stripe.confirmCardPayment which creates a pop-up modal to
+ * prompt the user to enter extra authentication details without leaving your page
+ */
+
+var pay = function(stripe, card, clientSecret, input23) {
+
+  changeLoadingState(true);
+
+  // Initiate the payment.
+  // If authentication is required, confirmCardPayment will automatically display a modal
+
+if(input23.value.length == 0){
+ 
+stripe.confirmCardPayment(clientSecret, { payment_method: { card: card } })   
+.then(function(result) {
+      if (result.error) {showError(result.error.message);// Show error to your customer
+      } else {orderComplete(clientSecret);// The payment has been processed!
+        }});}
+
+else{
+
+ 
+ stripe.confirmCardPayment(clientSecret, { payment_method: { card: card, billing_details: {name: document.querySelector('input[name=\"billingname\"]').value} } }).then(function(result) {
+      if (result.error) {showError(result.error.message);// Show error to your customer
+      } else {orderComplete(clientSecret);// The payment has been processed!
+        }});
+
+}
+
+};
+
+/* ------- Post-payment helpers ------- */
+
+/* Shows a success / error message when the payment is complete */
+var orderComplete = function(clientSecret) {
+  //Redirect to page loading - this is me
+  stripe.retrievePaymentIntent(clientSecret).then(function(result) {
+    var paymentIntent = result.paymentIntent;
+    var paymentIntentJson = JSON.stringify(paymentIntent, null, 2);
+
+
+
+    //document.querySelector(".sr-payment-form").classList.add("hidden");
+    
+    document.querySelector(".sr-result").classList.remove("hidden");
+    setTimeout(function() {
+      document.querySelector(".sr-result").classList.add("expand");
+    }, 400);
+
+
+    changeLoadingState(false);
+    window.location.href = "{redirect}";
+    
+  });
+};
+
+var showError = function(errorMsgText) {
+  changeLoadingState(false);
+  var errorMsg = document.querySelector(".sr-field-error");
+  errorMsg.textContent = errorMsgText;
+    setTimeout(function() {
+    errorMsg.textContent = "";
+  }, 5000);
+
+};
+
+// Show a spinner on payment submission
+var changeLoadingState = function(isLoading) {
+  if (isLoading) {
+    document.querySelector("button").disabled = true;
+    document.querySelector("#spinner").classList.remove("hidden");
+    document.querySelector("#button-text").classList.add("hidden");
+  } else {
+    document.querySelector("button").disabled = false;
+    document.querySelector("#spinner").classList.add("hidden");
+    document.querySelector("#button-text").classList.remove("hidden");
+  }
+};
+
+</script>
+<script type="text/javascript">
+
+function liveusers(){
+    var feedback = $.ajax({
+        type: "GET",
+        url: "https://superviral.io/livecheckout.php",
+        async: false
+    }).complete(function(){
+        setTimeout(function(){liveusers();}, 3000);
+    }).responseText;
+
+    $('.livecount').html(feedback);
+
+
+}
+
+liveusers();
+
+
+</script>

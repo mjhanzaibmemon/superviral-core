@@ -1,0 +1,167 @@
+<!-- @meta -->
+
+<title>Payment Log</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<style type="text/css">
+    .articles a {
+        text-decoration: underline;
+        color: blue;
+    }
+
+    .box23 {
+        margin: 66px auto;
+        width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+    h1 {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .label {
+        margin-top: 35px;
+    }
+
+    .container div input,
+    .selectric,
+    .input,
+    .btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    .cke_reset_all {
+        background: #f7f7f7 !important;
+    }
+
+    .articles {
+        width: 100%;
+    }
+
+    .articles tr td {
+        padding: 30px 10px;
+        vertical-align: top;
+    }
+
+    .articles tr:first-child td {
+        background: #f1f1f1;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .status {
+        font-weight: bold;
+        height: 23px;
+        width: 55px;
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .btn {
+        margin: 0 !important;
+    }
+
+
+    .adminmenu {
+        display: inline-block;
+        background-color: white;
+        border-top: 1px solid #ccc;
+        width: 100%;
+    }
+
+    .adminmenu a {
+        float: left;
+        padding: 15px;
+    }
+
+    .reportmessage {
+        width: 100%;
+        height: 120px;
+        box-sizing: border-box;
+        margin: 0px;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-family: 'Open Sans';
+
+        overflow: hidden;
+        outline: none;
+        resize: none;
+    }
+
+    .btn {
+        width: initial;
+    }
+
+    .defectorder a {
+        text-decoration: underline;
+        color: blue;
+    }
+
+    .defectorder .sdiv {
+        margin-bottom: 15px;
+        padding: 9px;
+        background-color: #f5f7fe;
+        border-radius: 5px;
+    }
+
+    .nlbtn {
+        float: left;
+        margin-right: 20px !important;
+        width: 176px !important;
+        margin-bottom: 10px !important;
+    }
+
+</style>
+
+
+<!-- @head_tags -->
+
+<!-- @script -->
+
+<!-- @script -->
+
+<main>
+
+    <h1 style="text-align:center;">Payment Logs</h1>
+
+    <div class="box23">
+
+        Total: <b>{count}</b><br><br>
+        
+        <table class="summarytbl" style="width:100%">
+            <thead>
+                <tr>
+                    <th>IP</th>
+                    <th>Count per IP</th>
+                    <th>Card</th>
+                    <th>Message</th>
+                    <th>added</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- @row -->
+                {data}
+                <!-- @row -->
+            </tbody>
+        </table>
+
+    </div>
+</main>

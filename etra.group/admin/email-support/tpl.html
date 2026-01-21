@@ -1,0 +1,1760 @@
+<!-- @meta -->
+
+<title>Email Support</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+  rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="/admin/assets/css/style.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/css/orderform.css"> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://kit.fontawesome.com/a282321041.js" crossorigin="anonymous"></script>
+
+<style type="text/css">
+  .btn-logo {
+    display: none !important;
+  }
+
+  .email-support .Superviral.highlightClassLeftMenu {
+    background-color: #e5cbff;
+    color: #000 !important;
+  }
+
+  .email-support .Tikoid.highlightClassLeftMenu {
+    background-color: #ffd3e0;
+    color: #000 !important;
+  }
+
+  .email-support .Feedbuzz.highlightClassLeftMenu {
+    background-color: #ffd3e0;
+    color: #000 !important;
+  }
+
+  .email-support .Swizzy.highlightClassLeftMenu {
+    background-color: #ffe8b4;
+    color: #000 !important;
+  }
+
+  .email-support .Tokpop.highlightClassLeftMenu {
+    background-color: #e5cbff;
+    color: #000 !important;
+  }
+
+  /* loader css */
+
+  .email-support .stickyheaderall {
+    top: 0px;
+    padding-top: 9px;
+    -webkit-box-shadow: -1px 0px 5px 1px rgb(230 230 230);
+    -moz-box-shadow: -1px 0px 5px 1px rgba(230, 230, 230, 1);
+    box-shadow: -1px 0px 5px 1px rgb(230 230 230);
+  }
+
+  .email-support #cover-spin {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    display: none;
+  }
+
+  @-webkit-keyframes spin {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .email-support #cover-spin::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    border-top-color: transparent;
+    border-width: 4px;
+    border-radius: 50%;
+    -webkit-animation: spin 0.8s linear infinite;
+    animation: spin 0.8s linear infinite;
+  }
+
+  /* loader css end */
+  .email-support .btn {
+    width: 101%;
+    text-align: center;
+  }
+
+  .email-support .alignthis {
+    padding: 55px 0;
+  }
+
+  /* .mainContainer {
+        display: flex;
+        margin: 1%;
+    } */
+
+  .email-support .box1 {
+    margin: 1%;
+    /* display: inline-block; */
+    width: 16%;
+    border-radius: 5px;
+    text-align: left;
+    float: left;
+    height: 100%;
+  }
+
+  .email-support .box1 .containers {
+    margin-bottom: 20px;
+    background: #fff;
+    opacity: 0.2;
+  }
+
+  .email-support .box1 .containers:hover {
+    transition: opacity 0.3s;
+    opacity: 1;
+  }
+
+  .email-support .box2 {
+    /* display: inline-block; */
+    width: 58%;
+    border-radius: 5px;
+    text-align: left;
+    float: left;
+    min-height: 1360px;
+    padding-top: 17px;
+  }
+
+  .email-support .box3 {
+    margin: 1%;
+    /* display: inline-block; */
+    width: 22%;
+    background: #fff;
+    border-radius: 5px;
+    text-align: left;
+    float: left;
+    padding: 15px;
+    opacity: 0.2;
+  }
+
+  .email-support .box3:hover {
+    transition: opacity 0.3s;
+    opacity: 1;
+  }
+
+  .email-support .fontBold {
+    font-weight: 600;
+    font-family: "Alliance No.2";
+  }
+
+  .email-support hr {
+    margin: 5% 0px;
+    background-color: #ccc;
+    border: none;
+    height: 1px;
+  }
+
+  .email-support .txtSize {
+    font-size: 12px;
+  }
+
+  .email-support .accordion {
+    color: #000;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .email-support .panel {
+    display: none;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .email-support .caret {
+    float: right;
+    margin-top: 11px;
+  }
+
+  .email-support .btn3 {
+    color: #6e6e6e;
+    background: #f1f1f0;
+    border: 1px solid #bdbdbd;
+    padding: 10px;
+    font-weight: 400;
+    border-radius: 5px !important;
+    cursor: pointer;
+    width: 130px;
+    /* float: right; */
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    z-index: 999;
+  }
+
+  .email-support .btn3:hover {
+    color: #fff;
+    background: #000;
+  }
+
+  .email-support .btn4 {
+    color: red;
+    padding: 10px;
+    font-weight: 400;
+    border: 1px solid red;
+    border-radius: 5px !important;
+    cursor: pointer;
+    width: 151px;
+    float: right;
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .email-support .btn4:hover {
+    color: #fff;
+    background: red;
+  }
+
+  .email-support .btn1 {
+    color: #fff;
+    background: orange;
+    padding: 2px 8px;
+    font-weight: 400;
+    border: 1px solid orange;
+    border-radius: 35px !important;
+    cursor: pointer;
+    width: 165px;
+    margin: 0 6px;
+  }
+
+  .email-support .searchBox {
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    width: 30%;
+    box-sizing: border-box;
+    height: 39px;
+  }
+
+  .email-support .pull-right {
+    float: right;
+  }
+
+  .email-support .pull-left {
+    float: left;
+  }
+
+  .email-support .accordion1,
+  .email-support .autoReplySec {
+    color: #000;
+    /* cursor: pointer; */
+    background: #fff;
+    padding: 23px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+  }
+
+  .email-support .msg-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .email-support .msg-container .right-details {
+    text-align: right;
+  }
+
+  .email-support .msg-container .right-details .timestamp {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: right;
+  }
+
+  .email-support .autoReplySec {
+    background-color: #e2e2e2;
+  }
+
+  /* The Modal (background) */
+  .email-support .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 15000;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .email-support .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    display: flow-root;
+  }
+
+  /* The Close Button */
+  .email-support .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .email-support .close:hover,
+  .email-support .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .email-support .NextDisplayChar {
+    display: none;
+  }
+
+  .email-support .font-size12 {
+    font-size: 12px;
+  }
+
+  .email-support .headerAllEmail {
+    position: fixed;
+    width: 58%;
+    background: white;
+    padding: 11px;
+    box-sizing: border-box;
+    z-index: 9990;
+  }
+
+  .email-support .bodyAllEmail {
+    height: 1000px;
+    width: 100%;
+    padding-top: 141px;
+  }
+
+  .email-support .revealbtn {
+    padding: 10px 6px;
+  }
+
+  .email-support #orderSelectId {
+    height: 43px;
+  }
+
+  .email-support .recip {
+    /* margin-top: -23px; */
+    display: block;
+    color: #d03340;
+  }
+
+  .email-support textarea {
+    font-family: "Open Sans", sans-serif;
+    min-height: 150px;
+    background: #fff;
+  }
+
+  .email-support .emailbody {
+    line-height: 32px;
+    width: 670px;
+  }
+
+  .email-support .showmessagefull {
+    background: #fff;
+    min-height: 110px;
+  }
+
+  .email-support .hidemessagefull {
+    background: rgb(120, 120, 120);
+    background: linear-gradient(0deg,
+        rgb(183 183 183) 0%,
+        rgb(217 217 217) 100%);
+    height: 69px;
+  }
+
+  .email-support .hidemessagefull .emailbody {
+    opacity: 0.6;
+  }
+
+  .email-support .hidemessagefull .fontBold {
+    opacity: 0.6;
+  }
+
+  .email-support .supportemails {
+    color: #000;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 57px;
+    line-height: 37px;
+    padding: 9px 15px;
+    box-sizing: border-box;
+    color: #0000ad;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+  }
+
+  .email-support .containerheading {
+    display: block;
+    padding: 15px;
+    font-weight: bold;
+    font-family: "Alliance No.2";
+    font-size: 18px;
+  }
+
+  .email-support #customerOrdersId {
+    overflow: scroll;
+    max-height: 500px;
+    overflow-x: hidden;
+  }
+
+  .email-support .initialmsg {
+    padding: 12px;
+    background: #c8f9fb;
+    font-style: italic;
+    margin-top: 20px;
+    margin-bottom: 14px;
+    border-radius: 5px;
+  }
+
+  .email-support #supportReplyId {
+    width: 100%;
+    min-height: 300px;
+  }
+
+  .email-support .autoreplyselect {
+    min-height: 125px;
+    padding: 10px;
+  }
+
+  .report-btn {
+    background-color: transparent;
+    border-radius: 50px;
+    border: 1px solid grey;
+    padding: 13px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .report-btn:hover {
+    background: #000;
+    color: #FFF;
+  }
+</style>
+
+<!-- @head_tags -->
+
+<main class="email-support">
+  <div id="cover-spin"></div>
+  <div class="mainContainer" align="center">
+    <div class="box1">
+      <div class="containers dshadow">
+        <div class="containerheading">
+          Admin Responses
+          <span id="responseFromAdminEmailCountId">({allResponseAdminEmailCount})
+          </span>
+        </div>
+        <div id="AdminResponseEmailsId">
+          <!-- @responseEmailList -->
+          <a href="{responseEmailUrl}" data-brand="{brand}" class="supportemails {brand}" id="{responseEmailId}">
+            <div style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              ">
+              <div style="height: 27px; width: 20px; margin-right: 8px">
+                <img style="width: 100%; height: 100%; object-fit: contain"
+                  src="/admin/assets/icons/{brand}-icon.svg" />
+              </div>
+              {responseEmail}
+            </div>
+          </a>
+          <!-- @responseEmailList -->
+        </div>
+      </div>
+
+      <div class="containers dshadow">
+        <!-- <div>
+                    <button class="modal-button btn3" id="emailSendBtnId"  href="#emailSendModal" style="float: none;  margin-top: 10px;">Send Email</button>
+            </div> -->
+        <div class="containerheading">
+          Support
+          <span id="supportEmailCountId">({allSupportEmailCount}) </span>
+        </div>
+        <div id="supportEmailsId">
+          <!-- @supportEmailList -->
+          <a href="{supportEmailUrl}" data-brand="{brand}" class="supportemails {brand}" id="{supportEmailId}">
+            <div style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              ">
+              <div style="height: 27px; width: 20px; margin-right: 8px">
+                <img style="width: 100%; height: 100%; object-fit: contain"
+                  src="/admin/assets/icons/{brand}-icon.svg" />
+              </div>
+              {supportEmail}
+            </div>
+          </a>
+          <!-- @supportEmailList -->
+        </div>
+      </div>
+
+      <div class="containers dshadow" style="padding-bottom: 1px">
+        <div class="containerheading">
+          Potentially Spam <span id="spamEmailCountId">(0)</span>
+        </div>
+        <button style="
+            float: none;
+            margin: auto !important;
+            display: block;
+            margin-bottom: 30px !important;
+          " class="btn3" id="revealSpamBtnId" onclick="getSpamEmails('');">
+          Reveal
+        </button>
+
+        <div id="spamEmailsId"></div>
+      </div>
+
+      <div style="margin-top: -5px; margin-bottom: 5px">
+        <img onclick="openModalSendEmail();" src="/admin/assets/images/mail.png" alt=""
+          style="width: 10%; cursor: pointer" />
+      </div>
+    </div>
+
+    <div class="box2 dshadow">
+      <a style="
+    background: #000000;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: block;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+" href="/admin/email-support2/">Go to new email support &gt;</a>
+
+<div class="headerAllEmail">
+        <div class="box24" style="
+          {showpagination}
+          align-items: center;
+          justify-content: end;
+          margin-bottom: 10px;
+          gap:1rem;
+          ">
+
+          <a href="{currSupportUrl}" class=" report-btn">◀️ Previous Ticket</a>
+          <a href="{nextSupportUrl}" class=" report-btn">Next Ticket ▶️</a>
+        </div>
+        <div style="margin-bottom: 20px">
+          <div style="display: flex; align-items: center">
+            <a class="fontBold" id="customerEmailId"> {custEmail} </a>
+            <div style="margin-left: 10px">
+              <!-- @accountBtn -->
+              <button id="customerAccountCheckId" class="btn1" style="width: unset">
+                HAS ACCOUNT
+              </button>
+              <!-- @accountBtn -->
+
+              <!-- @autoLikeBtn -->
+              <button id="customerAutoLikeCheckId" class="btn1" style="width: unset">
+                HAS AUTO LIKES
+              </button>
+              <!-- @autoLikeBtn -->
+              <!-- {privateBtnHtm} -->
+               <div id="plotAccountStatusBtns" style="display:inline-block;"></div>
+            </div>
+          </div>
+          <a>Recent Subject:
+            <span id="customerEmailSubjectId">{recentSubject}</span></a>
+          <div style="float: right; margin-right: 8px">
+            <img style="object-fit: contain" src="/admin/assets/icons/{brand}.svg" />
+          </div>
+        </div>
+        <div style="margin-bottom: 0">
+          <button class="btn4" id="deleteBtnId" data-value="{isBlocked}" onclick="blockConversation();">
+            {blockedTitle}
+          </button>
+          <button style="float: left; margin-left: 0" class="btn3" id="markDoneBtnId" onclick="markDone();">
+            Mark Done
+          </button>
+          <button style="float: left; margin: 0 10px" class="modal-button btn3" id="submitReportBtnId"
+            href="#submitReportModal">
+            Submit Report
+          </button>
+          <button style="float: left; width: 125px;margin-left:0;margin-right:10px;" class="btn3" onclick="callCheckIsPrivate(this);">Account status</button>
+          <div style="display: inline-block">
+            <input type="text" style="width: 310px" class="searchBox" autocomplete="off" id="searchEmailId"
+              placeholder="Search conversation by keyword..." />
+            <button class="modal-button btn3" id="searchEmailsBtnId" href="#searchEmailModal"
+              style="float: none; width: 100px">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="bodyAllEmail">
+        <div id="allCustomerEmailsId" style="white-space: pre-line; display: grid ; margin-top: 52px">
+          <!-- @allCustomerWiseEmailList -->
+          <div class="txtSize accordion1 {bgColorClass} msg-container" data-time="{CustomerWiseEmaildateAdded}"
+            style="box-sizing: content-box">
+            <div class="left-details">
+              <a class="fontBold {fromClass}">{emailnameshow}</a><br />
+              <div class="emailbody">{initialsupportmessage}</div>
+            </div>
+            <div class="right-details">
+              <span class="timestamp">{emailUnixTime}</span>
+              <button class="btn3 revealbtn" onclick="{onClickEvent}" id="{showMoreBtnId}">{btnText}</button>
+              <br /><br />
+              <span style="
+                  cursor: pointer;
+                  text-decoration: underline;
+                  margin-right: 10px;
+                " onclick="{openAttachmentsModalClickEvent}">Attachments</span>
+            </div>
+          </div>
+          <!-- @allCustomerWiseEmailList -->
+        </div>
+
+        <!-- <hr style="margin: 0;"> -->
+        <div class="autoReplySec">
+          <div class="txtSize accordion1" style="
+              display: flex;
+              flex-direction: column;
+              padding: 0;
+              background: none;
+              border: none;
+            ">
+            <textarea class="searchBox" id="supportReplyId" placeholder="Enter reply..." rows="6">
+Hi there,
+
+Thank you for contacting customer care.
+
+
+Kind regards,
+
+James Harris
+
+                        </textarea>
+            <div style="
+                padding-top: 10px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+              ">
+              <div style="height: 27px; width: 20px; margin-right: 8px">
+                <img style="width: 100%; height: 100%; object-fit: contain"
+                  src="/admin/assets/icons/{brand}-icon.svg" />
+              </div>
+              <button class="btn3" onclick="replyOnEmail();" id="replyBtnId" style="width: 90px">
+                Reply
+              </button>
+            </div>
+
+            <button class="btn3" style="width: 170px" id="viewMoreReplyBtnId" onclick="viewMoreAutoReplies();">
+              + View all auto replies
+            </button>
+            <div id="hideMoreAutoReplies" style="display: none">
+              {moreautoreplies}
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="txtSize autoReplySec" style="padding: 10px;height: 60px;">
+
+                   
+
+                </div> -->
+
+        {mainautoreplies}
+      </div>
+    </div>
+
+    <div class="box3 dshadow">
+      <a class="fontBold">Search all orders</a>
+      <p style="display: flex">
+        <input type="text" class="searchBox" autocomplete="off" style="width: 68%" id="searchOrderId" />
+        <button class="btn3" style="float: none; width: 100px" onclick="searchOperations('order')">
+          Search
+        </button>
+      </p>
+      <div id="searchOrdersDivId"></div>
+    </div>
+    <div class="box3 dshadow">
+      <a class="fontBold">Search all users</a>
+      <p style="display: flex">
+        <input type="text" autocomplete="off" class="searchBox" style="width: 68%" id="searchUserId" />
+        <button class="btn3" style="float: none; width: 100px" onclick="searchOperations('user')">
+          Search
+        </button>
+      </p>
+      <div id="searchUsersDivId"></div>
+    </div>
+
+    <div class="box3 dshadow">
+      <div style="display: flex; justify-content: space-between">
+        <a class="fontBold" style="display: block; margin-bottom: 13px">Orders In Progress</a>
+        <div style="height: 27px; width: 20px">
+          <img style="width: 100%; height: 100%; object-fit: contain" src="/admin/assets/icons/{brand}-icon.svg" />
+        </div>
+      </div>
+      <div id="customerOrdersId">
+        <!-- @IPcustomerOrderList -->
+        <a class="supportemails" href="{customerOrderUrl}" target="_blank" class="fontBold txtSize accordion">
+          {customerOrder} - <span>{customerOrderUnixtime}</span>
+        </a>
+        <span>{customerOrderStatus}</span>
+        <!-- @IPcustomerOrderList -->
+      </div>
+    </div>
+    <div class="box3 dshadow">
+      <div style="display: flex; justify-content: space-between">
+        <a class="fontBold" style="display: block; margin-bottom: 13px">Completed orders</a>
+        <div style="height: 27px; width: 20px">
+          <img style="width: 100%; height: 100%; object-fit: contain" src="/admin/assets/icons/{brand}-icon.svg" />
+        </div>
+      </div>
+      <div id="customerOrdersId">
+        <!-- @ComcustomerOrderList -->
+        <a class="supportemails" href="{customerOrderUrl}" target="_blank" class="fontBold txtSize accordion">
+          {customerOrder} - <span>{customerOrderUnixtime}</span>
+        </a>
+        <span>{customerOrderStatus}</span>
+        <!-- @ComcustomerOrderList -->
+      </div>
+    </div>
+    <div class="box3 dshadow" id="customerInfoDivId">
+      <a class="fontBold">Customer account info</a>
+      <p>
+        <label class="font-size12">Company</label><br />
+        <img style="margin-left: 2px" src="/admin/assets/icons/{brand}.svg" alt="logo" />
+      </p>
+      <p>
+        <label class="font-size12">Username</label><br />
+        <input type="text" id="uName" autocomplete="off" class="searchBox" style="width: 100%" readonly />
+      </p>
+      <p>
+        <label class="font-size12">Orders</label><br />
+        <input type="text" id="uOrder" autocomplete="off" class="searchBox" style="width: 100%" readonly />
+      </p>
+      <!-- <p>
+                <label class="font-size12">Contact number</label><br>
+                <input type="text" autocomplete="off" class="searchBox" style="width: 100%;" readonly>
+            </p> -->
+      <p>
+        <label class="font-size12">Unsubscribe</label><br />
+        <input type="text" id="uUnsubscribe" autocomplete="off" class="searchBox" style="width: 100%" readonly />
+      </p>
+      <p>
+        <label class="font-size12">Added</label><br />
+        <input type="text" id="uAdded" autocomplete="off" class="searchBox" style="width: 100%" readonly />
+      </p>
+      <p>
+        <label class="font-size12">Free autolikes</label><br />
+        <input type="text" id="ufreeAutoLikes" autocomplete="off" class="searchBox" style="width: 100%" readonly />
+      </p>
+      <p>
+        <label class="font-size12">Free autolikes number</label><br />
+        <input type="text" id="uFreeAutoLikesNo" autocomplete="off" class="searchBox" style="width: 100%" readonly />
+      </p>
+      <p>
+        <label class="font-size12">Last login</label><br />
+        <input type="text" id="uLastLogin" autocomplete="off" class="searchBox" style="width: 100%" readonly />
+      </p>
+      <p>
+        <label class="font-size12">Password updated</label><br />
+        <input type="text" id="uPwdUpdate" autocomplete="off" class="searchBox" style="width: 100%" readonly />
+      </p>
+      <p>
+        <label class="font-size12">Reset pwtime</label><br />
+        <input type="text" id="uResetPwdTime" autocomplete="off" class="searchBox" style="width: 100%" readonly />
+      </p>
+    </div>
+    <div class="box3 dshadow">
+      <a class="fontBold">Customer notes</a>
+      <p>
+        <textarea class="searchBox" style="width: 100%" rows="5" id="customerNotesId">
+        </textarea>
+      </p>
+      <!-- <button class="modal-button btn3" id="viewNotesBtnId"  href="#viewNotesModal"
+                style="width:110px;float:left;">View notes</button> -->
+      <button class="btn3" id="notesBtnId" style="width: 90px" onclick="submitCustomerNotes();">
+        Submit
+      </button>
+      <br /><br /><br />
+      <div id="allNotesId"></div>
+    </div>
+  </div>
+  <!-- The Modal -->
+  <div id="submitReportModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="max-height: 600px; overflow-y: auto">
+      <span class="close" style="margin-top: -10px">&times;</span>
+      <span class="fontBold">Submit Report</span>
+      <br />
+      <br />
+      <select id="orderSelectId" class="searchBox">
+        {htmOption}
+      </select>
+      <br />
+      <br />
+      <textarea class="searchBox" id="submitReportId" placeholder="Enter report..." style="width: 100%"
+        rows="6"></textarea>
+      <button class="btn3" style="width: 100px" onclick="submitReportOnEmail();">
+        Submit
+      </button>
+    </div>
+  </div>
+
+  <div id="searchEmailModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="max-height: 600px; overflow-y: auto">
+      <span class="close" style="margin-top: -10px">&times;</span>
+      <span class="fontBold">View Notes</span>
+      <div id="allSearchedEmailId" style="white-space: pre-line; display: grid; word-break: break-all"></div>
+    </div>
+  </div>
+
+  <div id="emailSendModal" class="modal">
+    <div class="modal-content" style="max-height: 600px; overflow-y: auto">
+      <span class="close" style="margin-top: -10px">&times;</span>
+      <span class="fontBold">Send Email</span>
+      <br />
+      <br />
+      <input class="searchBox" style="width: 100%" type="text" placeholder="Send to" id="emailTo" />
+      <br />
+      <br />
+      <input class="searchBox" style="width: 100%" type="text" placeholder="Enter subject" id="emailSubject" />
+      <br />
+      <br />
+      <textarea class="searchBox" id="emailMessage" placeholder="Enter message..." style="width: 100%"
+        rows="6"></textarea>
+      <button class="btn3" style="width: 100px; margin-top: 10px" onclick="sendEmail();">
+        Send
+      </button>
+    </div>
+  </div>
+
+  <div id="attachmentModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="max-height: 600px; overflow-y: auto">
+      <span class="close" style="margin-top: -10px">&times;</span>
+      <span class="fontBold">Attachments</span>
+      <br />
+
+      <div>
+        <ul id="attachmentListId"></ul>
+      </div>
+      <br />
+      <br />
+    </div>
+  </div>
+</main>
+
+<script>
+  try {
+    document.addEventListener('DOMContentLoaded', () => {
+      const autoReplySec = document.querySelector(".email-support .msg-container:last-child");
+      window.scrollTo(0, autoReplySec.offsetTop - 200);
+      // Disable automatic scroll restoration
+      if ('history' in window && 'scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  }
+
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      /* this.classList.toggle("active"); */
+      this.style.background = "#00000";
+      /* var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            } */
+    });
+  }
+
+  /* Get the button that opens the modal */
+  var btn = document.querySelectorAll("button.modal-button");
+
+  /* All page modals */
+  var modals = document.querySelectorAll(".modal");
+
+  /* Get the <span> element that closes the modal */
+  var spans = document.getElementsByClassName("close");
+  /* When the user clicks the button, open the modal */
+  for (var i = 0; i < btn.length; i++) {
+    btn[i].onclick = function (e) {
+      e.preventDefault();
+      modal = document.querySelector(e.target.getAttribute("href"));
+      modal.style.display = "block";
+    };
+  }
+
+  /* When the user clicks on <span> (x), close the modal */
+  for (var i = 0; i < spans.length; i++) {
+    spans[i].onclick = function () {
+      for (var index in modals) {
+        if (typeof modals[index].style !== "undefined")
+          modals[index].style.display = "none";
+      }
+    };
+  }
+
+  /* 
+     When the user clicks anywhere outside of the modal, close it
+     window.onclick = function(event) {
+         if (event.target.classList.contains('modal')) {
+             for (var index in modals) {
+                 if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";
+             }
+         }
+     } 
+    */
+
+  $("#searchEmailsBtnId").click(function () {
+    searchOperations("email");
+  });
+
+  function populateAutoReply(key) {
+    var autoReply = $("#autoReply" + key)
+      .html()
+      .trim();
+
+    $("#supportReplyId").val(autoReply);
+
+    $("#supportReplyId").each(function () {
+      this.setAttribute(
+        "style",
+        "height:" + this.scrollHeight + "px;overflow-y:hidden;"
+      );
+    });
+
+    $("html, body").animate(
+      {
+        scrollTop: $("#supportReplyId").offset().top - 300,
+      },
+      "fast"
+    );
+
+    return false;
+  }
+
+  function getSpamEmails(id) {
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "spamEmails",
+      },
+      dataType: "json",
+      success: function (data) {
+        var i;
+        var htm = "";
+        if (data != null) {
+          for (i = 0; i < data.length; i++) {
+            htm +=
+              '<a href="/admin/email-support/?spamEmail=1&email=' +
+              data[i].emailId.replace("+", "thisisaplusspace") +
+              "&amp;id=leftMenuSpamEmails" +
+              i +
+              '" class="supportemails" id="leftMenuSpamEmails' +
+              i +
+              '">' +
+              data[i].emailId +
+              "" +
+              "</a>";
+          }
+          $("#spamEmailCountId").html("(" + data.length + ")");
+        } else {
+          htm =
+            '<span style="text-align:center;display: block;padding-bottom: 17px;">All done spam done!</span>';
+        }
+
+        $("#spamEmailsId").html(htm);
+        $("#cover-spin").hide();
+        $("#revealSpamBtnId").hide();
+        $("#" + id).addClass("highlightClassLeftMenu");
+      },
+    });
+  }
+
+  function showMoreEmail(key, type, id, emailType) {
+    if (type == "Popup") {
+      /*SHOW MESSAGE*/
+
+      if ($("#" + type + "showMoreBtn" + key).text() == "Show") {
+        $("#" + type + "showMoreBtn" + key).text("Hide");
+        $("#" + type + "NextDisplayChar" + key).show();
+      } else {
+        /*HIDE MESSAGE*/
+        $("#" + type + "showMoreBtn" + key).text("Show");
+        $("#" + type + "NextDisplayChar" + key).hide();
+      }
+    } else {
+      var val;
+      if ($("#showMoreBtn" + key).text() == "Show") {
+        val = 0;
+      } else {
+        val = 1;
+      }
+
+      $("#cover-spin").show();
+      $.ajax({
+        url: "/admin/api/email-support-handler.php",
+        type: "POST",
+        data: {
+          type: "showMoreEmail",
+          id: id,
+          value: val,
+          emailType: emailType,
+        },
+        dataType: "json",
+        success: function (data) {
+          /* alert(data.Message); */
+          $("#cover-spin").hide();
+          if ($("#showMoreBtn" + key).text() == "Show") {
+            $("#showMoreBtn" + key).text("Hide");
+            /*$("#NextDisplayChar" + key).show();*/
+
+            $("#NextDisplayChar" + key)
+              .parent()
+              .parent()
+              .parent()
+              .removeClass("hidemessagefull");
+            $("#NextDisplayChar" + key)
+              .parent()
+              .parent()
+              .parent()
+              .addClass("showmessagefull");
+          } else {
+            $("#showMoreBtn" + key).text("Show");
+            /* $("#NextDisplayChar" + key).hide(); */
+            $("#NextDisplayChar" + key)
+              .parent()
+              .parent()
+              .parent()
+              .removeClass("showmessagefull");
+            $("#NextDisplayChar" + key)
+              .parent()
+              .parent()
+              .parent()
+              .addClass("hidemessagefull");
+          }
+        },
+      });
+    }
+  }
+
+  function viewMoreAutoReplies() {
+    if ($("#viewMoreReplyBtnId").text() == "+ View all auto replies") {
+      $("#viewMoreReplyBtnId").text("- Hide all auto replies");
+      $("#hideMoreAutoReplies").show();
+    } else {
+      $("#viewMoreReplyBtnId").text("+ View all auto replies");
+      $("#hideMoreAutoReplies").hide();
+    }
+  }
+
+  function replyOnEmail() {
+    var emailUid = {globLastEmailUid};
+    var reply = $("#supportReplyId").val().trim();
+    if (reply == "") {
+      alert("reply can't be blank");
+      return;
+    }
+    var subject = $("#customerEmailSubjectId").html().trim();
+    var emailId = $("#customerEmailId").text().trim();
+
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "replyOnEmail",
+        emailUid: emailUid,
+        emailId: emailId,
+        reply: reply,
+        subject: subject,
+      },
+      dataType: "json",
+      success: function (data) {
+        /*alert(data.Message);*/
+        location.reload();
+        $("#cover-spin").hide();
+      },
+    });
+  }
+
+  function markDone() {
+    let text = "Are you sure to mark it done?";
+    if (confirm(text) == true) {
+      var emailId = $("#customerEmailId").text().trim();
+
+      $("#cover-spin").show();
+      $.ajax({
+        url: "/admin/api/email-support-handler.php",
+        type: "POST",
+        data: {
+          type: "markDone",
+          emailId: emailId,
+        },
+        dataType: "json",
+        success: function (data) {
+          /*alert(data.Message);*/
+          window.location.href = "/admin/email-support/";
+        },
+      });
+    }
+  }
+
+  function blockConversation() {
+    var value = $("#deleteBtnId").attr("data-value");
+    let text = "";
+    if (value == 0) {
+      text = "Are you sure to unblock this conversation?";
+    } else {
+      text = "Are you sure to block this conversation?";
+    }
+
+    if (confirm(text) == true) {
+      var emailId = $("#customerEmailId").text().trim();
+
+      $("#cover-spin").show();
+      $.ajax({
+        url: "/admin/api/email-support-handler.php",
+        type: "POST",
+        data: {
+          type: "blockConversation",
+          emailId: emailId,
+          value: value,
+        },
+        dataType: "json",
+        success: function (data) {
+          alert(data.Message);
+          window.location.href = "/admin/email-support/";
+        },
+      });
+    }
+  }
+
+  function searchOperations(searchType) {
+    var key;
+    var emailId = $("#customerEmailId").text().trim();
+    switch (searchType) {
+      case "order":
+        key = $("#searchOrderId").val();
+        if (key.trim() == "") {
+          alert("key can't be blank");
+          $("#searchOrdersDivId").html("No Records");
+          return;
+        }
+        break;
+      case "user":
+        key = $("#searchUserId").val();
+        if (key.trim() == "") {
+          alert("key can't be blank");
+          $("#searchUsersDivId").html("No Records");
+          return;
+        }
+        break;
+      case "email":
+        key = $("#searchEmailId").val();
+
+        if (key.trim() == "") {
+          alert("key can't be blank");
+          $("#allSearchedEmailId").html("No Records");
+          return;
+        }
+        break;
+    }
+
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "searchOperations",
+        searchType: searchType,
+        key: key,
+        emailId: emailId,
+      },
+      dataType: "json",
+      success: function (data) {
+        var elem;
+        var paramType;
+        var page;
+        switch (searchType) {
+          case "order":
+            $("#searchOrdersDivId").html("");
+            elem = $("#searchOrdersDivId");
+            paramType = "orderid";
+            page = "/admin/check-user/";
+            break;
+          case "user":
+            $("#searchUsersDivId").html("");
+            elem = $("#searchUsersDivId");
+            paramType = "user";
+            page = "/admin/check-account/";
+            break;
+          case "email":
+            $("#allSearchedEmailId").html("");
+            elem = $("#allSearchedEmailId");
+            break;
+        }
+
+        var i;
+        var htm = "";
+        if (data != null) {
+          var record;
+          if (searchType == "email") {
+            var i;
+            var htm = "";
+            var emailUnixTime = "";
+            var emailDate = "";
+            var emailTime = "";
+            var firstDisplayChar = "";
+            var NextDisplayChar = "";
+            var classForDisplayMessage = "";
+            var btnText = "";
+            for (i = 0; i < data.length; i++) {
+              emailUnixTime = timeConverter(data[i].emailDate).split("-");
+              emailDate = emailUnixTime[0];
+              emailTime = emailUnixTime[1];
+              firstDisplayChar = data[i].subject;
+
+              if (i < data.length - 1) {
+                classForDisplayMessage = "NextDisplayChar";
+                btnText = "Show Message";
+              } else {
+                classForDisplayMessage = "";
+                btnText = "Hide Message";
+              }
+              NextDisplayChar =
+                '<span class="' +
+                classForDisplayMessage +
+                '" id="PopupNextDisplayChar' +
+                i +
+                '"><hr/><br/>' +
+                data[i].email +
+                "</span>";
+
+              htm =
+                "" +
+                '<div class="txtSize accordion1" style="min-height: 110px;">' +
+                '    <a class="fontBold ">' +
+                emailId +
+                "</a><br>" +
+                "        <div>" +
+                '            <a class="pull-right">' +
+                emailDate +
+                " " +
+                emailTime +
+                "</a><br>" +
+                '            <button class="btn3" style="width:170px;" id="PopupshowMoreBtn' +
+                i +
+                '"  onclick="showMoreEmail(' +
+                i +
+                ",'Popup', '', '');\">" +
+                btnText +
+                "</button>" +
+                "        </div>" +
+                "    <div>" +
+                "        <div><span>" +
+                "          " +
+                firstDisplayChar +
+                "</span>" +
+                NextDisplayChar +
+                "  " +
+                "        </div> " +
+                "    </div>" +
+                "</div>";
+              elem.append(htm);
+            }
+          } else {
+            for (i = 0; i < data.length; i++) {
+              record = data[i].record.split("-");
+              record = record[0].replace("#", "");
+              htm =
+                "" +
+                '<a class="supportemails" href="' +
+                page +
+                "?" +
+                paramType +
+                "=" +
+                record +
+                '" target="_blank" class="fontBold txtSize accordion">' +
+                "    " +
+                data[i].record +
+                " " +
+                "    " +
+                "</a>";
+              elem.append(htm);
+            }
+          }
+        } else {
+          elem.html("No Records");
+        }
+
+        $("#cover-spin").hide();
+      },
+    });
+  }
+
+  function submitReportOnEmail() {
+    var emailUid = {globLastEmailUid};
+    var emailsubject = "{recentSubject}";
+    var report = $("#submitReportId").val().trim();
+    if (report == "") {
+      alert("Report can't be blank");
+      return;
+    }
+    var orderId = $("#orderSelectId").val();
+    /*if (orderId == "") {
+            alert("Please select orderId");
+            return;
+        }*/
+    var emailId = $("#customerEmailId").text().trim();
+
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "submitReportOnEmail",
+        emailId: emailId,
+        orderId: orderId,
+        report: report,
+        emailUid: emailUid,
+        emailsubject: emailsubject,
+      },
+      dataType: "json",
+      success: function (data) {
+        alert(data.Message);
+        location.reload();
+      },
+    });
+  }
+
+  function submitCustomerNotes() {
+    var notes = $("#customerNotesId").val().trim();
+    if (notes == "") {
+      alert("notes can't be blank");
+      return;
+    }
+    var emailId = $("#customerEmailId").text().trim();
+
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "submitCustomerNotes",
+        emailId: emailId,
+        notes: notes,
+      },
+      dataType: "json",
+      success: function (data) {
+        alert(data.Message);
+        $("#customerNotesId").val("");
+        $("#cover-spin").hide();
+        getCustomerNotes();
+      },
+    });
+  }
+
+  function getCustomerNotes() {
+    var emailId = $("#customerEmailId").text().trim();
+
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "getCustomerNotes",
+        emailId: emailId,
+      },
+      dataType: "json",
+      success: function (data) {
+        $("#allNotesId").html("");
+
+        var i;
+        var htm = "";
+        var emailUnixTime = "";
+        /*
+                 var emailDate = "";
+                 var emailTime = "";
+                */
+        if (data != null) {
+          for (i = 0; i < data.length; i++) {
+            emailUnixTime = timeConverter(data[i].dateAdded).split("-");
+            /*
+                         emailDate = emailUnixTime[0];
+                         emailTime = emailUnixTime[1];
+                        */
+
+            htm =
+              "" +
+              '<div class="txtSize accordion1">' +
+              "        <div><span>" +
+              "          " +
+              data[i].notes +
+              "</span>" +
+              "        </div> " +
+              "        <div>" +
+              '            <a style="font-size: 10px;">' +
+              emailUnixTime +
+              "</a> <br> " +
+              /*'            <a>' + emailDate + '</a><br>' + */
+              "        </div>" +
+              "</div>";
+            $("#allNotesId").append(htm);
+          }
+        } else {
+          $("#allNotesId").append("No records");
+        }
+
+        $("#cover-spin").hide();
+      },
+    });
+  }
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      getCustomerNotes();
+      getCustomerInfo();
+      var url = window.location.href;
+      var url = new URL(url);
+      var id = url.searchParams.get("id");
+      $("#" + id).addClass("highlightClassLeftMenu");
+
+      var spamEmail = url.searchParams.get("spamEmail");
+
+      if (spamEmail == "1") {
+        getSpamEmails(id);
+      }
+    },
+    false
+  );
+  function getCustomerInfo() {
+    var emailId = $("#customerEmailId").text().trim();
+
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "getCustomerInfo",
+        emailId: emailId,
+      },
+      dataType: "json",
+      success: function (data) {
+        $("#customerInfoDivId").find("input:text").val("");
+
+        $("#uName").val(data.username);
+        $("#uOrder").val(data.orders);
+        $("#uUnsubscribe").val(data.unsubscribe);
+        if (typeof data.added != "undefined")
+          $("#uAdded").val(timeConverter(data.added).split("-")[0]);
+        $("#ufreeAutoLikes").val(data.freeautolikes);
+        $("#uFreeAutoLikesNo").val(data.freeautolikesnumber);
+        if (typeof data.lastlogin != "undefined")
+          $("#uLastLogin").val(timeConverter(data.lastlogin).split("-")[0]);
+        if (typeof data.passwupdated != "undefined")
+          $("#uPwdUpdate").val(timeConverter(data.passwupdated).split("-")[0]);
+        $("#uResetPwdTime").val(data.resetpwtime);
+      },
+    });
+  }
+
+  function timeConverter(UNIX_timestamp) {
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+
+    if (hour < 10) {
+      hour = "0" + hour;
+    }
+    if (min < 10) {
+      min = "0" + min;
+    }
+    /* var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec; */
+    var time = date + " " + month + " " + year + "-" + hour + ":" + min;
+
+    return time;
+  }
+  window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+    /* alert(scroll) */
+    if (scroll > 50) {
+      $(".headerAllEmail").addClass("stickyheaderall");
+      /*$('.headerAllEmail').css("top", 0);*/
+    } else {
+      $(".headerAllEmail").removeClass("stickyheaderall");
+    }
+  });
+
+  $(".box1").height($(document).height());
+  $(".box2").height($(document).height());
+
+  $("#supportReplyId")
+    .each(function () {
+      this.setAttribute(
+        "style",
+        "height:" + this.scrollHeight + "px;overflow-y:hidden;"
+      );
+    })
+    .on("input", function () {
+      this.style.height = 0;
+      this.style.height = this.scrollHeight + "px";
+    });
+
+  function sendEmail() {
+    var emailTo = $("#emailTo").val().trim();
+    var emailsubject = $("#emailSubject").val().trim();
+    var emailMessage = $("#emailMessage").val().trim();
+
+    if (emailTo == "") {
+      alert("Email to can't be blank");
+      return;
+    }
+    if (emailsubject == "") {
+      alert("Email Subject can't be blank");
+      return;
+    }
+    if (emailMessage == "") {
+      alert("Email message can't be blank");
+      return;
+    }
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "sendEmail",
+        emailTo: emailTo,
+        emailsubject: emailsubject,
+        emailMessage: emailMessage,
+      },
+      dataType: "json",
+      success: function (data) {
+        $("#cover-spin").hide();
+        alert(data.Message);
+        location.reload();
+      },
+    });
+  }
+
+  function openModalSendEmail() {
+    $("#emailSendModal").attr("style", "display:block;");
+  }
+
+  function openAttachmentsModal(id) {
+    var emailId = id;
+
+    if (emailId == "") {
+      alert("Id can't be blank");
+      return;
+    }
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "attachments",
+        emailId: emailId,
+      },
+      dataType: "json",
+      success: function (data) {
+        $("#cover-spin").hide();
+
+        if (data != null) {
+          var i;
+          var htm = "";
+          for (i = 0; i < data.length; i++) {
+            ext = get_url_extension(data[i].attachmentFilePath);
+            if (ext == "jpg" || ext == "png") {
+              htm +=
+                '<li><img src="' +
+                data[i].attachmentFilePath +
+                '" style="width:200px"></li>';
+            } else {
+              htm +=
+                '<li><a href="' +
+                data[i].attachmentFilePath +
+                '" target="_blank">file' +
+                (i + 1) +
+                "</a></li>";
+            }
+          }
+          $("#attachmentListId").html(htm);
+        } else {
+          $("#attachmentListId").html("No Attachments");
+        }
+
+        $("#attachmentModal").attr("style", "display:block;");
+      },
+    });
+  }
+
+  function get_url_extension(url) {
+    return url.split(/[#?]/)[0].split(".").pop().trim();
+  }
+  $("#cover-spin").hide();
+
+  function callCopyFunc(num) {
+    
+    const textElement = document.getElementById('NextDisplayChar' + num);
+
+    if (!textElement) {
+      console.error('Element not found: NextDisplayChar' + num);
+      return;
+    }
+
+      const textToCopy = textElement.innerText;
+
+      const textarea = document.createElement('textarea');
+      textarea.value = textToCopy;
+      document.body.appendChild(textarea);
+
+      // Select the text
+      textarea.select();
+      textarea.setSelectionRange(0, 99999); // For mobile devices
+
+      try {
+        document.execCommand('copy');
+        document.getElementById('copyBtn' + num).innerHTML = "Copied!";
+      
+        setTimeout(function() {
+          document.getElementById('copyBtn' + num).innerHTML = "Copy Message";
+        }, 2000);
+
+        // alert('Text copied to clipboard!');
+      } catch (err) {
+        console.error('Failed to copy text using execCommand: ', err);
+      }
+
+      document.body.removeChild(textarea);
+  }
+
+
+  function callCheckIsPrivate(elem) {
+
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email'); 
+
+    $("#cover-spin").show();
+    $.ajax({
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "callCheckIsPrivate",
+        email : email
+      },
+      dataType: "json",
+      success: function (data) {
+        var i;
+        var htm = "";
+        if (data != null) {
+
+          for (i = 0; i < data.length; i++) {
+
+            if(data[i]['isprivate'] == "yes"){
+                htm += '<button class="btn1" style="width: unset;border: solid 1px #ddd;background: white;color: black;border-radius: 4px !important;">@'+ data[i]['username'] +' (<span style="color:red;font-weight:bold;">Priv</span>)</button>';
+            }else{
+                htm += '<button class="btn1" style="width: unset;border: solid 1px #ddd;background: white;color: black;border-radius: 4px !important;">@'+ data[i]['username'] +' (<span style="color:darkgreen;font-weight:bold;">Public</span>)</button>';
+            }
+          }
+          $(elem).hide();
+        }
+
+        $("#plotAccountStatusBtns").html(htm);
+        $("#cover-spin").hide();
+      },
+    });
+  }
+</script>

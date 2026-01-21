@@ -1,0 +1,309 @@
+<files *.html>
+SetOutputFilter DEFLATE
+</files>
+
+
+<FilesMatch "^\.env$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+Options All -Indexes
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# DON'T ENABLE THIS CODE OR THE SELECT POST PAGE WILL BREAK
+# RewriteCond expr "tolower(%{REQUEST_URI}) =~ /(.*)/"
+# RewriteRule [A-Z] %1 [R,L]
+
+RewriteCond %{THE_REQUEST} \s[^?]*//
+RewriteRule ^.*$ /$0 [R,L,NE]
+
+ErrorDocument 404 /error_404.php
+
+# United Kingdom, United States and Worldwide
+RewriteRule ^/$ index.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^blog/$ blog.php?&%{QUERY_STRING} [L]
+RewriteRule ^blog/([^/]*)$ article.php?url=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk)/blog/$ blog.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk)/blog/([^/]*)$ article.php?loc=$1&url=$2&%{QUERY_STRING} [L]
+
+RewriteRule ^load-selected-posts/([^/]*)$ load-selected-posts.php?&%{QUERY_STRING} [L]
+
+# RewriteRule ^thumb/([^/]*)$ download-thumbs.php?shortcode=$1&%{QUERY_STRING} [L]
+RewriteRule ^thumb/([^/]*)$ download-thumbs-lambda.php?shortcode=$1&%{QUERY_STRING} [L]
+RewriteRule ^download-thumb/([^/]*)$ download-thumbs-tiktok.php?shortcode=$1&%{QUERY_STRING} [L]
+RewriteRule ^api/([^/]*)$ getpost.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^api-load-1/([^/]*)$ preloadpost.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^api-load-2/([^/]*)$ preloadpost-2.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^api-load-1-tiktok/([^/]*)$ preloadpost-tiktok.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^api-v2/([^/]*)$ getpost-3.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^api-load-more-post/([^/]*)$ load-more-posts.php?id=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^automatic-instagram-likes/$ automatic-instagram-likes.php?&%{QUERY_STRING} [L]
+RewriteRule ^buy-instagram-followers/$ buy-instagram-followers.php?&%{QUERY_STRING} [L]
+RewriteRule ^buy-instagram-likes/$ buy-instagram-likes.php?&%{QUERY_STRING} [L]
+RewriteRule ^buy-instagram-views/$ buy-instagram-views.php?&%{QUERY_STRING} [L]
+RewriteRule ^buy-instagram-comments/$ buy-instagram-comments.php?&%{QUERY_STRING} [L]
+RewriteRule ^buy-tiktok-followers/$ buy-tiktok-followers.php?&%{QUERY_STRING} [L]
+RewriteRule ^buy-tiktok-likes/$ buy-tiktok-likes.php?&%{QUERY_STRING} [L]
+RewriteRule ^buy-tiktok-views/$ buy-tiktok-views.php?&%{QUERY_STRING} [L]
+RewriteRule ^track-my-order/([^/]*)$ track-my-order-3.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^track-my-order/([^/]*)/([^/]*)$ track-my-order-3.php?id=$1&uid=$2&%{QUERY_STRING} [L]
+RewriteRule ^free-followers/$ freetrial.php?&%{QUERY_STRING} [L]
+RewriteRule ^tiktok-free-followers/$ free-packages/tt-freetrial.php?&%{QUERY_STRING} [L]
+RewriteRule ^free-followers2/$ free-packages/freetrial.php?&%{QUERY_STRING} [L]
+RewriteRule ^activate-discount/$ discountcreator.php?&%{QUERY_STRING} [L]
+RewriteRule ^.well-known/apple-developer-merchantid-domain-association$ .well-known/apple-developer-merchantid-domain-association.txt?&%{QUERY_STRING} [L]
+
+RewriteRule ^a/([^/]*)$ bitly.php?id=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^instagram-follower-count/$ instagram-follower-count.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^instagram-profile-picture-viewer/$ instagram-profile-picture-viewer.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^instagram-story-downloader/$ instagram-story-downloader.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^instagram-video-downloader/$ instagram-video-downloader.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^free-instagram-followers/$ free-packages/freefollowers_landing.php?&%{QUERY_STRING} [L]
+RewriteRule ^free-instagram-likes/$ free-packages/freelikes_landing.php?&%{QUERY_STRING} [L]
+RewriteRule ^free-tiktok-followers/$ free-packages/tiktok_freefollowers_landing.php?&%{QUERY_STRING} [L]
+RewriteRule ^free-tiktok-likes/$ free-packages/tiktok_freelikes_landing.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^about-us/$ about-us-2.php?&%{QUERY_STRING} [L]
+RewriteRule ^contact-us/$ contact-us.php?&%{QUERY_STRING} [L]
+RewriteRule ^faq/$ faq.php?&%{QUERY_STRING} [L]
+RewriteRule ^faq/([^/]*)$ faq.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^faq-tt/$ faq-tt.php?&%{QUERY_STRING} [L]
+RewriteRule ^faq-tt/([^/]*)$ faq-tt.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^terms-of-service/$ tos/tos.php?&%{QUERY_STRING} [L]
+RewriteRule ^privacy-policy/$ privacy-policy.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^forgot-password/$ account/forgotPassword.php?&%{QUERY_STRING} [L]
+RewriteRule ^reset-password/$ account/reset_pass.php?&%{QUERY_STRING} [L]
+RewriteRule ^sign-up/$ account/register.php?&%{QUERY_STRING} [L]
+RewriteRule ^login/$ account/login.php?&%{QUERY_STRING} [L]
+RewriteRule ^logout/$ account/logout.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^admin/login/$ admin/login.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^order/choose/([^/]*)$ orderselect.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^order/select/$ order2-select.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/details/$ order1.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/select-comments/$ order-select-comments.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/review/$ order2.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/payment/$ order3-acquired.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/payment-new/$ order3-acquired.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/payment-b/$ order3-acquired-b.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/payment-secure/$ order3-cardinity-2.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/checkout/$ order3-new2.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/payment-processing/$ order3-6.php?&%{QUERY_STRING} [L]
+RewriteRule ^free-package/processing/$ free-processing.php?&%{QUERY_STRING} [L]
+RewriteRule ^free-package-process/$ free-packages/freelikeprocess.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/finish/$ order4-1.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/finish-enter-number/$ order-finish-enter-number.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/selectlink/$ orderselectlink.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^account/load-dashboard/$ account/load-dashboard.php?&%{QUERY_STRING} [L]
+RewriteRule ^account/dashboard/$ account/dashboard.php?&%{QUERY_STRING} [L]
+RewriteRule ^account/automatic-likes/$ account/automatic-likes.php?&%{QUERY_STRING} [L]
+RewriteRule ^account/automatic-likes-select/([^/]*)$ account/al-select.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^account/checkout/([^/]*)$ account/al-checkout.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^account/al-checkout/([^/]*)$ account/al-cardinity-checkout.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^account/orders/$ account/orders.php?&%{QUERY_STRING} [L]
+RewriteRule ^account/settings/$ account/settings.php?&%{QUERY_STRING} [L]
+RewriteRule ^account/settings/billing/([^/]*)$ account/billing-2.php?&%{QUERY_STRING} [L]
+RewriteRule account/edit/([^/]*)$ account/manage-auto-likes.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^account/tools/$ account/tools.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^account/freeautolikes/$ account/freeautolikes.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^free-likes/$ free-packages/freelikes.php?&%{QUERY_STRING} [L]
+RewriteRule ^tiktok-free-likes/$ free-packages/tt-freelikes.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/$ index.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/buy-instagram-followers/$ buy-instagram-followers.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/buy-instagram-likes/$ buy-instagram-likes.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/buy-instagram-views/$ buy-instagram-views.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/buy-instagram-comments/$ buy-instagram-comments.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/buy-tiktok-followers/$ buy-tiktok-followers.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/buy-tiktok-likes/$ buy-tiktok-likes.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/buy-tiktok-views/$ buy-tiktok-views.php?loc=$1&%{QUERY_STRING} [L]
+
+
+RewriteRule ^(uk|us)/track-my-order/([^/]*)$ track-my-order-3.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/track-my-order/([^/]*)/([^/]*)$ track-my-order-3.php?loc=$1&id=$2&uid=$3&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/free-followers/$ freetrial.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/free-followers2/$ free-packages/freetrial.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/tiktok-free-followers/$ free-packages/tt-freetrial.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/free-likes/$ free-packages/freelikes.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/tiktok-free-likes/$ free-packages/tt-freelikes.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/activate-discount/$ discountcreator.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/automatic-instagram-likes/$ automatic-instagram-likes.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/a/([^/]*)$ bitly.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/api/([^/]*)$ getpost.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/api-v2/([^/]*)$ getpost-3.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/about-us/$ about-us-2.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/contact-us/$ contact-us.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/faq/$ faq.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/faq/([^/]*)$ faq.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/faq-tt/$ faq-tt.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/faq-tt/([^/]*)$ faq-tt.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/terms-of-service/$ tos/tos.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/privacy-policy/$ privacy-policy.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/forgot-password/$ account/forgotPassword.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/reset-password/$ account/reset_pass.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/sign-up/$ account/register.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/login/$ account/login.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/logout/$ account/logout.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/admin/login/$ admin/login.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/order/choose/([^/]*)$ orderselect.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/select/$ order2-select.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/details/$ order1.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/select-comments/$ order-select-comments.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/review/$ order2.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/payment/$ order3-acquired.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/payment-new/$ order3-acquired.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/payment-secure/$ order3-cardinity-2.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/checkout/$ order3-new2.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/payment-processing/$ order3-6.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/free-package/processing/$ free-processing.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/finish/$ order4-1.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/finish-enter-number/$ order-finish-enter-number.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/order/selectlink/$ orderselectlink.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/account/$ account/index.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/dashboard/$ account/dashboard.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/automatic-likes/$ account/automatic-likes.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/automatic-likes-select/([^/]*)$ account/al-select.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/checkout/([^/]*)$ account/al-checkout.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/al-checkout/([^/]*)$ account/al-cardinity-checkout.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/orders/$ account/orders.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/account-order3-acquired-3dv2.php$ account/account-order3-acquired-3dv2.php?loc=$1&redirectid=$2&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/settings/$ account/settings.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/settings/billing/([^/]*)$ account/billing-2.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/account/edit/([^/]*)$ account/manage-auto-likes.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/account/load-dashboard/([^/]*)$ account/load-dashboard.php?loc=$1&id=$2&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/unsubscribe.php$ unsubscribe.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/userquestions.php$ userquestions.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/load-selected-posts/([^/]*)$ load-selected-posts.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/account/auto-likes-free.php([^/]*)$ account/auto-likes-free.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/account/tools/$ account/tools.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/account/freeautolikes/$ account/freeautolikes.php?&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/free-likes/$ free-packages/freelikes.php?&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/free-instagram-followers/$ free-packages/freefollowers_landing.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/free-instagram-likes/$ free-packages/freelikes_landing.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/free-tiktok-followers/$ free-packages/tiktok_freefollowers_landing.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/free-tiktok-likes/$ free-packages/tiktok_freelikes_landing.php?loc=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^(uk|us)/instagram-follower-count/$ instagram-follower-count.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/instagram-profile-picture-viewer/$ instagram-profile-picture-viewer.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/instagram-story-downloader/$ instagram-story-downloader.php?loc=$1&%{QUERY_STRING} [L]
+RewriteRule ^(uk|us)/instagram-video-downloader/$ instagram-video-downloader.php?loc=$1&%{QUERY_STRING} [L]
+
+
+
+
+
+
+# Germany
+
+Redirect 301 /automatische-instagram-likes/ https://superviral.io/automatic-instagram-likes/
+Redirect 301 /instagram-follower-kaufen/ https://superviral.io/buy-instagram-followers/
+Redirect 301 /instagram-likes-kaufen/ https://superviral.io/buy-instagram-likes/
+Redirect 301 /instagram-views-kaufen/ https://superviral.io/buy-instagram-views/
+Redirect 301 /bestellung-verfolgen/ https://superviral.io/track-my-order/
+
+Redirect 301 /ueber-uns/ https://superviral.io/about-us/
+Redirect 301 /kontakt/ https://superviral.io/contact-us/
+Redirect 301 /faq/zahlungen/ https://superviral.io/faq/payments
+Redirect 301 /nutzungsbedingungen/ https://superviral.io/terms-of-service/
+
+Redirect 301 /konto/ https://superviral.io/account/
+Redirect 301 /passwort-vergessen/ https://superviral.io/forgot-password/
+Redirect 301 /anmelden/ https://superviral.io/sign-up/
+Redirect 301 /einloggen/ https://superviral.io/login/
+
+# Italy
+
+Redirect 301 /comprare-follower-instagram/ https://superviral.io/buy-instagram-followers/
+Redirect 301 /comprare-like-instagram/ https://superviral.io/buy-instagram-likes/
+Redirect 301 /comprare-visualizzazioni-instagram/ https://superviral.io/buy-instagram-views/
+Redirect 301 /traccia-mio-ordine/([/]*) https://superviral.io/track-my-order/
+
+Redirect 301 /chi-siamo/ https://superviral.io/about-us/
+Redirect 301 /contattaci/ https://superviral.io/contact-us/
+Redirect 301 /faq/pagamento/([/]*) https://superviral.io/faq/payments
+Redirect 301 /termini-del-servizio/ https://superviral.io/terms-of-service/
+
+Redirect 301 /resetta-password/ https://superviral.io/forgot-password/
+Redirect 301 /iscrizione/ https://superviral.io/sign-up/
+Redirect 301 /accesso/ https://superviral.io/login/
+
+
+# Spain
+
+Redirect 301 /comprar-seguidores-instagram/ https://superviral.io/buy-instagram-followers/
+Redirect 301 /comprar-likes-instagram/ https://superviral.io/buy-instagram-likes/
+Redirect 301 /comprar-visitas-instagram/ https://superviral.io/buy-instagram-views/
+Redirect 301 /rastrear-mi-orden/ https://superviral.io/track-my-order/
+
+Redirect 301 /acerca-de-nosotros/ https://superviral.io/about-us/
+Redirect 301 /contactanos/ https://superviral.io/contact-us/
+Redirect 301 /preguntas-frecuentes/ https://superviral.io/faq/
+Redirect 301 /preguntas-frecuentes/pagos/ https://superviral.io/faq/payments
+Redirect 301 /terminos-de-servicio/ https://superviral.io/terms-of-service/
+
+Redirect 301 /cuenta/ https://superviral.io/account/
+Redirect 301 /olvidado-tu-contrasena/ https://superviral.io/forgot-password/
+Redirect 301 /registrarse/ https://superviral.io/sign-up/
+Redirect 301 /iniciar-sesion/ https://superviral.io/login/
+
+# France
+
+Redirect 301 /acheter-des-followers-instagram/ https://superviral.io/buy-instagram-followers/
+Redirect 301 /acheter-des-likes-instagram/ https://superviral.io/buy-instagram-likes/
+Redirect 301 /acheter-des-vues-instagram/ https://superviral.io/buy-instagram-views/
+Redirect 301 /suivre-ma-commande/([/]*) https://superviral.io/track-my-order/
+
+Redirect 301 /a-propos-de-nous/ https://superviral.io/about-us/
+Redirect 301 /contactez-nous/ https://superviral.io/contact-us/
+Redirect 301 /faq/paiement/([/]*) https://superviral.io/faq/payments
+Redirect 301 /conditions-de-service/ https://superviral.io/terms-of-service/
+
+Redirect 301 /compte/ https://superviral.io/account/
+Redirect 301 /mot-passe-oublie/ https://superviral.io/forgot-password/
+Redirect 301 /s-inscrire/ https://superviral.io/sign-up/
+Redirect 301 /connexion/ https://superviral.io/login/
+
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php81” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

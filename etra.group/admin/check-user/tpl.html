@@ -1,0 +1,658 @@
+<!-- @meta -->
+
+<title>Check User</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<style>
+    {dontdosupportcss}
+    .box23 {
+        margin: 66px auto;
+        width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+    h1 {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .label {
+        margin-top: 35px;
+    }
+
+    .container div input,
+    .selectric,
+    .input,
+    .btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    .cke_reset_all {
+        background: #f7f7f7 !important;
+    }
+
+    .articles {
+        width: 100%;
+    }
+
+    .articles tr td {
+        border-bottom: 1px solid #f1f1f1;
+        padding: 19px 10px;
+        vertical-align: top
+    }
+
+    .articles tr td:first-child {
+        font-size: 19px;
+        width: 34%;
+        vertical-align: middle;
+    }
+
+    .articles tr:last-child td {
+        border-bottom: 0;
+    }
+
+    .status {
+        font-weight: bold;
+        height: 23px;
+        width: 55px;
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .btn {
+        margin: 0 !important;
+    }
+
+
+    .adminmenu {
+        display: inline-block;
+        background-color: white;
+        border-top: 1px solid #ccc;
+        width: 100%;
+    }
+
+    .adminmenu a {
+        float: left;
+        padding: 15px;
+    }
+
+    .perorder {
+        width: 100%;
+    }
+
+    .perorder tr:first-child td {
+        background-color: #ccc;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .perorder tr td:first-child {
+        width: 30%;
+        vertical-align: top;
+    }
+
+    .perorder tr td {
+        padding: 14px 5px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .perorder tr.grey td {
+        color: grey;
+    }
+
+    .perorder a {
+        text-decoration: underline;
+        color: blue;
+    }
+
+    .perorder a:hover {
+      color: darkblue;
+    }
+
+    .trackinginfo {
+        border-bottom: 1px dashed #e8e8e8;
+        margin-bottom: 2px;
+        padding: 11px;
+        font-size: 14px;
+        color: grey;
+    }
+
+    .trackinginfo .trackingheader {
+        font-weight: bold;
+    }
+
+    .report {
+        float: left;
+        width: initial;
+        margin-right: 10px !important;
+        border: 1px solid black !important;
+        color: black !important;
+        text-decoration: none !important;
+        background: transparent;
+    }
+
+    .report:hover {
+      color: #FFF !important;
+      background: #000 !important;
+    }
+
+    .reportmessage {
+        float: left;
+        width: 100%;
+        height: 120px;
+        box-sizing: border-box;
+        margin: 0px;
+        margin-bottom: 20px;
+        resize: vertical;
+        padding: 10px;
+        font-family: 'Open Sans';
+    }
+
+    .adminnotif {
+        font-size: 15px;
+        padding: 11px;
+        margin-bottom: 10px;
+    }
+
+    .language-less {
+        width: 1px;
+        height: 1px;
+        resize: none;
+    }
+
+    .foo {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 18px;
+    }
+
+    .rectifyinput {
+        width: 181px;
+        float: left;
+        margin-top: 0;
+        margin-right: 10px;
+    }
+
+    .summarytbl {
+        font-size: 14px;
+        width:100%;
+    }
+
+    .summarytbl tr:hover {
+        background-color: #e4fbff;
+    }
+
+    .summarytbl tr td {
+        border-bottom: 1px solid #dadada;
+        padding: 7px;
+    }
+
+    .searchspan {
+        font-size: 13px;
+        color: #4747bf;
+        line-height: 22px;
+        display: block;
+    }
+
+    .input {
+        width: 100%;
+        border-radius: 6px;
+        border: 1px solid #BEBEBE;
+    }
+
+    .tr-form .input {
+      margin-bottom: 18px;
+    }
+    article{
+      cursor: pointer;
+    }
+    
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 15%;
+  margin-top: 50px;
+ height: 230px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnActive{
+  background-color: #000;
+  color: #FFF !important;
+
+}
+</style>
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<!-- @script_tags -->
+
+
+
+<main>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <h1 style="text-align:center;margin-top:35px;">Check User 📦</h1>
+{dontdosupportdiv}
+
+    <div class="box23">
+
+
+
+        <form method="POST" action="">
+            <table class="articles">
+
+                <tr>
+
+                    <td>🏢 Company:</td>
+                    <td>
+                        <select class="input" id="company" name="company">
+                            <option disabled unselected>Select a company</option>
+                            <!-- @brand_options -->
+                            <option>{name}</option>
+                            <!-- @brand_options -->
+                        </select>                        
+                    </td>
+
+                </tr>
+
+                
+                <tr>
+
+                  <!-- <td> -->
+
+                    <input type="hidden" class="input" id="table" name="table" value="orders">
+                    <input type="hidden" class="input" id="post_type" name="post_type" value="{post_type}">
+                    
+                  <!-- </td> -->
+
+              </tr>
+
+                <tr>
+
+                    <td>👨👩 User:<span class="searchspan">Search by:<br>- Username<br>- email address<br>- orderid<br>- last four digit<br>- Payment Id</span></td>
+                    <td id="post_type_buttons">
+                      <a href="javascript:void(0);" onclick="makeActive('username',this)" class="btn btn3 report {btnUserActive}">Username</a>
+                      <a href="javascript:void(0);" onclick="makeActive('orderid',this)" class="btn btn3 report {btnOrderActive}">Order Id</a>
+                      <a href="javascript:void(0);" onclick="makeActive('email',this)" class="btn btn3 report {btnEmailActive}">Email</a>
+                      <a href="javascript:void(0);" onclick="makeActive('lastfour',this)" class="btn btn3 report {btnFourActive}">Last four digit</a>
+                      <a href="javascript:void(0);" onclick="makeActive('paymentid',this)" class="btn btn3 report {btnPaymentidActive}">Payment Id</a>
+                      <input name="user" style="margin-top: 15px;" class="input" value="{user}" autocomplete="off">
+                      
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td></td>
+                    <td><input style="float:left;" type="submit" id="submitBtnId" name="submit" class="btn btn-primary color3"
+                            value="Search"><a href="/admin/check-user/" class="btn btn3 report"
+                            style="float:right;">Reset Search</a>
+                        <a href="/admin/no-order-report/" class="btn btn3 report"
+                            style="float:right;">Submit No-Order Report</a>
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </form>
+
+    </div>
+
+    <div class="box23" style="display: flex;">
+      <a href="javascript:void(0);" onclick="submitForm('orders');" id="ordersBtnId" class="btn btn3 report {btnOActive}">Orders</a>
+      <a href="javascript:void(0);" onclick="submitForm('order_session');" id="orderSessionBtnId" class="btn btn3 report {btnOSActive}">Checkout Sessions</a>
+    </div>
+    
+    {summaryresults}
+    {results}
+
+    <div class="box23" style="display:none;">
+        <table class="summarytbl">
+          <tbody>
+            <tr>
+              <td>Company</td>
+              <td>Summary + package</td>
+              <td>Order made</td>
+              <td>Status</td>
+              <td>Supplier Fulfill ID</td>
+            </tr>
+            
+            <!-- @summary_row -->
+            <tr>
+              <td style="text-align: center;"></td>
+              <td style="width: 186px;">
+                <a href="#order{order_id}">#{order_id} - {order_package}</a>
+              </td>
+              <td>{timestamp_made}</td>
+              <td>
+                <!-- @status_complete-->
+                <font color="green">Completed: {timestamp_completed}</font>
+                <!-- @status_complete-->
+
+                <!-- @status_progress-->
+                <font color="orange">In progress (will take around 9-10 hours)</font>
+                <!-- @status_progress-->
+               </td>
+              <td>{supplier_id}</td>
+            </tr>
+            <!-- @summary_row -->
+          </tbody>
+        </table>
+    </div>    
+
+    <!-- @order_item -->
+    <div class="box23" style="display: none;">
+        <table id="order{order_id}" class="perorder">
+          <tbody>
+            <tr>
+              <td>Order #{order_id}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>🏢 Company: </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>#️⃣ Order ID: </td>
+              <td>{order_id}</td>
+            </tr>
+            <tr>
+              <td>📧 Email address: </td>
+              <td>
+                <a href="/admin/check-user/?user={order_email}">{order_email}</a>
+              </td>
+            </tr>
+            <tr>
+              <td>📦 Package: </td>
+              <td>{package_name}</td>
+            </tr>
+            <tr>
+              <td>💸 Amount Paid: </td>
+              <td>{package_price}</td>
+            </tr>
+            <tr>
+              <td>🧍 Username: </td>
+              <td>
+                <a target="_BLANK" rel="noopener noreferrer" href="{social_link}">{social_username}</a>
+              </td>
+            </tr>
+            <tr>
+              <td>📞 Contact number: </td>
+              <td>{contact_num}</td>
+            </tr>
+            <tr>
+              <td>⌚ Order made on: </td>
+              <td>{timestamp_made}</td>
+            </tr>
+            <tr>
+              <td>♻️ Last refilled on: </td>
+              <td>{timestamp_refilled}</td>
+            </tr>
+            <tr>
+              <td>🚚 Order status: </td>
+              <td>
+                <!-- @status_complete-->
+                <font color="green">Completed: {timestamp_completed}</font>
+                <!-- @status_complete-->
+
+                <!-- @status_progress-->
+                <font color="orange">In progress (will take around 9-10 hours)</font>
+                <!-- @status_progress-->
+              </td>
+            </tr>
+            <tr>
+              <td>🗄️ Tracking information: </td>
+              <td>
+                <!-- @tracking_row -->
+                <div class="trackinginfo">
+                  <div class="trackingheader">{timestamp} </div>{message}
+                </div>
+                <!-- @tracking_row -->
+              </td>
+            </tr>
+            <tr>
+              <td>Tracking page: </td>
+              <td>
+                <a target="_BLANK" href="{track_link}">{track_id}</a>
+              </td>
+            </tr>
+            <tr>
+              <td>❤️😍 Refund offers: </td>
+              <td>{refund_offer}</td>
+            </tr>
+            <tr>
+              <td>📝 Report: </td>
+              <td>
+
+                {report}
+
+                <form action="/admin/check-user/#order{order_id}" method="POST">
+                  <input type="hidden" name="user" value="m">
+                  <input type="hidden" name="reportorderid" value="{order_id}">
+                  <input type="hidden" name="reportemailaddress" value="{order_email}">
+                  <textarea class="reportmessage" name="reportmessage"></textarea>
+                  <div style="display:inline-block;width:100%;">
+                    <input type="submit" name="submitreport" class="btn btn3 report" value="Send Report">
+                  </div>
+                </form>
+              </td>
+            </tr>
+            <tr class="grey">
+              <td>Automated responses: </td>
+              <td>
+                <div>
+                  <div class="foo">
+                    <textarea class="language-less"> First and foremost, thank you very much for choosing Superviral for upgrading your profile – it means a lot to us! In regards to the order number associated with your email address, I’ve been able to locate a specific order. I can see that your order is for 250 followers and is completed. Bear in mind at Superviral, from fulfilling thousands of orders since 2012, we’ve gained a tremendous amount of experience. This has allowed us to develop the safest methods for delivery so that you can maintain as many followers as possible - ensuring maximum customer satisfaction. If your order has not started yet at all, then our systems are still determining the right delivery method and the right type of followers based on your Instagram profile’s metrics. From what our previous customers have experienced, please stay away from service providers that claim to provide instant deliveries without caring about their customer’s Instagram account. These illicit companies can usually lead to shadow bans from Instagram or even a ban. Rest assured, your order is being processed and delivered as we speak! </textarea>
+                    <button class="btn btn3 report copy-button">Copy Order Status</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="grey">
+              <td>IP Address: </td>
+              <td>{order_ip}</td>
+            </tr>
+            <tr>
+              <td>Last Four: </td>
+              <td>{card_four}</td>
+            </tr>
+            <tr class="grey">
+              <td>Fix This Order By Username: </td>
+              <td>
+                <form action="/admin/api/ordermake-changeusername.php?update=nodefect#order{order_id}" method="POST">
+                  <input type="hidden" name="id" value="{order_id}">
+                  <input type="hidden" name="ordersession" value="{session_id}">
+                  <input type="input" class="input rectifyinput" name="igusername" placeholder="kevinhart" value="{social_username}">
+                  <input type="submit" onclick="return confirm('Are you sure you want to change the username?');" class="btn btn3 report copy-button" style="width:150px;" value="Make Order">
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <span id="oldAccSpan"></span>
+    <!-- @order_item -->
+
+    <!-- The Modal -->
+<div id="editAccModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h4>Edit Account Id</h4>
+    <input class="input" type="text" id="account_id" value="">
+    <br><br>
+    <input type="button" onclick="updateAccountId();" class="btn btn3 report" value="Update">
+  </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+    function submitForm(tableVal){
+
+        document.getElementById("table").value = tableVal;
+
+        document.getElementById('submitBtnId').click();
+        
+       
+
+    }
+
+    function updateAccountId(){
+
+        var id= $('#oldAccSpan').attr('data-id');
+        var accId= $('#account_id').val();
+
+        if(accId == "") {
+            alert("please enter account id");
+            return;
+        }
+          $.ajax({
+        
+      url: "/admin/api/email-support-handler.php",
+      type: "POST",
+      data: {
+        type: "updateAccountId",
+        orderId: id,
+        accId: accId,
+      },
+      dataType: "json",
+      success: function (data) {
+
+        if(data.Message == "Done Successfully"){
+            $("#spanAccountId" + id).html(accId);
+        }
+        alert(data.Message);
+         $('#account_id').val("");
+      }
+      
+    });
+
+    }
+
+document.addEventListener("DOMContentLoaded", function() {
+  var modal = document.getElementById("editAccModal");
+  var span = document.getElementsByClassName("close")[0];
+
+  // Get all buttons with class 'modal-button'
+  var buttons = document.getElementsByClassName("modal-button");
+  Array.prototype.forEach.call(buttons, function(button) {
+    button.onclick = function() {
+      var res = button.id.replace(/\D/g, "");
+      document.getElementById("oldAccSpan").setAttribute("data-id", res);
+      modal.style.display = "block";
+    };
+  });
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+function openModal(btnid) {
+  var res = btnid.replace(/\D/g, "");
+  document.getElementById("oldAccSpan").setAttribute("data-id", res);
+  document.getElementById("editAccModal").style.display = "block";
+}
+
+(function(){
+var pre = document.getElementsByClassName('foo');
+for (var i = 0; i < pre.length; i++) {
+    var isLanguage = pre[i].children[0].className.indexOf('language-');
+    
+};
+var copyCode = new Clipboard('.copy-button', {
+    target: function(trigger) {
+        return trigger.previousElementSibling;
+}
+});
+copyCode.on('success', function(event) {
+    event.clearSelection();
+    event.trigger.textContent = 'Copied';
+    window.setTimeout(function() {
+        event.trigger.textContent = 'Copy';
+    }, 2000);
+});
+copyCode.on('error', function(event) { 
+    event.trigger.textContent = 'Press "Ctrl + C" to copy';
+    window.setTimeout(function() {
+        event.trigger.textContent = 'Copy';
+    }, 5000);
+});
+})();
+
+function makeActive(key, elem){
+
+  $('#post_type_buttons a').removeClass('btnActive');
+  $(elem).addClass('btnActive');
+
+  $('#post_type').val(key);
+
+}
+</script>
+</main>

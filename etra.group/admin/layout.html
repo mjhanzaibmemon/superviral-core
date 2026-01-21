@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Etra Hub</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/assets/css/style.css?{timestamp}">
+
+
+    <!-- @meta -->
+
+    <!-- @meta -->
+
+    <!-- @head_tags -->
+
+    <!-- @head_tags -->
+
+
+</head>
+
+
+
+<body>
+
+    <!-- @header -->
+    <header class="header main-container">
+        <nav class="navigation">
+            <ul class="nav-list">
+
+                <li class="nav-item" style="display:flex;">
+
+                    <a href="/admin/">
+
+                        <span class="icon" style="margin: 0;display:none;"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16"
+                                style="display: block;width: 30px;height: 30px;">
+                                <path
+                                    d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z">
+                                </path>
+                                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z">
+                                </path>
+                            </svg></span>
+                        <span class="icon" style="margin: 0;display:flex;"> <svg width="28" height="28"
+                                viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M27.2696 8.83197V17.1516C27.2696 18.1045 26.6945 19.0242 25.6721 19.6927L20.1428 23.4013C20.0736 23.445 19.9937 23.4973 19.9227 23.5392L19.9937 23.4886C21.0161 22.8114 21.5913 21.8917 21.5913 20.937V12.6192C21.5913 11.6645 21.0161 10.7552 19.9937 10.0781L12.1605 4.90864C11.5089 4.5124 10.7556 4.30771 9.98959 4.31874C9.18129 4.31052 8.38373 4.50131 7.66962 4.87373L13.0799 1.24186C13.8546 0.759556 14.7566 0.512485 15.6733 0.531542C16.4377 0.515657 17.1901 0.720769 17.8371 1.12144L25.6721 6.29088C26.6945 6.95931 27.2696 7.88779 27.2696 8.83197Z"
+                                    fill="white"></path>
+                                <path
+                                    d="M0 19.1911V10.5633C0 9.5751 0.58825 8.62129 1.63909 7.92991L7.64908 4.08207C7.72192 4.03682 7.80388 3.98252 7.87673 3.93909L7.80388 3.99157C6.75304 4.69381 6.16479 5.64763 6.16479 6.63764V15.2636C6.16479 16.2536 6.75304 17.1966 7.80388 17.8988L15.8445 23.2597C16.513 23.6706 17.2859 23.8829 18.0719 23.8715C18.9012 23.8798 19.7194 23.6819 20.4522 23.2959L14.5551 27.0623C13.7601 27.562 12.8348 27.8182 11.8943 27.799C11.1106 27.8151 10.3394 27.6024 9.67608 27.1872L1.63909 21.8263C0.58825 21.1422 0 20.1793 0 19.1911Z"
+                                    fill="white"></path>
+                            </svg> </span>
+
+                    </a>
+
+                </li>
+                {leftMenuHtm}
+                <!--    <li class="nav-item dropdown" >
+                    <button class="dropdown-toggle"><span class="text">Support</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="7" viewBox="0 0 11 7" fill="none"><path d="M1 1.16528L5.5 5.16528L10 1.16528" stroke="white" stroke-width="2" stroke-linejoin="round" /></svg></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/email-support/">Email</a></li>
+                        <li><a href="/admin/reports/">Reports</a></li>
+                        <li><a href="/admin/blacklist/">Blacklist</a></li>
+                        <li><a href="/admin/free-followers/">Offer Free Followers</a></li>
+                        <li><a href="/admin/free-likes/">Offer Free Likes</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <button class="dropdown-toggle"><span class="text">Orders</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="7" viewBox="0 0 11 7" fill="none"><path d="M1 1.16528L5.5 5.16528L10 1.16528" stroke="white" stroke-width="2" stroke-linejoin="round" /></svg></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/missing-orders/">Missing Orders</a></li>
+                        <li><a href="/admin/refunds/">Finalise Refunds</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <button class="dropdown-toggle"><span class="text">Website</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="7" viewBox="0 0 11 7" fill="none"><path d="M1 1.16528L5.5 5.16528L10 1.16528" stroke="white" stroke-width="2" stroke-linejoin="round" /></svg></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/articles/">Articles</a></li>
+                        <li><a href="/admin/feedback/">Feedback</a></li>
+                        <li><a href="/admin/reviews/">Reviews</a></li>
+                        <li><a href="/admin/copy-editor/">Copy Editor</a></li>
+                        <li><a href="/admin/stats/">Stats</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </nav>
+        <div>
+            <div class="websites">
+                <button class="btn-logo" style="position: absolute;top:10px;left:0;right:0;margin:auto;"><img
+                        src="/admin/assets/icons/{brand_name}.svg" alt="logo"></button>
+            </div>
+        </div>
+        <!-- @nav_searchMenu -->
+        <nav class="tabs">
+            <div class="navigation-search">
+                <span class="icon" style="color:white;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"
+                        style="width: 24px;height: 24px;display: block;">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
+                        </path>
+                    </svg> </span>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/admin/check-user/">Customer</a></li>
+                    <li class="nav-item"><a href="/admin/check-account/">Account</a></li>
+                    <li class="nav-item"><a href="/admin/check-al/">AL</a></li>
+                    <li class="nav-item"><a href="/admin/check-ml/">Mail List</a></li>
+                </ul>
+            </div>
+            <div class="dropdown dropdown-mobile">
+                <button class="dropdown-toggle" style="background: #333;border-radius: 10px;padding: 7px;"> <span
+                        class="icon" style="margin:0;"><img src="/assets/images/search-user.png"
+                            style="display: block;"></span> </button>
+                <ul class="dropdown-menu" style="left: -103px;">
+                    <li><a href="/admin/check-user/">Check Customer</a></li>
+                    <li><a href="/admin/check-account/">Check Account</a></li>
+                    <li><a href="/admin/check-al/">Check AL</a></li>
+                    <li><a href="/admin/check-ml/">Check Mail List</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- @nav_searchMenu -->
+        <nav class="navigation-mobile">
+            <div class="nav-top-row">
+                <a href="/admin/">
+                    <span class="icon" style="margin: 0;display:flex;"> <svg width="28" height="28" viewBox="0 0 28 28"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M27.2696 8.83197V17.1516C27.2696 18.1045 26.6945 19.0242 25.6721 19.6927L20.1428 23.4013C20.0736 23.445 19.9937 23.4973 19.9227 23.5392L19.9937 23.4886C21.0161 22.8114 21.5913 21.8917 21.5913 20.937V12.6192C21.5913 11.6645 21.0161 10.7552 19.9937 10.0781L12.1605 4.90864C11.5089 4.5124 10.7556 4.30771 9.98959 4.31874C9.18129 4.31052 8.38373 4.50131 7.66962 4.87373L13.0799 1.24186C13.8546 0.759556 14.7566 0.512485 15.6733 0.531542C16.4377 0.515657 17.1901 0.720769 17.8371 1.12144L25.6721 6.29088C26.6945 6.95931 27.2696 7.88779 27.2696 8.83197Z"
+                                fill="white"></path>
+                            <path
+                                d="M0 19.1911V10.5633C0 9.5751 0.58825 8.62129 1.63909 7.92991L7.64908 4.08207C7.72192 4.03682 7.80388 3.98252 7.87673 3.93909L7.80388 3.99157C6.75304 4.69381 6.16479 5.64763 6.16479 6.63764V15.2636C6.16479 16.2536 6.75304 17.1966 7.80388 17.8988L15.8445 23.2597C16.513 23.6706 17.2859 23.8829 18.0719 23.8715C18.9012 23.8798 19.7194 23.6819 20.4522 23.2959L14.5551 27.0623C13.7601 27.562 12.8348 27.8182 11.8943 27.799C11.1106 27.8151 10.3394 27.6024 9.67608 27.1872L1.63909 21.8263C0.58825 21.1422 0 20.1793 0 19.1911Z"
+                                fill="white"></path>
+                        </svg>
+                    </span>
+                </a>
+                <button class="mobile-menu-toggler">
+                    <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.46447 20.5355C4.92893 22 7.28595 22 12 22C16.714 22 19.0711 22 20.5355 20.5355C22 19.0711 22 16.714 22 12C22 7.28595 22 4.92893 20.5355 3.46447C19.0711 2 16.714 2 12 2C7.28595 2 4.92893 2 3.46447 3.46447C2 4.92893 2 7.28595 2 12C2 16.714 2 19.0711 3.46447 20.5355ZM18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H6C5.58579 16.75 5.25 16.4142 5.25 16C5.25 15.5858 5.58579 15.25 6 15.25H18C18.4142 15.25 18.75 15.5858 18.75 16ZM18 12.75C18.4142 12.75 18.75 12.4142 18.75 12C18.75 11.5858 18.4142 11.25 18 11.25H6C5.58579 11.25 5.25 11.5858 5.25 12C5.25 12.4142 5.58579 12.75 6 12.75H18ZM18.75 8C18.75 8.41421 18.4142 8.75 18 8.75H6C5.58579 8.75 5.25 8.41421 5.25 8C5.25 7.58579 5.58579 7.25 6 7.25H18C18.4142 7.25 18.75 7.58579 18.75 8Z"
+                                fill="#FFFFFF"></path>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="full-menu-mobile">
+                <ul class="nav-list">
+                    {leftMenuHtm}
+                    <li class="nav-item dropdown">
+                        <button class="dropdown-toggle">
+                            <span class="text">Check</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="7" viewBox="0 0 11 7"
+                                    fill="none">
+                                    <path d="M1 1.16528L5.5 5.16528L10 1.16528" stroke="white" stroke-width="2"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/admin/check-user/">Customer</a></li>
+                            <li><a href="/admin/check-account/">Account</a></li>
+                            <li><a href="/admin/check-al/">AL</a></li>
+                            <li><a href="/admin/check-ml/">Mail List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- @header -->
+
+    <div class="websites main-container" style="display: none;">
+
+        <a class="btn-logo" href="?brand=sv">
+
+            <img src="/admin/assets/icons/Superviral.svg" alt="logo">
+
+        </a>
+
+        <a class="btn-logo active" href="?brand=to">
+
+            <img src="/admin/assets/icons/Tikoid.svg" alt="logo">
+
+        </a>
+
+        <a class="btn-logo" href="?brand=fb">
+
+            <img src="/admin/assets/icons/Feedbuzz.svg" alt="logo">
+
+        </a>
+
+        <a class="btn-logo" href="?brand=sz">
+
+            <img src="/admin/assets/icons/Swizzy.svg" alt="logo">
+
+        </a>
+
+        <a class="btn-logo" href="?brand=tp">
+
+            <img src="/admin/assets/icons/Tokpop.svg" alt="logo">
+
+        </a>
+
+    </div>
+    {body}
+    <div id="overlay" onclick="closePopup()"></div>
+
+    <div id="popup">
+        <div class="websites main-container">
+
+            <a class="btn-logo" href="?brand=sv">
+
+                <img src="/admin/assets/icons/Superviral.svg" alt="logo">
+
+            </a>
+
+            <a class="btn-logo" href="?brand=to">
+
+                <img src="/admin/assets/icons/Tikoid.svg" alt="logo">
+
+            </a>
+
+            <a class="btn-logo" href="?brand=fb">
+
+                <img src="/admin/assets/icons/Feedbuzz.svg" alt="logo">
+
+            </a>
+
+            <a class="btn-logo" href="?brand=sz">
+
+                <img src="/admin/assets/icons/Swizzy.svg" alt="logo">
+
+            </a>
+
+            <a class="btn-logo" href="?brand=tp">
+
+                <img src="/admin/assets/icons/Tokpop.svg" alt="logo">
+
+            </a>
+
+        </div>
+    </div>
+    <!-- @footer -->
+    <footer class="footer">
+    </footer>
+
+    <!-- @footer -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2C75EWMXL"></script>
+
+    <noscript>
+
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2PF8NX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+
+    </noscript>
+
+    <script src="/admin/common/js/layout.js"></script>
+
+    <script src="/admin/common/js/common.js"></script>
+
+    <script>
+        var user = '{user}';
+        if (user == 'hassan') {
+
+            var dropdownLinks = document.querySelectorAll('header li a');
+            dropdownLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    var linkHref = link.getAttribute('href');
+                    window.open(linkHref, '_blank');
+                });
+            });
+
+        }
+
+    </script>
+
+    <!-- @script_tags -->
+    <!-- @script_tags -->
+
+</body>
+
+
+
+</html>

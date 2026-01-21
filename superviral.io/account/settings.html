@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Account Settings - Superviral</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/accountstyle.css">
+
+
+
+
+<style type="text/css">
+input.site-btn {
+    background-color: #ff603c !important;
+    border-color: #ff603c !important;
+}
+input.site-btn:disabled {
+    opacity: .5 !important;
+}
+.dashboard-wrap form a{
+    display: inline;
+    font-size: 14px;
+}
+
+.login_form.modal .reg-block div{padding:0;border-bottom:0;}
+
+.login_form.modal .reg-block div input{float:left;width:initial;margin-right: 12px;}
+
+    .btn{margin-bottom:10px;}
+
+.btnwhite{    display: inline-block;
+    width: initial;
+    margin-top: -6px!important;
+    text-align: center;
+    font-size: 13px;
+    line-height: 7px;
+    height: 42px;}
+
+.modal{    margin-bottom: 100px;}
+
+.emailsuccess{}
+
+    @media screen and (max-width:992px) {
+        .error {
+            padding: 0;
+            
+        }
+    }
+.login_form.modal div input .error{display:block!important;}
+
+ .col-row-4 a {width: 25% !important;}
+
+</style>
+</head>
+<body {autoopenpasswordchanger}>
+
+{header}
+<div class="orderbody" align="center">
+
+
+    <div class="cnwidth">
+
+        <div class="container dshadow" style="text-align: left;">
+            <h1>Account settings</h1>
+        
+            <a href="/{loclinkforward}account/settings/billing/" class="btn btn3 btnwhite dshadow">View Payment Preferences</a>
+
+        <form id="form" method="post" class="form card card-tall-mo" >
+            <label>Instagram Username for Checkout</label>
+            <p>{username} <a href="#ex1" class="basiclink" rel="modal:open">(Change)</a></p>
+            <label>Account email</label>
+             <p>{userEmail}</p>
+            <label>Current password</label>
+            <p>******** <a id="autoopenpasswordchanger" href="#ex3" class="basiclink" rel="modal:open">(Change)</a></p>
+        </form>      
+        
+
+          <a onclick="return confirm('Are you sure you want to log out?');" href="/{loclinkforward}logout/" class="btn btn3 btnwhite dshadow" style="margin-top: 22px!important;">Log out</a>
+       
+       </div>
+
+      <form action="/{loclinkforward}account/settings/" class="login_form modal" id="ex1" style="display:none;" method="post">
+        <h3>Change Instagram Account Username</h3>
+        <div><p><label>Username:</label><input type="text" name="username" class="required" value="{username}" /></p>
+         <input type="hidden" name="id" value="{id}"></div>
+        <div><p><input class="btn color4 dshadow" type="submit" name="update_username" value="Update IG Username" /></p></div>
+      </form>
+
+
+      <form action="/{loclinkforward}account/settings/" class="login_form modal" id="ex3" style="display:none;" method="post">
+        <h3>Change My Password</h3>
+        {passworderrors}{passwordsuccess}
+        <div><label>Enter Your Current Password:</label><input type="password" name="old_password" id="old_password" value="" /></div>
+        <div style="border-bottom:0;"><label>Enter Your New Password:</label><input type="password" name="new_password" id="new_password" value="" /></div>
+          <div class="reg-block">
+              <div>
+              <input type="radio" disabled="" name="" id="capital_letter"> At least 1 capital letter
+              </div>
+              <div>
+                  <input type="radio" disabled name="" id="number"> At least 1 number
+              </div>
+              <div>
+                 <input type="radio" disabled name="" id="8_characters"> At least 8 characters
+              </div>
+        </div>
+
+            <div  style="border-bottom:0;"><label>Re-Enter Your New Password:</label><input type="password" name="confirm_password" id="confirm_password"  value="" /></div>
+            <div class="reg-block">
+                      <div> 
+                          <input type="radio" disabled name="" id="new_and_confirm_password"> New password and Re-enter password must match
+                      </div>
+                  </div>
+         <input type="hidden" name="id" value="{id}">
+         <input type="hidden" name="email" value="{userEmail}">
+        <div><input class="btn color4 dshadow" type="submit" name="update_password" id="update_password" value="Update password" /></div>
+      </form>
+
+   </div>
+
+  </div>
+
+{footer}
+
+<!--Java Script Files-->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />    
+    <!--Custom JS-->
+    <script>
+        $(document).ready(function () {
+              $('#ex2').validate({
+                errorElement: 'div',
+                   rules: {
+                    old_password: {
+                      required: true,
+                    },
+                    new_password: {
+                      required: true,
+                    },
+                    confirm_password: {
+                      required: true,
+                    },
+                },
+              messages: {
+                email: {
+                  required: 'Please enter Email Address.',
+                  email: 'Please enter a valid Email Address.',
+                },
+              },
+              submitHandler: function (form) {
+                form.submit();
+              }
+            });
+            
+            $('#ex1').validate({
+                errorElement: 'div',
+                   rules: {
+                     username: {
+                      required: true,
+                    },
+                },
+              messages: {
+               username: {
+                  required: 'Please enter Username.',
+                },
+              },
+              submitHandler: function (form) {
+                form.submit();
+              }
+            });
+        });
+        $("#ex3").validate({
+             errorElement: 'div',
+              rules: {
+                    email: {
+                      required: true,
+                      email: true
+                    },
+                },
+             submitHandler: function (form) {
+                form.submit();
+              }
+        });
+        var upperCase= new RegExp('[A-Z]');
+        var lowerCase= new RegExp('[a-z]');
+        var numbers = new RegExp('[0-9]');
+        $("#new_password").keyup(function(e){
+            var password = $('#new_password').val();
+
+            $('#capital_letter').prop('checked', false);
+            $('#number').prop('checked', false);
+            $('#8_characters').prop('checked', false);
+
+            if(password.match(upperCase)){
+                $('#capital_letter').prop('checked', true);
+            }
+            if(password.match(numbers)){
+                $('#number').prop('checked', true);
+            }
+            if(password.length >= 8){
+                $('#8_characters').prop('checked', true);
+                $("#confirm_password").prop('disabled', false);
+
+            }
+        });
+        $("#old_password").keyup(function(e){
+            $("#update_password").prop('disabled', true);
+            var password = $('#old_password').val();
+            if(password.length >= 8){
+                $("#new_password").prop('disabled', false);
+
+            }else{
+                $("#new_password").prop('disabled', true);
+                $("#confirm_password").prop('disabled', true);
+            }
+        });
+        $("#confirm_password").keyup(function(e){
+            var password = $('#confirm_password').val();
+            if(password.length >= 8){
+                if($('#new_password').val() == $('#confirm_password').val()){
+                    $('#new_and_confirm_password').prop('checked', true);
+                    $('#update_password').prop("disabled", false);
+                }else{
+                    $('#new_and_confirm_password').prop('checked', false);
+                    $('#update_password').prop("disabled", true);
+                }
+            }
+        });
+        $("#new_password").prop('disabled', true);
+        $("#confirm_password").prop('disabled', true);
+
+         // split test for tool code
+
+         function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(";");
+            for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == " ") c = c.substring(1, c.length);
+              if (c.indexOf(nameEQ) == 0)
+                return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        var toolCookie = getCookie('splitForTool');
+
+        if(toolCookie == "true"){
+            document.getElementById("toolsID").style.display = "block";
+            element = document.querySelector('.darkmobileheader');
+            element.className += ' col-row-4';
+        } else {
+            document.getElementById("toolsID").style.display = "none";
+        }
+    </script>
+
+    <script type="text/javascript">
+/*    $(window).on('load', function() {
+        $('#ex3').modal('show');
+    });*/
+</script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<head>
+<title>Automatic Likes #{ordernum} - Superviral</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Language" content="en-gb">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/accountstyle.css">
+<style type="text/css">
+
+    h2{font-size: 20px;}
+
+
+    .cnwidthtracking{max-width:600px;}
+
+    .dnone42{display: none;}
+
+    .trackingnumber{font-size: 18px;font-weight:bold;}
+
+    .thehref{text-decoration: underline;color:blue;}
+
+
+    .box .boxheading{font-size:17px;font-weight:bold;margin-bottom:10px;}
+
+    .datelabel{    background: #f5f7fe;
+    font-size: 14px;
+    padding-left: 10px!important;}
+
+    .contents div{    padding: 11px 0;}
+
+    .contents table{font-size:13px;}
+    .contents table tr td{padding: 8px 0;box-sizing:border-box;}
+    .contents table tr td:first-child{padding-right:15px;color:grey;font-weight: normal;vertical-align: top;}
+
+    .trackingtbl tr td{width:75%; vertical-align: text-top;border-bottom:1px solid #f5f7fe;}
+    .trackingtbl tr td:first-child{width:25%;color: #009900!important;}
+
+    .refillnotice{font-size: 14px;
+    margin-bottom: 15px;
+    margin-top: 19px;}
+
+    .refillsbtn{
+    width: auto;
+    display: inline-block;
+    padding: 8px 13px;
+    font-weight: bold;}
+
+    .estimatedata{display: inline-block;
+    border: 1px solid grey;
+    padding: 5px 12px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 18px;
+    color: grey;}
+
+    .dpholder{padding-left:70px;position: relative;    padding-bottom: 18px;
+    border-bottom: 1px solid #ececec;}
+
+    .dpholder .dp{    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    position: absolute;left:10px;
+      top: -5px;}
+
+      .dpholder span{margin-top: 0;
+    display: initial;}
+
+    .btntracking {    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    height: 46px;
+    line-height: 12px;}
+
+    .sectionholder{position: relative; margin-top: 70px;padding-bottom: 6px;
+    border-bottom: 1px solid #ececec;}
+
+    .sectionholder .btnicon{position: absolute;
+    right: 9px;
+    height: 30px;
+    width: 30px;
+    top: 2px;
+    font-size: 23px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border-radius: 17px;}
+
+    .sectionholder .contents{display:none;}
+    .sectionholder2 .contents{display:block;}
+
+    .sectionholder .contentshow{display:none;}
+
+    .status{position: relative;
+    margin-top: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    display:inline-block;}
+    .statusactive{color:green;}
+    .statuspaused{color:orange;}
+    .statuscancelled{color:red;}
+
+   .statuspaused .spinning,.statuscancelled .spinning{display:none;}
+
+
+      .spinning{    animation-name: spin;
+    animation-duration: 600ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    height: 20px;
+    fill: #000000;
+    position: absolute;
+    right: -30px;}
+
+
+    .cancelautolikes{font-size:15px;margin-top: 70px;}
+
+    .basiclink {
+    text-decoration: underline;
+    color: #940000;
+    }
+
+    .listctn {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    text-align: left;
+    display: inline-block;}
+
+    .listctn li {
+    margin: 0;
+    padding: 3px;
+    padding-left: 28px;
+    line-height: 30px;
+    position: relative;}
+
+    .listctn li .tick {
+    width: 20px;
+    height: 20px;
+    background: url(/imgs/check.svg) no-repeat;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 9px;}
+
+
+
+
+
+.selectric-wrapper {
+  position: relative;
+  cursor: pointer;
+  padding:0!important;
+}
+
+.selectric-responsive {
+  width: 100%;
+}
+
+.selectric {
+  border: 1px solid #DDD;
+  border-radius: 0px;
+  background: #F8F8F8;
+  position: relative;
+  overflow: hidden;
+}
+
+.selectric .label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 38px 0 10px;
+  font-size: 12px;
+  line-height: 38px;
+  color: #444;
+  height: 38px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.selectric .button {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  background-color: #F8f8f8;
+  color: #BBB;
+  text-align: center;
+  font: 0/0 a;
+  *font: 20px/38px Lucida Sans Unicode, Arial Unicode MS, Arial;
+}
+
+.selectric .button:after {
+    content: " ";
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-top-color: #000;
+    border-bottom: none;
+}
+
+.selectric-focus .selectric {
+  border-color: #aaaaaa;
+}
+
+.selectric-hover .selectric {
+  border-color: #c4c4c4;
+}
+
+.selectric-hover .selectric .button {
+  color: #a2a2a2;
+}
+
+.selectric-hover .selectric .button:after {
+  border-top-color: #a2a2a2;
+}
+
+.selectric-open {
+  z-index: 9999;
+}
+
+.selectric-open .selectric {
+  border-color: #c4c4c4;
+}
+
+.selectric-open .selectric-items {
+  display: block;
+}
+
+.selectric-disabled {
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.selectric-hide-select {
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  padding: 0!important;
+}
+
+.selectric-hide-select select {
+  position: absolute;
+  left: -100%;
+}
+
+.selectric-hide-select.selectric-is-native {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.selectric-hide-select.selectric-is-native select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  z-index: 1;
+  box-sizing: border-box;
+  opacity: 0;
+}
+
+.selectric-input {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  outline: none !important;
+  border: none !important;
+  *font: 0/0 a !important;
+  background: none !important;
+}
+
+.selectric-temp-show {
+  position: absolute !important;
+  visibility: hidden !important;
+  display: block !important;
+}
+
+/* Items box */
+.selectric-items {
+  display: none;
+  top: 100%;
+  left: 0;
+  background: #F8F8F8;
+  border: 1px solid #c4c4c4;
+  z-index: -1;
+  box-shadow: 0 0 10px -6px;
+  overflow: auto;
+    z-index: 9999;
+    position: relative;
+}
+
+.selectric-items .selectric-scroll {
+  height: 100%;
+  overflow: auto;
+  padding:0;
+}
+
+.selectric-above .selectric-items {
+  top: auto;
+  bottom: 100%;
+}
+
+.selectric-items ul, .selectric-items li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  min-height: 20px;
+}
+
+.selectric-items li {
+  display: block;
+  padding: 10px;
+  color: #666;
+  cursor: pointer;
+}
+
+.selectric-items li.selected {
+  background: #E0E0E0;
+  color: #444;
+}
+
+.selectric-items li.highlighted {
+  background: #D0D0D0;
+  color: #444;
+}
+
+.selectric-items li:hover {
+  background: #D5D5D5;
+  color: #444;
+}
+
+.selectric-items .disabled {
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  cursor: default !important;
+  background: none !important;
+  color: #666 !important;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.selectric-items .selectric-group .selectric-group-label {
+  font-weight: bold;
+  padding-left: 10px;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: none;
+  color: #444;
+}
+
+.selectric-items .selectric-group.disabled li {
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+.selectric-items .selectric-group li {
+  padding-left: 25px;
+}
+
+
+.container div span.livebox {
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+    padding-left: 26px;
+    margin-right: 11px;
+    background: #34D08C;
+    position: relative;
+    margin-top:5px;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+}
+
+.container div span.livebox .livesvg {
+    left: 9px;
+    height: 11px;
+    top: 13px;
+    fill: #fff;
+    position: absolute;
+    animation: blinking 4.0s infinite;
+}
+
+
+@keyframes blinking{
+    0%{     fill: #fff; }
+    49%{    fill: #fff; }
+    60%{    fill: transparent; }
+    99%{    fill: transparent;  }
+    100%{   fill: #fff;   }
+}
+
+
+
+
+    @media only screen and (min-width: 768px){
+
+        .deliverytime{padding:0;}
+
+
+    .progressbar{position:relative;height:30px;margin-top:40px;display:block;}
+    .greybar{position:relative;height:100%;background-size: 580px 15px;} 
+    .greybar img,.greenbar img{width:580px;}
+    .greenbar{position:absolute;    z-index: 999;overflow: hidden;}
+    
+    }
+
+    @media only screen and (min-width:992px){
+
+
+    }
+
+    @media only screen and (min-width:1200px){
+
+    }
+
+    @media only screen and (min-width:1500px){
+
+    }
+
+
+</style>    
+</head>
+
+    <body>
+
+
+
+
+
+        {header}
+
+<div class="orderbody" align="center">
+
+
+    <div class="cnwidth">
+
+        {message}
+
+        <div class="container dshadow" style="text-align: left;">
+                <h1>{orderdesc}</h1>
+                <div class="dpholder">
+
+                    {dp}
+                    <span class="trackingnumber">{igusername}</span>
+                    <div class="status {statusactive}">{statustop}</div>
+
+                </div>
+
+                <div class="sectionholder sectionholder2" {missinglikesshow}>
+                        <h2>Missing Likes Tool</h2>
+                        <div class="contents">
+
+                            
+
+                           {freelikesbtn}
+
+                        </div>
+                    </div>
+
+               <div class="sectionholder ">
+                    
+                        <div class="opentitle"><h2>Change Status</h2><a class="btnicon color4" onclick="return false;" href="#">+</a></div>
+                        <div class="contents">
+
+                            {statusbtn}
+                            
+
+                        </div>
+                    </div>
+
+                    <div class="sectionholder" {changepackageshow}>
+                    
+                        <div class="opentitle"><h2>Change Package</h2><a class="btnicon color4" onclick="return false;" href="#">+</a></div>
+                        <div class="contents">
+                            <form id="changepackage-form" method="POST">
+                            <span>{currentpackage}</span>
+                            <select id="get_value">{packages}
+                            </select>
+                            <input type="submit" class="btn btn3 btntracking" name="changepackagebtn" value="Change Package">
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="sectionholder">
+                      <div class="opentitle"><h2>Change Username</h2><a class="btnicon color4" onclick="return false;" href="#">+</a></div>
+                      <div class="contents">
+                          <form id="" method="POST">
+                            <span>Your likes are currently going to <b>{igusername}</b>. If you'd like to change the destination of your likes, you can do so below:</span>
+                            <input type="text" name="newusername" value="{igusername_val}" required>
+                            <input type="submit" class="btn btn3 btntracking" name="changeusernamebtn" value="Change Username">
+                          </form>
+                      </div>
+                    </div>
+
+                    <div class="sectionholder">
+                        <div class="opentitle"><h2>Quality</h2><a class="btnicon color4" onclick="return false;" href="#">+</a></div>
+                        <div class="contents">
+                            <table>
+                                <tr><td>Quality of auto likes:</td><td>Super High Quality (free with Superviral)</td></tr>
+                                <tr><td>Order speed:</td><td>Superviral RapidDelivery™ (free with Superviral)</td></tr>
+                                <tr><td>Order priority:</td><td>Highest priority (free with Superviral)</td></tr>
+                            </table>
+                          </div>
+                    </div>
+
+
+
+                    <div class="sectionholder">
+                        <a class="btnicon color4" href="#">+</a>
+                        <div class="opentitle"><h2>Details and Delivery</h2><a class="btnicon color4" onclick="return false;" href="#">+</a></div>
+                        <div class="contents">
+                            <table>
+
+                                <tr><td>Order ID:</td><td>#AL{ordernum}</td></tr>
+                                <tr><td>IG Username:</td><td>{igusername}</td></tr>
+                                <tr><td>Service:</td><td>{orderdesc}</td></tr>
+                                <tr><td>Post Limit:</td><td>{postperday}</td></tr>
+                                {lastupdated}
+                                <tr><td>Delivery status:</td><td>{status}{activate}</td></tr>
+
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="sectionholder" {billingshow}>
+                        <a class="btnicon color4" href="#">+</a>
+                        <div class="opentitle"><h2>Billing</h2><a class="btnicon color4" onclick="return false;" href="#">+</a></div>
+                        <div class="contents">
+                            <table>
+
+                                <tr><td>Card for this billing:</td><td> **** {lastfour} <a class="basiclink" href="{changecarddetailshref}">(change)</a></td></tr>
+                                <tr><td>Next billed on:</td><td> {nextbilledon}</td></tr>
+                                <tr><td>Billing history:</td><td> <a class="basiclink" href="/{loclinkforward}account/settings/billing/">Check billing history</a></td></tr>
+
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="cancelautolikes">{cancelornot}</div>
+            
+
+        </div>
+    </div>
+
+</div>
+
+
+{footer}
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="/js/orderform.js"></script>
+        <script type="text/javascript">
+
+
+
+function closesignupDiv(){
+document.body.removeChild(document.getElementById('signDiv'));
+exitout="1";
+return false;
+}
+
+function signup2(){
+
+var widthPopup="356";var heightPopup="492";
+
+var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+var signupHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+signupHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+signupHTML+='<iframe src="/account/al-missing-posts.php?&hash={hash}" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+document.getElementById('signDiv').innerHTML=signupHTML;
+return false;
+
+}
+
+
+$(".opentitle").click(function() {
+  
+  var $target = $(this).parent().toggleClass("sectionholder2");
+  
+
+});
+
+
+
+$('#get_value') .on('change', function() {
+    
+
+var $newvalue = $('#get_value').val();
+
+$('#changepackage-form').append('<input type="hidden" name="package" value="' + $newvalue + '" />');
+
+
+});
+
+
+</script>
+    </body>
+</html>

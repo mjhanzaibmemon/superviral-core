@@ -1,0 +1,255 @@
+
+
+
+{errorstyle}  
+
+  <style type="text/css">
+  .orderstatus{display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f5f7fe;
+    box-sizing: border-box;    margin: 41px 0;}
+  .selectedposts{float: left;
+    margin-top: 14px!important;
+    color: #000!important;font-size:12px;}
+
+    .selectedposts .amount_of_posts,.selectedposts .likes_per_post{ font-weight:bold;   display: unset!important; font-size: inherit!important;margin-top:0!important;color: #000;}
+  
+  .btn{width: 120px!important;
+    float: right;text-align: center;
+    margin: 0!important;
+    padding: 9px 15px!important;}
+
+.btnnxt{width:initial!important;display:inline-block;}
+
+  .image_checkboxes div{position:relative;display:inline-block;width:150px;height:150px;float:left;border:2px solid transparent;overflow:hidden;    box-sizing: border-box;margin:4px;}
+  .image_checkboxes div .amount{position:absolute;display:none;color: #fff;
+      background: rgba(0,0,0,.65);
+      height: 30px;
+      text-align: center;
+      box-sizing: border-box;
+      width: 100%;margin:0;
+    font-size: 14px;
+      line-height: 25px;}
+  .image_checkboxes div img{width:100%;height:100%;}
+  .image_checkboxes .active{border-color:#4e03e0;}
+  .image_checkboxes .active .amount{display:block;}
+
+  .whichpackage{    text-align: center!important;
+    font-size: 15px;
+    color: #464646;}
+    .whichpackage a{    color: #4e03e0;
+    text-decoration: underline;}
+
+.problem li{margin-bottom:15px;}
+
+@media only screen and (min-width: 768px){
+.container {
+
+    padding: 37px 3%!important;
+}
+
+}
+
+
+.stepsbar {
+  -webkit-animation: animateThis 1s ease;
+  animation: animateThis 1s ease;
+  background : rgb(78, 3, 224);
+  height : 100%;
+  width:75%;
+}
+
+
+@-webkit-keyframes animateThis {
+  0% {
+    width: 50%;
+  }
+  100% {
+    width: 75%;
+  }
+}
+
+@keyframes animateThis {
+  0% {
+    width: 50%;
+  }
+  100% {
+    width: 75%;
+  }
+}
+
+
+  </style>
+
+    <div class="orderbody" align="center">
+
+
+      <div class="cnwidth">
+
+        {discountnotifcart}
+
+      
+
+        <div class="liveholder"><span class="livebox"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="livesvg"><path d="M256 0C115.4 0 0 115.4 0 256s115.4 256 256 256 256-115.4 256-256S396.6 0 256 0z"/></svg> Live</span><span id="livecount" class="livecount"></span> {usercheckoutlabel}</div>
+
+        <form id="idform" method="POST">
+
+        <div class="container dshadow" {shownopostmsg}>
+
+
+            <h1 style="color: #e49300;font-size: 24px;">{errh1}</h1>
+            <div style="margin-top: 26px;">{errdesc}
+
+              <ul class="problem">
+
+                <li>{errpoint1}</li>
+                <li>{errpoint2}</li>
+
+
+
+              </ul>
+            <br><br></div>
+
+            <a class="color4 btn" style="text-align: center;width: 100%!important;padding: 13px!important;" href="{back}">{errbtn1}</a>
+
+            <a class="color4 btn" style="text-align: center;margin-top: 36px!important;width: 100%!important;padding: 13px!important;" href="?setpublic=true">{errbtn2}</a>
+
+
+        </div>
+
+        <div class="container" {dontshowselectctn}>
+
+          <h1></h1>
+          <div class="whichpackage">{packagedesc} <a href="{changepackagehref}">{changepackage}</a></div>
+
+          <div class="orderstatus">
+
+
+            <div class="selectedposts">{selectedposts}</div>
+
+
+              <input type="hidden" id="posts_selected" name="posts_selected">
+              <input type="submit" style="display:none;" value="submit">
+            
+              
+            <a onclick="submitform();" href="#" class="color4 btn btnnxt">{nextbtn} &raquo;</a>
+
+          </div>
+
+
+           <div class="image_checkboxes">
+
+              {imgs}
+              
+            </div>
+
+          <div class="orderstatus">
+
+
+            <div class="selectedposts">{selectedposts}</div>
+              
+            <a onclick="submitform();" href="#" class="color4 btn btnnxt">{nextbtn} &raquo;</a>
+
+          </div>
+
+
+        
+
+        </div></form>
+
+      </div>
+
+    </div>
+
+
+
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="/js/orderform.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script type="text/javascript">
+   var selected_list = JSON.parse('{selectedlist}');
+   var limit = {postlimit};
+   var max_amount_likes = {maxamount};
+   var amount_of_posts = Object.keys(selected_list).length;
+
+    update_selected_list();    
+
+   $('.image_checkboxes').on( "click", "div", function() {
+      var image = this;
+      var input = $(this).prev();
+      var value = $(image).attr('data-value');
+      
+      if(value in selected_list){
+        delete selected_list[value];
+      }else{
+        if(amount_of_posts >= limit){return max_limit_hit();}
+        selected_list[value] = value
+      }
+      amount_of_posts = Object.keys(selected_list).length;
+      
+      update_selected_list();
+  });
+
+   function max_limit_hit(){
+    alert('{maxlimitreached}');
+    return;
+   }
+
+
+
+   function update_selected_list(){
+      var checkbox_cn = $('.img-responsive');
+      $(checkbox_cn).each(function(){  
+      var image = this;      
+        var value = $(image).attr('data-value');
+        if(value in selected_list){
+          $(image).addClass('active');
+        }else{
+          $(image).removeClass('active');
+        }
+      });
+      $('#posts_selected').val(JSON.stringify(selected_list));
+      update_likes_statistics();
+   }
+
+
+
+  function update_likes_statistics(){  
+    var likes_per_post =  Math.floor( max_amount_likes / amount_of_posts);
+    
+
+    if(likes_per_post == Infinity){likes_per_post=0;}
+
+    $('.likes_per_post').html(likes_per_post);
+    $('.amount_of_posts').html(amount_of_posts);
+    $('.image_checkboxes div .amount').html('+' + likes_per_post + ' {divboxpckg}');
+  }
+
+function submitform(){
+
+if(amount_of_posts=='0'){alert('{errorselect}');}else{document.getElementById('idform').submit();}
+
+}
+
+function liveusers(){
+    var feedback = $.ajax({
+        type: "GET",
+        url: "https://{sdblivecheckout}superviral.io/livecheckout.php",
+        async: false
+    }).complete(function(){
+        setTimeout(function(){liveusers();}, 3000);
+    }).responseText;
+
+    $('.livecount').html(feedback);
+
+
+}
+
+liveusers();
+
+</script>
+  

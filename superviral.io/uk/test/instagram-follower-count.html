@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+
+    <title>{metatitle}</title>
+
+
+
+    <meta name="description" content="{metadesc}" />
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta http-equiv="Content-Language" content="{contentlanguage}">
+
+
+
+    <link rel="canonical" href="{canonical}" />
+
+    <link rel="alternate" hreflang="en-us" href="https://superviral.io/instagram-follower-count/" />
+    <link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/instagram-follower-count/" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/buystyle.min.css?time=1646054328">
+    <link rel="stylesheet" type="text/css" href="/css/superviral-free-tools.css" />
+
+    <style>
+
+        h2, 
+        .about .title ,
+        .about .heading,
+        .faq .title {
+            font-weight: 600;
+        }
+
+        .banner #followerCount {
+            margin-top: 18px;
+        }
+
+        .banner #followerCount .user-part {
+            display: flex;
+            align-items: center;
+            margin-bottom: 9px;
+        }
+
+        .banner #followerCount .user-part .user-img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        .banner #followerCount .user-part .user-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .banner #followerCount .user-part .user-name {
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .banner #followerCount .amount-part {
+            padding-top: 9px;
+            border-radius: 10px;
+            border: 1px solid #000;
+            text-align: center;
+            height: 64px;
+            margin-bottom: 10px;
+        }
+
+        .banner #followerCount .amount-part .label,
+        .banner #followerCount .time-stamp .txt {
+            font-size: 11px;
+            font-weight: 300;
+        }
+
+        .banner #followerCount .amount-part .value {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 34px;
+        }
+
+        .banner #followerCount .time-stamp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner #followerCount .time-stamp .icon {
+            width: 29px;
+            height: 16px;
+            margin-right: 5px;
+        }
+
+        .banner #followerCount .time-stamp .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .banner #followerCount .time-stamp b {
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 3px;
+        }
+
+
+        @media screen and (min-width: 575px) {
+            .banner #followerCount {
+                max-width: 286px;
+                margin: 26px auto 0;
+            }
+
+            .banner #followerCount .user-part .user-img {
+                width: 35px;
+                height: 35px;
+                margin-right: 9px;
+            }
+
+            .banner #followerCount .user-part .user-img img {
+                border-radius: 50%;
+            }
+
+            .banner #followerCount .user-part .user-name,
+            .banner #followerCount .amount-part .label,
+            .banner #followerCount .time-stamp .txt {
+                font-size: 13px;
+            }
+
+            .banner #followerCount .amount-part {
+                height: 76px;
+            }
+
+            .banner #followerCount .amount-part .label {
+                margin-bottom: 4px;
+            }
+
+            .banner #followerCount .amount-part .value {
+                font-size: 31px;
+            }
+
+            .banner #followerCount .time-stamp .icon {
+                width: 31px;
+                height: 18px;
+            }
+
+            .banner #followerCount .time-stamp b {
+                font-size: 13px;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    {header}
+
+    <div id="loading_overlay" style="display:none;"><span class="loading_overlay_spinner"></span></div>
+
+    <div class="superviral-free-tools-page follower-count superviral-free-tools-page-uk">
+        <section class="banner">
+            <div class="main-container">
+                <h1 class="title">{main-title-h1}</h1>
+                <p class="subtitle">{main-subtitle-p}</p>
+
+                <div class="orderfield input-group">
+                    <span class="instruction">{banner-instruction-1}</span>
+
+                    <span class="error error1">{banner-instruction-1-error}</span>
+
+                    <div class="input-container">
+                        <input autocomplete="off" id="userName" value="" placeholder="therock">
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+                    <span class="instruction">{banner-instruction-2}</span>
+                    {recaptchaShow}
+                    <span class="instruction" {stylePoint3Text}>{banner-instruction-3}</span>
+
+                    <div style="text-align: center;">
+                        <input style="text-align: center;border:0;width:100%;padding-top: 12px;padding-bottom: 12px;" id="submitbtnthis" type="submit" onclick="getUserInfo();" value="{banner-prompt-1}" class="btn color4">
+                    </div>
+                </div>
+                <div>
+                    <div id="loadingTxt" style="text-align: center;">
+
+                    </div>
+                    <div id="followerCount" style="display: none;">
+                        <div class="user-part">
+                            <div class="user-img">
+                                <img src="" id="userPicId" alt="user-pic">
+                            </div>
+                            <span class="user-name" id="userNameId"></span>
+                        </div>
+                        <div class="amount-part">
+                            <div class="label">Followers Amount</div>
+                            <div class="value" id="countNumId"></div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="time-stamp">
+                            <div class="icon">
+                                <img src="/imgs/live-badge.svg" alt="live-badge" />
+                            </div>
+                            <b>Last Updated: </b>
+                            <span class="txt">2 Seconds Ago</span>
+                        </div> -->
+                </div>
+                <div style="text-align: center; font-family: Open Sans, sans-serif; margin-top: 20px;"><a href=""
+                        id="tryAnotherLinkId" style="display: none; color: #000 ; text-decoration-line: underline;">Try
+                        another profile</a></div>
+
+            </div>
+        </section>
+        <section class="more-free-tools main-container">
+            <h2 class="title">More FREE tools 🔧</h2>
+            <div class="list">
+                <a href="/uk/instagram-story-downloader/">
+                    <span class="text">Story Downloader</span>
+                    <span class="link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                            <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                            stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </a>
+                <a href="/uk/instagram-video-downloader/">
+                    <span class="text">Video Downloader</span>
+                    <span class="link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                            <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                                stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </a>
+                <a href="/uk/instagram-profile-picture-viewer/">
+                    <span class="text">Profile Picture Viewer</span>
+                    <span class="link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                            <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                            stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </a>
+                <a href="/uk/instagram-follower-count/">
+                    <span class="text">Follower Counter</span>
+                    <span class="link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
+                            <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="white"
+                                stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <section class="about main-container">
+            <div class="subtitle">{about-sub-heading}</div>
+            <h2 class="title">
+                <span class="text">{about-heading-h1}</span>
+            </h2>
+            <p class="para">{about-para-p1}</p>
+            <div class="checklist">
+                <div class="item">
+                    <div class="label">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                              </svg>
+                        </span>
+                        <span class="txt">{about-check-label1}</span>
+                    </div>
+                    <div class="para">{about-check-para1}</div>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                              </svg>
+                        </span>
+                        <span class="txt">{about-check-label2}</span>
+                    </div>
+                    <div class="para">{about-check-para2}</div>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                              </svg>
+                        </span>
+                        <span class="txt">{about-check-label3}</span>
+                    </div>
+                    <div class="para">{about-check-para3}</div>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                              </svg>
+                        </span>
+                        <span class="txt">{about-check-label4}</span>
+                    </div>
+                    <div class="para">{about-check-para4}</div>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#008000"/>
+                                <path d="M4 8.5L7 11.5L12.5 6" stroke="white" stroke-width="2"/>
+                              </svg>
+                        </span>
+                        <span class="txt">{about-check-label5}</span>
+                    </div>
+                    <div class="para">{about-check-para5}</div>
+                </div>
+            </div>
+            <hr>
+        </section>
+        <section class="features about main-container">
+            <div class="item reasons">
+                <h3 class="heading">{reason1-heading}</h3>
+                <p class="para">{reason1-para}</p>
+                <div class="sub-item">
+                    <div class="icon">
+                        <svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="34.5" cy="34.5" r="34.5" fill="#4D05BB"/>
+                            <path d="M33.7605 20.5667C34.1532 19.6736 34.3496 19.2271 34.6231 19.0896C34.8606 18.9701 35.1395 18.9701 35.3769 19.0896C35.6504 19.2271 35.8468 19.6736 36.2395 20.5667L39.3676 27.6801C39.4838 27.9441 39.5418 28.0762 39.6317 28.1772C39.7111 28.2667 39.8083 28.3382 39.9167 28.3872C40.0393 28.4426 40.1811 28.4577 40.4648 28.4881L48.1056 29.3055C49.0649 29.4082 49.5444 29.4595 49.758 29.6806C49.9434 29.8726 50.0296 30.1416 49.9909 30.4075C49.9465 30.7135 49.5882 31.0407 48.8717 31.6954L43.164 36.9092C42.9523 37.1026 42.8463 37.1995 42.7793 37.3172C42.7199 37.4216 42.6827 37.5373 42.6704 37.657C42.6563 37.7923 42.6858 37.9337 42.745 38.2165L44.3392 45.8351C44.5394 46.7916 44.6395 47.2698 44.498 47.5439C44.375 47.7822 44.1494 47.9483 43.888 47.9932C43.5871 48.0448 43.1693 47.8006 42.3336 47.3121L35.678 43.4209C35.4311 43.2765 35.3076 43.2044 35.1763 43.1761C35.0601 43.1511 34.94 43.1511 34.8238 43.1761C34.6925 43.2044 34.569 43.2765 34.322 43.4209L27.6664 47.3121C26.8308 47.8006 26.4131 48.0448 26.1121 47.9932C25.8507 47.9483 25.625 47.7822 25.5021 47.5439C25.3607 47.2698 25.4607 46.7916 25.6609 45.8351L27.255 38.2165C27.3142 37.9337 27.3438 37.7923 27.3297 37.657C27.3173 37.5373 27.2802 37.4216 27.2208 37.3172C27.1537 37.1995 27.0478 37.1026 26.836 36.9092L21.1285 31.6954C20.4119 31.0407 20.0536 30.7135 20.0091 30.4075C19.9704 30.1416 20.0566 29.8726 20.2421 29.6806C20.4556 29.4595 20.9352 29.4082 21.8945 29.3055L29.5353 28.4881C29.8189 28.4577 29.9607 28.4426 30.0833 28.3872C30.1918 28.3382 30.2889 28.2667 30.3684 28.1772C30.4583 28.0762 30.5163 27.9441 30.6324 27.6801L33.7605 20.5667Z" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                    </div>
+                    <div class="content">
+                        <h4 class="sub-heading">{reason1-sub2-heading}</h4>
+                        <p class="para">{reason1-sub2-p1}</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
+                            <circle cx="34.5" cy="34.5" r="34.5" fill="#4D05BB"/>
+                            <path d="M34.5363 20C32.3648 20 30.2144 20.4277 28.2082 21.2588C26.2019 22.0898 24.3789 23.3078 22.8434 24.8434C21.3078 26.3789 20.0898 28.2019 19.2588 30.2082C18.4277 32.2144 18 34.3648 18 36.5363C18.0069 38.3981 18.3281 40.2452 18.9501 42C18.6861 40.8969 18.5498 39.7672 18.5437 38.633C18.5438 34.7056 20.1041 30.9391 22.8811 28.162C25.6582 25.3849 29.4247 23.8247 33.3521 23.8246C36.2888 23.8274 39.1584 24.7034 41.596 26.3411L44.5459 23.3912C41.6701 21.1964 38.154 20.0051 34.5363 20ZM47.1431 24.9657C46.7962 24.9716 46.444 25.1067 46.1527 25.3533L33.484 36.0761C32.9014 36.5694 31.5325 38.0218 33.4812 39.9706C35.4304 41.9198 36.8823 40.5478 37.3758 39.9653L48.1012 27.3019C48.5946 26.7194 48.6411 25.8931 48.1012 25.3533C47.8313 25.0834 47.49 24.9599 47.1431 24.9657ZM49.6919 29.9369L46.9063 32.7225C47.7071 34.546 48.1318 36.5123 48.1551 38.5038H50.9327C51.0185 37.8513 51.0652 37.1944 51.0727 36.5363C51.0705 34.265 50.6005 32.0185 49.6919 29.9369Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="content">
+                        <h4 class="sub-heading">{reason1-sub3-heading}</h4>
+                        <p class="para">{reason1-sub3-p1}</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="icon">
+                        <svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="34.5" cy="34.5" r="34.5" fill="#4D05BB"/>
+                            <path d="M24.3934 24.3934L45.6067 45.6067M50 35C50 43.2843 43.2843 50 35 50C26.7157 50 20 43.2843 20 35C20 26.7157 26.7157 20 35 20C43.2843 20 50 26.7157 50 35Z" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                  
+                    </div>
+                    <div class="content">
+                        <h4 class="sub-heading">{reason1-sub4-heading}</h4>
+                        <p class="para">{reason1-sub4-p1}</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
+                            <circle cx="34.5" cy="34.5" r="34.5" fill="#4D05BB"/>
+                            <path d="M18 43L29.9298 31.2759L38.2807 39.4828L52 26" stroke="white" stroke-width="5"/>
+                        </svg>
+                    </div>
+                    <div class="content">
+                        <h4 class="sub-heading">{reason1-sub5-heading}</h4>
+                        <p class="para">{reason1-sub5-p1}</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="item">
+                <div class="body">
+                    <div class="content">
+                        <h3 class="heading">{reason2-heading}</h3>
+                        <p class="para">{reason2-para}</p>
+                        <ul>{reason2-bullets}</ul>
+                    </div>
+                    <div class="img-container align-center">
+                        <img data-src="/imgs/follower-count-icon1.svg" src="" alt="icon1" class="lazy">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="item">
+                <h3 class="heading">{stepper-heading}</h3>
+                <p class="para">{stepper-para}</p>
+                <div class="guideline">
+                    <div class="guide">
+                        <div class="seqNum">1</div>
+                        <div class="para">
+                            {step-1}
+                        </div>
+                    </div>
+                    <div class="guide">
+                        <div class="seqNum">2</div>
+                        <div class="para">
+                            {step-2}
+                        </div>
+                    </div>
+                    <div class="guide">
+                        <div class="seqNum">3</div>
+                        <div class="para">
+                            {step-3}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="item">
+                <div class="body">
+                    <div class="content">
+                        <h3 class="heading">{feature1-heading}</h3>
+                        <p class="para">{feature1-para}</p>
+                    </div>
+                    <div class="img-container">
+                        <img data-src="/imgs/follower-count-icon9.svg" src="" alt="icon1" class="lazy">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="item">
+                <div class="body">
+                    <div class="content">
+                        <h3 class="heading">{feature3-heading}</h3>
+                        <p class="para">{feature3-para}</p>
+                    </div>
+                    <div class="img-container">
+                        <img data-src="/imgs/follower-count-icon4.svg" src="" alt="icon1" class="square_img lazy">
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </section>
+        <section class="faq main-container">
+            <h4 class="heading">{faq-heading}</h4>
+            <h2 class="title">{faq-title}</h2>
+            <p class="para">{faq-subtitle}</p>
+            <div class="faq-part">
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q1}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a1}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q2}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a2}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q3}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a3}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q4}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a4}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q5}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a5}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q6}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a6}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q7}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a7}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q8}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a8}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q9}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a9}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q10}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a10}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="question">
+                        <span class="txt">{faq-q11}</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11"
+                                fill="none">
+                                <path d="M1 10L6.46667 5.9C6.73333 5.7 6.73333 5.3 6.46667 5.1L1 1" stroke="black"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="answer">
+                        {faq-a11}
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;"><a href="#!" class="btn btn3"onclick="questionModal();">{faq-btn-prompt}</a></div>
+        </section>
+        <section class="download-prompt main-container">
+            <!-- <h4 class="heading">{download-prompt-heading}</h4> -->
+            <h2 class="title">{download-prompt-title}</h2>
+            <div style="text-align: center;"><a href="#" class="btn color4">{download-prompt-link}</a></div>
+        </section>
+    </div>
+
+    {footer}
+    <script src="/common/superviral-free-tools.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../common/lazy-loading.js"></script>
+    <script>
+
+{headerscript}
+        function questionModal() {
+
+
+
+            var widthPopup = "356"; var heightPopup = "472";
+
+
+
+            var signDiv = document.createElement("div"); signDiv.id = 'signDiv'; document.body.appendChild(signDiv);
+
+            var questionHTML = '<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+
+            questionHTML += '<div style="overflow: hidden; z-index:9999;width:' + widthPopup + 'px;height:' + heightPopup + 'px;position:fixed;left:50%;margin-left:-' + (widthPopup / 2) + 'px;top:50%;margin-top:-' + (heightPopup / 2) + 'px;border:0">';
+
+            questionHTML += '<iframe src="{loclink}/userquestions.php?page=instagram-follower-count" style="overflow: hidden;width:100%;height:' + (heightPopup - 35) + 'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe><div onclick="closequestionDiv();" style="text-align:center;color:#fff;font-size:15px;">Close window X</div></div>';
+
+
+
+            document.getElementById('signDiv').innerHTML = questionHTML;
+
+
+
+            return false;
+
+
+
+        }
+
+
+        function closequestionDiv(msg){
+
+document.body.removeChild(document.getElementById('signDiv'));
+
+// exitout="1";
+
+if(msg == "Question submitted successfully - thank you for the feedback!")
+
+addMsgs(msg);
+
+}
+
+function addMsgs(msg){
+
+    $("#successMsgAddQues").html(msg);
+
+    $("#successMsgAddQues").show();
+
+    document.getElementById("successMsgBtn").click();
+
+}
+
+
+        function getUserInfo() {
+
+
+
+            var userName = $('#userName').val();
+
+            if (userName.trim() == "") {
+
+                alert('Username is required');
+
+                return;
+
+            }
+
+            {recaptchaRequired}
+
+            var dataArr = {
+
+                "username": userName,
+
+                "type": 'follower_count',
+
+            {recaptchaParam}
+
+        };
+
+        $("#loading_overlay").show();
+
+
+        $.ajax({
+
+            url: "/free_tools_ajax.php",
+
+            type: "POST",
+
+            async: true,
+
+            dataType: 'json',
+
+            data: dataArr,
+
+            success: function (response) {
+
+                // console.log(response);
+                $("#loading_overlay").hide();
+
+                if (response.message == 'success') {
+
+
+
+                    $('#countNumId').html(response.data.followerCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#userPicId').attr('src', response.data.profile_pic);
+                    $('#followerCount').show();
+                    if (userName.includes('@')) {
+                              $('#userNameId').html(userName);
+                    } else {
+                              $('#userNameId').html('@' + userName);
+                    }
+                  
+                    $('#tryAnotherLinkId').show();
+                    $('.input-group').hide();
+                } else {
+
+
+
+                    alert(response.message);
+                    if(response.message == 'Recaptcha Error' || response.message == 'Error while fetching, please try again!'){
+                            location.reload();
+                    }
+
+                }
+
+            },
+
+        });
+
+        }
+
+
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</body>
+
+
+
+</html>

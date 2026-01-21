@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<head>
+<title>{title}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta http-equiv="Content-Language" content="{contentlanguage}">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="alternate" hreflang="en-us" href="https://superviral.io/track-my-order/" />
+<link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/track-my-order/" />
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://superviral.io/css/buystyle.min.css">
+<style type="text/css">
+
+    
+
+
+    .h1holder{display: inline-block;width: 100%;position: relative;height: 70px;}
+
+    .headernew{border-bottom: 1px solid #ccc;}
+
+    .tholder{width:100%;border-bottom:1px solid #ccc;min-height:100px;}
+
+    .tholdermaindelivery{border-bottom:0;}
+
+    .tholdermaindelivery .cnwidthtracking{padding:10px 20px;}
+
+    .tholderanimation{min-height:initial;background-color: #fbfbfb;
+    border-bottom: 0;}
+
+    .tholderanimation .cnwidthtracking{padding:0;}
+
+    .cnwidthtracking{max-width:600px;padding:10px;overflow: hidden;}
+
+    h1{float:left;color:#000; text-align: left;
+    color: #000;
+    position: absolute;
+    bottom: 0;font-size: 43px;}
+
+    .loadingbar .loadingbareach{    width: 22%;
+    height: 7px;
+    float: left;
+    margin-right: 3%;}
+
+    .loadingbaractive{background:#4a00e0;}
+    .loadingbarloading{background:#f5f5f5;}
+
+    .loadingbarloading .loadingbarmoving{width:0%;
+        height:100%;
+        background:#4a00e0;
+  -webkit-animation: animateThis 2s infinite;
+  animation: animateThis 2s infinite;
+  float:left;
+}
+
+    .loadingbarinactive{background:#f5f5f5;}
+
+    .estarrival{    position: absolute;
+    bottom: 0;
+    right: 10px;
+    font-size: 14px;
+    color: grey;}
+
+    .animationholder{    position: relative;
+        width: 320px;
+    height: 91px;position: relative;}
+
+    .igicon{position: absolute;
+    right: 14px;
+    height: 53px;
+    border-radius: 26px;
+    top: 16px;}
+
+    .mainanimation{height: initial;
+    width: 320px;}
+
+
+
+    .tboxholder{border-bottom: 1px solid #efefef;
+    padding: 13px 0px;font-size:14px;}
+
+    .tinfoholder{padding: 25px 0;}
+
+    .tinfoholder .cnwidthtracking{padding:10px 30px;}
+
+    .tboxholder h3{display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    color: #7d7d7d;
+    font-weight: normal;margin-bottom: 8px;}
+
+    .tboxholder span{display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0;}
+
+    .restartorderholder{background: #fffbea;}
+
+    h2{font-size: 28px;
+    text-align: left;
+color:#4a00e0;}
+
+    .tboxholder:last-child{border-bottom:0;}
+
+    .btn{margin: 0!important;
+    float: left;
+    margin-top: 17px!important;border: 0;}
+
+    .redstate{color:#bd0000;}
+    .greenstate{color: #009900;}
+
+    .tinfoaccuracy{min-height: 21px;
+    padding-top: 7px;}
+
+    .alert {
+    padding: 12px;
+    display: flex;
+    align-items: center;;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 14px;
+    }
+
+    .alert.alert-warning {
+    color: #CB9600;;
+    background-color: #FFF8E4;
+    border: 1px solid #CB9600;}
+  
+
+@keyframes animateThis {
+  0% {
+    width: 0%;
+    opacity:1;
+  }
+  80% {
+    width: 100%;
+
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+ @media only screen and (min-width: 360px){
+
+        .animationholder{width: 360px;
+    height: 96px;}
+
+    .mainanimation{    width: 360px;}
+
+.igicon {
+    right: 17px;
+    height: 58px;
+    border-radius: 28px;
+    top: 18px;
+}
+
+ }
+
+
+
+
+
+    @media only screen and (min-width: 425px){
+
+        .animationholder{width: 425px;height: 111px;}
+
+    .mainanimation{    width: 425px;}
+
+.igicon {
+    right: 20px;
+    height: 68px;
+    border-radius: 33px;
+    top: 22px;
+}
+
+
+
+    }
+
+
+
+    @media only screen and (min-width: 768px){
+
+
+        .tholder{border-bottom:0;}
+
+        .animationholder{width:580px;height: 143px;}
+
+        .mainanimation{width:580px;}
+
+        .igicon {
+    right: 28px;
+    height: 92px;
+    border-radius: 46px;
+    top: 30px;
+    }
+
+
+
+    .dnone42{display: none;}
+
+    .trackingnumber{font-size: 18px;font-weight:bold;}
+
+    .thehref{text-decoration: underline;color:blue;}
+
+    .deliverytime{    font-size: 29px;
+    margin-top: 90px;
+    color: #009900;padding: 0 20px;}
+
+
+    .box{margin: 75px 15px 35px 15px;background:#fff;-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;text-align: left;padding:15px;}
+
+    .box .boxheading{font-size:17px;font-weight:bold;margin-bottom:10px;}
+
+    .datelabel{    background: #f5f7fe;
+    font-size: 14px;
+    padding-left: 10px!important;}
+
+    .box .contents div{    padding: 11px 0;}
+
+    .box .contents table{font-size:13px;}
+    .box .contents table tr td{padding: 8px 0;box-sizing:border-box;}
+    .box .contents table tr td:first-child{padding-right:15px;color:grey;font-weight: normal;vertical-align: top;}
+
+    .trackingtbl tr td{width:75%; vertical-align: text-top;border-bottom:1px solid #f5f7fe;}
+    .trackingtbl tr td:first-child{width:25%;color: #009900!important;}
+
+    .refillnotice{font-size: 14px;
+    margin-bottom: 15px;
+    margin-top: 19px;}
+
+    .refillsbtn{
+    width: auto;
+    display: inline-block;
+    padding: 8px 13px;
+    font-weight: bold;}
+
+    .tinfoholder .cnwidthtracking{padding:10px;}
+
+.tholdermaindelivery .cnwidthtracking{padding:10px;}
+
+}
+
+
+
+
+</style>    
+</head>
+
+    <body>
+
+
+
+
+
+        {header}
+
+
+        <div class="tholder tholdermaindelivery" align="center">
+
+
+            <div class="cnwidth cnwidthtracking">
+
+
+                <div class="h1holder">
+                    <h1 id="h1" class="{colorstate}" {h1resize}>{deliverystatus}</h1>
+                    <span class="estarrival" style="">{deliverystatusspan}</span>
+                </div>
+                
+
+                <div class="loadingbar" style="    margin-top: 5px; margin-bottom: 17px;">
+
+
+                    <div class="loadingbareach loadingbaractive"></div>
+                    <div class="loadingbareach {loadingbarstatus1}">{loadingbar1}</div>
+                    <div class="loadingbareach {loadingbarstatus2}">{loadingbar2}</div>
+                    <div class="loadingbareach {loadingbarstatus3}">{loadingbar3}</div>
+                    
+
+                </div>
+
+                <div class="statusnow" style="    text-align: left;    padding-top: 8px;    font-weight: bold;">
+
+                    {statusnow}
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        {refilltable}
+
+        <div class="tholder tholderanimation" align="center" {loadinganimationnone}>
+
+
+            <div class="cnwidth cnwidthtracking">
+
+                <div class="animationholder">
+                {igicon}
+                <img class="mainanimation" src="/imgs/t-page/{deliveryanimationtype}.gif?type=438228">
+                </div>
+
+            </div>
+
+
+        </div>
+
+        {styleRestart}
+
+        <div class="tholder tinfoholder" align="center">
+
+            <div class="cnwidth cnwidthtracking" style="text-align:left;font-size: 14px;">
+                    <div class="alert alert-warning" style="display:none;"><span style="margin-right: 8px;">We're currently upgrading our services to improve the experience for all our customers, as a result you may experience minor delays to your order. We sincerely apologise for this; rest assured we are doing our utmost to ensure you receive your order ASAP. Thank you for choosing Superviral.</span></div>
+                    <br>
+                    
+                    <h2>Delivery Accuracy</h2>
+                   <span>Accuracy is based on <b>{orderamount} orders</b> delivered in the <b>last 3-days</b></span>
+
+            </div>
+
+        </div>
+
+
+        <div class="tholder tinfoholder" align="center">
+
+
+            <div class="cnwidth cnwidthtracking">
+
+                <h2>Order details</h2>
+
+                <div class="tboxholder">
+
+                    <h3>Username</h3>
+                    <span>{igusername}</span>
+
+                </div>
+
+
+                <div class="tboxholder">
+
+                    <h3>Service</h3>
+                    <span>{amount} Super High Quality {service}</span>
+
+                </div>
+
+                <div class="tboxholder">
+
+                    <h3>Order ID</h3>
+                    <span>#{ordernum}</span>
+
+                </div>
+
+                <div class="tboxholder">
+
+                    <h3>Delivery status</h3>
+                    <span>{status}</span>
+
+                </div>
+
+
+                <div class="tboxholder">
+
+                    <h3>Delivery notification</h3>
+                    <span>{contactnumber}</span>
+                    {textnotifsbtn}
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="tholder tinfoholder" align="center">
+
+
+            <div class="cnwidth cnwidthtracking">
+
+                <h2>Service quality</h2>
+
+                <div class="tboxholder">
+
+                    <h3>Quality of {service}</h3>
+                    <span>Super High Quality</span>
+
+                </div>
+
+
+                <div class="tboxholder">
+
+                    <h3>Order speed</h3>
+                    <span>Superviral RapidDelivery™</span>
+
+                </div>
+
+                <div class="tboxholder">
+
+                    <h3>Order priority</h3>
+                    <span>1st priority</span>
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <div  id="trackinghistory" class="tholder tinfoholder" align="center" style="border-bottom:0;">
+
+
+            <div class="cnwidth cnwidthtracking">
+
+                <h2>Tracking history</h2>
+
+                {trackingtable}
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+{footer}
+
+        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <script type="text/javascript">
+
+{headerscript}
+
+
+
+function signup(){
+
+var widthPopup="356";var heightPopup="492";
+
+var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+var signupHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+signupHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+signupHTML+='<iframe src="/track-my-order-number.php?id={ordernum}&hash={hash}" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+document.getElementById('signDiv').innerHTML=signupHTML;
+return false;
+
+}
+
+function closesignupDiv(){
+document.body.removeChild(document.getElementById('signDiv'));
+exitout="1";
+return false;
+}
+
+function signup2(){
+
+var widthPopup="356";var heightPopup="492";
+
+var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+var signupHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+signupHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+signupHTML+='<iframe src="/track-my-order-freelikes.php?&hash={hash}" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe></div>';
+document.getElementById('signDiv').innerHTML=signupHTML;
+return false;
+
+}
+
+
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {   
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+
+{javascript}
+
+    
+function restartOrderPopup(){
+var widthPopup="356";var heightPopup="620";
+var restartDiv=document.createElement("div");  restartDiv.id='restartDiv';   document.body.appendChild(restartDiv);
+var signupHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+signupHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+signupHTML+='<iframe src="/restart-order-popup.php?uid={ordernum}&hash={hash}" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe><div onclick="closeRestartDiv();" style="text-align:center;color:#fff;font-size:15px;">Close window X</div></div>';
+document.getElementById('restartDiv').innerHTML=signupHTML;
+return false;
+}
+function closeRestartDiv(){
+document.body.removeChild(document.getElementById('restartDiv'));
+exitout="1";
+location.reload();
+return false;
+}
+
+</script>
+<script src="https://www.googleoptimize.com/optimize.js?id=OPT-WNB55RC"></script>
+    </body>
+</html>

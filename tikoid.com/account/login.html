@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/loginregister.css">
+
+<title>Login - Tikoid</title>
+<style>.container{height:initial;}
+      .error {
+        color: red;
+      }</style>
+</head>
+<body>
+{header}
+
+
+<div class="orderbody" align="center">
+
+
+    <div class="cnwidth">
+
+        <div class="container dshadow" style="text-align: left;">
+                            <form id="form" method="post" action="/login/">
+                    <h1>Log into your Tikoid Account</h1>
+                    <div class="form-group">
+                        {error}
+                        {error1}
+                        <input type="text" class="form-control required" name="email" placeholder="Email address">
+                    </div>
+                    <div class="form-group">
+                        {error2}
+                        <input type="password" class="form-control required" name="password" placeholder="Password">
+                    </div>
+                    <button class="color4 btn">Log in</button>
+
+                    <a class="basiclink" style="text-align:left!important;" href="/{forgotpasswordlink}/">Forgot password?</a>
+                </form>
+
+
+
+         </div>
+
+
+         <div class="container sign-wrap">
+                    <p>Don't have an account? <a class="basiclink" href="/{signuplink}/">Sign up</a></p>
+         </div>
+
+    </div>
+
+</div>
+
+
+    <script>{footer}</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41728467-8"></script>
+<script async src="https://www.googleoptimize.com/optimize.js?id=OPT-WNB55RC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-41728467-8');
+
+gtag('event', 'Pageview2', {
+  'event_category': 'View',
+  'event_label': 'Viewed'
+});
+
+</script>
+
+</body>
+</html>

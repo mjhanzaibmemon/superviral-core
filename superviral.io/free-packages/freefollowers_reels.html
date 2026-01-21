@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<head>
+  <title></title>
+  <meta name="description" content="{metadesc}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Language" content="{contentlanguage}">
+  <link rel="canonical" href="{canonical}" />
+  <link rel="alternate" hreflang="en-us" href="https://us.superviral.io/instagram-story-downloader/" />
+  <link rel="alternate" hreflang="en-gb" href="https://uk.superviral.io/instagram-story-downloader/" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/buystyle.min.css?time=1646054328">
+  <link rel="stylesheet" type="text/css" href="/css/superviral-free-tools.css" />
+
+  <script>
+    // this page is a demo that is not built, so fudge the module.exports support
+
+    // define a global `module` so that the actual source file can use it
+
+    window.module = {};
+
+  </script>
+
+  <script src="/js/confetti.js"></script>
+
+  <script>
+
+    // define the `module.exports` as the `confetti` global, the way that the
+
+    // cdn distributed file would
+
+    window.confetti = module.exports;
+
+  </script>
+
+  <style>
+    .section-banner * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .section-banner h2 {
+      color: #FFFFFF;
+      font-size: 32px;
+      max-width: 360px;
+      margin-bottom: 25px;
+    }
+
+    .section-banner p {
+      color: #FFFFFF;
+      font-family: "Source Sans Pro";
+      font-size: 14px;
+      margin-bottom: 35px;
+    }
+
+    .section-banner a {
+      color: #FFFFFF;
+      font-family: "Source Sans Pro";
+      font-size: 12px;
+      font-weight: 400;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .section-banner {
+      background: url("/imgs/freefollowers-banner.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 55px 0 0;
+      height: 100vh;
+    }
+
+    .main-container {
+      text-align: center;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .spinner {
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      border: 1px solid #FFF;
+      border-radius: 22px;
+      margin-bottom: 35px;
+      width: 100%;
+      max-width: 295px;
+    }
+
+    .spinner .number {
+      display: flex;
+      gap: 30px;
+    }
+
+    .spinner .number span {
+      color: #FFF;
+      font-family: "Source Sans Pro";
+      font-size: 70px;
+      font-weight: 700;
+    }
+
+
+    .button {
+      font-family: "Open Sans", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 20px;
+      background: #1A73E7;
+      color: #FFF;
+      border: 0;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      width: 100%;
+      max-width: 295px;
+      margin-bottom: 35px;
+    }
+
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.5s;
+      backdrop-filter: blur(3px);
+    }
+
+    /* Popup */
+    .popup {
+      background: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup h2 {
+      font-size: 16px;
+      font-family: "Open Sans";
+      color: #000000;
+      margin-bottom: 10px;
+    }
+
+    .popup .separator {
+      height: 0.5px;
+      background-color: #E7E7E7;
+      margin-bottom: 10px;
+    }
+
+    .popup p {
+      font-size: 12px;
+      margin-bottom: 20px;
+      color: #000000;
+    }
+
+    .popup .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .popup .button-colored {
+      font-size: 12px;
+      border-radius: 50px;
+      width: 70px;
+    }
+
+    .popup .button-transparent {
+      font-size: 12px;
+      border-radius: 50px;
+      width: 70px;
+      background-color: transparent;
+      color: #000000;
+      border: 0.5px solid #E8E8E8;
+    }
+
+    /* Show overlay and popup */
+    .overlay.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    canvas#my-canvas {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .section-banner {
+        padding: 80px 0 0;
+      }
+
+      .section-banner h2 {
+        font-size: 42px;
+        margin-bottom: 20px;
+        max-width: 430px;
+      }
+
+      .section-banner p {
+        font-size: 16px;
+        margin-bottom: 45px;
+      }
+
+      .section-banner a {
+        font-size: 14px;
+      }
+
+      .spinner,
+      .button-primary {
+        margin-bottom: 45px;
+        max-width: 340px;
+      }
+
+
+
+    }
+  </style>
+</head>
+
+<body>
+  {header}
+
+  <section class="section-banner">
+    <canvas id="my-canvas"></canvas>
+    <div class="main-container">
+      <h2>BOOST YOUR FOLLOWERS FOR FREE!</h2>
+      <p>Click below to spin the reel and claim your free followers!</p>
+      <div class="spinner">
+        <div class="number">
+          <span>0</span>
+          <span>0</span>
+          <span>0</span>
+          <span>0</span>
+        </div>
+      </div>
+      <button class="button button-primary" onclick="randomAmount()">TRY NOW</button>
+      <a class="deny-btn">No, I don't want a free follower boost</a>
+    </div>
+  </section>
+
+
+  <!-- Overlay and Popup -->
+  <div class="overlay" id="overlay">
+    <div class="popup" id="popup">
+      <h2>Confirmation</h2>
+      <div class="separator"></div>
+      <p>Are you sure you don’t want a free follower boost?</p>
+      <div class="button-container">
+        <button class="button button-colored" id="close-popup">No</button>
+        <button class="button button-transparent" id="confirm-button">Yes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Show the overlay when the "TRY NOW" button is clicked
+      document.querySelector(".deny-btn").addEventListener("click", function () {
+        document.getElementById("overlay").classList.add("show");
+      });
+
+      // Close the popup
+      document.getElementById("close-popup").addEventListener("click", function () {
+        document.getElementById("overlay").classList.remove("show");
+      });
+      // success
+      document.getElementById("confirm-button").addEventListener("click", function () {
+        window.location = "/buy-instagram-followers/";
+      });
+
+      // Close the popup when clicking outside of it
+      document.getElementById("overlay").addEventListener("click", function (event) {
+        if (event.target === this) {
+          this.classList.remove("show");
+        }
+      });
+    });
+
+
+    function randomAmount() {
+
+
+      let searchParams = new URLSearchParams(window.location.search);
+      let id = searchParams.get('id');
+      var dataArr = {
+        "type": 'randomAmount',
+        "id" : id
+      };
+
+      $.ajax({
+        url: "/ajax-post.php",
+        type: "POST",
+        async: true,
+        dataType: 'json',
+        data: dataArr,
+        success: function (response) {
+          if (response.message == 'success') {
+
+            const formattedNumber = response.data;
+            const numberContainer = document.querySelector('.spinner .number');
+            numberContainer.innerHTML = '';
+            for (let digit of formattedNumber) {
+              const span = document.createElement('span');
+              span.textContent = digit;
+              numberContainer.appendChild(span);
+            }
+            setTimeout(function () {
+              realistic();
+            }, 500);
+            
+            setTimeout(function () {
+              window.location.href = "/free-followers-reels-form/?id=" + id;
+            }, 1000);
+
+          }else{
+            alert(response.message);
+          }
+        }
+      })
+
+    }
+
+
+
+
+
+    var modes = {
+
+      random: function random() {
+
+        function randomInRange(min, max) {
+
+          return Math.random() * (max - min) + min;
+
+        }
+
+
+
+        confetti({
+
+          angle: randomInRange(55, 125),
+
+          spread: randomInRange(50, 70),
+
+          particleCount: randomInRange(50, 100),
+
+          origin: { y: 0.6 }
+
+        });
+
+      },
+
+      realistic: function realistic() {
+
+        var count = 200;
+
+        var defaults = {
+
+          origin: { y: 0.7 }
+
+        };
+
+
+
+        function fire(particleRatio, opts) {
+
+          confetti(Object.assign({}, defaults, opts, {
+
+            particleCount: Math.floor(count * particleRatio)
+
+          }));
+
+        }
+
+
+
+        fire(0.25, {
+
+          spread: 26,
+
+          startVelocity: 55,
+
+        });
+
+        fire(0.2, {
+
+          spread: 60,
+
+        });
+
+        fire(0.35, {
+
+          spread: 100,
+
+          decay: 0.91,
+
+          scalar: 0.8
+
+        });
+
+        fire(0.1, {
+
+          spread: 120,
+
+          startVelocity: 25,
+
+          decay: 0.92,
+
+          scalar: 1.2
+
+        });
+
+        fire(0.1, {
+
+          spread: 120,
+
+          startVelocity: 45,
+
+        });
+
+      },
+
+
+
+      continuous: function continuous() {
+
+        var end = Date.now() + (15 * 1000);
+
+
+
+        // go Buckeyes!
+
+        var colors = ['#bb0000', '#ffffff'];
+
+
+
+        (function frame() {
+
+          confetti({
+
+            particleCount: 2,
+
+            angle: 60,
+
+            spread: 55,
+
+            origin: { x: 0 },
+
+            colors: colors
+
+          });
+
+          confetti({
+
+            particleCount: 2,
+
+            angle: 120,
+
+            spread: 55,
+
+            origin: { x: 1 },
+
+            colors: colors
+
+          });
+
+
+
+          if (Date.now() < end) {
+
+            requestAnimationFrame(frame);
+
+          }
+
+        }());
+
+      },
+
+      custom: function () {
+
+        var canvas = document.getElementById('my-canvas');
+
+
+
+        // you should  only initialize a canvas once, so save this function
+
+        // we'll save it to the canvas itself for the purpose of this demo
+
+        canvas.confetti = canvas.confetti || confetti.create(canvas, { resize: true });
+
+
+
+        canvas.confetti({
+
+          spread: 70,
+
+          origin: { y: 1.2 }
+
+        });
+
+      }
+
+    };
+
+
+
+
+
+
+
+
+
+
+
+    function realistic() {
+
+      var count = 600;
+
+      var defaults = {
+
+        origin: { y: 0.7 }
+
+      };
+
+
+
+      function fire(particleRatio, opts) {
+
+        confetti(Object.assign({}, defaults, opts, {
+
+          particleCount: Math.floor(count * particleRatio)
+
+        }));
+
+      }
+
+
+
+      fire(0.25, {
+
+        spread: 26,
+
+        startVelocity: 75,
+
+      });
+
+      fire(0.2, {
+
+        spread: 60,
+
+      });
+
+      fire(0.35, {
+
+        spread: 100,
+
+        decay: 0.91,
+
+        scalar: 0.8
+
+      });
+
+      fire(0.1, {
+
+        spread: 120,
+
+        startVelocity: 25,
+
+        decay: 0.92,
+
+        scalar: 1.2
+
+      });
+
+      fire(0.1, {
+
+        spread: 120,
+
+        startVelocity: 45,
+
+      });
+
+    }
+
+
+
+  </script>
+
+</body>
+
+
+</html>

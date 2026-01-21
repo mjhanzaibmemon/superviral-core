@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<head>
+<title>Superviral</title>
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/orderform.css">
+
+
+<!-- Google Analytics -->
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C18K306XYW"></script>
+<script async src="https://www.googleoptimize.com/optimize.js?id=OPT-WNB55RC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-41728467-8');
+  gtag('config', 'G-C18K306XYW');
+</script>
+
+
+
+</head>
+
+  <body>
+
+<style type="text/css">
+h1{    text-align: left;
+    font-size: 23px;
+    width: 100%;
+    display: block;
+    max-width: 100%;}
+h2{text-align: left;font-size:17px;color: green;}
+p{text-align: left;margin-bottom:30px;color:#525252;font-size:15px;    line-height: 26px;}
+ul{    padding: 0;
+    list-style: none;}
+ul li{text-align: left;
+    font-size: 13px;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 9px;
+    line-height: 26px;}
+.tick{    width: 20px;
+    height: 20px;
+    background: url(/imgs/all-images.png) no-repeat 0 -26px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 3px;}
+
+.contactnumberupdate{display:inline-block;width:100%;}
+.iti{float:left;    width: 100%;margin-bottom:20px;}
+.btn{margin-bottom:15px;}
+.container div span, .container label{display: initial;}
+
+.nothankyou{    text-decoration: underline;
+    width: 100%;
+    display: block;
+    text-align: center;}
+</style>
+  <script>
+    document.body.className += ' variation-' + window.chosenVariation;
+  </script>
+<link rel="stylesheet" href="/intlinput/build/css/intlTelInput.css">
+<link rel="stylesheet" href="/intlinput/build/css/demo.css">
+		<div  class="orderbody" align="center">
+
+
+			<div class="cnwidth">
+
+
+				<div class="container tycontainer dshadow">
+
+					<h1>Free: We'll Send You A Priority Text, Once Order Is Complete</h1>
+                    <h2>Enter your number for priority text:</h2>
+
+                    <div class="contactnumberupdate">
+      <form onsubmit="" method="POST">
+      <input type="tel" id="phone1" class="form-control" name="input2" value="{thiscontactnumber}">
+      <input type="hidden" id="output" name="input" value="{thiscontactnumber}">
+      <input type="hidden" name="hash" value="{hash}">
+      <input type="hidden" name="id" value="{id}">
+     <input class="btn color4" type="submit" name="submit" value="I Want Free Priority Text" >
+      <a href="?notextupdate=true&hash={ordersession}&id={id}" class="nothankyou">I don't want free priority text</a>
+      </form>
+                  </div>
+
+
+
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="/intlinput/build/js/intlTelInput.js?68"></script>
+  <script>
+/*
+var input = document.querySelector("#phone");
+window.intlTelInput(input, {
+  alert( iti.getNumber());
+   initialCountry: "auto",
+  nationalMode: "true",
+  geoIpLookup: function(callback) {
+    $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+      var countryCode = (resp && resp.country) ? resp.country : "";
+      callback(countryCode);
+    });
+  },
+  utilsScript: "/intlinput/build/js/utils.js",
+});
+*/
+
+
+
+
+var input = document.querySelector("#phone1"),output = document.querySelector("#output");
+
+var iti = window.intlTelInput(input, {
+  nationalMode: true,
+  initialCountry: "auto",
+    geoIpLookup: function(callback) {
+    $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+      var countryCode = (resp && resp.country) ? resp.country : "";
+      callback(countryCode);
+    });
+  },
+  utilsScript: "/intlinput/build/js/utils.js" // just for formatting/placeholders etc
+});
+
+var handleChange = function() {
+  var text = iti.getNumber();
+  var textNode = document.createTextNode(text);
+  output.innerHTML = "";
+  output.appendChild(textNode);
+  $(output).val(text);
+};
+
+
+
+// listen to "keyup", but also "change" to update when the user selects a country
+input.addEventListener('change', handleChange);
+input.addEventListener('keyup', handleChange);
+
+  </script>
+
+
+
+  </body>
+</html>

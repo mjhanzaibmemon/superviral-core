@@ -1,0 +1,9 @@
+test outputs on:
+
+https://ginz2vtln5.execute-api.us-east-2.amazonaws.com/data-masking
+
+https://ginz2vtln5.execute-api.us-east-2.amazonaws.com/refills
+
+/////////////////////////////////
+
+######################################

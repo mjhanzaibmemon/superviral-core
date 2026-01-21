@@ -1,0 +1,1313 @@
+<style>
+    /* Define the custom property for background angle */
+    @property --bg-angle {
+        inherits: false;
+        initial-value: 0deg;
+        syntax: "<angle>";
+    }
+
+    /* Define the spin animation */
+    @keyframes spin {
+        to {
+            --bg-angle: 360deg;
+        }
+    }
+
+    /* Define the fade-in animation for the border */
+    @keyframes fadeInBorder {
+        from {
+            border: 4px solid #d2d2d2;
+            background: transparent;
+            opacity: 0;
+        }
+
+        to {
+            background: linear-gradient(45deg, #fdeff9, #fbf1f9, #f9f5fb, #f9f8fc, #f5fcff, #e1f7fc, #e0f3fa, #e0f2f1) padding-box,
+                conic-gradient(from var(--bg-angle),
+                    #ff8300 0%,
+                    #ed2947 25%,
+                    #fd6935 50%,
+                    #7f1c7f 75%,
+                    #ff8300 100%) border-box;
+            opacity: 1;
+        }
+    }
+
+    #custom-loader {
+        position: absolute;
+        top: 7px;
+        right: 20px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 5px solid;
+        border-color: #ffffff;
+        border-right-color: #1a73e7;
+        animation: s2 1s infinite linear;
+        display: none;
+    }
+
+    @keyframes s2 {
+        to {
+            transform: rotate(1turn)
+        }
+    }
+
+
+
+    h1 {
+        margin-bottom: 15px;
+    }
+
+
+
+    .greenbtn {
+        background: #80bd29;
+        width: initial;
+        display: inline-block;
+        margin: 0 !important;
+        padding: 10px 13px;
+        font-size: 15px;
+        border-color: #80bd29;
+
+    }
+
+    /* Base styles for the discount table */
+    .container2 .ordertbl.discounttbl {
+        position: relative;
+        border-radius: 5px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #d2d2d2;
+        display: inline-block;
+        overflow: hidden;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    /* Styles for the animated state */
+    .container2 .ordertbl.discounttbl.animated {
+        animation: fadeInBorder 1s ease-out forwards, spin 1.5s infinite linear 1s;
+        background: linear-gradient(45deg, #fdeff9, #fbf1f9, #f9f5fb, #f9f8fc, #f5fcff, #e1f7fc, #e0f3fa, #e0f2f1) padding-box,
+            conic-gradient(from var(--bg-angle),
+                #ff8300 0%,
+                #ed2947 25%,
+                #fd6935 50%,
+                #7f1c7f 75%,
+                #ff8300 100%) border-box;
+        border: 4px solid transparent;
+        animation-play-state: running;
+        width: 99.5%;
+    }
+
+
+
+    .ordertbl .thewidth .thewidthleft {
+        width: 75%;
+    }
+
+    .ordertbl .thewidth .thewidthright {
+        width: 25%;
+    }
+
+    .thewidth .thewidthright {
+        font-size: 14px !important;
+    }
+
+
+
+    .discounttbl {
+        margin-top: 25px;
+    }
+
+
+    .discounttbl .thewidth .thewidthleft .package {
+        padding-top: 10px;
+        font-size: 18px;
+    }
+
+
+
+
+    #postmanual {
+        padding: 10px 13px;
+        box-shadow: 0 0 3px 0px rgb(0 0 0 / 23%);
+        border-radius: 4px;
+        margin: 10px 0px;
+    }
+
+
+    .tickadded,
+    .loaderadded {
+        display: flex;
+        align-items: center;
+        /* width: 300px; */
+
+    }
+
+    .tickadded .tick {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        display: block;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+
+    .tickadded span {
+        margin-top: 0 !important;
+        padding-left: 3px;
+        color: #008000 !important;
+        font-weight: 600;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .loaderadded .loader {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        display: block;
+        position: absolute;
+    }
+
+    .loaderadded .loader svg {
+        position: absolute;
+        top: -4px;
+        left: -5px;
+    }
+
+    .loaderadded span {
+        margin-top: 0 !important;
+        padding-left: 23px;
+        color: #fb5343 !important;
+        font-weight: 600;
+    }
+
+    .tickadded {
+        display: none;
+    }
+    
+    .autolikesdesc .tickadded {
+        display: flex;
+    }
+
+    .remove {
+        font-size: 14px;
+
+
+
+        color: grey;
+    }
+
+
+
+
+
+
+
+    .ups {
+        margin-top: 15px;
+        display: block;
+    }
+
+
+
+
+
+
+
+    .container .ups1 {
+        display: block;
+
+
+
+        color: black;
+
+
+
+        text-align: right;
+
+
+
+        margin: 0;
+
+
+
+        position: relative;
+
+
+        color: #008000 !important;
+        margin-top: 5px;
+    }
+
+
+
+
+
+
+
+    .thewidth .autolikesdesc {
+        padding: 0;
+        margin-top: 15px;
+    }
+
+
+
+
+
+
+
+    .thewidth .autolikesdesc .tickadded span {
+        color: #003a00 !important;
+    }
+
+
+
+
+
+
+
+    .thewidth .bftag {
+
+
+
+        background: #ffe6e6;
+
+
+
+        padding: 3px 9px;
+
+
+
+        font-size: 13px;
+
+
+
+        width: fit-content;
+
+
+
+        margin-bottom: 12px;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    .dp2 {
+        -webkit-border-radius: 39px;
+
+
+
+        -moz-border-radius: 39px;
+
+
+
+        border-radius: 39px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    .discounttbl .thewidth .thewidthleft,
+    .discounttbl .thewidth .thewidthright {
+        width: 100%;
+    }
+
+
+
+
+
+
+
+    .greenbtn {
+        width: 100%;
+
+
+
+        text-align: center;
+    }
+
+
+
+
+
+
+
+    .changeusernamelink {
+        text-decoration: underline;
+        color: #0000da;
+    }
+
+
+    .container div span, .container label {
+      margin-top: 0;
+    }
+
+
+    @media only screen and (min-width: 768px) {
+
+
+
+        .container {
+
+
+
+
+
+
+
+            padding: 37px 5% !important;
+
+
+
+        }
+
+
+        .container2 .ordertbl.discounttbl {
+            padding-bottom: 0;
+        }
+
+
+/* 
+        .discounttbl .thewidth .thewidthleft,
+        .discounttbl .thewidth .thewidthright {
+            width: 50%;
+        } */
+
+        .discounttbl .thewidth .thewidthleft {width: 60%}
+
+       .discounttbl .thewidth .thewidthright {
+           width: 40%;
+        }
+
+
+        .greenbtn {
+            width: initial;
+
+
+
+            text-align: right;
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .stepsbar {
+
+
+
+        width: 75%;
+
+
+
+
+
+
+
+
+
+        background: rgb(78, 3, 224);
+
+
+
+        height: 100%;
+
+
+
+
+
+
+
+    }
+
+
+
+    .stepsbar.animate {
+    -webkit-animation: animateThis 1s ease forwards;
+    animation: animateThis 1s ease forwards;
+  }
+
+
+
+    @keyframes animateThis {
+
+
+
+        0% {
+
+
+
+            width: 75%;
+
+
+
+        }
+
+
+
+        100% {
+
+
+
+            width: 85%;
+
+
+
+        }
+
+
+
+    }
+
+
+
+    .displayNoneComments {
+        display: none !important;
+    }
+</style>
+
+
+
+<div class="orderbody" align="center">
+
+
+
+
+
+
+
+
+
+
+
+    <div class="cnwidth">
+
+
+
+
+
+
+
+        {discountnotifcart}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="liveholder"><span class="livebox"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    class="livesvg">
+                    <path d="M256 0C115.4 0 0 115.4 0 256s115.4 256 256 256 256-115.4 256-256S396.6 0 256 0z" />
+                </svg> Live</span><span id="livecount" class="livecount"></span> {usercheckoutlabel}</div>
+
+
+
+
+
+
+
+        <div class="container container2 dshadow">
+
+
+
+
+
+
+
+            <h1>{h1}</h1>
+
+
+
+
+
+
+
+            <div class="ordertbl">
+
+
+
+                <div class="orderheader thewidth">
+
+
+
+
+
+
+
+                    <span class="thewidthleft">{tblitem}</span>
+
+
+
+                    <span class="thewidthright">{tblprice}</span>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="thewidth">
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="thewidthleft"><span class="package package-title">{packagetitle}</span><span
+                            class="username">@{igusername} {changeusernamelink}</span>
+
+                        <div id="loadpic">{profilepicture}</div>
+
+                        <div id="loadurl">{postURL}</div>
+
+
+                        <div id="postmanual" style="{postmanual_display}">
+                            <a style="display:inline-block;text-decoration: underline;" href="{postmanual}"
+                                rel="nofollow" target="_blank">1 post</a> selected
+                        </div>
+
+                        <div class="tickadded"><span class="tick"><img src="/imgs/check.svg"
+                                    alt="check"></span><span>Ready for delivery</span></div>
+
+                        <div class="loaderadded"><span class="loader"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="30" height="30"
+                                    style="shape-rendering: auto; display: block; background: transparent;"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g>
+                                        <circle stroke-linecap="round" fill="none"
+                                            stroke-dasharray="39.269908169872416 39.269908169872416" stroke="#fb5343"
+                                            stroke-width="10" r="25" cy="50" cx="50">
+                                            <animateTransform values="0 50 50;360 50 50" keyTimes="0;1"
+                                                dur="0.7092198581560283s" repeatCount="indefinite" type="rotate"
+                                                attributeName="transform"></animateTransform>
+                                        </circle>
+                                        <g></g>
+                                    </g>
+                                </svg>
+                            </span><span>Hang tight, we're getting your order ready..</span></div>
+
+                    </div>
+
+
+
+                    <div class="thewidthright">{currency}{price}{currencyend}</div>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+            <div class="ordertbl discounttbl {animatedborderLikes} {displayNoneComments}" id="likesUpsellDiv">
+
+
+
+                <div class="thewidth">
+
+
+
+
+
+
+
+                    <div class="thewidthleft"><span class="package" id="discounttitleDiv">{discounttitle}</span></div>
+
+
+
+                    <div class="thewidthright" id="discountbtnDiv">{discountbtn}</div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+            {upsellFollowerHtml}
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="ordertbl discounttbl" {autolikesoffer}>
+
+
+
+                <div class="thewidth">
+
+
+
+
+
+
+
+                    <div class="thewidthleft"><span class="package">{discounttitleautolikes}</span>
+
+
+
+                        <div class="autolikesdesc" {autolikesdesc}>
+
+
+
+
+
+
+
+                            <div class="tickadded"><span class="tick"><img src="/imgs/check.svg"
+                                        alt="check"></span><span>{alpoint3}</span></div>
+
+
+
+                            <div class="tickadded"><span class="tick"><img src="/imgs/check.svg"
+                                        alt="check"></span><span>{alpoint2}</span></div>
+
+
+
+                            <div class="tickadded"><span class="tick"><img src="/imgs/check.svg"
+                                        alt="check"></span><span>{alpoint4}</span></div>
+
+
+
+                            <div class="tickadded"><span class="tick"><img src="/imgs/check.svg"
+                                        alt="check"></span><span>{alpoint1}</span></div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="thewidthright">{discountbtnautolikes}</div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="container  container2 dshadow">
+
+
+
+
+
+
+
+            <h1>{h2}</h1>
+
+
+
+
+
+
+
+            {discounton}
+
+
+
+
+
+
+
+            <div class="summary thewidth">
+
+
+
+                <div class="thewidthleft"><span class="package">{packagetitle}</span><span
+                        id="summary1Div">{summaryupsell1}{summaryautolikes1}
+                    </span></div>
+
+
+
+                <div class="thewidthright">{currency}{price}{currencyend}<span
+                        id="summary2Div">{summaryupsell2}{summaryautolikes2}</span></div>
+
+
+                <div {styleSevTax}>
+                    <div class="thewidthleft"><span class="package">Priority Delivery Fee</div>
+
+
+                    <div class="thewidthright">{delFee}</div>
+
+                    <div class="thewidthleft"><span class="package">Service Tax</div>
+
+
+                    <div class="thewidthright">{servTax}</div>
+                </div>
+
+
+
+                <span id="upsellSubTotalSpan">{upsellSubTotal}</span>
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+            {discountreview}
+
+
+
+
+
+
+
+            <div class="finalsummary thewidth">
+
+
+
+                <div class="thewidthleft"><span class="package">{ostotal}</span></div>
+
+
+
+                <div class="thewidthright">{currency}<c id="totalPriceSpan">{totalprice}</c>{currencyend}</div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div>
+                <!--    <form method="POST" action="{submitformto}"><input type="submit" value="{ctabtn}" class="color4 btn"></form> -->
+
+                <div style="position: relative;">
+                    <a class="btn color4" href="{submitformto}" style="text-align: center;padding: 9px;font-size: 16px;border-radius: 21px !important;" id="spin-btn">{ctabtn}</a>
+                    <div id="custom-loader"></div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    const loader = document.getElementById("custom-loader");
+
+    document.addEventListener("DOMContentLoaded", function () {
+      try{
+          setTimeout(()=>document.querySelector(".stepsbar").classList.add("animate"), 300);
+          loader.style.display = "none";
+      } catch(error) {
+          console.error(error);
+      }
+    });
+
+    window.addEventListener("pageshow", (event) => {
+        try {
+            if (event.persisted) {
+                loader.style.display = "none";
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
+    function spinFunction() {
+        try {
+            loader.style.display = "block";
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
+    document.getElementById("spin-btn").addEventListener("click", spinFunction);
+            
+    upsellborderAnimation();
+    function upsellborderAnimation() {
+
+        try {
+            setTimeout(function () {
+                const loaderElements = document.querySelectorAll(".loaderadded");
+                const tickElements = document.querySelectorAll(".tickadded");
+                const animatedBorderElements = document.querySelectorAll(".animatedborder");
+
+                loaderElements.forEach((loaderElement, index) => {
+                    loaderElement.style.display = "none";
+
+                    if (tickElements[index]) {
+                        const tickElement = tickElements[index];
+                        tickElement.style.display = "flex";
+                        // Trigger reflow to ensure the animation starts
+                        tickElement.querySelector(".tick").offsetWidth;
+                        tickElement.querySelector(".tick").style.opacity = "1";
+                    }
+                });
+
+                animatedBorderElements.forEach((animatedBorderElement) => {
+                    animatedBorderElement.classList.add("animated");
+                });
+            }, 3000);
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
+
+
+
+    try {
+        const upsellBtn = document.querySelector(".btn-upsell");
+        if (upsellBtn) {
+            const upsellAmount = document.querySelector(".upsell-amount");
+            const packageTitle = document.querySelector(".package.package-title");
+
+            if (packageTitle) {
+                dataLayer.push({
+                    event: "packageSelected",
+                    packageName: packageTitle.textContent
+                });
+            }
+
+            if (upsellAmount && packageTitle) {
+                upsellBtn.addEventListener("click", (event) => {
+
+                    dataLayer.push({
+                        event: "upsell",
+                        upsellAmount: upsellAmount.textContent,
+                        packageName: packageTitle.textContent
+                    });
+
+
+                });
+            }
+        }
+    } catch (error) {
+        console.error(error);
+    }
+
+
+
+
+    function checkAdminStats() {
+
+
+
+        $.ajax({
+
+            type: "POST",
+
+            url: "https://superviral.io/ajax-post.php",
+
+            // url: 'http://superviral.lcl/ajax-post.php',
+
+            data: { "type": "checkAdminStats" },
+
+            success: function (data) {
+
+                if (data == 1) {
+
+                    $("#loadpic").hide();
+
+                    $("#loadurl").show();
+
+                } else {
+
+                    $("#loadpic").show();
+
+                    $("#loadurl").hide();
+
+                }
+
+            },
+
+        });
+
+
+
+    }
+
+
+
+    checkAdminStats();
+
+
+
+
+
+    let isFetching = false;
+
+    function fetchLiveUsers() {
+        if (isFetching) return; // Prevent overlapping requests
+        isFetching = true;
+
+        $.ajax({
+            type: "GET",
+            url: "/livecheckout.php",
+            success: function (response) {
+                $('.livecount').html(response);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching live users:", status, error);
+            },
+            complete: function () {
+                isFetching = false; // Reset the flag
+            }
+        });
+    }
+
+    setInterval(fetchLiveUsers, 3000);
+
+
+
+
+
+
+
+
+
+
+
+    function getdp() {
+
+
+
+
+
+
+
+        $("#loadpic").load("/api-v2/?datatype=dp&ordersession={ordersession}&username={igusername}");
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    function getTTdp() {
+
+
+
+
+
+
+
+        $("#loadpic").load("/gettiktokinfo.php?datatype=dp&ordersession={ordersession}&username={igusername}");
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+    jQuery(document).ready(function ($) {
+        $("#addUpsellanchor").on("touchstart", function (event) {
+            window.location.href = $(event.target).attr('href');
+        });
+    });
+
+
+
+    {triggergetpost}
+
+    function addUpsell(type) {
+
+
+        var dataArr = {
+            "type": 'addUpsell',
+            "upsell_type": type
+        };
+
+
+        $.ajax({
+            url: "/ajax-post.php",
+            type: "POST",
+            async: true,
+            dataType: 'json',
+            data: dataArr,
+            success: function (response) {
+                if (response.message == 'success') {
+                    var actualdiscount = 0;
+                    if (type == 'like') {
+                        $('#discountbtnDiv').html(response.discountbtn);
+                        $('#discounttitleDiv').html(response.discounttitle);
+                        $('#summary1Div').html(response.summary1);
+                        $('#summary2Div').html(response.summary2);
+                        actualdiscount = response.discountactual;
+                        $('#likesUpsellDiv').removeClass('animated');
+                        $('#likesUpsellDiv').removeClass('animatedborder');
+                    }
+
+                    if (type == 'follower') {
+                        $('#upsellSubTotalSpan').html(response.upsellSubTotal);
+                        $('#upsellReadyDeliveryMsgDiv').html(response.upsellReadyDeliveryMsg);
+                        $('#upsellReadyDeliveryMsgDiv').show();
+                        $('#upsellFollowerBtnDiv').html(response.upsellFollowerBtn);
+                        actualdiscount = response.discountactual_follower;
+                        $('#followerUpsellDiv').removeClass('animated');
+                        $('#followerUpsellDiv').removeClass('animatedborder');
+                    }
+
+                    var totalPrice = parseFloat($('#totalPriceSpan').html());
+                    totalPrice = (totalPrice + parseFloat(actualdiscount)).toFixed(2);
+
+                    $('#totalPriceSpan').html(totalPrice);
+                 
+                    upsellborderAnimation();
+
+                } else {
+                    alert(response.message);
+                }
+            },
+        });
+
+    }
+
+    function upsellRemove(type) {
+
+
+        var dataArr = {
+            "type": 'upsellRemove',
+            "upsell_type": type
+        };
+
+
+        $.ajax({
+            url: "/ajax-post.php",
+            type: "POST",
+            async: true,
+            dataType: 'json',
+            data: dataArr,
+            success: function (response) {
+                if (response.message == 'success') {
+
+                    if (type == 'like') {
+                        $('#discountbtnDiv').html(response.discountbtn);
+                        $('#discounttitleDiv').html(response.discounttitle);
+                        $('#summary1Div').html('');
+                        $('#summary2Div').html('');
+                        actualdiscount = response.discountactual;
+                        $('#likesUpsellDiv').addClass('animated');
+                        $('#likesUpsellDiv').addClass('animatedborder');
+                    }
+
+                    if (type == 'follower') {
+                        $('#upsellSubTotalSpan').html('');
+                        $('#discounttitleFollowerDiv').html(response.discounttitle);
+                        $('#upsellFollowerBtnDiv').html(response.upsellFollowerBtn);
+                        $('#upsellReadyDeliveryMsgDiv').hide();
+                        $('#followerUpsellDiv').addClass('animated');
+                        $('#followerUpsellDiv').addClass('animatedborder');
+                        actualdiscount = response.discountactual_follower;
+                    }
+
+                    var totalPrice = parseFloat($('#totalPriceSpan').html());
+                    totalPrice = (totalPrice - parseFloat(actualdiscount)).toFixed(2);
+
+                    $('#totalPriceSpan').html(totalPrice);
+                    upsellborderAnimation();
+                } else {
+
+                }
+            },
+        });
+
+    }
+
+
+</script>

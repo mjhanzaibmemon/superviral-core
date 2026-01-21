@@ -1,0 +1,1937 @@
+<style type="text/css">
+
+  .reassurept {
+
+    padding-left: 90px;
+
+    margin-bottom: 40px;
+
+    position: relative;
+
+    padding-top: 5px;
+
+  }
+
+
+
+  .reassurept svg {
+
+    width: 70px;
+
+    position: absolute;
+
+    left: 0;
+
+    fill: url(#color3) #479;
+
+  }
+
+
+
+  .reassurept span {
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    margin: 0;
+
+    color: #5a5a5a !important;
+
+    margin-top: 10px;
+
+    margin-top: 0 !important;
+
+  }
+
+
+
+  .reassurept p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    margin-top: 2px;
+
+    color: #777;
+
+  }
+
+
+
+  .ccFormatMonitor {
+
+    width: 240px;
+
+  }
+
+
+
+  .emailfailed {
+
+    font-size: 14px;
+
+    float: left;
+
+    display: block !important;
+
+    margin-top: 18px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+  }
+
+
+
+  .payholder {
+
+    position: relative;
+
+  }
+
+
+
+  .inputredoutline {
+
+    border: 1px solid red !important;
+
+  }
+
+
+
+  .pay-icon {
+
+    position: absolute;
+
+    left: 15px;
+
+    top: 43px;
+
+    width: 21px;
+
+    height: 36px;
+
+    background-size: 20px;
+
+    background-repeat: no-repeat;
+
+  }
+
+
+
+  .pay-icon-2 {
+
+    top: 61px;
+
+  }
+
+
+
+  .labelmain {
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    color: #000;
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+  }
+
+
+
+  .svglock {
+
+    display: inline-block !important;
+
+    width: 50px;
+
+    height: 16px;
+
+    background: url(/imgs/lock.svg) no-repeat;
+
+    background-size: contain;
+
+    margin: 0;
+
+    margin-left: 3px;
+
+  }
+
+
+
+  .container div input {
+
+    padding-left: 48px;
+
+  }
+
+
+
+  .stepsbar {
+
+
+
+    background: rgb(78, 3, 224);
+
+    height: 100%;
+
+    width: 85%;
+
+  }
+
+  .stepsbar.animate {
+    -webkit-animation: animateThis 1s ease forwards;
+    animation: animateThis 1s ease forwards;
+  }
+
+  .orline {
+
+    position: relative;
+
+    height: 19px;
+
+    line-height: 19px;
+
+    text-align: center !important;
+
+    margin: 32px 0;
+
+  }
+
+
+
+  .orline span {
+
+    position: relative;
+
+    z-index: 1000;
+
+    display: inline-block !important;
+
+    color: #676767;
+
+    background: #fff;
+
+    padding: 0 9px;
+
+    font-size: 16px;
+
+    letter-spacing: .5px;
+
+    margin: 0 !important;
+
+  }
+
+
+
+  .orline:after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    top: 9px;
+
+    height: 1px;
+
+    background: #dfdfdf;
+
+    z-index: 100;
+
+  }
+
+
+
+  #applepaymodal {
+
+    display: none;
+
+  }
+
+
+
+  #applepaymodal .applepaymsg {
+
+    margin: 0;
+
+    margin-bottom: 20px;
+
+    display: none !important;
+
+  }
+
+
+
+  #applepaymodal .applepaymsgshow {
+
+    display: block !important;
+
+  }
+
+
+
+
+
+
+
+  apple-pay-button {
+
+    --apple-pay-button-width: 265px;
+
+    --apple-pay-button-height: 50px;
+
+    --apple-pay-button-border-radius: 30px;
+
+    --apple-pay-button-padding: 0px 0px;
+
+    --apple-pay-button-box-sizing: border-box;
+
+    --apple-pay-button-align: centre;
+
+  }
+
+
+#submitbtnthis.btn{padding-left:0;}
+
+
+  @media only screen and (min-width: 374px) {
+
+    apple-pay-button {
+
+      --apple-pay-button-width: 330px;
+
+    }
+
+  }
+
+
+
+  @media only screen and (min-width: 413px) {
+
+    apple-pay-button {
+
+      --apple-pay-button-width: 359px;
+
+    }
+
+  }
+
+
+
+  @media only screen and (min-width: 768px) {
+
+    apple-pay-button {
+
+      --apple-pay-button-width: 523px;
+
+    }
+
+  }
+
+
+
+  @-webkit-keyframes animateThis {
+
+    0% {
+
+      width: 85%;
+
+    }
+
+
+
+    100% {
+
+      width: 95%;
+
+    }
+
+  }
+
+
+
+  @keyframes animateThis {
+
+    0% {
+
+      width: 85%;
+
+    }
+
+
+
+    100% {
+
+      width: 95%;
+
+    }
+
+  }
+
+  #custom-loader {
+      position: absolute;
+      top: 7px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 5px solid;
+      border-color: #ffffff;
+      border-right-color: #1a73e7;
+      animation: s2 1s infinite linear;
+      display: none;
+  }
+  
+  @keyframes s2 {
+      to {
+          transform: rotate(1turn)
+      }
+  }
+
+</style>
+
+<script src="https://applepay.cdn-apple.com/jsapi/v1/apple-pay-sdk.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script src="https://www.google.com/recaptcha/api.js?render={googlev3recaptchakey}"></script> -->
+{recaptchaUrl}
+
+
+<div class="orderbody" align="center">
+
+
+
+
+
+  <div class="cnwidth">
+
+
+
+    {discountnotifcart}
+
+
+
+
+
+    <div class="liveholder"><span class="livebox"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+
+          class="livesvg">
+
+          <path d="M256 0C115.4 0 0 115.4 0 256s115.4 256 256 256 256-115.4 256-256S396.6 0 256 0z" />
+
+        </svg> Live</span><span id="livecount" class="livecount"></span> Users on checkout</div>
+
+
+
+    <div class="container dshadow">
+
+
+
+      <h1>{h1}</h1>
+
+    
+
+      <div id="applepaymodal">
+
+        <div class="labelmain labelmain2" style="margin-bottom:25px;">Pay with Apple Pay <span class="svglock"></span>
+
+        </div>
+
+        <div id="applepaymsgtype" class="emailsuccess emailfailed applepaymsg"></div>
+
+        <apple-pay-button buttonstyle="black" type="plain" locale="en" onclick="onApplePayButtonClicked();">
+
+        </apple-pay-button>
+
+
+
+        <div class="orline"><span>OR</span></div>
+
+
+
+      </div>
+
+
+
+      <form method="POST" id="payment-form" onsubmit="return checkForm(this);">
+
+
+
+        {commonError}
+
+
+
+        <div class="labelmain labelmain2">Pay with debit / credit card <span class="svglock"></span></div>
+
+        <img src="/imgs/payment-method-accepted.png" style="width: 165px;margin-bottom: -7px;">
+
+        <div class="payholder" style="width:100%;">
+
+          <svg xmlns="http://www.w3.org/2000/svg" class="pay-icon" viewBox="0 0 512 512">
+
+            <title>Person</title>
+
+            <path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none"
+
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+
+            <path
+
+              d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z"
+
+              fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+
+          </svg>
+
+
+
+          <span class="label">Please enter Billing Name on Card:</span>
+
+          <input id="input1" name="cardHoldername" class="field is-empty input {inpname}" placeholder=""
+
+            value="{cardholdername}" autocomplete="cc-name" required>
+
+          {cardNameError}
+
+        </div>
+
+
+
+
+
+        <div class="payholder" style="width:100%;">
+
+          <svg xmlns="http://www.w3.org/2000/svg" class="pay-icon" viewBox="0 0 512 512">
+
+            <title>Card</title>
+
+            <rect x="48" y="96" width="416" height="320" rx="56" ry="56" fill="none" stroke="currentColor"
+
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+
+            <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="60"
+
+              d="M48 192h416M128 300h48v20h-48z" />
+
+          </svg>
+
+          <span class="label">Please enter your Card Number:</span>
+
+          <input id="input2" name="cardNumber" class="ccFormatMonitor field is-empty input {inpnum}" placeholder=""
+
+            value="{pan}" autocomplete="cc-number"  maxlength="19" required>
+
+          {cardNumError}
+
+        </div>
+
+
+
+        <div style="width:100%;display:inline-block;">
+
+
+
+          <div class="payholder" style="width:50%;float:left;">
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="pay-icon pay-icon-2" viewBox="0 0 512 512">
+
+              <title>Calendar</title>
+
+              <rect fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" x="48" y="80"
+
+                width="416" height="384" rx="48" />
+
+              <circle cx="296" cy="232" r="24" />
+
+              <circle cx="376" cy="232" r="24" />
+
+              <circle cx="296" cy="312" r="24" />
+
+              <circle cx="376" cy="312" r="24" />
+
+              <circle cx="136" cy="312" r="24" />
+
+              <circle cx="216" cy="312" r="24" />
+
+              <circle cx="136" cy="392" r="24" />
+
+              <circle cx="216" cy="392" r="24" />
+
+              <circle cx="296" cy="392" r="24" />
+
+              <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" stroke-linecap="round"
+
+                d="M128 48v32M384 48v32" />
+
+              <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M464 160H48" />
+
+            </svg>
+
+            <span class="label">Expiry Date:</span>
+
+            <input id="inputExpDate" name="expDate" onkeyup="formatExpString(event);" class="field is-empty input {inpdate}" placeholder="MM/YY"
+
+              value="" autocomplete="cc-exp" style="width:90%" required>
+
+            {cardDateError}
+
+          </div>
+
+
+
+          <div class="payholder" style="width:50%;float:left;">
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="pay-icon pay-icon-2" viewBox="0 0 512 512">
+
+              <title>Lock Closed</title>
+
+              <path d="M336 208v-95a80 80 0 00-160 0v95" fill="none" stroke="currentColor" stroke-linecap="round"
+
+                stroke-linejoin="round" stroke-width="32" />
+
+              <rect x="96" y="208" width="320" height="272" rx="48" ry="48" fill="none" stroke="currentColor"
+
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+
+            </svg>
+
+
+
+            <span class="label" data-toggle="tooltip" title="Three digit CV code on the back of your card">CVC
+
+              Code:</span>
+
+            <input id="input4" name="CVC" class="field is-empty input {inpcvc}" placeholder="CVC Code" value=""
+
+              autocomplete="cc-csc" maxlength="4" onkeypress="return isNumber(event)" required>
+
+            {cardCvcError}
+
+          </div>
+
+        </div>
+
+        <!-- <div class="labelmain labelmain2">Billing Address:</div>
+
+        <div style="width:100%;display:inline-block;">
+
+
+
+          <div class="payholder" style="width:50%;float:left;">
+
+            <svg class="pay-icon pay-icon-2" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnOutlinedIcon" tabindex="-1" title="LocationOnOutlined"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+
+            <span class="label">Billing Street:</span>
+
+            <input name="billingStreet" class="field is-empty input {inpstreet}" placeholder="" value="{billingStreet}"
+
+              autocomplete="address-line1" style="width:90%" required>
+
+            {billingStreetError}
+
+            
+
+          </div>
+
+
+
+          <div class="payholder" style="width:50%;float:left;">
+
+            <svg class="pay-icon pay-icon-2" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnOutlinedIcon" tabindex="-1" title="LocationOnOutlined"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+
+            <span class="label">Postal Code:</span>
+
+            <input id="inputPostCode" name="postCode" class="field is-empty input {inppostcode}" placeholder=""
+
+              value="{postCode}" autocomplete="postal-code" required>
+
+            {postCodeError}
+
+          </div>
+
+        </div> -->
+
+
+
+        <input type='hidden' id='screen_width' name='screen_width' value='' />
+
+        <input type='hidden' id='screen_height' name='screen_height' value='' />
+
+        <input type='hidden' id='challenge_window_size' name='challenge_window_size' value='' />
+
+        <input type='hidden' id='browser_language' name='browser_language' value='' />
+
+        <input type='hidden' id='color_depth' name='color_depth' value='' />
+
+        <input type='hidden' id='time_zone' name='time_zone' value='' />
+
+        <input type='hidden' id='java_enabled' name='javaenabled' value='' />
+
+        <input type='hidden' id='javascript_enabled' name='javascriptenabled' value='' />
+
+        <input type='hidden' id='user_agent' name='useragent' value='' />
+
+        <input type='hidden' id='country' name='country' value='' />
+
+        <input type='hidden' name='emailaddress' value='{emailaddress}' />
+
+        <input type='hidden' name='submitForm' value='1' />
+
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
+
+
+      	{submitBtn}
+
+      <script>
+
+
+      </script>
+
+
+
+
+
+
+      </form>
+
+
+
+
+
+      <div>
+
+
+
+        <div class="reassurept">
+
+
+
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+            <path
+
+              d="M437.3 192h-32v-42.7C405.3 67 338.3 0 256 0S106.7 67 106.7 149.3V192h-32C68.8 192 64 196.8 64 202.7v266.7C64 492.9 83.1 512 106.7 512h298.7C428.9 512 448 492.9 448 469.3V202.7C448 196.8 443.2 192 437.3 192zM287.9 414.8c0.3 3-0.6 6-2.7 8.3 -2 2.3-4.9 3.6-7.9 3.6h-42.7c-3 0-5.9-1.3-7.9-3.6 -2-2.3-3-5.3-2.7-8.3l6.7-60.5c-10.9-7.9-17.5-20.5-17.5-34.3 0-23.5 19.1-42.7 42.7-42.7s42.7 19.1 42.7 42.7c0 13.8-6.5 26.4-17.5 34.3L287.9 414.8zM341.3 192H170.7v-42.7C170.7 102.3 208.9 64 256 64s85.3 38.3 85.3 85.3V192z">
+
+            </path>
+
+          </svg>
+
+
+
+          <span>{2-h3-1}</span>
+
+          <p>{2-desc-1}</p>
+
+
+
+        </div>
+
+
+
+        <div class="reassurept">
+
+
+
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-38 0 512 512">
+
+            <path
+
+              d="M218 158.5C164.2 158.5 120.4 202.2 120.4 256 120.4 309.8 164.2 353.6 218 353.6 271.8 353.6 315.5 309.8 315.5 256 315.5 202.2 271.8 158.5 218 158.5ZM275.9 237.6L206 307.5C203.1 310.5 199.2 311.9 195.4 311.9 191.6 311.9 187.7 310.5 184.8 307.5L158.1 280.8C152.2 275 152.2 265.4 158.1 259.6 163.9 253.7 173.4 253.7 179.3 259.6L195.4 275.7 254.7 216.4C260.5 210.5 270 210.5 275.9 216.4 281.8 222.3 281.8 231.8 275.9 237.6ZM275.9 237.6"
+
+              class="a" />
+
+            <path
+
+              d="M435.5 138.9L435.5 138.5C435.3 133.6 435.1 128.4 435 122.6 434.6 94.4 412.2 71 383.9 69.4 325.1 66.2 279.5 47 240.6 9L240.3 8.7C227.6-2.9 208.4-2.9 195.7 8.7L195.4 9C156.5 47 111 66.2 52.1 69.5 23.9 71 1.4 94.4 1 122.6 0.9 128.4 0.8 133.6 0.5 138.5L0.5 139.4C-0.6 199.5-2.1 274.2 22.9 342 36.7 379.3 57.5 411.7 84.8 438.3 115.9 468.7 156.6 492.8 205.8 509.9 207.4 510.5 209.1 510.9 210.8 511.3 213.2 511.8 215.6 512 218 512 220.4 512 222.8 511.8 225.2 511.3 226.9 510.9 228.6 510.5 230.2 509.9 279.4 492.7 320 468.6 351.1 438.3 378.4 411.6 399.2 379.2 413 341.9 438 273.9 436.6 199.1 435.5 138.9ZM218 383.6C147.6 383.6 90.4 326.4 90.4 256 90.4 185.6 147.6 128.4 218 128.4 288.4 128.4 345.6 185.6 345.6 256 345.6 326.4 288.4 383.6 218 383.6ZM218 383.6"
+
+              class="a" />
+
+          </svg>
+
+
+
+          <span>{2-h3-2}</span>
+
+          <p>{2-desc-2}</p>
+
+
+
+        </div>
+
+
+
+
+
+        <div class="reassurept">
+
+
+
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+            <path
+
+              d="M82.9 311.1c3.4 2.3 7.3 3.4 11.1 3.4 6.5 0 12.8-3.1 16.6-8.9 32.3-48.3 86.3-77.1 144.5-77.1 58 0 111.9 28.7 144.3 76.8 6.2 9.2 18.6 11.6 27.8 5.4 9.2-6.2 11.6-18.6 5.4-27.8 -25.8-38.4-62.9-66.7-105.2-81.9C352.8 180.3 369 148.8 369 113.5c0-62.3-50.7-113-113-113s-113 50.7-113 113c0 35 16 66.3 41.1 87.1 -43 15.1-80.6 43.8-106.7 82.8C71.2 292.6 73.7 305 82.9 311.1zM256 40.5c40.3 0 73 32.7 73 73s-32.7 73-73 73 -73-32.7-73-73S215.7 40.5 256 40.5zM335.8 354.6l-29.8 21.5c-4.4 3.2-6.3 8.9-4.6 14.1l12 34.8c0.5 1.6 0.7 3.1 0.6 4.5 -0.4 9.3-12.1 15.7-20.7 9.5l-29.8-21.5c-2.2-1.6-4.8-2.4-7.4-2.4 -2.6 0-5.2 0.8-7.4 2.4l-29.8 21.5c-8.6 6.2-20.4-0.2-20.7-9.5 -0.1-1.4 0.1-3 0.7-4.5l12-34.8c1.7-5.2-0.2-10.9-4.6-14.1l-29.8-21.5c-9.9-7.2-4.8-24.1 7.4-24.1h36.9c5.5 0 10.3-2.1 12-7.3l11.4-35c1.9-5.8 7-8.7 12-8.7 5.1 0 10.1 2.9 12 8.7l11.4 35c1.7 5.2 6.6 7.3 12 7.3h36.9C340.6 330.5 345.7 347.5 335.8 354.6zM506.8 424.6l-29.8 21.5c-4.4 3.2-6.3 8.9-4.6 14.1l12 34.8c0.5 1.6 0.7 3.1 0.6 4.5 -0.4 9.3-12.1 15.7-20.7 9.5l-29.8-21.5c-2.2-1.6-4.8-2.4-7.4-2.4s-5.2 0.8-7.4 2.4l-29.8 21.5c-8.6 6.2-20.4-0.2-20.7-9.5 -0.1-1.4 0.1-3 0.7-4.5l12-34.8c1.7-5.2-0.2-10.9-4.6-14.1l-29.8-21.5c-9.9-7.2-4.8-24.1 7.4-24.1h36.9c5.5 0 10.3-2.1 12-7.3l11.4-35c1.9-5.8 7-8.7 12-8.7s10.1 2.9 12 8.7l11.4 35c1.7 5.2 6.6 7.3 12 7.3h36.9C511.6 400.5 516.7 417.5 506.8 424.6zM164.8 424.6l-29.8 21.5c-4.4 3.2-6.3 8.9-4.6 14.1l12 34.8c0.5 1.6 0.7 3.1 0.6 4.5 -0.4 9.3-12.1 15.7-20.7 9.5L92.4 487.5c-2.2-1.6-4.8-2.4-7.4-2.4s-5.2 0.8-7.4 2.4l-29.8 21.5c-8.6 6.2-20.4-0.2-20.7-9.5 -0.1-1.4 0.1-3 0.7-4.5l12-34.8c1.7-5.2-0.2-10.9-4.6-14.1L5.2 424.6c-9.9-7.2-4.8-24.1 7.4-24.1h36.9c5.5 0 10.3-2.1 12-7.3l11.4-35c1.9-5.8 7-8.7 12-8.7s10.1 2.9 12 8.7l11.4 35c1.7 5.2 6.6 7.3 12 7.3h36.9C169.6 400.5 174.7 417.5 164.8 424.6z" />
+
+          </svg>
+
+
+
+          <span>{2-h3-3}</span>
+
+          <p>{2-desc-3}</p>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</div>
+
+
+
+<svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+
+  <linearGradient id="color3" x2="1" y2="1">
+
+    <stop offset="0%" stop-color="#4a00e0" />
+
+    <stop offset="100%" stop-color="#8e2de2" />
+
+  </linearGradient>
+
+</svg>
+
+
+
+
+
+<!-- <script src="https://applepay.cdn-apple.com/jsapi/v1/apple-pay-sdk.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+
+
+
+
+
+<script type="text/javascript">
+
+const loader = document.getElementById("custom-loader");
+
+document.addEventListener("DOMContentLoaded", function () {
+      try{
+          setTimeout(()=>document.querySelector(".stepsbar").classList.add("animate"), 300);
+          loader.style.display = "none";
+      } catch(error) {
+          console.error(error);
+      }
+});
+
+window.addEventListener("pageshow", (event) => {
+    try {
+        if (event.persisted) {
+            loader.style.display = "none";
+        }
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+function spinFunction() {
+    try {
+        loader.style.display = "block";
+
+    } catch(error) {
+        console.error(error);
+    }
+}
+
+function onSubmitData(event) {
+      
+      var card = $('#input2').val().trim();
+      var name = $('#input1').val().trim();
+      var cvv = $('#input4').val().trim();
+      var exp = $('#inputExpDate').val().trim();
+      if(card != "" && name != "" && cvv != "" && exp !=""){
+        event.preventDefault();
+        document.getElementById('submitbtnthis').disabled = true;
+        grecaptcha.ready(function() {
+        grecaptcha.execute('{googlev3recaptchakey}', {action: 'submit'}).then(function(token) {
+            $('#g-recaptcha-response').val(token);
+            spinFunction();
+            document.getElementById("payment-form").submit();
+        });
+       
+      });
+      }
+      
+}
+
+  window.addEventListener("pageshow", () => {
+
+    // $("#input1").val('');
+
+    // $("#input2").val('');
+
+    $("#inputExpDate").val('');
+
+    $("#input4").val('');
+
+  });
+
+  let isFetching = false;
+
+  function fetchLiveUsers() {
+      if (isFetching) return; // Prevent overlapping requests
+      isFetching = true;
+
+      $.ajax({
+          type: "GET",
+          url: "/livecheckout.php",
+          success: function (response) {
+              $('.livecount').html(response);
+          },
+          error: function (xhr, status, error) {
+              console.error("Error fetching live users:", status, error);
+          },
+          complete: function () {
+              isFetching = false; // Reset the flag
+          }
+      });
+  }
+
+  setInterval(fetchLiveUsers, 3000);
+
+
+  function onApplePayButtonClicked() {
+
+
+
+    if (!ApplePaySession) {
+
+      return;
+
+    }
+
+
+
+    // Define ApplePayPaymentRequest
+
+    const request = {
+
+      "countryCode": "{countrycode}",
+
+      "currencyCode": "{currencycode}",
+
+      "merchantCapabilities": [
+
+        "supports3DS"
+
+      ],
+
+      "supportedNetworks": [
+
+        "visa",
+
+        "masterCard",
+        
+        "amex"
+
+      ],
+
+      "total": {
+
+        "label": "{packagetitle}",
+
+        "type": "final",
+
+        "amount": "{price}"
+
+      }
+
+    };
+
+
+
+    // Create ApplePaySession
+
+    const session = new ApplePaySession(3, request);
+
+
+
+    session.onvalidatemerchant = async event => {
+
+
+
+
+
+
+
+      var validationData = { ValidationUrl: event.validationURL };
+
+
+
+      $.ajax({
+
+        url: '/applepay.php?loc={loc}&id={ordersession}',
+
+        method: "POST",
+
+        contentType: "application/json; charset=utf-8",
+
+        data: JSON.stringify(validationData)
+
+      }).then(function (merchantSession) {
+
+        merchantSession = JSON.parse(merchantSession);
+
+        session.completeMerchantValidation(merchantSession);
+
+      }, function (error) {
+
+        alert("Error: " + JSON.stringify(error));
+
+        session.abort();
+
+      });
+
+
+
+
+
+    };
+
+
+
+    session.onpaymentmethodselected = event => {
+
+
+
+
+
+      const applePayPaymentMethodUpdate = {
+
+        newLineItems: [],
+
+        newTotal: {
+
+          label: "{packagetitle}",
+
+          amount: '{price}'
+
+        }
+
+      };
+
+
+
+      session.completePaymentMethodSelection(applePayPaymentMethodUpdate);
+
+    };
+
+
+
+    session.onshippingmethodselected = event => {
+
+
+
+      const update = {};
+
+      session.completeShippingMethodSelection(update);
+
+    };
+
+
+
+    session.onshippingcontactselected = event => {
+
+      const update = {};
+
+      session.completeShippingContactSelection(update);
+
+    };
+
+
+
+    session.onpaymentauthorized = event => {
+
+
+
+      var _performTransaction = function (details, callback) {
+
+
+
+        $.ajax({
+
+          type: "POST",
+
+          url: '/applepayprocess.php?loc={loc}&id={ordersession}{applepayuserid}{splitParam}',
+
+          data: details,
+
+          success: function (details12) {
+
+            callback(details12);
+
+          },
+
+        });
+
+
+
+
+
+
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+      _performTransaction(event.payment, function (outcome) {
+
+
+        var outcomerespond = JSON.parse(outcome);
+
+
+
+
+
+        if (outcomerespond.code == '1') {
+
+
+
+          session.completePayment(ApplePaySession.STATUS_SUCCESS);
+
+          window.location.href = "{applepayredirectsuccess}";
+
+
+
+        } else {
+
+          session.completePayment(ApplePaySession.STATUS_FAILURE);
+
+          document.getElementById("applepaymsgtype").innerHTML = outcomerespond.message;
+
+          document.getElementById("applepaymsgtype").classList.add("applepaymsgshow");
+
+        }
+
+
+
+
+
+      })
+
+
+
+      const result = {
+
+        "status": ApplePaySession.STATUS_SUCCESS
+
+      };
+
+
+
+    };
+
+
+
+    session.oncancel = event => {
+
+      // Payment cancelled by WebKit
+
+    };
+
+
+
+    session.begin();
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (window.ApplePaySession) {
+   var merchantIdentifier = '465';
+   var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
+
+   promise.then(function (canMakePayments) {
+      if (canMakePayments){
+        //alert(' can make payment'); // Display Apple Pay button here.
+        document.getElementById("applepaymodal").style.display = "block";
+
+    }
+        
+
+
+}); 
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("screen_width").value = window.innerWidth;
+
+    document.getElementById("screen_height").value = window.innerHeight;
+
+    document.getElementById("browser_language").value = navigator.language;
+
+    document.getElementById("color_depth").value = screen.colorDepth;
+
+    document.getElementById("java_enabled").value = navigator.javaEnabled();
+
+    document.getElementById("user_agent").value = navigator.userAgent;
+
+    document.getElementById("time_zone").value = new Date().getTimezoneOffset();
+
+
+
+
+
+    var availChallengeWindowSizes = [
+
+      [600, 400],
+
+      [500, 600],
+
+      [390, 400],
+
+      [250, 400]
+
+    ];
+
+
+
+    var cardinity_screen_width = window.innerWidth;
+
+    var cardinity_screen_height = window.innerHeight;
+
+    document.getElementById("challenge_window_size").value = 'full-screen';
+
+
+
+    //display below 800x600
+
+    if (!(cardinity_screen_width > 800 && cardinity_screen_height > 600)) {
+
+      //find largest acceptable size
+
+      availChallengeWindowSizes.every(function (element, index) {
+
+        // console.log('TEST: ' + element);
+
+        if (element[0] > cardinity_screen_width || element[1] > cardinity_screen_height) {
+
+          //this challenge window size is not acceptable
+
+          // console.log('skip');
+
+          return true;
+
+        } else {
+
+          document.getElementById("challenge_window_size").value = element[0] + 'x' + element[1];
+
+          // console.log(element[0] + 'x' + element[1]);
+
+          return false;
+
+        }
+
+      });
+
+    }
+
+
+    if({userBlackList} != 0){
+
+      //$("#applepaymodal").attr('style', "display: none");
+      console.log('Bld');
+    }
+
+
+
+
+
+
+
+  });
+
+
+
+
+
+
+
+  function recordData(data) {
+
+
+
+    document.getElementById("country").value = data.country;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  var app;
+
+
+
+  (function () {
+
+    'use strict';
+
+
+
+    app = {
+
+      monthAndSlashRegex: /^\d\d \/ $/, // regex to match "MM / "
+
+      monthRegex: /^\d\d$/, // regex to match "MM"
+
+
+
+      el_cardNumber: '.ccFormatMonitor',
+
+      el_expDate: '#inputExpDate',
+
+      el_cvv: '.cvv',
+
+      el_ccUnknown: 'cc_type_unknown',
+
+      el_ccTypePrefix: 'cc_type_',
+
+      el_monthSelect: '#monthSelect',
+
+      el_yearSelect: '#yearSelect',
+
+
+
+      cardTypes: {
+
+        'American Express': {
+
+          name: 'American Express',
+
+          code: 'ax',
+
+          security: 4,
+
+          pattern: /^3[47]/,
+
+          valid_length: [15],
+
+          formats: {
+
+            length: 15,
+
+            format: 'xxxx xxxxxxx xxxx'
+
+          }
+
+        },
+
+        'Visa': {
+
+          name: 'Visa',
+
+          code: 'vs',
+
+          security: 3,
+
+          pattern: /^4/,
+
+          valid_length: [16],
+
+          formats: {
+
+            length: 16,
+
+            format: 'xxxx xxxx xxxx xxxx'
+
+          }
+
+        },
+
+        'Maestro': {
+
+          name: 'Maestro',
+
+          code: 'ma',
+
+          security: 3,
+
+          pattern: /^(50(18|20|38)|5612|5893|63(04|90)|67(59|6[1-3])|0604)/,
+
+          valid_length: [16],
+
+          formats: {
+
+            length: 16,
+
+            format: 'xxxx xxxx xxxx xxxx'
+
+          }
+
+        },
+
+        'Mastercard': {
+
+          name: 'Mastercard',
+
+          code: 'mc',
+
+          security: 3,
+
+          pattern: /^5[1-5]/,
+
+          valid_length: [16],
+
+          formats: {
+
+            length: 16,
+
+            format: 'xxxx xxxx xxxx xxxx'
+
+          }
+
+        }
+
+      }
+
+    };
+
+
+
+    app.addListeners = function () {
+
+      // $(app.el_expDate).on('keydown', function (e) {
+
+      //   app.removeSlash(e);
+
+      // });
+
+
+
+      // $(app.el_expDate).on('keyup', function (e) {
+
+      //   app.addSlash(e);
+
+      // });
+
+
+
+      // $(app.el_expDate).on('blur', function (e) {
+
+      //   app.populateDate(e);
+
+      // });
+
+
+
+      $(app.el_cvv + ', ' + app.el_expDate).on('keypress', function (e) {
+
+        return e.charCode >= 48 && e.charCode <= 57;
+
+      });
+
+    };
+
+   
+
+
+    // app.addSlash = function (e) {
+
+    //   var isMonthEntered = app.monthRegex.exec(e.target.value);
+
+    //   if (e.key >= 0 && e.key <= 9 && isMonthEntered) {
+
+    //     e.target.value = e.target.value + " / ";
+
+    //   }
+
+    // };
+
+
+
+    app.removeSlash = function (e) {
+
+      var isMonthAndSlashEntered = app.monthAndSlashRegex.exec(e.target.value);
+
+      if (isMonthAndSlashEntered && e.key === 'Backspace') {
+
+        e.target.value = e.target.value.slice(0, -3);
+
+      }
+
+    };
+
+
+
+    app.populateDate = function (e) {
+
+      var month, year;
+
+
+
+      if (e.target.value.length == 7) {
+
+        month = parseInt(e.target.value.slice(0, -5));
+
+        year = "20" + e.target.value.slice(5);
+
+
+
+        if (app.checkMonth(month)) {
+
+          $(app.el_monthSelect).val(month);
+
+        } else {
+
+          $(app.el_monthSelect).val(0);
+
+        }
+
+
+
+        if (app.checkYear(year)) {
+
+          $(app.el_yearSelect).val(year);
+
+        } else {
+
+          $(app.el_yearSelect).val(0);
+
+        }
+
+
+
+      }
+
+    };
+
+
+
+    app.checkMonth = function (month) {
+
+      if (month <= 12) {
+
+        var monthSelectOptions = app.getSelectOptions($(app.el_monthSelect));
+
+        month = month.toString();
+
+        if (monthSelectOptions.includes(month)) {
+
+          return true;
+
+        }
+
+      }
+
+    };
+
+
+
+    app.checkYear = function (year) {
+
+      var yearSelectOptions = app.getSelectOptions($(app.el_yearSelect));
+
+      if (yearSelectOptions.includes(year)) {
+
+        return true;
+
+      }
+
+    };
+
+
+
+    app.getSelectOptions = function (select) {
+
+      var options = select.find('option');
+
+      var optionValues = [];
+
+      for (var i = 0; i < options.length; i++) {
+
+        optionValues[i] = options[i].value;
+
+      }
+
+      return optionValues;
+
+    };
+
+
+
+    app.setMaxLength = function ($elem, length) {
+
+      if ($elem.length && app.isInteger(length)) {
+
+        $elem.attr('maxlength', length);
+
+      } else if ($elem.length) {
+
+        $elem.attr('maxlength', '');
+
+      }
+
+    };
+
+
+
+    app.isInteger = function (x) {
+
+      return (typeof x === 'number') && (x % 1 === 0);
+
+    };
+
+
+
+    app.createExpDateField = function () {
+
+      $(app.el_monthSelect + ', ' + app.el_yearSelect).hide();
+
+      $(app.el_monthSelect).parent().prepend('<input type="text" class="ccFormatMonitor">');
+
+    };
+
+
+
+
+
+    app.isValidLength = function (cc_num, card_type) {
+
+      for (var i in card_type.valid_length) {
+
+        if (cc_num.length <= card_type.valid_length[i]) {
+
+          return true;
+
+        }
+
+      }
+
+      return false;
+
+    };
+
+
+
+    app.getCardType = function (cc_num) {
+
+      for (var i in app.cardTypes) {
+
+        var card_type = app.cardTypes[i];
+
+        if (cc_num.match(card_type.pattern) && app.isValidLength(cc_num, card_type)) {
+
+          return card_type;
+
+        }
+
+      }
+
+    };
+
+
+
+    app.getCardFormatString = function (cc_num, card_type) {
+
+      for (var i in card_type.formats) {
+
+        var format = card_type.formats[i];
+
+        if (cc_num.length <= format.length) {
+
+          return format;
+
+        }
+
+      }
+
+    };
+
+
+
+    app.formatCardNumber = function (cc_num, card_type) {
+
+      var numAppendedChars = 0;
+
+      var formattedNumber = '';
+
+      var cardFormatIndex = '';
+
+
+
+      if (!card_type) {
+
+        return cc_num;
+
+      }
+
+
+
+      var cardFormatString = app.getCardFormatString(cc_num, card_type);
+
+      for (var i = 0; i < cc_num.length; i++) {
+
+        cardFormatIndex = i + numAppendedChars;
+
+        if (!cardFormatString || cardFormatIndex >= cardFormatString.length) {
+
+          return cc_num;
+
+        }
+
+
+
+        if (cardFormatString.charAt(cardFormatIndex) !== 'x') {
+
+          numAppendedChars++;
+
+          formattedNumber += cardFormatString.charAt(cardFormatIndex) + cc_num.charAt(i);
+
+        } else {
+
+          formattedNumber += cc_num.charAt(i);
+
+        }
+
+      }
+
+
+
+      return formattedNumber;
+
+    };
+
+
+
+    app.monitorCcFormat = function ($elem) {
+
+      var cc_num = $elem.val().replace(/\D/g, '');
+
+      var card_type = app.getCardType(cc_num);
+
+      $elem.val(app.formatCardNumber(cc_num, card_type));
+
+      app.addCardClassIdentifier($elem, card_type);
+
+    };
+
+
+
+    app.addCardClassIdentifier = function ($elem, card_type) {
+
+      var classIdentifier = app.el_ccUnknown;
+
+      if (card_type) {
+
+        classIdentifier = app.el_ccTypePrefix + card_type.code;
+
+        app.setMaxLength($(app.el_cvv), card_type.security);
+
+      } else {
+
+        app.setMaxLength($(app.el_cvv));
+
+      }
+
+
+
+      if (!$elem.hasClass(classIdentifier)) {
+
+        var classes = '';
+
+        for (var i in app.cardTypes) {
+
+          classes += app.el_ccTypePrefix + app.cardTypes[i].code + ' ';
+
+        }
+
+        $elem.removeClass(classes + app.el_ccUnknown);
+
+        $elem.addClass(classIdentifier);
+
+      }
+
+    };
+
+
+
+
+
+    app.init = function () {
+
+
+
+      $(document).find(app.el_cardNumber).each(function () {
+
+        var $elem = $(this);
+
+        if ($elem.is('input')) {
+
+          $elem.on('input', function () {
+
+            app.monitorCcFormat($elem);
+
+          });
+
+        }
+
+      });
+
+
+
+      app.addListeners();
+
+
+
+    }();
+
+
+
+  })();
+
+
+
+  function checkForm(form) {
+  
+    spinFunction();
+    form.submitbtn.disabled = true;
+
+    return true;
+
+  }
+
+  function formatExpString(e) {
+  var inputChar = String.fromCharCode(event.keyCode);
+  var code = event.keyCode;
+  var allowedKeys = [8];
+  if (allowedKeys.indexOf(code) !== -1) {
+    return;
+  }
+
+  event.target.value = event.target.value.replace(
+    /^([1-9]\/|[2-9])$/g, '0$1/' // 3 > 03/
+  ).replace(
+    /^(0[1-9]|1[0-2])$/g, '$1/' // 11 > 11/
+  ).replace(
+    /^([0-1])([3-9])$/g, '0$1/$2' // 13 > 01/3
+  ).replace(
+    /^(0?[1-9]|1[0-2])([0-9]{2})$/g, '$1/$2' // 141 > 01/41
+  ).replace(
+    /^([0]+)\/|[0]+$/g, '0' // 0/ > 0 and 00 > 0
+  ).replace(
+    /[^\d\/]|^[\/]*$/g, '' // To allow only digits and `/`
+  ).replace(
+    /\/\//g, '/' // Prevent entering more than 1 `/`
+  ).slice(0, 5);
+}
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+
+</script>
+
+<script src="https://ipinfo.io/json?callback=recordData"></script>

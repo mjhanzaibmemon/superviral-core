@@ -1,0 +1,1966 @@
+{errorstyle}
+
+
+
+<style type="text/css">
+
+
+
+  body{padding-bottom: 110px;}
+
+
+
+  .orderstatus {
+
+    display: inline-block;
+
+    width: 100%;
+
+    padding: 10px;
+
+    background-color: #f5f7fe;
+
+    box-sizing: border-box;
+
+    margin: 41px 0;
+
+  }
+
+
+
+  .selectedposts {
+
+  margin-bottom: 9px !important;
+
+  color: #000 !important;
+
+  font-size: 14px;
+
+  text-align: center!important;
+
+  }
+
+
+
+  .selectedposts .amount_of_posts,
+
+  .selectedposts .likes_per_post {
+
+    font-weight: bold;
+
+    display: unset !important;
+
+    font-size: inherit !important;
+
+    margin-top: 0 !important;
+
+    color: #000;
+
+  }
+
+
+
+  .btn {
+
+    width: 100% !important;
+
+    text-align: center;
+
+    margin: 0 !important;
+
+    padding: 9px 15px !important;
+
+    border-color: #1a73e7;
+
+  }
+
+
+
+  .btn1 {
+
+    width: 80% !important;
+
+    float: none;
+
+    text-align: center;
+
+    padding: 9px 15px !important;
+
+    margin-top: 30px !important;
+
+    font-size: 16px;
+
+    border-radius: 30px !important;
+
+    box-sizing: border-box;
+
+    outline: 0;
+
+    border: 1px solid #bbb;
+
+    color: #fff;
+
+    display: block;
+
+    margin: 5px auto;
+
+    font-weight: bold;
+
+  }
+
+
+
+  .btnnxt {
+
+    width: initial !important;
+
+    display: inline-block;
+
+  }
+
+
+
+  .image_checkboxes {
+
+    min-height: 150px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    position: relative;
+
+  }
+
+
+
+  .image_checkboxes .img-responsive {
+
+    position: relative;
+
+    display: inline-block;
+
+    width: 33% !important;
+
+    height: auto;
+
+    float: left;
+
+    border: 2px solid transparent;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    margin: 0 !important;
+
+  }
+
+  .insta-aspect-ratio.image_checkboxes .img-responsive {
+    aspect-ratio: 1/1;
+  }
+
+  .tiktok-aspect-ratio.image_checkboxes .img-responsive {
+    aspect-ratio: 3/4;
+  }
+
+  .image_checkboxes .img-responsive .amount {
+
+    position: absolute;
+
+    display: none;
+
+    color: #fff;
+
+    background: #1a73e7;
+
+    margin: 0 !important;
+
+    height: 26px !important;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    width: 100% !important;
+
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 25px;
+
+    bottom:0;
+
+   z-index: 99;
+
+  font-weight: bold;
+
+  }
+
+
+
+ .image_checkboxes .img-responsive .tick {
+
+  width: 100%;
+
+  height: 100%;
+
+  background: rgb(0 0 0 / 21%);
+
+  z-index: 99;
+
+  position: absolute;
+
+  text-align: center;
+
+  }
+
+  .image_checkboxes .img-responsive.load-error .tick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image_checkboxes .img-responsive.load-error .tick .error-text {
+    color: #4e4e4e;
+    margin: 0;
+    font-size:12px;
+  } 
+
+
+
+  .image_checkboxes .img-responsive .tick img {  
+
+    display: none;
+
+    height: initial;
+
+    width: 44px;
+
+    margin: 26px auto 0;
+
+  } 
+
+  .image_checkboxes .img-responsive.loaded .tick img {
+    display: flex;
+  }
+
+  .image_checkboxes .active {
+
+    border-color: #1a73e7;
+
+  }
+
+
+
+  .image_checkboxes .active .amount {
+
+    display: block;
+
+  }
+
+
+
+  .image_checkboxes .img-responsive:not(.active) .tick img {
+
+    filter: grayscale(1);
+
+  }
+
+  .image_checkboxes .img-responsive .main-img {
+    display: none;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
+  .image_checkboxes .img-responsive.loaded .main-img {
+    display: block;
+  }
+
+  .tiktok-aspect-ratio.image_checkboxes .img-responsive .main-img {
+    aspect-ratio: 3/4;
+  }
+
+  .image_checkboxes .img-responsive .img-loader {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 3px solid #f3f3f3;
+
+    /* Light gray border */
+
+    border-top: 3px solid #3498db;
+
+    /* Blue border for loader animation */
+
+    border-radius: 50%;
+
+    width: 50px;
+
+    height: 50px;
+
+    animation: spin 1s linear infinite;
+
+    /* Loader animation */
+
+  }
+
+  .image_checkboxes .img-responsive.loaded .img-loader, 
+  .image_checkboxes .img-responsive.load-error .img-loader {
+    display: none;
+  }
+
+  @keyframes spin {
+
+    0% {
+
+        transform: translate(-50%, -50%) rotate(0deg);
+
+    }
+
+
+
+    100% {
+
+        transform: translate(-50%, -50%) rotate(360deg);
+
+    }
+
+  }
+
+
+
+  .whichpackage {
+
+    text-align: center !important;
+
+    font-size: 13px;
+
+    color: #464646;
+
+    margin-top: 3px;
+
+    margin-bottom: 30px;
+
+  }
+
+
+
+  .whichpackage a {
+
+    color: #4e03e0;
+
+    text-decoration: underline;
+
+  }
+
+
+
+  .problem li {
+
+    margin-bottom: 15px;
+
+  }
+
+
+
+
+
+  .image_checkboxes .lds-dual-ring {
+
+    display: inline-block;
+
+    width: 92px;
+
+    height: initial;
+
+    position: absolute;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    left: 0;
+
+    right: 0;
+
+  }
+
+
+
+  .lds-dual-ring:after {
+
+    content: " ";
+
+    display: block;
+
+    width: 64px;
+
+    height: 64px;
+
+    margin: 8px;
+
+    border-radius: 50%;
+
+    border: 6px solid #1a73e7;
+
+    border-color: #4e03e0 transparent #4e03e0 transparent;
+
+    animation: lds-dual-ring 0.6s linear infinite;
+
+  }
+
+
+
+  #shownopostmsg {
+
+    display: none;
+
+  }
+
+
+
+  .bottomorderstatus{display:none;}
+
+
+
+  .mobilenext{    bottom: 0;
+
+  position: fixed;
+
+  width: 100%;
+
+  z-index: 9990;
+
+  padding: 10px;
+
+  box-sizing: border-box;
+
+  background-color:rgba(0, 0, 0, 0.7);
+
+  height: 93px;}
+
+
+
+  .mobilenext .selectedposts{    margin-top: 0px !important;
+
+  color: #fff !important;
+
+  font-size: 12px;
+
+  text-align: center;
+
+  float: none;
+
+  margin-bottom: 8px;}
+
+
+
+  .mobilenext .selectedposts .likes_per_post,.mobilenext .selectedposts .amount_of_posts{color: #fff}
+
+
+
+  .mobilenext .btn{width: 100%!important;
+
+  border: 1px solid #1a73e7;}
+
+
+
+
+
+  .container{padding: 5px;}
+
+  #shownopostmsg{padding: 22px;}
+
+
+
+  @keyframes lds-dual-ring {
+
+    0% {
+
+      transform: rotate(0deg);
+
+    }
+
+
+
+    100% {
+
+      transform: rotate(360deg);
+
+    }
+
+  }
+
+
+
+  #progressbar {
+
+    background-color: #f5f7fe;
+
+    border-radius: 21px;
+
+    padding: 8px;
+
+    width: 196px;
+
+    height: 20px;
+
+    border: 1px solid #c8acff;
+
+    position: absolute;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    left: 0;
+
+    right: 0;
+
+    top: 111px;
+
+  }
+
+
+
+  #progressbar .innerbar {
+
+    background-color: #4e03e0;
+
+    width: 100%;
+
+    height: 20px;
+
+    border-radius: 10px;
+
+    -webkit-animation: animateThis {loadtime}s ease;
+
+    animation: loadingposts {loadtime}s ease;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  @-webkit-keyframes loadingposts {
+
+    0% {
+
+      width: 15%;
+
+    }
+
+
+
+    100% {
+
+      width: 100%;
+
+    }
+
+  }
+
+
+
+  @keyframes loadingposts {
+
+    0% {
+
+      width: 15%;
+
+    }
+
+
+
+    100% {
+
+      width: 100%;
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  #shownopostmsg {
+
+    display: none;
+
+  }
+
+
+
+
+
+
+
+  @media only screen and (min-width:540px) {
+
+
+
+    .image_checkboxes .img-responsive {
+      width: 150px !important;
+      height: 150px !important;
+      margin: 4px !important;
+    }
+
+    .insta-aspect-ratio.image_checkboxes .img-responsive {
+       height: 150px !important;
+    }
+
+    .tiktok-aspect-ratio.image_checkboxes .img-responsive {
+      height: 200px !important;
+    }
+
+    .image_checkboxes .img-responsive .tick img{
+      width: 50px;
+      margin-top: 40px;
+    }
+    
+    .insta-aspect-ratio.image_checkboxes .img-responsive .tick img {
+      margin-top: 40px;
+    }
+
+    .tiktok-aspect-ratio.image_checkboxes .img-responsive .tick img {
+      margin-top: 70px;
+    }
+
+    .tiktok-aspect-ratio.image_checkboxes .img-responsive .main-img {
+      height: 100%;
+      aspect-ratio: unset;
+    }
+
+  }
+
+
+
+
+
+  @media only screen and (min-width: 768px) {
+
+
+
+    body{padding: 0;}
+
+
+
+    .container {
+
+
+
+      padding: 37px 3% !important;
+
+    }
+
+
+
+    .bottomorderstatus{display: inline-block;}
+
+
+
+    .mobilenext{display: none;}
+
+
+
+  }
+
+
+
+
+
+  .stepsbar {
+
+    -webkit-animation: animateThis 1s ease;
+
+    animation: animateThis 1s ease;
+
+    background: rgb(78, 3, 224);
+
+    height: 100%;
+
+    width: 75%;
+
+  }
+
+
+
+
+
+  @-webkit-keyframes animateThis {
+
+    0% {
+
+      width: 50%;
+
+    }
+
+
+
+    100% {
+
+      width: 75%;
+
+    }
+
+  }
+
+
+
+  @keyframes animateThis {
+
+    0% {
+
+      width: 50%;
+
+    }
+
+
+
+    100% {
+
+      width: 75%;
+
+    }
+
+  }
+
+
+
+  .custom-loader {
+
+    position: absolute;
+
+    top: 6px;
+
+    right: 20px;
+
+    width: 20px;
+
+    height: 20px;
+
+    border-radius: 50%;
+
+    border: 5px solid;
+
+    border-color: #ffffff;
+
+    border-right-color: #1a73e7;
+
+    animation: s2 1s infinite linear;
+
+    display: none;
+
+  }
+
+
+
+  @keyframes s2 {
+
+      to {
+
+          transform: rotate(1turn)
+
+      }
+
+  }
+
+
+
+</style>
+
+
+
+<div id="mobilenext" class="mobilenext">
+
+  <div class="selectedposts">{selectedposts}</div>
+
+  <div style="position: relative;">
+
+    <a onclick="submitform();" href="#" class="color4 btn" style="width:100%!important" id="spin-btn">{nextbtn}</a>
+
+    <div class="custom-loader"></div>
+
+  </div>
+
+
+
+  <script>
+
+  
+
+
+
+  </script>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="orderbody" align="center">
+
+
+
+
+
+  <div class="cnwidth">
+
+
+
+    {discountnotifcart}
+
+
+
+    <div class="liveholder" style="{styleNoneForIframe}"><span class="livebox"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+
+          class="livesvg">
+
+          <path d="M256 0C115.4 0 0 115.4 0 256s115.4 256 256 256 256-115.4 256-256S396.6 0 256 0z" />
+
+        </svg> Live</span><span id="livecount" class="livecount"></span> {usercheckoutlabel}</div>
+
+
+
+    <form id="idform" method="POST">
+
+
+
+      <div class="container dshadow" id="shownopostmsg" {shownopostmsg}>
+
+
+
+
+
+        <h1 style="color: #e49300;font-size: 24px;">{errh1}</h1>
+
+        <div style="margin-top: 26px;">{errdesc}
+
+
+
+          <ul class="problem">
+
+
+
+            <li>{errpoint1}</li>
+
+            <li>{errpoint2}</li>
+
+
+
+
+
+
+
+          </ul>
+
+          <br><br>
+
+        </div>
+
+
+
+        <a class="color4 btn dshadow" style="text-align: center;width: 100%!important;padding: 13px!important;"
+
+          href="{back}">{errbtn1}</a>
+
+
+
+        <a class="color4 btn dshadow"
+
+          style="text-align: center;margin-top: 36px!important;width: 100%!important;padding: 13px!important;"
+
+          href="?setpublic=true">{errbtn2}</a>
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="container dshadow" id="dontshowselectctn">
+
+
+
+        <h1 style="{styleNoneForIframe}">{h1}</h1>
+        <h1 style="text-align: left;margin-bottom: 15px;display: none;{styleblockForIframe}">Select Post</h1>
+
+        <div class="whichpackage" style="{styleNoneForIframe}">{packagedesc} <a href="{changepackagehref}">{changepackage}</a></div>
+
+
+
+        <div class="orderstatus" style="display:none;">
+
+
+
+
+
+          <div class="selectedposts">{selectedposts}</div>
+
+
+
+
+
+          <input type="hidden" id="posts_selected" name="posts_selected">
+          <input type="hidden" id="posts_selected_mt" name="posts_selected_mt"> 
+          <input type="hidden" id="posts_selected_image" name="posts_selected_image">
+
+          <input type="submit" style="display:none;" value="submit">
+
+
+
+
+          <div style="position: relative;">
+            <a onclick="submitform();" href="#" class="color4 btn" id="spin-btn">{nextbtn}</a>
+            <div class="custom-loader"></div>
+          </div>
+          <!--<a onclick="submitform();" href="#" class="color4 btn">{nextbtn}</a>-->
+
+
+
+        </div>
+
+
+
+
+
+        <div id="loadpic" class="insta-aspect-ratio image_checkboxes">
+
+
+
+
+
+
+
+          <div id="loadingdiv" class="lds-dual-ring"></div>
+
+
+
+
+
+
+
+
+
+          <div id="progressbar">
+
+
+
+
+
+
+
+            <div class="innerbar"></div>
+
+
+
+
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <div id="manualPostLinkId" style="text-align: center;padding: 4px 15px !important;margin: auto;margin-top: 10px;font-size: 13px;{styleNoneForIframe}" onclick="questionModal()">
+          Can't find post? <a style="text-decoration:underline">Enter post link</a>
+        </div>
+
+
+
+        <div class="orderstatus bottomorderstatus">
+
+
+
+
+
+          <div class="selectedposts">{selectedposts}</div>
+
+
+          <div style="position: relative;">
+            <a onclick="submitform();" href="#" class="color4 btn" id="spin-btn">{nextbtn}</a>
+            <div class="custom-loader"></div>
+          </div>
+          <!--<a onclick="submitform();" href="#" class="color4 btn">{nextbtn}</a>-->
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+      <!-- <div class="container dshadow" id="manualselectdiv" style="display: none;">
+
+
+
+        <h1>{h1}</h1>
+
+        <div class="whichpackage">{packagedesc} <a href="{changepackagehref}">{changepackage}</a></div>
+
+
+
+        <div class="orderstatus">
+
+
+
+
+
+          <div class="selectedposts">{selectedposts}</div>
+
+
+
+
+
+          <input type="hidden" id="instaCombinedPosts" name="instaCombinedPosts">
+
+
+
+        </div>
+
+
+
+
+
+        <div class="whichpackage" style="width: 90%;">
+
+          <p style="float: left; margin-left: 15px;">Paste the sharing link to your Instagram post:</p>
+
+
+
+          <div id="bindInpBox">
+
+            <div>
+
+              <input id="instaPost" name="instaPost" placeholder="Sharing link to IG post" style="width: 90%">
+
+            </div>
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+
+        <div>
+
+          <a class="btn1 btn3" id="addBtnID" style="width: 210px!important;color: #000;" href="#0"><img
+
+              src="/imgs/plus.png" style="width:20px;float: left;">Add another post</a>
+
+        </div>
+
+        <div>
+
+          <a href="#0" onclick="submitmanualform();" class="btn1 color4 ">{nextbtn}</a>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+      </div> -->
+
+
+
+    </form>
+
+
+
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="/js/orderform.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+  function questionModal(){
+
+
+
+    var widthPopup="356";var heightPopup="300";
+
+
+
+    var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+
+    var questionHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.8;filter:alpha(opacity=60);z-index:9998"></div>';
+
+    questionHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+
+    questionHTML+='<iframe src="{loclink}/order/selectlink/?page=buy-instagram-likes" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe><div onclick="closequestionDiv(0);" style="text-align:center;color:#fff;font-size:15px;">Close window X</div></div>';
+
+
+
+    document.getElementById('signDiv').innerHTML=questionHTML;
+
+
+
+    return false;
+
+
+
+  }
+
+
+
+  function closequestionDiv(redirect = 0){
+
+    if(redirect == 1){window.location.href = '{loclink}/order/review/';}
+
+    document.body.removeChild(document.getElementById('signDiv'));
+
+  }
+
+
+
+ const urlParams = new URLSearchParams(window.location.search);
+
+
+
+ const comments = urlParams.get('comments');
+
+
+
+if(comments == "true"){
+
+  
+
+  $('#loadpic').hide();
+
+  $('.bottomorderstatus').html('<a href="/order/select-comments/" class="color4 btn">Next »</a>');
+
+}
+
+
+
+
+
+  var selected_list = JSON.parse('{selectedlist}');
+  var selected_list_mt = JSON.parse('{selectedlistmt}'); 	
+  var selected_list_image = JSON.parse('{selectedlist_image}');
+
+  var limit = {postlimit};
+
+  var max_amount_likes = {maxamount};
+
+  var amount_of_posts = Object.keys(selected_list).length;
+
+  var postURL = "{postURL}";
+
+  var packgType = "{packagetype}";
+
+
+
+  update_selected_list();
+
+
+
+  $('.image_checkboxes').on("click", "div", function () {
+
+    var image = this;
+    if (image.classList.contains("loaded")){
+      var input = $(this).prev();
+
+      var value = $(image).attr('data-value');
+      var value1 = $(image).attr('data-value-image');
+
+      if(typeof value != "undefined"){
+
+        if (value in selected_list) {
+
+            delete selected_list[value];
+            delete selected_list_image[value1];
+
+          } else {
+
+            if (amount_of_posts >= limit) { return max_limit_hit(); }
+
+            selected_list[value] = value
+            selected_list_image[value1] = value1;
+          }
+
+      }
+
+      var value_mt = $(image).attr('data-media_type');
+    if(typeof value_mt != "undefined" && value_mt == 'video'){
+       if (value in selected_list_mt) {
+          delete selected_list_mt[value];
+        } else {
+          selected_list_mt[value] = value
+        }
+    }
+
+      amount_of_posts = Object.keys(selected_list).length;
+
+
+
+      update_selected_list();
+      }
+
+  });
+
+
+
+  function max_limit_hit() {
+
+    alert('{maxlimitreached}');
+
+    return;
+
+  }
+
+
+
+
+
+
+
+  function update_selected_list() {
+
+    var checkbox_cn = $('.img-responsive');
+
+    $(checkbox_cn).each(function () {
+
+      var image = this;
+
+      var value = $(image).attr('data-value');
+
+      if (value in selected_list) {
+
+        $(image).addClass('active');
+
+      } else {
+
+        $(image).removeClass('active');
+
+      }
+
+    });
+
+    $('#posts_selected').val(JSON.stringify(selected_list));
+    $('#posts_selected_image').val(JSON.stringify(selected_list_image));
+    if(packgType == 'likes'){
+      $('#posts_selected_mt').val(JSON.stringify(selected_list_mt)); 	
+    }
+    update_likes_statistics();
+
+  }
+
+
+
+
+
+
+
+  function update_likes_statistics() {
+
+    var likes_per_post = Math.floor(max_amount_likes / amount_of_posts);
+
+
+
+
+
+    if (likes_per_post == Infinity) { likes_per_post = 0; }
+
+
+
+    $('.likes_per_post').html(likes_per_post);
+
+    $('.amount_of_posts').html(amount_of_posts);
+
+      var txt ="";
+      var checkbox_cn = $('.img-responsive');
+      var image;
+      var value;
+      var amountHtm;
+      $(checkbox_cn).each(function () {
+        image = this;
+        mt = $(image).attr('data-media_type');
+        console.log(mt);
+        console.log(packgType);
+        amountHtm = $(image).find('.amount');
+        if(packgType == 'likes'){
+          if(mt == "video"){
+            amountHtm.attr('style','height: 50px !important;');
+            txt = ' +' + likes_per_post + ' views'; 
+            amountHtm.html('<span style="color: #fff;margin-top: 0px;">+' + likes_per_post + ' {divboxpckg}</span><span style="color: #fff;margin-top: 0px;">' + txt + '</span>');
+          }else{
+            amountHtm.html('+' + likes_per_post + ' {divboxpckg}');
+          }
+        }else{
+          amountHtm.html('+' + likes_per_post + ' {divboxpckg}');
+        }
+      });
+
+  }
+
+
+
+  function submitform() {
+
+
+
+    if (amount_of_posts == '0') { 
+      alert('{errorselect}'); 
+    } else {
+      spinFunction();
+      document.getElementById('idform').submit(); 
+/*
+      if (window.parent !== window) {
+        const parentUrl = window.parent.location.href;
+        if (parentUrl.includes("/freelikes/")){
+          const queryString = window.parent.location.search;
+          const queryParams = new URLSearchParams(queryString);
+          const emailtype = queryParams.get("emailtype");
+          if (emailtype==="freelikes")
+            dataLayer.push({
+              'event': 'email_CR',
+              'emailType': emailtype
+            });
+        }
+      }
+*/    
+    }
+
+
+
+  }
+
+  function spinFunction() {$('.custom-loader').show();}
+
+
+  // function submitmanualform() {
+
+  //   var values = [];
+
+  //   $("input[name='instaPost']").each(function () {
+
+  //     values.push($(this).val());
+
+  //   });
+
+  //   $("#instaCombinedPosts").val(values);
+
+  //   if (values[0] == '') { 
+
+  //     alert('Please enter at least one sharing link to your post. Thank you!'); 
+
+  //   }
+
+  //   else { document.getElementById('idform').submit(); }
+
+
+
+  // }
+
+
+
+var globTypeOfPostSelectCount = 0;  
+
+  // function checkAdminStats() {
+
+
+
+  //   $.ajax({
+
+  //     type: "POST",
+
+  //     url: "https://{sdblivecheckout}superviral.io/ajax-post.php",
+
+  //     url: 'http://superviral.lcl/ajax-post.php',
+
+  //     data: { "type": "checkAdminStats" },
+
+  //     success: function (data) {
+
+  //       globTypeOfPostSelectCount = data;
+
+  //       if (data == 1) {
+
+  //         $("#dontshowselectctn").hide();
+
+  //         $("#manualselectdiv").show();
+
+  //         amount_of_posts = 1;
+
+  //         update_likes_statistics();
+
+  //         postURLBind();
+
+  //       } else {
+
+  //         $("#manualselectdiv").hide();
+
+  //         $("#dontshowselectctn").show();
+
+  //       }
+
+  //     },
+
+  //   });
+
+  
+
+  // }
+
+
+
+  function liveusers() {
+
+    var feedback = $.ajax({
+
+      type: "GET",
+
+      url: "/livecheckout.php",
+
+      //url: "http://superviral.lcl/livecheckout.php",
+
+      async: false
+
+    }).complete(function () {
+
+      setTimeout(function () { liveusers(); }, 3000);
+
+    }).responseText;
+
+
+
+    $('.livecount').html(feedback);
+
+
+
+
+
+  }
+
+
+
+  liveusers();
+
+  // checkAdminStats();
+
+  // https://{sdblivecheckout}superviral.io
+
+  var socialMediaType = "{socialMediaType}";
+
+  if(socialMediaType == "tt"){
+    getTikTokPosts();
+    $("#manualPostLinkId").hide();
+  }else{
+    getInstaPosts();
+  }
+
+
+  function getInstaPosts(){
+
+    $("#loadpic").load("/api-v2/?datatype=thumbs&packagetype={packagetype}&ordersession={ordersession}&username={username}{videosonly}", function () { 	
+
+    try {
+    
+          update_selected_list();
+
+          if(this.innerHTML.indexOf('Not found at all') >= 0){
+          
+            location.reload();
+          
+            }
+          
+          
+          
+          if (this.innerHTML.indexOf("Error 3420") >= 0 && globTypeOfPostSelectCount == 0) {
+          
+            document.getElementById("shownopostmsg").style.display = "block";
+          
+            document.getElementById("dontshowselectctn").style.display = "none";
+          
+            document.getElementById("mobilenext").style.display = "none";
+          
+          }
+        
+        
+        
+          const items = document.querySelectorAll(".image_checkboxes .img-responsive");
+        
+          items.forEach((item) => {
+          
+              const image = item.querySelector(".main-img");
+          
+              const loader = item.querySelector(".img-loader");
+          
+              image.onload = () => {
+                  item.classList.add("loaded");
+              };
+            
+              image.onerror = () => {
+                  item.classList.add("load-error");
+                  item.querySelector(".tick").innerHTML = "<span class='error-text'>Image load error</span>";
+              };
+            
+          })
+    
+    } catch (error) {
+    
+      console.error(error);
+    
+    }
+
+    });
+  }
+
+ 
+
+
+
+function getTikTokPosts() {
+
+
+  var uName = "{username}";
+
+
+  $.ajax({
+
+    url: '/gettiktokinfo.php',
+    data: { "username": uName, "type": "PostFeed" },
+    type: 'post',
+
+    success: function (output) {
+
+      output = output.substr(output.indexOf('{'));
+
+      var isValid = isJsonString(output);
+
+      if (isValid) {
+
+        var res = $.parseJSON(output);
+
+        if (res.Posts[0] == "No Post") {
+
+          document.getElementById("shownopostmsg").style.display = "block";
+          document.getElementById("loadpic").style.display = "none";
+          $('.orderstatus').hide();
+          return;
+
+        }
+
+        var htm = "";
+
+        for (i = 0; i < res.Posts.length; i++) {
+
+          htm += '<div data-media_type="image" data-value="' + res.PostsLink[i] + '" data-value-image="' + res.awsPaths[i] + '" class="img-responsive loaded"><div class="tick"><img src="/imgs/img-select-tick.png"></div><div class="amount">+50 likes</div><img class="main-img" style="border: 2px solid transparent; box-sizing: border-box; margin: 4px;width: 100%;" src="' + res.Posts[i] + '"><div class="img-loader"></div></div>';
+        }
+
+        $("#loadpic").html(htm);
+        $("#loadpic").addClass("tiktok-aspect-ratio");
+        $("#loadpic").removeClass("insta-aspect-ratio");
+        
+        update_selected_list();
+
+      }
+
+      else {
+
+        document.getElementById("shownopostmsg").style.display = "block";
+        document.getElementById("loadpic").style.display = "none";
+        $('.orderstatus').hide();
+
+        return;
+
+      }
+
+    }
+  });
+
+}
+
+
+
+function isJsonString(str) {
+
+  try {
+
+    JSON.parse(str);
+
+  } catch (e) {
+
+    return false;
+
+  }
+
+  return true;
+
+}
+
+
+  function loadPosts(itr){
+
+       let url = "";
+
+       let userId = $("#instaUserId").val();
+
+       if(itr == 'second') 
+
+       var nextPageId = $("#nextPageId").val();
+
+
+
+       if(itr == 'third') 
+
+       var nextPageId = $("#nextPageId2").val();
+
+       
+
+       let thirdItrData = $("#thirdIterationData").html();
+
+
+
+        url = "/api-load-more-post/?datatype=thumbs&packagetype={packagetype}&ordersession={ordersession}&username={username}{videosonly}";
+
+       var loaderHtm = '<div id="loadingdiv" class="lds-dual-ring"></div>'+
+
+                         '<div id="progressbar" >'+
+
+                         '<div class="innerbar"></div>'+
+
+                       '</div>';
+
+                       $("#loaderLoadMoreId").html(loaderHtm);
+
+                       $("#loadMoreBtnId").hide();
+
+                       $("#loaderLoadMoreId").attr("style","margin-top: 165px;height: 165px;");
+
+                       if(itr == "second")
+
+                       $("#progressbar").attr("style",'top:640px;');
+
+                       else
+
+                       $("#progressbar").attr("style",'top:1115px;');
+
+                         
+
+                       setTimeout(function(){
+
+                            callAjax(url, userId, itr, thirdItrData, nextPageId);
+
+                          },1000)
+
+
+
+}
+
+
+
+function callAjax(url, userId, itr, thirdItrData, nextPageId){
+
+  $.ajax({
+
+      url: url,
+
+      type:"POST",
+
+      async: false,
+
+      dataType:'json',
+
+      data: {
+
+          "userId" : userId,
+
+          "iteration": itr,
+
+          "thirdItrData" : thirdItrData,
+
+          "nextPageId" : nextPageId
+
+      },
+
+      success: function(response){
+
+        console.log(response); 
+
+        // console.log(response);
+
+        // if(itr == "")
+
+        //   $("#loadpic").html("");
+
+       
+
+        if(itr == ""){
+
+          // $("#loadpic").html(response.htmlPost + response.htmlBtn + response.htmlData);
+
+        }
+
+        else{
+
+          $("#loaderLoadMoreId").html("");
+
+          $("#loaderLoadMoreId").attr("style","");
+
+          $("#loaderLoadMoreId").attr('id','loaderLoadMoreId1');
+
+          
+
+          $("#loadMoreBtnId").attr('id','loadMoreBtnId1');
+
+        
+
+          if(response.htmlBtn == null){
+
+            response.htmlBtn = "";
+
+          }
+
+          $("#loadpic").append(response.htmlPost + response.htmlBtn + response.htmlData);
+
+        }
+
+
+
+        update_selected_list();
+
+      },
+
+  });
+
+   const items = document.querySelectorAll(".image_checkboxes .img-responsive");
+
+      items.forEach((item) => {
+
+          const image = item.querySelector(".main-img");
+
+          const loader = item.querySelector(".img-loader");
+
+          image.onload = () => {
+              item.classList.add("loaded");
+          };
+
+          image.onerror = () => {
+              item.classList.add("load-error");
+              item.querySelector(".tick").innerHTML = "<span class='error-text'>Image load error</span>";
+          };
+
+      })
+
+
+}
+
+
+
+
+
+
+
+  function postURLBind() {
+
+
+
+    var postURLArr = postURL.split(',');
+
+    if(postURLArr.length > 0) {
+
+      var i;
+
+      var inputBind = "";
+
+      for(i=1; i<=postURLArr.length; i++) {
+
+        if(i == 1){
+
+          $("#instaPost").val(postURLArr[i-1]);
+
+        }else{
+
+          inputBind = '<div><input id="instaPost' + i + '" name="instaPost" value="'+ postURLArr[i-1] +'" placeholder="Sharing link to IG post" style="width: 90%"><img   class= "removeInpClass"    id="reqsr' + i + '" src="/imgs/close.png" style="cursor:pointer;width:20px;margin-left:5px;"></div>';
+
+        }
+
+        $("#bindInpBox").append(inputBind);
+
+      }
+
+      
+
+      amount_of_posts = i-1;
+
+      update_selected_list();
+
+
+
+    var MaxInputs = limit; //maximum extra input boxes allowed
+
+    var InputsWrapper = $("#bindInpBox"); //Input boxes wrapper ID
+
+    var AddButton = $("#addBtnID"); //Add button ID
+
+
+
+    var x = InputsWrapper.length; //initlal text box count
+
+    var FieldCount = 1; //to keep track of text box added
+
+    x = i-1;
+
+    //on add input button click
+
+    $(AddButton).click(function (e) {
+
+      var input = '<div><input id="instaPost' + FieldCount + '" name="instaPost" placeholder="Sharing link to IG post" style="width: 90%"><img   class= "removeInpClass"    id="reqsr' + FieldCount + '" src="/imgs/close.png" style="cursor:pointer;width:20px;margin-left:5px;"></div>';
+
+      //max input box allowed
+
+      if (x < MaxInputs) {
+
+        FieldCount++; //text box added ncrement
+
+        //add input box
+
+        $(InputsWrapper).append(input);
+
+        x++; //text box increment
+
+
+
+      }else{
+
+        alert('{maxlimitreached}');
+
+      }
+
+      amount_of_posts = x;
+
+      update_selected_list();
+
+      return false;
+
+    });
+
+
+
+    $("body").on("click", ".removeInpClass", function (e) { //user click on remove text
+
+      if (x > 1) {
+
+        $(this).parent('div').remove(); //remove text box
+
+        x--; //decrement textbox
+
+
+
+      }
+
+      amount_of_posts = x;
+
+      update_selected_list();
+
+      return false;
+
+    })
+
+
+
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<head>
+<base target="_self">
+<title>Upload an Image on Superviral Blog</title>
+<style>
+
+body{font-family:Open Sans,arial;}
+
+a{text-decoration:none;color:#003e84}
+a:hover{text-decoration:underline;}
+
+input{padding:10px;margin:10px;font-weight:bold;margin-bottom:20px;}
+
+.eachimage{width:75%;padding:5px}
+.eachimage:hover{background-color:#EDEDED}
+</style>
+<script type="text/javascript" src="upclick-min.js">
+		
+</script>
+
+</head>
+<body><div style="width:100%" align="center">
+<div id="message" width="100%" align="center"></div>
+<input type="button" id="uploader" value="Upload" style="width:75%">
+{uploaded}
+
+</div>
+<script>
+	 
+	 
+
+	function onClose(imgUrlget,width,height){
+			var urlarray = imgUrlget.split(",");
+			var imgwidth = urlarray[1];
+			var imgheight = urlarray[2];
+			var imgUrl = urlarray[0];
+			var result="<p><img src="+imgUrl+" width="+imgwidth+" height="+imgheight+"></p>";
+			var result2="<p class=\"imgcaption\">Write in a caption for this image!</p>";
+			var element = window.opener.CKEDITOR.dom.element.createFromHtml( result );
+			var element2 = window.opener.CKEDITOR.dom.element.createFromHtml( result2 );
+			var CKEDITOR   = window.opener.CKEDITOR;   
+			for ( var i in CKEDITOR.instances ){
+			   var currentInstance = i;
+			   break;
+			}
+			var oEditor   = window.opener.CKEDITOR.instances[currentInstance];     
+			oEditor.insertElement(element);
+			oEditor.insertElement(element2);
+			window.close();
+		}
+
+
+
+ var uploader = document.getElementById('uploader');
+
+   upclick(
+     {
+      element: uploader,
+      action: 'uploader.php?id={id}&pid={pid}', 
+      onstart:
+        function(filename)
+        {
+        //alert('Start upload: '+filename);
+        },
+      oncomplete:
+        function(response_data) 
+        {
+	
+///////////////
+		var checker = response_data.indexOf("###")
+ 
+if ( checker === -1 ){
+   
+
+//document.getElementById("message").innerHTML = response_data;
+	return onClose(response_data);
+		
+	
+
+} else {
+
+
+   var response_data = response_data.replace("###", "");
+   var response_data = response_data.replace("~~~", "<br>");
+document.getElementById("message").innerHTML = response_data;
+	
+
+}
+/////////////
+           
+        }
+     });
+	
+	
+
+	
+	
+	
+</script>
+
+</body>
+</html>

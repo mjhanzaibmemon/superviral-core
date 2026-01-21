@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>Superviral Checkout</title>
+
+<meta name="description" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+
+<link rel="stylesheet" type="text/css" href="/css/orderform.css">
+
+<style type="text/css">
+
+
+
+#payment-form{text-align: unset;}
+
+
+
+h2{text-align: left;font-size: 20px;
+
+    margin-top: 50px;}
+
+
+
+.container{margin-top:100px;}
+
+
+
+.orderfield{position:relative;}
+
+
+
+.orderfield input{padding-left:45px!important;}
+
+.orderfield svg{    fill: #4e03e0;
+
+    position: absolute;
+
+    height: 21px;
+
+    bottom: 19px;
+
+    left: 16px;}
+
+
+
+.stepsbar {
+
+  -webkit-animation: animateThis 1s ease;
+
+  animation: animateThis 1s ease;
+
+  background : rgb(78, 3, 224);
+
+  height : 100%;
+
+  width:50%;
+
+}
+
+
+
+.savedcardholder{overflow:hidden;border-radius: 8px;border: 1px solid #cccc;margin-bottom:30px;}
+
+
+
+
+
+.savedcards{    
+
+    padding: 12px 10px;
+
+    height: 26px;
+
+    padding-left: 68px;
+
+    position: relative;
+
+    line-height: 27px;
+
+    font-size: 15px;}
+
+
+
+.savedcards .cardbrand{    width: 40px;
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 13px;}
+
+
+
+ .savedcards .cardbrandnew{top: 5px;}
+
+
+
+  .savedcards .deletecard img{    width: 21px;
+
+  position: absolute;
+
+    right: 14px;
+
+    top: 15px;}
+
+
+
+  .savedcards .savingcardbtn,.substitle .savingcardbtn{    height: 34px;
+
+    line-height: 8px;
+
+    padding: 12px 14px;
+
+    font-size: 13px;
+
+    border: 1px solid #5d5d5d;    position: absolute;
+
+    right: 39px;
+
+    top: 8px;}
+
+
+
+
+
+    .primary .primarystatus{    height: 4px;
+
+    line-height: 5px;
+
+    padding: 10px 7px;
+
+    font-size: 13px;
+
+    color: #fff;
+
+    right: 78px;
+
+    top: 13px;
+
+    position: absolute;
+
+    background: #03a9f4;
+
+    border-radius: 3px;}
+
+
+
+    .savedcards .expired{font-size: 12px;
+
+    width: initial;
+
+    display: initial;
+
+    margin-left: 15px;
+
+    background-color: red;
+
+    color: white;
+
+    padding: 4px 7px;}
+
+
+
+
+
+    .savedcardactive{border: 1px solid #03a9f4;}
+
+
+
+    .savedcardactive .savedcards{
+
+    background: #eafbff;margin-bottom:0;}
+
+
+
+    .savedcardholder .savedcards:hover{cursor:pointer;}
+
+
+
+    .savedcardholder .expiring{background:#ff791a;}
+
+
+
+
+
+    .savedcardholder .savedcardform{display:none;}
+
+    .savedcardactive .savedcardform{display:block;margin-bottom:10px;padding: 19px;}
+
+
+
+
+
+
+
+    .code{width: 120px!important;margin-bottom:20px;}
+
+
+
+    .btn{margin-top: 15px!important;margin-bottom: 0;}
+
+
+
+    .container .securityspan{    margin-top: 0;}
+
+
+
+    .savedcardholder .savedcards .paywiththis{    position: absolute;
+
+    right: 10px;
+
+    border-radius: 65px;
+
+    width: 26px;
+
+    height: 26px;
+
+    background: #fff;
+
+    top: 12px;
+
+    border: 1px solid #949494;}
+
+    .savedcardactive  .savedcards .paywiththis{background: #03a9f4;border-color: #03a9f4;}
+
+
+
+
+
+    .savedcardholder .savedcards .paywiththis .paywiththisselected{display:none;}
+
+    .savedcardactive  .savedcards .paywiththis .paywiththisselected{display: block;
+
+    width: 10px;
+
+    height: 10px;
+
+    background: #fff;
+
+    border-radius: 25px;
+
+    position: absolute;
+
+    left: 8px;
+
+    top: 8px;}
+
+
+
+
+
+    .ccFormatMonitor {
+
+    width: 240px;
+
+  }
+
+
+
+.emailfailed{font-size: 14px;float:left;display:block!important;    margin-top: 18px;
+
+    width: 100%;
+
+    box-sizing: border-box;    margin-bottom: 20px;}
+
+
+
+.payholder{position: relative;}
+
+
+
+.inputredoutline{border:1px solid red!important;}
+
+
+
+        .pay-icon{    position: absolute;
+
+    left: 15px;
+
+    bottom: 9px;
+
+    width: 21px;
+
+    height: 36px;
+
+    background-size: 20px;
+
+    background-repeat: no-repeat;}
+
+
+
+.pay-icon-2{top:61px;}
+
+.pay-icon-3{    bottom: 30px;
+
+    top: unset;}
+
+
+
+    .labelmain{font-size: 15px;
+
+    font-weight: bold;
+
+    color: #000;
+
+    display: block;
+
+    margin-bottom: 7px;text-align:center;margin-top: 20px;
+
+}
+
+
+
+.svglock{display: inline-block!important;
+
+    width: 50px;
+
+    height: 16px;
+
+    background: url(/imgs/lock.svg) no-repeat;
+
+    background-size: contain;
+
+    margin: 0;
+
+    margin-left: 3px;}
+
+
+
+.container div input{padding-left: 48px;}
+
+
+
+.stepsbar {
+
+  -webkit-animation: animateThis 1s ease;
+
+  animation: animateThis 1s ease;
+
+  background : rgb(78, 3, 224);
+
+  height : 100%;
+
+  width:95%;
+
+}
+
+
+
+.onlymethodavailable{border: none;
+
+    -webkit-box-shadow: none;
+
+    -moz-box-shadow: none;
+
+    box-shadow: none;
+
+    padding: 0;}
+
+
+
+.onlymethodavailable .savedcards{display:none;}
+
+.onlymethodavailable .savedcardform{padding:0;}
+
+
+
+.svglock{
+
+
+
+    font-size: 15px;
+
+    color: #8c8c8c;
+
+    display: block;
+
+    margin-top: 20px;
+
+    display: inline-block!important;
+
+    width: 50px;
+
+    height: 16px;
+
+    background: url(/imgs/lock.svg) no-repeat;
+
+    background-size: contain;
+
+    margin: 0;
+
+    margin-left: 3px;
+
+
+
+
+
+}
+
+
+
+
+
+.freeautolikesexpiring{display: inline-block;
+
+    padding: 8px;
+
+    -webkit-border-radius: 4px;
+
+    -moz-border-radius: 4px;
+
+    border-radius: 4px;
+
+    background: #ffd7d7;
+
+    font-size: 14px;
+
+    margin-top: 15px;}
+
+
+
+.autolikesusernameselected{
+
+    border: 1px solid #bbb;
+
+    -webkit-border-radius: 5px;
+
+    -moz-border-radius: 5px;
+
+    border-radius: 5px;
+
+    position: relative;
+
+    padding-left: 75px;
+
+    margin-top: 6px;
+
+    background: #fbfeff;
+
+    padding-top: 27px;
+
+    padding-bottom: 16px;
+
+    font-size: 14px;
+
+    min-height: 32px;}
+
+
+
+.autolikesusernameselected .dp{    height: 50px;
+
+    width: 50px;
+
+    border-radius: 50px;
+
+    position: absolute;
+
+    left: 13px;
+
+    top: 12px;}
+
+
+
+.autolikesusernameselected a{text-decoration: underline;
+
+    color: #000073;}
+
+
+
+    .listctn {
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size: 13px;
+
+    text-align: left;
+
+    display: inline-block;
+
+      margin-top: 9px;width:100%;}
+
+
+
+    .listctn li {
+
+    margin: 0;
+
+    padding: 3px;
+
+    padding-left: 28px;
+
+    line-height: 30px;
+
+    position: relative;}
+
+
+
+    .listctn li .tick {
+
+    width: 20px;
+
+    height: 20px;
+
+    background: url(/imgs/check.svg) no-repeat;
+
+    display: block;
+
+    position: absolute;
+
+    left: 0;
+
+    top: 9px;
+
+    margin-top: 0;}
+
+
+
+
+
+@-webkit-keyframes animateThis {
+
+  0% {
+
+    width: 15%;
+
+  }
+
+  100% {
+
+    width: 50%;
+
+  }
+
+}
+
+
+
+@keyframes animateThis {
+
+  0% {
+
+    width: 15%;
+
+  }
+
+  100% {
+
+    width: 50%;
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="headerorder">
+
+
+
+            <div class="cnwidth">           
+
+
+
+
+
+                <a class="backto" href="{back}">{checkoutback}</a>
+
+
+
+<div id="logo" class="logo2">               
+
+<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" class="logo2" viewBox="0 0 567.3 114" style="enable-background:new 0 0 567.3 114;version:1;width:189px;height:32px;"><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="11.9" y1="17.7" x2="90.6" y2="96.3"><stop offset="0" stop-color="#DA4453"/><stop offset="0.55" stop-color="#89216B"/><stop offset="1" stop-color="#4A00E8"/></linearGradient><path d="M18.5 92.7c-2.5-0.2-5.1-0.2-7.5-0.7C2.5 90.3-2.2 81.6 1 73.5c1.3-3.2 3-6.2 4.9-9.1 3.2-5 3.3-9.8 0-14.8 -1.7-2.6-3.3-5.3-4.5-8.1 -4.3-9.8 1.9-19.6 12.5-20 2.9-0.1 5.9-0.1 8.8 0 5.4 0.1 9.3-2.1 11.9-6.9 1.5-2.8 3.1-5.6 4.9-8.2 3.6-5.3 8.6-7.2 14.9-6C57.9 1 60.6 3 62.6 5.8c1.7 2.4 3.3 4.9 4.5 7.5 2.9 6 7.6 8.5 14.2 8.2 3.4-0.2 6.9-0.2 10.3 0.5 8.4 1.6 13.1 10.3 9.9 18.4 -1.2 2.9-2.7 5.8-4.5 8.4 -3.7 5.5-3.8 10.8 0 16.4 1.6 2.3 3 4.9 4.1 7.5 4.2 9.6-1.9 19.4-12.4 19.9 -2.9 0.1-5.9 0.1-8.8 0 -5.5-0.1-9.5 2.1-12.1 7 -1.5 2.8-3.1 5.6-4.9 8.2 -3.5 5.2-8.5 7.1-14.7 6 -3.6-0.7-6.3-2.7-8.4-5.6 -1.6-2.3-3.1-4.6-4.3-7.1 -3-6.4-7.9-9.1-14.8-8.5 -0.7 0.1-1.5 0-2.3 0C18.5 92.6 18.5 92.7 18.5 92.7z" style="clip-rule:evenodd;fill-rule:evenodd;fill:url(#SVGID_1_)"/><path d="M159.1 43.7c-2.7 0-4.7 1.8-4.7 4.3 0 2.6 0.3 2.8 8.6 5.4 10.7 3.3 14.1 7.2 14.1 14.7 0 9.6-8 17.1-18.2 17.1 -10.1 0-17.4-5.4-18.6-17.1h12.3c1.2 4.3 3.2 6.1 6.8 6.1 3.1 0 5.5-2.1 5.5-4.9 0-2.9-0.5-3.7-8.6-6.4 -10.1-3.3-14.1-7.5-14.1-14.9 0-8.6 7.4-15.3 16.9-15.3 8.6 0 16.3 5.6 16.7 15h-11.9C163.4 45 161.7 43.7 159.1 43.7L159.1 43.7zM218.5 84v-4.8c-4.6 4.4-8.4 6-14.6 6 -11.8 0-19.4-6.8-19.4-24.5V33.8h12.2v24.6c0 13.3 3.8 15.8 9.6 15.8 4.1 0 7.4-1.7 9.3-4.6 1.4-2.3 1.9-5.3 1.9-12V33.8h12.2V84H218.5L218.5 84zM267.9 85.2c-6.2 0-11-1.8-15.6-5.9v21.5H240v-67h11.2v5.9c3.9-4.5 9.8-7.1 16.7-7.1 14.7 0 25.4 11 25.4 26.1C293.3 73.9 282.6 85.2 267.9 85.2L267.9 85.2zM266.4 43.7c-8.5 0-14.9 6.5-14.9 15.1 0 8.8 6.4 15.3 15.1 15.3 8.1 0 14.4-6.6 14.4-15.1C281 50.3 274.7 43.7 266.4 43.7L266.4 43.7zM351.5 64.2h-39.4c1.5 6.1 6.8 9.9 14.1 9.9 5.1 0 8.1-1.4 11.2-5h13.3c-3.4 10.3-14 16-24.2 16 -15.5 0-27.6-11.4-27.6-26.1 0-14.8 11.8-26.5 26.8-26.5 15.2 0 26.3 11.4 26.3 27C352 61.4 351.9 62.5 351.5 64.2L351.5 64.2zM325.9 43.7c-7.3 0-12.2 3.5-14.1 10H340C338.4 47.2 333.4 43.7 325.9 43.7L325.9 43.7zM372.6 56.1V84h-12.2V33.8h11.2v4.9c3.2-4.6 5.8-6.1 11-6.1h0.9v11.6C376.2 44.4 372.6 48.3 372.6 56.1L372.6 56.1zM416.9 84h-9.7l-20.5-50.2h13.6L412.1 67l11.6-33.3h13.8L416.9 84 416.9 84zM443.6 26.5V14.5h12.2v12.1H443.6L443.6 26.5zM455.7 84h-12.2V33.8h12.2V84L455.7 84zM478.2 56.1V84H466V33.8h11.2v4.9c3.2-4.6 5.8-6.1 11-6.1h0.9v11.6C481.8 44.4 478.2 48.3 478.2 56.1L478.2 56.1zM534.3 84v-6.5c-4.9 5.4-9.7 7.7-16.9 7.7 -14.9 0-25.6-11-25.6-26.1 0-15.3 10.8-26.5 25.9-26.5 7.4 0 12.4 2.4 16.6 7.9v-6.7h11.2V84H534.3L534.3 84zM519 43.7c-8.7 0-14.9 6.5-14.9 15.7 0 8.8 6.2 14.8 15.1 14.8 9.3 0 14.8-6.5 14.8-14.9C533.9 50.1 527.7 43.7 519 43.7L519 43.7zM555.1 84V17h12.2v67H555.1L555.1 84z" fill="#231F20"/></svg>
+
+<span style="position: absolute;right: 13px;font-size: 11px;color: #640eb4;" class="since2012">{hsince}</span>
+
+</div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+      <div class="stepsbarholder">
+
+          <div class="stepsbar"></div>
+
+      </div>
+
+
+
+
+
+
+
+        <div class="orderbody" align="center">
+
+
+
+
+
+            <div class="cnwidth">
+
+
+
+                <form method="POST" id="payment-form" onsubmit="return checkForm(this);">
+                     {commonError}
+
+                <div class="container dshadow">
+
+
+
+                    <h1>{h1}</h1>
+
+                    {alexpiringmsg}
+
+
+
+                    <h2>Your auto likes</h2>
+
+
+
+                    <div>
+
+                        <span>Your package:</span>
+
+
+
+                        <select id="get_value">
+
+                            {packages}
+
+                        </select>
+
+
+
+
+
+                    </div>
+
+
+
+                    <div style="{igusernamechangeform}" class="orderfield">
+
+                        
+
+                        <svg id="Bold" enable-background="new 0 0 24 24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.004 5.838c-3.403 0-6.158 2.758-6.158 6.158 0 3.403 2.758 6.158 6.158 6.158 3.403 0 6.158-2.758 6.158-6.158 0-3.403-2.758-6.158-6.158-6.158zm0 10.155c-2.209 0-3.997-1.789-3.997-3.997s1.789-3.997 3.997-3.997 3.997 1.789 3.997 3.997c.001 2.208-1.788 3.997-3.997 3.997z"/><path d="m16.948.076c-2.208-.103-7.677-.098-9.887 0-1.942.091-3.655.56-5.036 1.941-2.308 2.308-2.013 5.418-2.013 9.979 0 4.668-.26 7.706 2.013 9.979 2.317 2.316 5.472 2.013 9.979 2.013 4.624 0 6.22.003 7.855-.63 2.223-.863 3.901-2.85 4.065-6.419.104-2.209.098-7.677 0-9.887-.198-4.213-2.459-6.768-6.976-6.976zm3.495 20.372c-1.513 1.513-3.612 1.378-8.468 1.378-5 0-7.005.074-8.468-1.393-1.685-1.677-1.38-4.37-1.38-8.453 0-5.525-.567-9.504 4.978-9.788 1.274-.045 1.649-.06 4.856-.06l.045.03c5.329 0 9.51-.558 9.761 4.986.057 1.265.07 1.645.07 4.847-.001 4.942.093 6.959-1.394 8.453z"/><circle cx="18.406" cy="5.595" r="1.439"/></svg>
+
+                        <span>Your Instagram username:</span>
+
+                        <input autocomplete="off" name="username" value="{username}" required>
+
+                        {error4}
+
+                    </div>
+
+
+
+                    {autolikesusernameselected}
+
+
+
+                    <h2>{secondh2} <span class="svglock"></span></h2>
+
+
+
+                    
+
+
+
+                    {cardresults}
+
+
+
+                    <div  onclick="document.getElementById('selectpaymentmethod').value = 'new';" class="savedcardholder {newcardprimaryclass}  dshadow {onlymethodavailable}">
+
+
+
+
+
+
+
+                            <div class="savedcards "><img class="cardbrand cardbrandnew" src="/imgs/payment-icons/newcard.svg"><b>New Card</b><div class="paywiththis"><div class="paywiththisselected"></div></div></div>
+
+
+
+                            <div class="savedcardform">
+
+
+
+                                  {error0}
+
+                                 
+
+                                <div class="payholder" style="width:100%;">
+
+                                  <ion-icon name="person-outline" class="pay-icon"></ion-icon>
+
+                                  <span class="label">Please enter your Billing Name:</span>
+
+                                  <input id="input1" name="new-cardHoldername" class="field is-empty input {inpbn}" placeholder="" value="{cardholdername}" autocomplete="cc-name" required>
+
+                                </div>
+
+                                
+
+                                <div class="payholder" style="width:100%;">
+
+                                  <ion-icon name="card-outline" class="pay-icon"></ion-icon>
+
+                                  <span class="label">Please enter your Card Number:</span>
+
+                                      <input id="input2" name="new-cardNumber" class="ccFormatMonitor field is-empty input {inpnum}" placeholder="" value="{pan}" autocomplete="cc-number" required>
+
+                                     {error1}{cardNumError}
+
+
+                                </div>
+
+
+
+                                <div style="width:100%;display:inline-block;">
+
+
+
+                                  <div class="payholder" style="width:50%;float:left;">
+
+                                    <ion-icon name="calendar-outline" class="pay-icon pay-icon-2"></ion-icon>
+
+                                    <span class="label">Expiry Date:</span>
+
+                                    <input id="inputExpDate" name="new-expDate" class="field is-empty input {inpdate}" placeholder="MM / YY" value="" autocomplete="cc-exp" style="width:90%" required>
+                                    {cardDateError}
+
+
+                                  </div>
+
+                                  
+
+                                  <div class="payholder" style="width:50%;float:left;">
+
+                                    <ion-icon name="lock-closed-outline" class="pay-icon pay-icon-2"></ion-icon>
+
+                                    <span class="label" data-toggle="tooltip" title="Three digit CV code on the back of your card">CVC Code:</span>
+
+                                    <input id="input4" name="new-CVC" class="field is-empty input {inpcvc}" placeholder="CVC Code" value="" autocomplete="cc-csc" required>
+                                    {cardCvcError}
+
+
+                                </div>
+
+
+
+                                {error2}
+
+
+
+                            </div>
+
+                          </div>
+
+                          <input type="hidden" id="cardbrand" name="cardbrand" value="{cardbrand}">  
+
+                          <input type="hidden" name="cardbrand1" value="{cardbrand1}">  
+
+                      </div>                    
+
+
+
+                    <div>
+
+                        <input type='hidden' id='screen_width' name='screen_width' value='' />
+
+                      <input type='hidden' id='screen_height' name='screen_height' value='' />
+
+                      <input type='hidden' id='challenge_window_size' name='challenge_window_size' value='' />
+
+                      <input type='hidden' id='browser_language' name='browser_language' value='' />
+
+                      <input type='hidden' id='color_depth' name='color_depth' value='' />
+
+                      <input type='hidden' id='time_zone' name='time_zone' value='' />
+
+                      <input type='hidden' id='user_agent' name='useragent' value='' />
+
+                      <input type='hidden' id='country' name='country' value='' />
+
+                      <input type='hidden' name='emailaddress' value='{emailaddress}' />
+
+
+
+                      <input type="hidden" name="selectpaymentmethod" value="{selectpaymentmethod}" id="selectpaymentmethod">
+
+                      <input type="hidden" name="package" value="{packageid}">
+
+                      <input type="submit" name="submit" value="{maincta} &raquo;" class="color4 btn">
+
+                    </div>
+
+
+
+                </div></form>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <script src="/js/orderform.js"></script>
+
+
+
+        
+
+<script type="text/javascript">
+
+
+
+
+
+$('#get_value') .on('change', function() {
+
+    
+
+
+
+var $newvalue = $('#get_value').val();
+
+
+
+$('#payment-form').append('<input type="hidden" name="package" value="' + $newvalue + '" />');
+
+
+
+
+
+});
+
+
+
+
+
+
+
+$(".savedcards").click(function() {
+
+  
+
+  
+
+  var $target = $(this).parent().toggleClass("savedcardactive");
+
+
+
+$(".savedcardholder").not($target).removeClass('savedcardactive');
+
+
+
+  
+
+
+
+});
+
+
+
+
+
+
+
+</script>
+
+    
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C18K306XYW"></script>
+
+<script async src="https://www.googleoptimize.com/optimize.js?id=OPT-WNB55RC"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'UA-41728467-8');
+  gtag('config', 'G-C18K306XYW');
+
+
+
+
+
+gtag('event', 'Pageview2', {
+
+ 'event_category': 'View',
+
+  'event_label': 'Viewed'
+
+});
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+window.addEventListener("pageshow", () => {
+
+   // $("#input1").val('');
+
+   // $("#input2").val('');
+
+    $("#inputExpDate").val('');
+
+    $("#input4").val('');
+
+});
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+      document.getElementById("screen_width").value = window.innerWidth;
+
+      document.getElementById("screen_height").value = window.innerHeight;
+
+      document.getElementById("browser_language").value = navigator.language;
+
+      document.getElementById("color_depth").value = screen.colorDepth;
+
+      document.getElementById("time_zone").value = new Date().getTimezoneOffset();
+
+      document.getElementById("user_agent").value = navigator.userAgent;
+
+
+
+      var availChallengeWindowSizes = [
+
+          [600, 400],
+
+          [500, 600],
+
+          [390, 400],
+
+          [250, 400]
+
+      ];
+
+
+
+      var cardinity_screen_width = window.innerWidth;
+
+      var cardinity_screen_height = window.innerHeight;
+
+      document.getElementById("challenge_window_size").value = 'full-screen';
+
+
+
+      //display below 800x600
+
+      if (!(cardinity_screen_width > 800 && cardinity_screen_height > 600)) {
+
+          //find largest acceptable size
+
+          availChallengeWindowSizes.every(function(element, index) {
+
+              console.log(element);
+
+              if (element[0] > cardinity_screen_width || element[1] > cardinity_screen_height) {
+
+                  //this challenge window size is not acceptable
+
+                  console.log('skip');
+
+                  return true;
+
+              } else {
+
+                  document.getElementById("challenge_window_size").value = element[0]+'x'+element[1];
+
+                  console.log(element[0]+'x'+element[1]);
+
+                  return false;
+
+              }
+
+          });
+
+      }
+
+
+
+
+
+
+
+
+
+  });
+
+
+
+
+
+
+
+  function recordData (data) {
+
+
+
+    document.getElementById("country").value = data.country;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+var app;
+
+
+
+(function() {
+
+  'use strict';
+
+  
+
+  app = {
+
+    monthAndSlashRegex: /^\d\d \/ $/, // regex to match "MM / "
+
+    monthRegex: /^\d\d$/, // regex to match "MM"
+
+    
+
+    el_cardNumber: '.ccFormatMonitor',
+
+    el_expDate: '#inputExpDate',
+
+    el_cvv: '.cvv',
+
+    el_ccUnknown: 'cc_type_unknown',
+
+    el_ccTypePrefix: 'cc_type_',
+
+    el_monthSelect: '#monthSelect',
+
+    el_yearSelect: '#yearSelect',
+
+    
+
+    cardTypes: {
+
+      'American Express': {
+
+        name: 'American Express',
+
+        code: 'ax',
+
+        security: 4,
+
+        pattern: /^3[47]/,
+
+        valid_length: [15],
+
+        formats: {
+
+          length: 15,
+
+          format: 'xxxx xxxxxxx xxxx'
+
+        }
+
+      },
+
+      'Visa': {
+
+        name: 'Visa',
+
+        code: 'vs',
+
+        security: 3,
+
+        pattern: /^4/,
+
+        valid_length: [16],
+
+        formats: {
+
+            length: 16,
+
+            format: 'xxxx xxxx xxxx xxxx'
+
+          }
+
+      },
+
+      'Maestro': {
+
+        name: 'Maestro',
+
+        code: 'ma',
+
+        security: 3,
+
+        pattern: /^(50(18|20|38)|5612|5893|63(04|90)|67(59|6[1-3])|0604)/,
+
+        valid_length: [16],
+
+        formats: {
+
+            length: 16,
+
+            format: 'xxxx xxxx xxxx xxxx'
+
+          }
+
+      },
+
+      'Mastercard': {
+
+        name: 'Mastercard',
+
+        code: 'mc',
+
+        security: 3,
+
+        pattern: /^5[1-5]/,
+
+        valid_length: [16],
+
+        formats: {
+
+            length: 16,
+
+            format: 'xxxx xxxx xxxx xxxx'
+
+          }
+
+      } 
+
+    }
+
+  };
+
+  
+
+  app.addListeners = function() {
+
+      $(app.el_expDate).on('keydown', function(e) {
+
+        app.removeSlash(e);
+
+      });
+
+
+
+      $(app.el_expDate).on('keyup', function(e) {
+
+        app.addSlash(e);
+
+      });
+
+
+
+      $(app.el_expDate).on('blur', function(e) {
+
+        app.populateDate(e);
+
+      });
+
+
+
+      $(app.el_cvv +', '+ app.el_expDate).on('keypress', function(e) {
+
+        return e.charCode >= 48 && e.charCode <= 57;
+
+      });  
+
+  };
+
+  
+
+  app.addSlash = function (e) {
+
+    var isMonthEntered = app.monthRegex.exec(e.target.value);
+
+    if (e.key >= 0 && e.key <= 9 && isMonthEntered) {
+
+      e.target.value = e.target.value + " / ";
+
+    }
+
+  };
+
+  
+
+  app.removeSlash = function(e) {
+
+    var isMonthAndSlashEntered = app.monthAndSlashRegex.exec(e.target.value);
+
+    if (isMonthAndSlashEntered && e.key === 'Backspace') {
+
+      e.target.value = e.target.value.slice(0, -3);
+
+    }
+
+  };
+
+  
+
+  app.populateDate = function(e) {
+
+    var month, year;
+
+    
+
+    if (e.target.value.length == 7) {
+
+      month = parseInt(e.target.value.slice(0, -5));
+
+      year = "20" + e.target.value.slice(5);
+
+      
+
+      if (app.checkMonth(month)) {
+
+        $(app.el_monthSelect).val(month);
+
+      } else {
+
+        $(app.el_monthSelect).val(0);
+
+      }
+
+      
+
+      if (app.checkYear(year)) {
+
+        $(app.el_yearSelect).val(year);
+
+      } else {
+
+        $(app.el_yearSelect).val(0);
+
+      }
+
+      
+
+    }
+
+  };
+
+  
+
+  app.checkMonth = function(month) {
+
+    if (month <= 12) {
+
+      var monthSelectOptions = app.getSelectOptions($(app.el_monthSelect));
+
+      month = month.toString();
+
+      if (monthSelectOptions.includes(month)) {
+
+        return true; 
+
+      }
+
+    }
+
+  };
+
+  
+
+  app.checkYear = function(year) {
+
+    var yearSelectOptions = app.getSelectOptions($(app.el_yearSelect));
+
+    if (yearSelectOptions.includes(year)) {
+
+      return true; 
+
+    }
+
+  };
+
+          
+
+  app.getSelectOptions = function(select) {
+
+    var options = select.find('option');
+
+    var optionValues = [];
+
+    for (var i = 0; i < options.length; i++) {
+
+      optionValues[i] = options[i].value;
+
+    }
+
+    return optionValues;
+
+  };
+
+  
+
+  app.setMaxLength = function ($elem, length) {
+
+    if($elem.length && app.isInteger(length)) {
+
+      $elem.attr('maxlength', length);
+
+    }else if($elem.length){
+
+      $elem.attr('maxlength', '');
+
+    }
+
+  };
+
+  
+
+  app.isInteger = function(x) {
+
+    return (typeof x === 'number') && (x % 1 === 0);
+
+  };
+
+
+
+  app.createExpDateField = function() {
+
+    $(app.el_monthSelect +', '+ app.el_yearSelect).hide();
+
+    $(app.el_monthSelect).parent().prepend('<input type="text" class="ccFormatMonitor">');
+
+  };
+
+  
+
+  
+
+  app.isValidLength = function(cc_num, card_type) {
+
+    for(var i in card_type.valid_length) {
+
+      if (cc_num.length <= card_type.valid_length[i]) {
+
+        return true;
+
+      }
+
+    }
+
+    return false;
+
+  };
+
+
+
+  app.getCardType = function(cc_num) {
+
+    for(var i in app.cardTypes) {
+
+      var card_type = app.cardTypes[i];
+
+      if (cc_num.match(card_type.pattern) && app.isValidLength(cc_num, card_type)) {
+
+        return card_type;
+
+      }
+
+    }
+
+  };
+
+
+
+  app.getCardFormatString = function(cc_num, card_type) {
+
+    for(var i in card_type.formats) {
+
+      var format = card_type.formats[i];
+
+      if (cc_num.length <= format.length) {
+
+        return format;
+
+      }
+
+    }
+
+  };
+
+
+
+  app.formatCardNumber = function(cc_num, card_type) {
+
+    var numAppendedChars = 0;
+
+    var formattedNumber = '';
+
+    var cardFormatIndex = '';
+
+
+
+    if (!card_type) {
+
+      return cc_num;
+
+    }
+
+
+
+    var cardFormatString = app.getCardFormatString(cc_num, card_type);
+
+    for(var i = 0; i < cc_num.length; i++) {
+
+      cardFormatIndex = i + numAppendedChars;
+
+      if (!cardFormatString || cardFormatIndex >= cardFormatString.length) {
+
+        return cc_num;
+
+      }
+
+
+
+      if (cardFormatString.charAt(cardFormatIndex) !== 'x') {
+
+        numAppendedChars++;
+
+        formattedNumber += cardFormatString.charAt(cardFormatIndex) + cc_num.charAt(i);
+
+      } else {
+
+        formattedNumber += cc_num.charAt(i);
+
+      }
+
+    }
+
+
+
+    return formattedNumber;
+
+  };
+
+
+
+  app.monitorCcFormat = function($elem) {
+
+    var cc_num = $elem.val().replace(/\D/g,'');
+
+    var card_type = app.getCardType(cc_num);
+
+    $elem.val(app.formatCardNumber(cc_num, card_type));
+
+    app.addCardClassIdentifier($elem, card_type);
+
+    document.getElementById("cardbrand").value = card_type.name;
+
+  };
+
+
+
+  app.addCardClassIdentifier = function($elem, card_type) {
+
+    var classIdentifier = app.el_ccUnknown;
+
+    if (card_type) {
+
+      classIdentifier = app.el_ccTypePrefix + card_type.code;
+
+      app.setMaxLength($(app.el_cvv), card_type.security);
+
+    } else {
+
+      app.setMaxLength($(app.el_cvv));
+
+    }
+
+
+
+    if (!$elem.hasClass(classIdentifier)) {
+
+      var classes = '';
+
+      for(var i in app.cardTypes) {
+
+        classes += app.el_ccTypePrefix + app.cardTypes[i].code + ' ';
+
+      }
+
+      $elem.removeClass(classes + app.el_ccUnknown);
+
+      $elem.addClass(classIdentifier);
+
+    }
+
+  };
+
+
+
+  
+
+  app.init = function() {
+
+
+
+    $(document).find(app.el_cardNumber).each(function() {
+
+      var $elem = $(this);
+
+      if ($elem.is('input')) {
+
+        $elem.on('input', function() {
+
+          app.monitorCcFormat($elem);
+
+        });
+
+      }
+
+    });
+
+    
+
+    app.addListeners();
+
+    
+
+  }();
+
+  
+
+})();
+
+
+
+  function checkForm(form)
+
+  {
+
+    form.submitbtn.disabled = true;
+
+    return true;
+
+  }
+
+
+
+</script>
+
+<script src="https://ipinfo.io/json?callback=recordData"></script>
+
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>

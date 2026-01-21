@@ -1,0 +1,425 @@
+<!-- @meta -->
+
+<title>Amazon s3</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/admin/assets/css/style.css">
+<!-- <link rel="stylesheet" type="text/css" href="/css/orderform.css"> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://kit.fontawesome.com/a282321041.js" crossorigin="anonymous"></script>
+
+<style type="text/css">
+    .box23 {
+        margin: 66px auto;
+        width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+
+    h1 {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .label {
+        margin-top: 35px;
+    }
+
+    .container div input,
+    .selectric,
+    .input,
+    .btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    .cke_reset_all {
+        background: #f7f7f7 !important;
+    }
+
+    .articles {
+        width: 100%;
+    }
+
+    .articles tr td {
+        border-bottom: 1px solid #f1f1f1;
+        padding: 19px 10px;
+        vertical-align: top
+    }
+
+    .articles tr td:first-child {
+        font-size: 19px;
+        width: 34%;
+        vertical-align: middle;
+    }
+
+    .articles tr:last-child td {
+        border-bottom: 0;
+    }
+
+    .status {
+        font-weight: bold;
+        height: 23px;
+        width: 55px;
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .btn {
+        margin: 0 !important;
+    }
+
+
+    .adminmenu {
+        display: inline-block;
+        background-color: white;
+        border-top: 1px solid #ccc;
+        width: 100%;
+    }
+
+    .adminmenu a {
+        float: left;
+        padding: 15px;
+    }
+
+    .perorder {
+        width: 100%;
+    }
+
+    .perorder tr:first-child td {
+        background-color: #ccc;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .perorder tr td:first-child {
+        width: 30%;
+        vertical-align: top;
+    }
+
+    .perorder tr td {
+        padding: 14px 5px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .perorder tr.grey td {
+        color: grey;
+    }
+
+    .perorder a {
+        text-decoration: underline;
+        color: blue;
+    }
+
+    .trackinginfo {
+        border-bottom: 1px dashed #e8e8e8;
+        margin-bottom: 2px;
+        padding: 11px;
+        font-size: 14px;
+        color: grey;
+    }
+
+    .trackinginfo .trackingheader {
+        font-weight: bold;
+    }
+
+    .report {
+        float: left;
+        width: initial;
+        margin-right: 10px !important;
+        border: 1px solid black !important;
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+    .reportmessage {
+        float: left;
+        width: 100%;
+        height: 120px;
+        box-sizing: border-box;
+        margin: 0px;
+        margin-bottom: 20px;
+        resize: vertical;
+        padding: 10px;
+        font-family: 'Open Sans';
+    }
+
+    .adminnotif {
+        font-size: 15px;
+        padding: 11px;
+        margin-bottom: 10px;
+    }
+
+    .language-less {
+        width: 1px;
+        height: 1px;
+        resize: none;
+    }
+
+    .foo {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 18px;
+    }
+
+    .rectifyinput {
+        width: 181px;
+        float: left;
+        margin-top: 0;
+        margin-right: 10px;
+    }
+
+    /* .summarytbl{font-size:14px;} */
+    .summarytbl tr:hover {
+        background-color: #e4fbff;
+    }
+
+    .summarytbl tr td {
+        border-bottom: 1px solid #dadada;
+        padding: 7px;
+    }
+
+    .searchspan {
+        font-size: 13px;
+        color: #4747bf;
+        line-height: 22px;
+        display: block;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 15000;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        display: flow-root;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .input {
+        width: 100%;
+        border-radius: 6px;
+        border: 1px solid #BEBEBE;
+    }
+
+    .btn3{
+        border-radius: 50px;
+        background-color: transparent;
+        border: 1px solid grey;
+    }
+
+    .color3{
+        border-radius: 50px;
+    }
+
+    
+ #cover-spin {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    display: none;
+  }
+
+   #cover-spin::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    border-top-color: transparent;
+    border-width: 4px;
+    border-radius: 50%;
+    -webkit-animation: spin 0.8s linear infinite;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<!-- @head_tags -->
+
+<main class="email-support">
+    <div id="cover-spin"></div>
+    <div class="mainContainer" align="center">
+
+        <div class="alignthis">
+            <h1 style="text-align: center;">Amazon S3<img style="width:50px;margin-left:10px;" src="/admin/assets/icons/Instagram-icon.svg"></h1>
+        </div>
+    
+        <div class="box23">
+
+            <form method="POST">
+                <table class="articles">
+                    <tr>
+                        <td>
+                            <span>Enter Image URL</span>
+                        </td>
+                        <td>
+                            <input type="text" class="input" id="url" placeholder="Enter url here">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input type="button" onclick="submitAmazon();" class="btn btn-primary color3" value="Submit">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                        </td>
+                        <td id="responseDivId">
+                            
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+
+        </div>
+
+        <div class="box23">
+
+          <a href="/admin/post-grabber-tester/" style="font-size: 20px;"><< Go to home</a>
+
+        </div>
+
+    </div>
+
+    <script>
+
+function isValidUrl(urlString) {
+    try {
+        new URL(urlString);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+function submitAmazon() {
+    var url = $("#url").val().trim();
+    if (url == "") {
+      alert("Url can't be blank");
+      return;
+    }
+    // let urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/;
+    if (!isValidUrl(url)) {
+        alert("Invalid Url");
+        return;
+    } 
+    $("#cover-spin").show();
+
+    $.ajax({
+      url: "/admin/api/post-grabber-handler.php",
+      type: "POST",
+      data: {
+        type: "submitAmazon",
+        url: url,
+      },
+      dataType: "json",
+      success: function (data) {
+        $("#cover-spin").hide();
+        if(data.Message == "success"){
+            // alert(data.Message);
+            $("#responseDivId").html('<a href="'+ data.path +'" target="_blank" style="font-size: 20px;">Check here</a> (<a href ="'+ url +'"" target="_blank">'+ url +'</a>)');
+        }else{
+
+            alert(data.Message);
+        }
+
+      },
+    });
+  }
+    </script>
+</main>

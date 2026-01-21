@@ -1,0 +1,12 @@
+[18-Jul-2024 16:29:32 Europe/London] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in /home/etra/public_html/etra.group/sm-db.php:238
+Stack trace:
+#0 /home/etra/public_html/etra.group/sm-db.php(238): mysqli_connect(NULL, NULL, NULL)
+#1 /home/etra/public_html/etra.group/admin/content-diff-check/index.php(22): mysql_connect(NULL, NULL, NULL)
+#2 {main}
+  thrown in /home/etra/public_html/etra.group/sm-db.php on line 238
+[18-Jul-2024 16:29:48 Europe/London] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in /home/etra/public_html/etra.group/sm-db.php:238
+Stack trace:
+#0 /home/etra/public_html/etra.group/sm-db.php(238): mysqli_connect(NULL, NULL, NULL)
+#1 /home/etra/public_html/etra.group/admin/content-diff-check/index.php(22): mysql_connect(NULL, NULL, NULL)
+#2 {main}
+  thrown in /home/etra/public_html/etra.group/sm-db.php on line 238

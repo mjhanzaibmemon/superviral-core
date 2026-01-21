@@ -1,0 +1,243 @@
+<!-- @meta -->
+
+<title>Stats</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+
+<style>
+    .superviral-stats .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    .superviral-stats .alignthis {
+        padding: 55px 0;
+    }
+
+
+    .superviral-stats .box23 {
+        margin: 66px auto;
+        max-width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+</style>
+
+<!-- @head_tags -->
+
+
+
+
+<main class="superviral-stats">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <div class="alignthis" align="center">
+        <h1 style="color:unset;">Superviral Overall Status 📊</h1>
+    </div>
+
+    <div class="alignthis" align="center">
+        <h2>API Success/Failures</h2>
+        <canvas id="myChart" style="max-height:300px;margin:25px;"></canvas>
+    </div>
+
+
+    <div class="alignthis" align="center">
+        <h2>Most Refunded Services in the last
+            {howmuchtogoback}-days
+        </h2>
+
+        <div class="box23">
+
+            <table style="width:100%">
+                {refundedservice}
+                <tr>
+
+                    <td><b>Total</b></td>
+                    <td><b>
+                            {totalcount}
+                        </b></td>
+                    <td><b>£{totalloss}
+                        </b></td>
+
+                </tr>
+            </table>
+
+        </div>
+
+
+
+        <div class="box23">
+
+            <table style="width:100%">
+                {refunddata}
+            </table>
+
+        </div>
+    </div>
+    <!--////////////////////// Blacklist attempts code here ////////////////////////////////////-->
+
+
+    <div class="alignthis" align="center">
+        <h2>Blacklist attempts</h2>
+        <canvas id="myChart1" style="max-height:300px;margin:25px;"></canvas>
+    </div>
+
+
+    <div class="alignthis" align="center">
+        <h2>Blacklist attempts in the last
+            {howmuchtogoback1}-days
+        </h2>
+
+        <div class="box23">
+
+            <table style="width:100%">
+                {refundedservice}
+                <tr>
+
+                    <td><b>Total</b></td>
+                    <td><b>
+                            {totalcount1}
+                        </b></td>
+
+                </tr>
+            </table>
+
+        </div>
+
+
+
+        <div class="box23">
+
+            <table style="width:100%">
+                {refunddata1}
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- Defect order code here -->
+
+    <div class="alignthis" align="center">
+        <h2>Order Defect</h2>
+        <canvas id="myChart2" style="max-height:300px;margin:25px;"></canvas>
+    </div>
+
+
+    <div class="alignthis" align="center">
+        <h2>Most Defect orders in the last
+            {howmuchtogoback1}-days
+        </h2>
+
+        <div class="box23">
+
+            <table style="width:100%">
+                {refundedservice}
+                <tr>
+
+                    <td><b>Total</b></td>
+                    <td><b>
+                            {totalcount2}
+                        </b></td>
+
+                </tr>
+            </table>
+
+        </div>
+
+
+
+        <div class="box23">
+
+            <table style="width:100%">
+                {refunddata2}
+            </table>
+
+        </div>
+    </div>
+</main>
+
+
+<script>
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [{labelsbackend}],
+            datasets: [{
+                label: 'Thumbs loaded',
+                data: [{posdaydata}],
+                borderColor: '#50C878',
+                backgroundColor: '#50C878',
+            },
+            {
+                label: 'Thumbs not found',
+                data: [{negdaydata}],
+                borderColor: '#E52A01',
+                backgroundColor: '#E52A01',
+            }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx1 = document.getElementById('myChart1').getContext('2d');
+    const myChart1 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: [{labelsbackend1}],
+            datasets: [{
+                label: 'Blacklist attempts found',
+                data: [{postdaydata1}],
+                borderColor: '#E52A01',
+                backgroundColor: '#E52A01',
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('myChart2').getContext('2d');
+    const myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: [{labelsbackend2}],
+            datasets: [{
+                label: 'Successfully processed',
+                data: [{postdaydata2}],
+                borderColor: '#50C878',
+                backgroundColor: '#50C878',
+            },
+            {
+                label: 'Defect',
+                data: [{negdaydata2}],
+                borderColor: '#E52A01',
+                backgroundColor: '#E52A01',
+            }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+</script>

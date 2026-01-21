@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Superviral Tools</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/accountstyle.css">
+
+
+
+
+    <style type="text/css">
+        /* =====================
+            previous code
+        ===================== */
+
+        input.site-btn {
+            background-color: #ff603c !important;
+            border-color: #ff603c !important;
+        }
+
+        input.site-btn:disabled {
+            opacity: .5 !important;
+        }
+
+        .dashboard-wrap form a {
+            display: inline;
+            font-size: 14px;
+        }
+
+        .login_form.modal .reg-block div {
+            padding: 0;
+            border-bottom: 0;
+        }
+
+        .login_form.modal .reg-block div input {
+            float: left;
+            width: initial;
+            margin-right: 12px;
+        }
+
+        .btn {
+            margin-bottom: 10px;
+        }
+
+        .btnwhite {
+            display: inline-block;
+            width: initial;
+            margin-top: -6px !important;
+            text-align: center;
+            font-size: 13px;
+            line-height: 7px;
+            height: 42px;
+        }
+
+        .modal {
+            margin-bottom: 100px;
+        }
+
+        .emailsuccess {}
+
+        @media screen and (max-width:992px) {
+            .error {
+                padding: 0;
+            }
+        }
+
+        .login_form.modal div input .error {
+            display: block !important;
+        }
+
+        /* ============================================================
+            New code By Didar
+        =============================================================== */
+        /* =====================
+            Tools
+        ===================== */
+
+        .tools {
+            min-height: 100vh;
+            background-color: #F2F2F2;
+            margin: 0 auto;
+            padding: 30px 0px;
+        }
+
+        .tools .main-wrapper {
+            width: calc(100% - 15px);
+            margin-left: 15px;
+        }
+
+        .tools .main-wrapper .main-title {
+            font-size: 24px;
+            line-height: 24px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 0px;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box {
+            margin-top: 30px;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .title .box-title {
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 600;
+            color: #000000;
+            margin: 0;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .title .number {
+            height: 18px;
+            width: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin: 0;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .title .number span {
+            font-size: 12px;
+            line-height: 12px;
+            font-weight: 400;
+            color: #000000;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .cards {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 15px;
+            overflow: auto;
+            margin-top: 15px;
+            padding-bottom: 20px;
+            padding-right: 15px;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .cards .card {
+            flex: 1 0 auto;
+            max-width: calc(40% - 15px);
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.11);
+            -webkit-box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.11);
+            -moz-box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.11);
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .cards .card .icon {
+            height: 23px;
+            width: 23px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .cards .card .icon svg {
+            display: none;
+            width: 23px;
+            height: 23px;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .cards .card .card-title {
+            font-size: 16px;
+            line-height: 16px;
+            font-weight: 600;
+            color: #000000;
+            margin: 12px 0px;
+        }
+
+        .tools .main-wrapper .content-box-wrapper .content-box .cards .card .para {
+            font-size: 12px;
+            line-height: 15px;
+            font-weight: 400;
+            color: #585858;
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
+        @media only screen and (min-width: 576px) {
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card {
+                max-width: calc(25% - 15px);
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .tools .main-wrapper {
+                width: calc(100% - 20px);
+                margin-left: 20px;
+            }
+
+            .tools .main-wrapper .main-title {
+                font-size: 28px;
+                line-height: 28px;
+
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .title {
+                margin-bottom: 30px;
+
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .title .box-title {
+                font-size: 21px;
+                line-height: 21px;
+
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .title .number {
+                height: 23px;
+                width: 23px;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .title .number span {
+                font-size: 15px;
+                line-height: 15px;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card {
+                padding: 20px 18px;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card .icon {
+                width: 28px;
+                height: 28px;
+                display: none;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card .icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card .card-title {
+                font-size: 18px;
+                line-height: 20px;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card .para {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+
+        .popup-box-wrapper {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            opacity: 0;
+            z-index: 1000;
+        }
+
+        .popup-box-wrapper.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .popup-box-wrapper .popup-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-box-wrapper .popup-box .close-icon {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b2b2b2;
+            background: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .popup-box-wrapper .popup-box .popup-box-item {
+            width: 240px;
+            background: #ffffff;
+            padding: 30px 25px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .popup-box-wrapper .popup-box .popup-box-item .popup-title {
+            font-size: 22px;
+            line-height: 22px;
+            font-weight: 600;
+            text-align: center;
+            color: black;
+            text-transform: uppercase;
+            margin: 0;
+            margin-bottom: 15px;
+        }
+
+        .popup-box-wrapper .popup-box .popup-box-item .popup-title .color {
+            font-size: 22px;
+            line-height: 22px;
+            font-weight: 600;
+            color: #5F23BA;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .popup-box-wrapper .popup-box .popup-box-item .early-access {
+            font-size: 15px;
+            line-height: 25px;
+            font-weight: 600;
+            color: white;
+            width: 100%;
+            border: none;
+            background: #1A73E7;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 100px;
+            cursor: pointer;
+        }
+
+        .popup-box-wrapper .popup-box .popup-box-item .close-access {
+            font-size: 15px;
+            line-height: 15px;
+            color: #3a3a3a;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            cursor: pointer;
+        }
+
+
+        @media only screen and (min-width: 992px) {
+            .tools .main-wrapper {
+                width: calc(100% - 28px);
+                margin-left: 28px;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card {
+                max-width: 190px;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .tools {
+                padding: 40px 0px;
+            }
+
+            .tools .main-wrapper {
+                width: 95%;
+                margin: 0 auto;
+            }
+
+            .tools .main-wrapper .main-title {
+                font-size: 30px;
+                line-height: 30px;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card {
+                padding: 20px;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card .card-title {
+                font-size: 20px;
+                line-height: 22px;
+            }
+
+            .tools .main-wrapper .content-box-wrapper .content-box .cards .card .para {
+                font-size: 15px;
+                line-height: 18px;
+            }
+        }
+
+        .col-row-4 a {width: 25% !important;}
+
+    </style>
+</head>
+
+<body {autoopenpasswordchanger}>
+
+    {header}
+    <section class="tools">
+        <div class="main-wrapper">
+
+
+
+            <h1 class="main-title">Tools</h1>
+            <div class="content-box-wrapper">
+                <div class="content-box">
+                    <div class="title">
+                        <h2 class="box-title">Popular</h2>
+                    </div>
+                    <div class="cards">
+                        <a href="https://superviral.io/grab_user_posts_2.php" class="card">
+                            <div class="icon">
+                                <svg width="23" height="21" viewBox="0 0 23 21" fill="none">
+                                    <path
+                                        d="M11.5 0L14.0819 7.9463H22.4371L15.6776 12.8574L18.2595 20.8037L11.5 15.8926L4.74047 20.8037L7.32238 12.8574L0.56285 7.9463H8.91809L11.5 0Z"
+                                        fill="#4D05BB" />
+                                </svg>
+                            </div>
+                            <h2 class="card-title">Instagram Post Downloader</h2>
+                            <p class="para">Download your favourite pictures and videos with our post downloader</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="content-box">
+                    <div class="title">
+                        <h2 class="box-title">Content</h2>
+                        <p class="number"><span>3</span></p>
+                    </div>
+                    <div class="cards">
+                        <a href="" class="card">
+                            <div class="icon">
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                    <path
+                                        d="M8 1H15C18.866 1 22 4.13401 22 8V15C22 18.866 18.866 22 15 22H1V8C1 4.13401 4.13401 1 8 1Z"
+                                        stroke="#4D05BB" stroke-width="2" />
+                                    <path
+                                        d="M11 7L12.1226 10.4549H15.7553L12.8164 12.5902L13.9389 16.0451L11 13.9098L8.06107 16.0451L9.18364 12.5902L6.24472 10.4549H9.87743L11 7Z"
+                                        fill="#4D05BB" />
+                                </svg>
+                            </div>
+                            <h2 class="card-title">Trending topics</h2>
+                            <p class="para">See the latest buzz and hottest topics people are talking about.</p>
+                        </a>
+                        <a href="" class="card">
+                            <div class="icon">
+                                <svg width="23" height="21" viewBox="0 0 23 21" fill="none">
+                                    <path
+                                        d="M11.5 0L14.0819 7.9463H22.4371L15.6776 12.8574L18.2595 20.8037L11.5 15.8926L4.74047 20.8037L7.32238 12.8574L0.56285 7.9463H8.91809L11.5 0Z"
+                                        fill="#4D05BB" />
+                                </svg>
+                            </div>
+                            <h2 class="card-title">Daily Viral Photos Explorer</h2>
+                            <p class="para">See the top posts for today from Instagram top creators.</p>
+                        </a>
+                        <a href="" class="card">
+                            <div class="icon">
+                                <svg width="23" height="21" viewBox="0 0 23 21" fill="none">
+                                    <path
+                                        d="M11.5 0L14.0819 7.9463H22.4371L15.6776 12.8574L18.2595 20.8037L11.5 15.8926L4.74047 20.8037L7.32238 12.8574L0.56285 7.9463H8.91809L11.5 0Z"
+                                        fill="#4D05BB" />
+                                </svg>
+                            </div>
+                            <h2 class="card-title">Post Caption Generator</h2>
+                            <p class="para">Generate killer captions with our caption generator</p>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="content-box">
+                    <div class="title">
+                        <h2 class="box-title">Communication</h2>
+                        <p class="number"><span>2</span></p>
+                    </div>
+                    <div class="cards">
+                        <a href="" class="card">
+                            <div class="icon">
+                                <svg width="23" height="21" viewBox="0 0 23 21" fill="none">
+                                    <path
+                                        d="M11.5 0L14.0819 7.9463H22.4371L15.6776 12.8574L18.2595 20.8037L11.5 15.8926L4.74047 20.8037L7.32238 12.8574L0.56285 7.9463H8.91809L11.5 0Z"
+                                        fill="#4D05BB" />
+                                </svg>
+                            </div>
+                            <h2 class="card-title">DM Reply Tool</h2>
+                            <p class="para">Don't have the time, or can't think of a reply to DMs? We got you covered
+                                with our DM reply generator</p>
+                        </a>
+                        <a href="" class="card">
+                            <div class="icon">
+                                <svg width="23" height="21" viewBox="0 0 23 21" fill="none">
+                                    <path
+                                        d="M11.5 0L14.0819 7.9463H22.4371L15.6776 12.8574L18.2595 20.8037L11.5 15.8926L4.74047 20.8037L7.32238 12.8574L0.56285 7.9463H8.91809L11.5 0Z"
+                                        fill="#4D05BB" />
+                                </svg>
+                            </div>
+                            <h2 class="card-title">Outreach Messaging Tool</h2>
+                            <p class="para">First impressions are everything, start a powerful collaboration with a
+                                lucrative message from our outreach message generator/</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="content-box">
+                    <div class="title">
+                        <h2 class="box-title">Discover Ideas</h2>
+                        <p class="number"><span>2</span></p>
+                    </div>
+                    <div class="cards">
+                        <a href="" class="card">
+                            <div class="icon">
+                                <svg width="23" height="21" viewBox="0 0 23 21" fill="none">
+                                    <path
+                                        d="M11.5 0L14.0819 7.9463H22.4371L15.6776 12.8574L18.2595 20.8037L11.5 15.8926L4.74047 20.8037L7.32238 12.8574L0.56285 7.9463H8.91809L11.5 0Z"
+                                        fill="#4D05BB" />
+                                </svg>
+                            </div>
+                            <h2 class="card-title">Find Fast Growing Pages</h2>
+                            <p class="para">Find pages and influencers on the come up or seeing fast growth</p>
+                        </a>
+                        <a href="" class="card">
+                            <div class="icon">
+                                <svg width="23" height="21" viewBox="0 0 23 21" fill="none">
+                                    <path
+                                        d="M11.5 0L14.0819 7.9463H22.4371L15.6776 12.8574L18.2595 20.8037L11.5 15.8926L4.74047 20.8037L7.32238 12.8574L0.56285 7.9463H8.91809L11.5 0Z"
+                                        fill="#4D05BB" />
+                                </svg>
+                            </div>
+                            <h2 class="card-title">Top Comment Ideas Explorer</h2>
+                            <p class="para">Dominate the comment section with our top comment explorer</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="popup-box-wrapper">
+        <div class="popup-box">
+            <button class="close-icon" onclick="closeModal()">&times;</button>
+            <div class="popup-box-item">
+                <h2 class="popup-title">Get
+                    <Span class="color">Free</Span> early access
+                </h2>
+                <button class="early-access gtm-click">Request Access</button>
+                <button class="close-access"></button>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+
+    {footer}
+
+    <!--Java Script Files-->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+    <script>
+        // pop-up code
+        const modalContainer = document.querySelector(".popup-box-wrapper");
+        const reqAccessBtn = modalContainer.querySelector("button.early-access");
+        const closeAccessBtn = modalContainer.querySelector("button.close-access");
+        const overlay = document.querySelector(".overlay");
+        const cards = document.querySelectorAll("a.card");
+        const closeModal = () => {
+            modalContainer.classList.remove("active");
+            overlay.style.display = "none";
+            reqAccessBtn.textContent = "Request Access";
+            reqAccessBtn.style.cssText = "background: #1A73E7;border: none; color: #FFFFFF";
+            closeAccessBtn.style.display = "inline-block";
+        };
+        overlay.addEventListener("click", () => {
+            closeModal();
+        });
+        reqAccessBtn.addEventListener("click", () => {
+            reqAccessBtn.textContent = "Requested";
+            reqAccessBtn.style.cssText = "background: #FFFFFF;border: 1px solid #1A73E7; color: #1A73E7;";
+            closeAccessBtn.style.display = "none";
+        });
+        closeAccessBtn.addEventListener("click", () => {
+            closeModal();
+        });
+        cards.forEach((card) => card.addEventListener("click", (e) => {
+            if (!card.getAttribute("href")) {
+                e.preventDefault();
+                modalContainer.classList.toggle("active");
+                const dataValue = card.querySelector('.card-title').textContent;
+                reqAccessBtn.setAttribute("data-click-name", 'popup ' + dataValue);
+                overlay.style.display = "block";
+            }
+        }));
+    </script>
+    <!--Custom JS-->
+
+    <script>
+      // split test for tool code
+
+      function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(";");
+            for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == " ") c = c.substring(1, c.length);
+              if (c.indexOf(nameEQ) == 0)
+                return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+      }
+
+      var toolCookie = getCookie('splitForTool');
+
+      let params = new URL(document.location).searchParams;
+      let name = params.get("split");
+
+      if ((name != null && name == "b") || toolCookie == "true") {
+        document.getElementById("toolsID").style.display = "block";
+        document.getElementById("toolsTopBarId").style.display = "block";
+        element = document.querySelector('.darkmobileheader');
+        element.className += ' col-row-4';
+      } else {
+        document.getElementById("toolsID").style.display = "none";
+        document.getElementById("toolsTopBarId").style.display = "none";
+
+        // eraseCookie('splitForTool');
+      }         
+    </script>
+
+</body>
+
+</html>

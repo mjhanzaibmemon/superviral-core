@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+
+
+<head>
+
+<title>{title}</title>
+<meta name="description" content="{metadesc}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="Content-Language" content="{contentlanguage}">
+<link rel="canonical" href="{canonical}" />
+
+<link rel="alternate" hreflang="en-us" href="https://superviral.io/about-us/" />
+<link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/about-us/" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/orderform.css">
+
+   <style>
+        .mainHeading {
+            font-size: 33px;
+            margin: auto;
+            display: block;
+            font-weight: 800;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        .textCenter {
+            display: block;
+            text-align: center;
+        }
+
+        .aboutContentWidth {
+            max-width: 80%;
+            margin: auto;
+        }
+
+        .bgColorWhite {
+            background-color: #fff;
+        }
+
+        .aboutUsLeftPoints {
+            margin-top: 25px;
+            font-weight: 600;
+            font-size: 17px;
+            display: block;
+        }
+
+        .mainAboutUsImg {
+            max-width: 100%;
+            width: 1000px;
+            margin-top: 25px;
+            max-height: 390px;
+            /* object-fit: contain; */
+        }
+
+        .featuredonholder1 {
+            background: #341662;
+            height: 110px;
+            text-align: center;
+            color: #fff;
+            /* padding-top: 22px; */
+            font-size: 17px;
+            overflow: hidden;
+            font-weight: bold;
+        }
+
+        .h2FontSize {
+            font-size: 2em;
+        }
+
+        .bulletPointDiv {
+            max-height: 300px;
+            overflow-y: auto;
+            margin: auto;
+            margin-bottom: 40px;
+            max-width: 350px;
+            display: grid;
+        }
+
+        .flexDisplay {
+            display: flex;
+        }
+
+        .bulletPointTitle {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #4d05bb;
+            color: #fff;
+            border-radius: 7px 0px 0px 7px;
+            font-size: 25px;
+        }
+
+        .bulletPointDesc {
+            background: #fff;
+            border-radius: 0px 7px 7px 0px;
+            padding: 15px;
+            font-size:15px;
+        }
+
+        .alignAchBoxCenter {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .max768pxDivShow {
+            display: grid;
+        }
+
+        .achvBox {
+            background-color: #f5f7fe;
+            padding: 20px;
+            text-align: center;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            min-width: 140px;
+            /* max-width: 140px; */
+            height: 70px;
+        }
+
+        .achCount {
+            color: #4d05bb;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .min1024pxDivShow {
+            display: none;
+        }
+
+        
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    /* padding: 16px; */
+    margin-top: -19px;
+    color:grey;
+    /* font-weight: bold; */
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+  
+   .bulletPointDiv::-webkit-scrollbar {
+            display: none;
+    }
+    
+
+    .testimonialsbox .test {
+        text-align: left;
+        padding: 25px;
+        background-color: #f5f7fe;
+        border-radius: 5px;
+        width: 100%;
+        float: left;
+        margin: 5px;
+        box-sizing: border-box;
+    }
+
+
+
+        @media only screen and (max-width: 425px) {
+
+            .min425pxFont {
+                font-size: 27px;
+            }
+
+            .max425pxFontAboutLeftPoint {
+                font-size: 15px;
+            }
+
+            .achBoxDescPointMaxWidth425px {
+                font-size: 14px;
+
+            }
+
+            .accepted{
+                width: 100% !important;
+            }
+
+            .achvBox {
+                min-width: 100px;
+                max-width: 100px;
+            }
+
+        }
+
+
+        @media only screen and (min-width: 425px) {
+
+            .achCount {
+                font-size: 20px;
+            }
+
+            .achvBox {
+                min-width: 145px;
+                max-width: 145px;
+            }
+
+            .achCount {
+                font-size: 20px;
+            }
+
+        }
+
+
+        @media only screen and (min-width: 768px) {
+
+            .min768txtCenter {
+                text-align: center;
+            }
+
+            .bulletPointDiv {
+
+               max-width: 620px;
+            }
+
+            .achvBox {
+                min-width: 200px;
+                max-width: 200px;
+            }
+
+            .achCount {
+                font-size: 30px;
+            }
+            .testimonialsbox .test {
+                        width: 90%;
+                       height: 147px;
+                        margin: 13px;
+            }
+
+        }
+
+
+        @media only screen and (min-width: 1024px) {
+
+            .max768pxDivShow {
+                display: none;
+            }
+
+            .min1024pxDivShow {
+                display: grid;
+            }
+
+
+            .max1024pxWidthBulletPoint{
+                width: 100%;
+            }
+        }
+
+        
+        @media only screen and (min-width: 1200px) {
+
+            .aboutContentWidth {
+                max-width: 60%;
+                /* margin:auto; */
+            }
+
+            .featuredonholder1,
+            .bulletPointTitle {
+                background-color: #341662;
+            }
+
+
+           /* .bulletPointDiv {
+
+                max-width: 470px;
+            }*/
+
+        }
+    </style>
+
+
+
+<script type="application/ld+json"> 
+    {"@context": "http://schema.org/", 
+    "@type": "AboutPage", 
+    "name": "About Us",
+    "description": "{metadesc}", 
+    "url": "https://superviral.io/{loclocation}about-us/"}
+</script>
+
+
+
+</head>
+
+
+
+
+
+
+
+<body style="background-color: #f5f7fe;">
+
+
+
+
+
+
+
+    {header}
+
+
+
+
+
+
+
+        <div class="aboutContentWidth">
+
+
+
+            
+
+
+
+            <h1 class="mainHeading">{h1}</h1>
+
+
+
+            <span class="textCenter">{h1desc}</span>
+
+
+
+
+
+
+
+        </div>
+
+
+
+    
+
+
+
+        <div class="bgColorWhite" style="padding-bottom: 25px;margin-top: 20px;">
+
+
+
+                <div class="aboutContentWidth" style="display: flex;">
+
+
+
+                    <div style="min-width: 55%;">
+
+                        <span class="aboutUsLeftPoints max425pxFontAboutLeftPoint">{1-1-heading}</span>
+
+
+
+                        <span class="font16 max425pxFontAboutLeftPoint">{1-1-text}</span>
+
+
+
+
+
+
+
+                        <span class="aboutUsLeftPoints max425pxFontAboutLeftPoint">{1-2-heading}</span>
+
+
+
+                        <span class="font16 max425pxFontAboutLeftPoint">{1-2-text}</span>
+
+
+
+
+
+
+
+                        <span class="aboutUsLeftPoints max425pxFontAboutLeftPoint">{1-3-heading}</span>
+
+
+
+                        <span class="font16 max425pxFontAboutLeftPoint">{1-3-text}</span>
+
+ 
+
+
+
+
+
+                        <span class="aboutUsLeftPoints max425pxFontAboutLeftPoint">{1-4-heading}</span>
+
+
+
+                        <span class="font16 max425pxFontAboutLeftPoint">{1-4-text}</span>
+
+
+
+        
+
+
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="aboutContentWidth">
+
+
+
+            
+            <h2 class="min768txtCenter h2FontSize">{2-h2}</h2>
+
+            {2-p}
+
+
+
+            <br>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="featuredonholder1">
+
+
+
+            <p>AS SEEN IN</p>
+
+
+
+            <div class="featuredon">
+
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="aboutContentWidth">
+
+
+
+            
+
+
+
+            <h2 class="min768txtCenter h2FontSize">{6-h2}</h2>
+
+
+
+            <div class="bulletPointDiv">
+
+
+
+
+
+
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2012</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-1}</div>
+
+
+
+                </div>
+
+
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2013</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-2}</div>
+
+
+
+                </div>
+
+
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2014</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-3}</div>
+
+
+
+                </div>
+
+
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2015</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-4}</div>
+
+
+
+                </div>
+
+
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2016</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-5}</div>
+
+
+
+                </div>
+
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2017</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-6}</div>
+
+
+
+                </div>
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2018</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-7}</div>
+
+
+
+                </div>
+
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2019</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-8}</div>
+
+
+
+                </div>
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2020</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-9}</div>
+
+
+
+                </div>
+
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2021</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-10}</div>
+
+
+
+                </div>
+
+
+
+                <div class="flexDisplay" style="margin: 10px 0px;">
+
+
+
+                    <div class="bulletPointTitle">2022</div>
+
+
+
+                    <div class="bulletPointDesc max1024pxWidthBulletPoint">{6-history-11}</div>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+                       
+
+
+
+         </div>
+
+
+
+
+
+
+
+         <div class="bgColorWhite" style="padding-bottom: 25px;">
+
+            <div class="aboutContentWidth">
+
+                <h2 class="lookingHdng min768txtCenter h2FontSize" style="padding-top: 15px;">{7-h2}</h2>
+
+            
+
+            <div class="alignAchBoxCenter max768pxDivShow">
+
+                <div class="flexDisplay">
+
+                    <div class="achvBox">
+
+                        <span class="achCount">10 million</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-1}</span>
+
+                    </div>
+
+                    <div class="achvBox">
+
+                        <span class="achCount">37 million</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-2}</span>
+
+                    </div>
+
+                </div>  
+
+                <div class="flexDisplay">
+
+                    <div class="achvBox">
+
+                        <span class="achCount">420+ million</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-3}</span>
+
+                    </div>
+
+                    <div class="achvBox">
+
+                        <span class="achCount">2 million</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-4}</span>
+
+                    </div>
+
+                </div>  
+
+                <div class="flexDisplay">
+
+                    <div class="achvBox">
+
+                        <span class="achCount">32</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-5}</span>
+
+                    </div>
+
+                    <div class="achvBox">
+
+                        <span class="achCount">10</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-6}</span>
+
+                    </div>
+
+               </div>
+
+            </div>
+
+               
+
+            <div class="alignAchBoxCenter min1024pxDivShow">
+
+                <div class="flexDisplay">
+
+                    <div class="achvBox">
+
+                        <span class="achCount">10 million</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-1}</span>
+
+                    </div>
+
+                    <div class="achvBox">
+
+                        <span class="achCount">37 million</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-2}</span>
+
+                    </div>
+
+                    <div class="achvBox">
+
+                        <span class="achCount">420 million</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-3}</span>
+
+                    </div>
+
+                </div>  
+
+                <div class="flexDisplay">
+
+                    <div class="achvBox">
+
+                        <span class="achCount">2 million</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-4}</span>
+
+                    </div>
+
+                    <div class="achvBox">
+
+                        <span class="achCount">32</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-5}</span>
+
+                    </div>
+
+                    <div class="achvBox">
+
+                        <span class="achCount">10</span><br>
+
+                        <span class="achBoxDescPointMaxWidth425px">{7-achiev-6}</span>
+
+                    </div>
+
+               </div>
+
+            </div>
+
+               
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="aboutContentWidth">
+
+
+
+            
+
+
+
+            <h2 class="h2FontSize">{3-h2}</h2>
+
+
+            {3-p}
+
+
+         </div>
+
+
+
+
+
+
+
+         
+
+
+
+
+        {footer}
+
+
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+    <script type="text/javascript">
+
+
+
+        let slideIndex = 1;
+
+
+
+        showSlides(slideIndex);
+
+
+
+
+
+
+
+        function plusSlides(n) {
+
+
+
+            showSlides(slideIndex += n);
+
+
+
+        }
+
+
+
+
+
+
+
+        function currentSlide(n) {
+
+
+
+            showSlides(slideIndex = n);
+
+
+
+        }
+
+
+
+
+
+
+
+        function showSlides(n) {
+
+
+
+            let i;
+
+
+
+            let slides = document.getElementsByClassName("mySlides");
+
+
+
+            let dots = document.getElementsByClassName("dot");
+
+
+
+            if (n > slides.length) { slideIndex = 1 }
+
+
+
+            if (n < 1) { slideIndex = slides.length }
+
+
+
+            for (i = 0; i < slides.length; i++) {
+
+
+
+                slides[i].style.display = "none";
+
+
+
+            }
+
+
+
+            for (i = 0; i < dots.length; i++) {
+
+
+
+                dots[i].className = dots[i].className.replace(" active", "");
+
+
+
+            }
+
+
+
+            slides[slideIndex - 1].style.display = "block";
+
+
+
+            dots[slideIndex - 1].className += " active";
+
+
+
+        }
+
+
+
+ function myFunction() {
+
+
+
+            document.getElementById("myDropdownnew").classList.toggle("show");
+
+
+
+        }
+
+        
+
+    </script>
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>

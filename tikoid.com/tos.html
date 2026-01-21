@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+	<title>{title}</title>
+	<meta name="description" content="{metadesc}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta http-equiv="Content-Language" content="{contentlanguage}">
+	<link rel="canonical" href="{canonical}" />
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/orderform.css">
+    <style type="text/css">
+        h1 {
+            color: #000;
+            text-align: center;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .se1 {
+            padding: 10px;
+        }
+
+        .containercontactus {
+            text-align: left;
+            text-align: left;
+            font-size: 12px;
+            color: #585858;
+            line-height: 20px;
+        }
+
+
+        @media only screen and (min-width: 768px) {
+
+            .contactusspan {
+                display: block;
+                margin-bottom: 20px;
+            }
+
+            .containercontactus {
+                padding: 15px;
+                max-width: 100%;
+                width: 100%;
+            }
+
+        }
+
+        @media only screen and (min-width: 992px) {
+
+            .containercontactus {
+                max-width: 768px;
+                margin: 0 auto;
+            }
+
+        }
+
+        @media only screen and (min-width: 1200px) {}
+    </style>
+</head>
+
+<body>
+
+
+    {header}
+
+
+    <div class="color2 se1" align="center">
+
+        <div class="cnwidth">
+
+            <h1>{h1-tos-heading}</h1>
+            <span class="contactusspan">{p-heading-desc}</span>
+
+            <div class="container containercontactus">
+
+
+                {tos-body}
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    {footer}
+    <script type="text/javascript">
+
+        { headerscript }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,719 @@
+{errorstyle}
+
+
+
+<style>
+	.loader {
+
+		border: 5px solid #f3f3f3;
+
+		border-radius: 50%;
+
+		border-top: 5px solid #000;
+
+		width: 30px;
+
+		height: 30px;
+
+		-webkit-animation: spin 2s linear infinite;
+		/* Safari */
+
+		animation: spin 2s linear infinite;
+
+	}
+
+
+
+	/* Safari */
+
+	@-webkit-keyframes spin {
+
+		0% {
+			-webkit-transform: rotate(0deg);
+		}
+
+		100% {
+			-webkit-transform: rotate(360deg);
+		}
+
+	}
+
+
+
+	@keyframes spin {
+
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+
+	}
+
+	.orderbody {
+		background-color: #FFFFFF;
+	}
+
+	.orderbody .icons-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 90%;
+		background-color: #F5F7FE;
+		padding: 70px 50px 30px;
+		margin-bottom: 50px;
+	}
+
+	.orderbody .icons-section .testimonials-section {
+		padding: 40px 50px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 50px;
+	}
+
+	.orderbody .icons-section .testimonials-section .hero-img {
+		border-radius: 50%;
+		width: 126px;
+		height: 126px;
+	}
+
+
+	.orderbody .icons-section .testimonials-section .para {
+		text-align: center;
+		font-size: 24px;
+		font-weight: 400;
+	}
+
+	.orderbody .icons-section .testimonials-section .ratings {
+		display: flex;
+		justify-content: space-between;
+		width: 220px;
+		margin: 0 auto 20px;
+	}
+
+	.orderbody .icons-section .separator {
+		width: 406px;
+		height: 2px;
+		background-color: #DCE1F1;
+		margin-bottom: 100px;
+	}
+
+	.orderbody .icons-section .icons-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 70px;
+	}
+
+	.orderbody .icons-section .icons-container .customers-icon,
+	.orderbody .icons-section .icons-container .followers-icon,
+	.orderbody .icons-section .icons-container .growth-icon {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.orderbody .icons-section .icons-container .customers-icon img {
+		width: 155px;
+		height: 150px;
+	}
+
+	.orderbody .icons-section .icons-container .followers-icon img {
+		width: 170px;
+		height: auto;
+		
+	}
+
+	.orderbody .icons-section .icons-container .growth-icon img {
+		width: 160px;
+		height: 150px
+	}
+
+	.orderbody .icons-section .icons-container .customers-icon .title,
+	.orderbody .icons-section .icons-container .followers-icon .title,
+	.orderbody .icons-section .icons-container .growth-icon .title {
+		font-size: 30px;
+		font-weight: 800;
+		color: #ED1753;
+		text-align: center;
+	}
+
+	.orderbody .icons-section .icons-container .customers-icon span,
+	.orderbody .icons-section .icons-container .followers-icon span,
+	.orderbody .icons-section .icons-container .growth-icon span {
+		display: block;
+		font-size: 20px;
+		color: #000000;
+		font-weight: 400;
+		text-align: center;
+	}
+
+	@media (max-width: 500px) {
+		.orderbody .icons-section .separator {
+			width: 250px;
+		}
+	}
+
+
+
+	@media (min-width: 991px) {
+
+		.container {
+			background-color: #FFFFFF;
+		}
+
+		.orderbody {
+			background-color: #F5F7FE;
+		}
+
+		.orderbody .icons-section {
+			width: 100%;
+		}
+
+		.orderbody .icons-section .icons-container {
+			width: 100%;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.orderbody .icons-section .icons-container .customers-icon img {
+			width: 93.13px;
+			height: 94.79px;
+		}
+
+		.orderbody .icons-section .icons-container .followers-icon img {
+			width: 135.602px;
+			height: 94.79px;
+		}
+
+		.orderbody .icons-section .icons-container .growth-icon img {
+			width: 82.728px;
+			height: 94.79px;
+		}
+
+		.orderbody .icons-section .icons-container .customers-icon span,
+		.orderbody .icons-section .icons-container .followers-icon span,
+		.orderbody .icons-section .icons-container .growth-icon span {
+			font-size: 18px;
+		}
+
+		.orderbody .icons-section .testimonials-section .hero-img {
+			width: 94px;
+			height: 94px;
+		}
+
+		.orderbody .icons-section .testimonials-section {
+			width: 352px;
+		}
+
+		.orderbody .icons-section .testimonials-section .para {
+			font-size: 18px;
+		}
+
+		.orderbody .icons-section .testimonials-section .ratings {
+			width: 190px;
+		}
+
+		.orderbody .icons-section .testimonials-section .ratings .rating-bg img {
+			width: 33px;
+			height: 33px;
+		}
+
+		.orderbody .icons-section .separator {
+			width: 730px;
+		}
+
+	}
+</style>
+
+
+
+
+
+<div class="orderbody" align="center">
+
+
+
+
+
+	<div class="cnwidth">
+
+
+
+		{discountnotifcart}
+
+
+
+		<div class="steps">
+
+
+
+
+
+			<div class="number">1</div>
+
+			<div class="numlabel">Details</div>
+
+			<svg class="greyarrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.5 31.5">
+
+				<path
+					d="M21.2 5c-0.4-0.4-1.1-0.4-1.6 0 -0.4 0.4-0.4 1.1 0 1.6l8 8H1.1C0.5 14.6 0 15.1 0 15.7c0 0.6 0.5 1.1 1.1 1.1h26.6l-8 8c-0.4 0.4-0.4 1.2 0 1.6 0.4 0.4 1.2 0.4 1.6 0l10-10c0.4-0.4 0.4-1.1 0-1.6L21.2 5z" />
+
+			</svg>
+
+
+
+
+
+			<div class="number numbergrey">2</div>
+
+			<div class="numlabel labelgrey">Payment</div>
+
+			<svg class="greyarrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.5 31.5">
+
+				<path
+					d="M21.2 5c-0.4-0.4-1.1-0.4-1.6 0 -0.4 0.4-0.4 1.1 0 1.6l8 8H1.1C0.5 14.6 0 15.1 0 15.7c0 0.6 0.5 1.1 1.1 1.1h26.6l-8 8c-0.4 0.4-0.4 1.2 0 1.6 0.4 0.4 1.2 0.4 1.6 0l10-10c0.4-0.4 0.4-1.1 0-1.6L21.2 5z" />
+
+			</svg>
+
+
+
+
+
+			<div class="number numbergrey">3</div>
+
+			<div class="numlabel labelgrey">Complete</div>
+
+
+
+		</div>
+
+		<form id="idform" method="POST">
+			<span class="error validateError">{validateError}</span>
+
+			<div class="container dshadow">
+
+
+
+				<h1>Get Started Now!</h1>
+
+
+
+				<div>
+
+					<span>TikTok username</span>
+
+					<span class="error error1">Please enter your username</span>
+
+					<input autocomplete="off" name="username" id="userNameID" value="{username}" onchange="callAjaxPreloadPost();">
+
+					<div class="loader" id="loader" style="margin-top: 5px;display:none;"></div>
+
+				</div>
+
+				<div style="display: none;" id="userProfile">
+
+					<div>
+
+						<div><img
+								src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/30107337091e90a33da10d6ce1815bb1~c5_100x100.webp?x-expires=1654020000&amp;x-signature=BtiU3Xh3IzJUUvSA0VhaFxLR5Wc%3D"
+								alt="" id="userImage" style="width: 50%;margin-top: 10px;">
+
+
+
+						</div>
+
+					</div>
+
+					<div style="display: flex;">
+
+						<div style="margin-right: 15px;">
+
+							<span id="userFollowers" style="margin: 0;margin-top: 10px;">139.6M</span>
+
+							<span style="margin: 0;margin-top: 10px;">Followers</span>
+
+						</div>
+
+						<div style="margin-right: 15px;">
+
+							<span id="userFollowing" style="margin: 0;margin-top: 10px;">2.3G</span>
+
+							<span style="margin: 0;margin-top: 10px;">Following</span>
+
+						</div>
+
+						<div>
+
+							<span id="userLikes" style="margin: 0;margin-top: 10px;">2.3G</span>
+
+							<span style="margin: 0;margin-top: 10px;">Likes</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div style="display: none;" id="userProfileNotFound">
+
+
+
+				</div>
+
+				<div>
+
+					<span>Email address</span>
+
+					<span class="error error2">Please enter your email address</span>
+
+					<input autocomplete="off" name="emailaddress" value="{emailaddress}">
+
+				</div>
+
+				<div>
+
+					<span>Your package</span>
+
+
+
+					<select id="get_value">
+
+						{packages}
+
+					</select>
+
+					<input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
+
+
+
+
+				</div>
+
+				<div><input name="submitForm" onclick="onSubmitData(event);" value="Next &raquo;"
+						class="btn dshadow color4" readonly></div>
+
+
+
+
+
+
+			</div>
+
+		</form>
+
+
+
+	</div>
+
+
+
+	<div class="icons-section container dshadow">
+		<div class="testimonials-section">
+			<div>
+				<img class="hero-img" src="/imgs/testimonial-girl.png" alt="hero-img">
+			</div>
+			<p class="para">
+				The joy is unreal, great service, respond on time and fast delivery. Thanks and will order again.
+			</p>
+			<div class="ratings">
+				<div class="rating-bg"><img src="/imgs/star5.png" alt="star-icon"></div>
+				<div class="rating-bg"><img src="/imgs/star5.png" alt="star-icon"></div>
+				<div class="rating-bg"><img src="/imgs/star5.png" alt="star-icon"></div>
+				<div class="rating-bg"><img src="/imgs/star5.png" alt="star-icon"></div>
+				<div class="rating-bg"><img src="/imgs/star5.png" alt="star-icon"></div>
+			</div>
+		</div>
+		<div class="separator"></div>
+		<div class="icons-container">
+			<div class="customers-icon">
+				<img src="/imgs/happy-customers.png" />
+				<h3 class="title">100K+ <span>Happy Customers</span></h3>
+			</div>
+
+			<div class="followers-icon">
+				<img src="/imgs/followers-delivered.png" />
+				<h3 class="title">{titlePackage}<span>Delivered In The Past 24 Hours</span></h3>
+			</div>
+
+			<div class="growth-icon">
+				<img src="/imgs/engagement-increased.png" />
+				<h3 class="title">Atleast 25X<span>Increase in engagement</span></h3>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="/js/orderform.js"></script>
+
+<script src="https://www.google.com/recaptcha/api.js?render={recaptchaClient}"></script>
+
+
+
+
+<script type="text/javascript">
+
+
+	function onSubmitData(event) {
+		event.preventDefault();
+		grecaptcha.ready(function () {
+			grecaptcha.execute('{recaptchaClient}', { action: 'submit' }).then(function (token) {
+				// Add your logic to submit to your backend server here.
+				$('#g-recaptcha-response').val(token);
+				document.getElementById("idform").submit();
+			});
+		});
+
+	}
+
+
+	$('#get_value')
+
+		.on('change', function () {
+
+
+
+
+
+			var $newvalue = $('#get_value').val();
+
+
+
+			$('#idform').append('<input type="hidden" name="package" value="' + $newvalue + '" />');
+
+
+
+
+
+		});
+
+
+
+
+
+	/*
+	
+		var typingTimer;                //timer identifier
+	
+		var doneTypingInterval = 3000;  //time in ms, 5 seconds for example
+	
+		var $input = $('#userNameID');
+	
+	
+	
+		//on keyup, start the countdown
+	
+		$input.on('keyup', function () {
+	
+			clearTimeout(typingTimer);
+	
+			typingTimer = setTimeout(doneTyping, doneTypingInterval);
+	
+			$("#loader").show();
+	
+			$("#userProfile").attr("style", "display:none;");
+	
+			$("#userProfileNotFound").hide();
+	
+		});
+	
+	
+	
+		//on keydown, clear the countdown 
+	
+		$input.on('keydown', function () {
+	
+			clearTimeout(typingTimer);
+	
+		});
+	
+	
+	
+		//user is "finished typing," do something
+	
+		function doneTyping() {
+	
+			//do something
+	
+			getTikTokData();
+	
+		}
+	
+	
+	
+	
+	
+		function getTikTokData() {
+	
+	
+	
+			var uName = $("#userNameID").val().trim();
+	
+	
+	
+			if (uName == "") {
+	
+				$("#userProfile").attr("style", "display:none;");
+	
+				return;
+	
+			}
+	
+	
+	
+			$.ajax({
+	
+				url: '/api/gettiktokinfo.php',
+	
+				data: { "username": uName, "type" : "Feed" },
+	
+				type: 'post',
+	
+				success: function (output) {
+	
+					// console.log(output);
+	
+					output = output.substr ( output.indexOf ( '{' ));
+	
+					var isValid = isJsonString(output);
+	
+					if(isValid){
+	
+						res = $.parseJSON(output);
+	
+						if(res.User == 1){
+	
+							$("#userImage").attr("src", res.Image);
+	
+							$("#userFollowers").html(res.Followers);
+	
+							$("#userFollowing").html(res.Following);
+	
+							$("#userLikes").html(res.Likes);
+	
+							$("#userProfile").attr("style", "display:flex;");
+	
+							$("#userProfileNotFound").hide();
+	
+						}else{
+	
+							$("#userProfileNotFound").html("No User Found");
+	
+							$("#userProfile").attr("style", "display:none;");
+	
+							$("#userProfileNotFound").show();
+	
+						}
+	
+					}else{
+	
+							$("#userProfileNotFound").html("No User Found");
+	
+							$("#userProfile").attr("style", "display:none;");
+	
+							$("#userProfileNotFound").show();
+	
+					}
+	
+				
+	
+					$("#loader").hide();
+	
+	
+	
+				}
+	
+	
+	
+			});
+	
+			
+	
+		}
+	
+		function isJsonString(str) {
+	
+			try {
+	
+				JSON.parse(str);
+	
+			} catch (e) {
+	
+				return false;
+	
+			}
+	
+			return true;
+	
+		}
+	
+	*/
+
+// logged in user preload request call
+	var requestDataArr = [];
+	callAjaxPreloadPost();	
+
+	function callAjaxPreloadPost(){	
+
+	  var uName = $("#userNameID").val().trim();	
+
+	  if(uName == requestDataArr["data"] && uName !=""){
+	
+	  }else{	
+
+	      $.ajax({	
+	        url: "/api-load-1/",	
+	        type: "POST",	
+	        async: true,	
+	        dataType:'json',	
+	        data: {	
+	        "username" : uName,	
+	        "ordersession_id" : '{ordersession_id}',	
+	        "datatype" : 'thumbs'	
+	        },	
+	        success: function(response){ 	
+	           console.log(response);		
+
+	        }	
+	      });
+	  
+	      requestDataArr["data"] = uName;
+	      return;
+	  }
+	  // requestDataArr["data"] = uName;	
+
+	  if(uName == ""){	
+
+	    return;
+	  }	
+	  // console.log("ajax");
+
+	}
+
+
+
+
+</script>

@@ -1,0 +1,33 @@
+<!-- <div><h1 style="text-align: center;">Require Action</h1></div> -->
+        <div class="container container-md">    
+            <div style="border:solid 1px #ddd;border-radius:12px;">
+                <div class="mb-common" style="padding:20px;">
+                    <b>Conversation</b>
+                    <div id="es-conversations" class="padding-common mt-common">
+                        {responses}
+                    </div>
+                </div>
+            </div>
+            <div class="padding-common pw-md-0" style="background-color: var(--bg-primary-color);">
+                <b>Recommended actions</b>
+                        <div class="flex-box-common mt-common" style="gap: 10px;">
+                            <!-- @recommended_actions -->
+                            <button class="btn-secondary" onclick="selectActions({actionId}, {ticketId})">{actionName}</button>
+                            <!-- @recommended_actions -->
+                            <button class="btn-secondary" onclick="selectActions('Offer Followers', {ticketId})">Offer Followers</button>
+                            <button class="btn-secondary" onclick="selectActions('Offer Likes', {ticketId})">Offer Likes</button>
+                            <button class="btn-secondary" onclick="selectActions('Offer Refill', {ticketId})">Offer Refill</button>
+                            <button class="btn-secondary" onclick="selectActions('custom', {ticketId})">Custom message</button>
+                            <button class="btn-secondary modal-button" id="submitReportBtnId" href="#submitReportModal">Submit Report</button>
+                            <button class="btn-secondary" onclick="markDone();">Mark Done</button>
+                            <button class="btn-secondary" id="deleteBtnId" data-value="{isBlocked}" onclick="blockConversation();">Block</button>
+                            
+                        </div>
+                        
+                        <!-- <div id="es-actions-toggler" class="mt-common">
+                            <button class="btn-underlined">More actions</button>
+                            <button class="btn-underlined">Less actions</button>
+                        </div> -->
+            </div>
+        </div>
+   

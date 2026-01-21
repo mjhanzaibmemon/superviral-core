@@ -1,0 +1,1112 @@
+<!-- @meta -->
+
+<title>Email Support</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<style type="text/css">
+    .box-wrapper {
+        display: inline-block;
+        gap: 2rem;
+        margin-top: 3rem;
+        align-items: start;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .collapseToggler {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .collapse {
+        display: none;
+    }
+
+    .icon-arrow {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .articles a {
+        text-decoration: underline;
+        color: blue;
+    }
+
+    .articles a:hover {
+        color: darkblue;
+    }
+
+    .box23,
+    .box24 {
+        width: 930px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .box24 {
+        width: 910px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    h1 {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .label {
+        margin-top: 35px;
+    }
+
+    .container div input,
+    .selectric,
+    .input,
+    .btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .btn {
+        text-align: center;
+        margin: 0 !important;
+        width: initial;
+    }
+
+    .btn2 {
+        padding: 8px;
+        border: 1px solid #000;
+        text-align: center;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+
+    .cke_reset_all {
+        background: #f7f7f7 !important;
+    }
+
+    .articles {
+        width: 100%;
+    }
+
+    .articles tr td {
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #000;
+        padding: 30px 10px;
+        vertical-align: top;
+    }
+
+    .articles tr:first-child td {
+        background: #f1f1f1;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .articles .order-side {
+        min-width: 300px;
+    }
+
+    .articles .reason-side .time {
+        font-size: 15px;
+    }
+
+    .status {
+        font-weight: bold;
+        height: 23px;
+        width: 55px;
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .adminmenu {
+        display: inline-block;
+        background-color: white;
+        border-top: 1px solid #ccc;
+        width: 100%;
+    }
+
+    .adminmenu a {
+        float: left;
+        padding: 15px;
+    }
+
+    .reportmessage {
+        width: 100%;
+        height: 120px;
+        box-sizing: border-box;
+        margin: 0px;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-family: 'Open Sans';
+        overflow-y: auto;
+        outline: none;
+        resize: none;
+    }
+
+    .defectorder a {
+        text-decoration: underline;
+        color: blue;
+    }
+
+    .defectorder .sdiv {
+        margin-bottom: 15px;
+        padding: 9px;
+        background-color: #f5f7fe;
+        border-radius: 5px;
+    }
+
+    .nlbtn {
+        float: left;
+        margin-right: 20px !important;
+        margin-bottom: 10px !important;
+        border: 1px solid grey;
+        border-radius: 50px;
+    }
+
+    .nlbtn:hover {
+        background-color: #000;
+        color: #FFF;
+    }
+
+    .autoReplySec .btn3 {
+        color: #6e6e6e;
+        background: #f1f1f0;
+        border: 1px solid #bdbdbd;
+        padding: 10px;
+        font-weight: 400;
+        border-radius: 5px !important;
+        cursor: pointer;
+        width: 130px;
+        margin-left: 5px;
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    .autoReplySec .btn3:hover {
+        color: #fff;
+        background: #000;
+    }
+
+    .summarytbl {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .summarytbl .btn-primary {
+        font-size: 11px;
+        width: 100px;
+    }
+
+    .summarytbl tr.active {
+        background-color: #e4fbff;
+    }
+
+    .summarytbl tr.active button {
+        opacity: .7;
+    }
+
+    .summarytbl tr:hover {
+        background-color: #e4fbff;
+    }
+
+    .summarytbl tr td {
+        border-bottom: 1px solid #dadada;
+        padding: 7px;
+    }
+
+    .details.hidden {
+        display: none;
+    }
+
+    .details .bold,
+    .details .info-line .c2 {
+        font-weight: 600;
+    }
+
+    .details .info-line {
+        display: flex;
+        gap: 5px;
+        padding: 10px 20px;
+        min-height: 63px;
+        align-items: center;
+        border-bottom:solid 1px #ddd;
+    }
+
+    .details .info-line .btn-copy{display:none;text-align:center;font-weight:600;padding: 8px;font-size: 18px;border-radius: 8px;border: 1px solid #777;background:white;text-decoration:none;}
+    .details .info-line:hover{background:#e4fbff;}
+    .details .info-line:hover  .btn-copy{display:inline-block;}
+
+    .details .info-line .c3 {
+        margin-left: auto;
+    }
+
+    .box23.quick-actions {
+        width: 700px;
+    }
+
+    .quick-actions .part1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 30px;
+    }
+
+    .quick-actions .part1 .btn-group {
+        display: flex;
+        align-items: start;
+        gap: 15px;
+    }
+
+    .quick-actions .part1 .btn-group .btn2 {
+        width: 140px;
+    }
+
+    .quick-actions .part2 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px
+    }
+
+    .quick-actions .part2 .item {
+        padding: 10px;
+    }
+
+    .quick-actions .part2 .item:not(.item-btns):hover {
+        background-color: #e4fbff;
+    }
+
+    .quick-actions .part2 label {
+        width: 165px;
+    }
+
+    .quick-actions .part2 .input-group,
+    .quick-actions .part2 .input-group form {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .quick-actions .part2 .input-group form {
+        width: 100%;
+        flex-grow: 1;
+    }
+
+    .quick-actions .part2 .input-group form input[type="text"],
+    .quick-actions .part2 .input-group form input[type="input"] {
+        flex-grow: 1;
+    }
+
+    .quick-actions .part2 .input-group form input[type="submit"] {
+        width: 150px;
+    }
+
+    .quick-actions .part2 input {
+        padding: 8px;
+        font-size: 18px;
+        border-radius: 8px;
+        border: 1px solid lightgray;
+    }
+
+    .quick-actions .part2 input[type="submit"]:hover {
+        background: black;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* The overlay (canvas) */
+    .overlay {
+      overflow-y: scroll;
+      position: fixed;
+      top: 0;
+      right: -300px; /* Start off-screen to the right */
+      height: 100%;
+      width: 300px;
+      background-color: #FFF;
+      overflow: hidden;
+      transition: right 0.4s ease;
+      box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 24%);
+      text-align: left;;
+    }
+
+    /* When the canvas is active */
+    .overlay.active {
+      right: 0; /* Slide in to the screen */
+    }
+
+    /* Close button inside the canvas */
+    .overlay .close-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .overlay-content {
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    #autoReplyBtn {
+        margin-left: auto !important;
+        background-color: transparent;
+    }
+
+    #reportsHistoryBtn {
+        background-color: transparent;
+    }
+
+    .adminnotif {
+        font-size: 15px;
+        padding: 11px;
+        margin-bottom: 10px;
+    }
+
+    .reportBtn {
+        border: 1px solid black !important;
+        background: transparent;
+    }
+
+    .reportBtn:hover {
+        color: #FFF !important;
+        background: #000 !important;
+    }
+
+    @media (min-width: 1400px) {
+
+        .box-wrapper {}
+
+        .box23 {
+            width: 1000px;
+            font-size: 18px;
+        }
+
+        .btn {
+            font-size: 18px;
+        }
+
+        .articles {
+            font-size: 22px;
+        }
+
+        .btn[type='submit'] {
+            padding: 20px;
+        }
+
+        .articles .order-side .logo {
+            width: 120px;
+            height: 50px;
+        }
+
+        .articles .order-side .logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .articles .reason-side .time {
+            font-size: 18px;
+        }
+
+        .articles .reason-side textarea {
+            font-size: 18px;
+        }
+    }
+
+    .websites .btn-logo {
+        display: none;
+    }
+
+    .searchBox {
+        padding: 12px;
+        font-size: 15px;
+        border-radius: 5px;
+        border: 1px solid #bbb;
+        width: 30%;
+        box-sizing: border-box;
+        height: 39px;
+    }
+
+    #autoreplies {
+        margin-top: 1.5rem;
+    }
+
+    #autoreplies>div {
+        margin-bottom: 1.5rem;
+        border-bottom: solid 1px #333;
+        padding-bottom: 1rem;
+    }
+
+    #backToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: #555;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+
+    #backToTopBtn:hover {
+        background-color: #333;
+    }
+
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 15%;
+        margin-top: 50px;
+        height: 230px;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<!-- @head_tags -->
+
+<main style="overflow: auto;text-align: center;">
+    <div class="box-wrapper" style="padding-bottom:50px;">
+        <div class="box23">
+            {message}{articles}
+        </div>
+
+        <!-- <div class="box23" style="margin-top:1.5rem;">
+            <div class="collapseToggler" onclick="toggleCollapse(1)">
+                <h3>Auto replies</h3>
+                <span id="icon-arrow1" class="icon-arrow">
+                    <svg width="30px" height="30px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z"
+                            fill="#000000" />
+                    </svg>
+                </span>
+            </div>
+            <div id="autoreplies" class="collapse">{moreautoreplies}</div>
+        </div> -->
+
+        <div style="margin-top:1.5rem;background:white;" style="">
+            <div class="box23">
+                <div class="collapseToggler" onclick="{noOrderCallJs}">
+                    <h3>Orders({countOrders})</h3>
+                    <span id="icon-arrow2" style="{noOrderListCss}" class="icon-arrow">
+                        <svg width="30px" height="30px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z"
+                                fill="#000000" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div id="orderWrapper" class="collapse">
+                <div class="box23" style="width:1000px;">
+                    <table class="summarytbl">
+                        <tbody>
+                            <tr>
+                                <td>Id</td>
+                                <td>Order made</td>
+                                <td>Status</td>
+                                <td>Supplier Fulfill ID</td>
+                                <td>Action</td>
+                            </tr>
+                            {summaryresults}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box23" id="plotOrderData" style="padding:0;margin-top:1rem;width:1000px;{nofirstOrderCss}">{firstOrderLoad}</div>
+                <div class="box23 quick-actions" id="plotQuickActionData" style="margin-top:1rem;width:1000px;{nofirstOrderCss}">
+                    <div class="part1">
+                        <div>
+                            <b style="font-size: 20px;">Actions</b>
+                            <br>
+                            <span style="font-size:30px;" id="presentOrderIdSpan">#{presentOrderId}</span>
+                        </div>
+                    </div>
+                    <div class="part2">
+                        <div class="item item-btns" style="margin-bottom: 15px;">
+                            <div class="input-group">
+                                <label>Quick Actions</label>
+                                <form>
+                                    <div class="btn-group" style="display:flex;gap:10px;">
+                                        <a href="{offerFreeFollower}" id="offerFollowerAnchorId" target="_blank"
+                                            class="btn2">Offer Followers</a>
+                                        <a href="{offerFreeLikes}" id="offerLikeAnchorId" target="_blank"
+                                            class="btn2">Offer Likes</a>
+                                        <a href="{offerFreeAL}" id="offerALAnchorId" target="_blank" class="btn2">Offer
+                                            AL</a>
+                                        <a href="?refill=true&id={presentOrderId}" id="refillFormId" target="_blank"
+                                            class="btn2">Mark For Refill</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="input-group">
+                                <label>Resend Order</label>
+                                <form method="POST" id="defectFormId"
+                                    action="/admin/check-user/?type=defect#order{presentOrderId}" target="_blank">
+                                    <input type="hidden" name="type" value="defect">
+                                    <input type="hidden" name="user" value="">
+                                    <input type="hidden" name="orderid" class="FormsOrderId" value="{presentOrderId}">
+                                    <input type="hidden" name="submitreport" value="">
+                                    <input type="hidden" name="reportmessage" value="">
+                                    <input type="hidden" name="reportemailaddress" value="">
+                                    <input type="hidden" name="reportorderid" value="">
+                                    <input type="hidden" name="deletereportid" value="">
+                                    <input type="hidden" name="deletereport" value="">
+                                    <input type="hidden" name="company" class="FormsBrandId" value="{brand}">
+                                    <input autocomplete="off" name="search" type="text"
+                                        placeholder="Search by Order ID" />
+                                    <input type="submit" name="searchOrder" class="btn2" value="Resend Order">
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="input-group">
+                                <label>Supplier Fullfill ID</label>
+                                <form method="POST" id="supplierFormId"
+                                    action="/admin/check-user/?#order{presentOrderId}" target="_blank">
+                                    <input type="hidden" name="orderid" class="FormsOrderId" value="{presentOrderId}">
+                                    <input type="hidden" name="company" class="FormsBrandId" value="{brand}">
+                                    <input autocomplete="off" name="fulfillIdUpdate" type="text"
+                                        placeholder="Fulfill Id" />
+                                    <input type="submit"
+                                        onclick="return confirm('Are you sure you want to change Supplier ID?');"
+                                        name="updateFulfill" class="btn2" value="Update Fullfill ID">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="input-group">
+                                <label>Make Order</label>
+                                <form action="/admin/api/ordermake-changeusername.php?update=nodefect" method="POST"
+                                    target="_blank">
+                                    <input type="hidden" class="FormsOrderId" name="id" value="{presentOrderId}">
+                                    <input type="hidden" class="FormsBrandId" name="brand" value="{brand}">
+                                    <input type="hidden" class="FormsOSId" name="ordersession" value="{ordersession}">
+                                    <input type="hidden" class="FormsBrandId" name="company" value="{brand}">
+                                    <input type="input" name="igusername" id="usernameId" placeholder="kevinhart"
+                                        value="{username}">
+                                    <input type="submit"
+                                        onclick="return confirm('Are you sure you want to change the username?');"
+                                        class="btn2" value="Make Order">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="input-group">
+                                <label>Issue Refund</label>
+                                <form action="/admin/api/refundorder.php?" method="POST" style="gap: 17px;"
+                                    target="_blank">
+                                    <input type="hidden" name="id" class="FormsOrderId" value="{presentOrderId}">
+                                    <input type="hidden" name="ordersession" class="FormsOSId" value="{ordersession}">
+                                    <input type="hidden" class="FormsBrandId" name="company" value="{brand}">
+                                    <div style="display: flex;align-items: center;flex-grow: 1;"><input type="text"
+                                            id="refundamountId" name="amount" placeholder="'percentage' or 'full'"
+                                            value="{refundAmnt}">%</div>
+                                    <input type="submit"
+                                        onclick="return confirm('Are you sure you want to issue the refund?');"
+                                        class="btn2" value="Issue Refund">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span id="oldAccSpan"></span>
+        <!-- The Modal -->
+        <div id="editAccModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>Edit Account Id</h4>
+                <input class="input" type="text" id="account_id" value="">
+                <br><br>
+                <input type="button" onclick="updateAccountId();" class="btn btn3 report" value="Update">
+            </div>
+
+        </div>
+         <!-- The overlay (canvas) -->
+         <div class="overlay" id="myCanvas">
+            <button class="close-btn" id="closeCanvasBtn">Close</button>
+            <div class="overlay-content">
+                <div id="oc-autoReplies" style="display: none;height: 800px;overflow:auto;">
+                    <h3>Auto replies</h3>
+                    <div id="autoreplies">{moreautoreplies}</div>
+                </div>
+                <div id="oc-reportsHistory" style="display: none;height: 800px;overflow:auto;">
+                    <h3>Report History</h3>
+                    {reportnotifs}
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Back to Top Button -->
+        <button id="backToTopBtn" title="Go to top">↑</button>
+</main>
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+<script type="text/javascript">
+    const canvas = document.getElementById('myCanvas');
+    const closeBtn = document.getElementById('closeCanvasBtn');
+    const autoReplyBtn = document.getElementById('autoReplyBtn');
+    const reportsHistoryBtn = document.getElementById("reportsHistoryBtn");
+    const oc1 = document.getElementById("oc-autoReplies");
+    const oc2 = document.getElementById("oc-reportsHistory");
+    const closeCanvas = () => {
+        try {
+            canvas.classList.remove('active');
+            oc1.style.display = "none";
+            oc2.style.display = "none";
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    try {
+        closeBtn.addEventListener('click', () => closeCanvas());
+
+        autoReplyBtn.addEventListener('click', () => {
+            if (canvas.classList.contains('active') && oc1.style.display === "block")
+                closeCanvas();
+            else {
+                canvas.classList.add('active');
+                oc2.style.display = "none";
+                oc1.style.display = "block";
+            }
+        });
+
+        reportsHistoryBtn.addEventListener('click', () => {
+            if (canvas.classList.contains('active') && oc2.style.display === "block")
+                closeCanvas();
+            else {
+                canvas.classList.add('active');
+                oc1.style.display = "none";
+                oc2.style.display = "block";
+            }
+        });
+    
+    } catch (error){
+        console.error(error);
+    }
+    
+    // Function to close offcanvas when clicking outside the offcanvas or the elements that open it.
+        document.addEventListener('click', (event) => {
+        try {
+            if (!canvas.contains(event.target) && !autoReplyBtn.contains(event.target) && !reportsHistoryBtn.contains(event.target))
+                closeCanvas();
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
+     function updateAccountId(){
+
+            var id= $('#oldAccSpan').attr('data-id');
+            var accId= $('#account_id').val();
+
+            if(accId == "") {
+                alert("please enter account id");
+                return;
+            }
+              $.ajax({
+            
+            url: "/admin/api/email-support-handler.php",
+            type: "POST",
+            data: {
+            type: "updateAccountId",
+            orderId: id,
+            accId: accId,
+            },
+            dataType: "json",
+            success: function (data) {
+            
+            if(data.Message == "Done Successfully"){
+                $("#spanAccountId" + id).html(accId);
+            }
+            alert(data.Message);
+             $('#account_id').val("");
+            }
+
+            });
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var modal = document.getElementById("editAccModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        // Get all buttons with class 'modal-button'
+        var buttons = document.getElementsByClassName("modal-button");
+        Array.prototype.forEach.call(buttons, function (button) {
+            button.onclick = function () {
+                var res = button.id.replace(/\D/g, "");
+                document.getElementById("oldAccSpan").setAttribute("data-id", res);
+                modal.style.display = "block";
+            };
+        });
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    });
+    function openModal(btnid) {
+        var res = btnid.replace(/\D/g, "");
+        document.getElementById("oldAccSpan").setAttribute("data-id", res);
+        document.getElementById("editAccModal").style.display = "block";
+    }
+
+
+    const collapsable1 = document.getElementById("autoreplies");
+    const collapsable2 = document.getElementById("orderWrapper");
+    const collapseIcon1 = document.getElementById("icon-arrow1");
+    const collapseIcon2 = document.getElementById("icon-arrow2");
+
+    function toggleCollapse(number) {
+        try {
+            if (number === 1)
+                collapsable1.classList.toggle("collapse");
+            else
+                collapsable2.classList.toggle("collapse");
+
+            collapsable1.classList.contains("collapse") ? collapseIcon1.style.transform = 'rotate(0deg)' : collapseIcon1.style.transform = 'rotate(90deg)';
+            collapsable2.classList.contains("collapse") ? collapseIcon2.style.transform = 'rotate(0deg)' : collapseIcon2.style.transform = 'rotate(90deg)';
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    function handleCopyBtns() {
+        try {
+            const detailRows = document.querySelectorAll(".details .info-line");
+            detailRows.forEach(row => {
+                const copyBtn = row.querySelector(".btn-copy");
+                copyBtn.addEventListener("click", function () {
+
+                    const textToCopy = row.querySelector(".c2").innerText;
+                    // Create a temporary textarea element to hold the text
+                    const tempTextArea = document.createElement("textarea");
+                    tempTextArea.style.position = "fixed";  // Use fixed positioning to move it off-screen
+                    tempTextArea.style.left = "-9999px";   // Move it far off-screen
+                    tempTextArea.style.top = "0";           // Ensure it's not visually disruptive
+                    tempTextArea.style.opacity = "0";       // Make it invisible
+                    tempTextArea.style.pointerEvents = "none"; // Prevent any interaction
+                    tempTextArea.value = textToCopy;
+
+                    // Append to the body
+                    document.body.appendChild(tempTextArea);
+
+                    // Select the text in the textarea
+                    tempTextArea.select();
+                    tempTextArea.setSelectionRange(0, 99999); // For mobile devices
+
+                    // Copy the text to the clipboard
+                    document.execCommand("copy");
+
+                    // Remove the temporary textarea element from the document
+                    document.body.removeChild(tempTextArea);
+
+                    // Change the button text to "Copied!"
+                    copyBtn.innerText = "Copied!";
+
+                    // Clear any existing timer for this button to avoid overlaps
+                    if (copyBtn.timeoutId) {
+                        clearTimeout(copyBtn.timeoutId);
+                    }
+
+                    // Revert the button text back to the original after 2 seconds
+                    copyBtn.timeoutId = setTimeout(() => {
+                        copyBtn.innerText = "Copy";
+                        copyBtn.timeoutId = null; // Clear the timeout ID after it runs
+                    }, 1000);
+                })
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const viewRows = document.querySelectorAll(".summarytbl tr");
+    function handleActiveRow(id) {
+        try {
+            if (id) {
+                viewRows.forEach(row => {
+                    if (row.id) {
+                        const rowId = row.id.replace("tr", "");
+                        if (rowId === (id + ""))
+                            row.classList.add("active");
+                        else
+                            row.classList.remove("active");
+                    }
+                });
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    handleCopyBtns();
+    handleActiveRow(document.getElementById("orderIdLink").textContent);
+
+
+    function populateOrderData(id) {
+        try {
+            handleActiveRow(id);
+            var data = $('#orderData' + id).val();
+            var parsedData = JSON.parse(data);
+
+            document.getElementById("presentOrderIdSpan").innerHTML = "#" + parsedData.id;
+            document.getElementById("offerFollowerAnchorId").href = "/admin/free-followers/?id=" + parsedData.id + "&brand=" + parsedData.brand;
+            document.getElementById("offerLikeAnchorId").href = "/admin/free-likes/?id=" + parsedData.id + "&brand=" + parsedData.brand;
+            document.getElementById("offerALAnchorId").href = "/admin/auto-likes/?id=" + parsedData.id + "&brand=" + parsedData.brand;
+            document.getElementById("defectFormId").action = "/admin/check-user/?type=defect#order" + parsedData.id;
+            document.getElementById("usernameId").value = parsedData.username;
+            document.getElementById("refundamountId").value = parsedData.refundamount;
+            document.getElementById("refillFormId").href = "?refill=true&id=" + parsedData.id;
+
+
+            var elements = document.getElementsByClassName("FormsOrderId");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].value = parsedData.id;
+            }
+            var elements = document.getElementsByClassName("FormsBrandId");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].value = parsedData.brand;
+            }
+            var elements = document.getElementsByClassName("FormsOSId");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].value = parsedData.tracking_ordersession;
+            }
+            var added = formatDate((parsedData.added * 1000));
+            var lastrefilled = formatDate((parsedData.lastrefilled * 1000));
+
+            var refundoffers = 'upto ' + parsedData.refundoffer1 + ' ' + parsedData.refundoffertype + ' - £' + parsedData.refundoffer2;
+            var color;
+            if (parsedData.refunded == "(refunded)") {
+                color = "red";
+            } else {
+                color = "orange";
+            }
+
+            var accountHtm = '<span id="spanAccountId' + parsedData.id + '">' + parsedData.account_id + '</span><a href="javascript:void(0);" class="modal-button btn3 modalBtn" id="editAccountId' + parsedData.id + '" onclick="openModal(this.id);" title="edit" style="display: inline-block;width: 25px;height: 25px;border: solid 1px #ddd;border-radius: 7px;margin-left: 17px;background: #f5f5f5;"> <svg style="width:25px;height: 18px;transform: translateY(2px);fill: black;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">' +
+                '<path d="M 43.125 2 C 41.878906 2 40.636719 2.488281 39.6875 3.4375 L 38.875 4.25 L 45.75 11.125 C 45.746094 11.128906 46.5625 10.3125 46.5625 10.3125 C 48.464844 8.410156 48.460938 5.335938 46.5625 3.4375 C 45.609375 2.488281 44.371094 2 43.125 2 Z M 37.34375 6.03125 C 37.117188 6.0625 36.90625 6.175781 36.75 6.34375 L 4.3125 38.8125 C 4.183594 38.929688 4.085938 39.082031 4.03125 39.25 L 2.03125 46.75 C 1.941406 47.09375 2.042969 47.457031 2.292969 47.707031 C 2.542969 47.957031 2.90625 48.058594 3.25 47.96875 L 10.75 45.96875 C 10.917969 45.914063 11.070313 45.816406 11.1875 45.6875 L 43.65625 13.25 C 44.054688 12.863281 44.058594 12.226563 43.671875 11.828125 C 43.285156 11.429688 42.648438 11.425781 42.25 11.8125 L 9.96875 44.09375 L 5.90625 40.03125 L 38.1875 7.75 C 38.488281 7.460938 38.578125 7.011719 38.410156 6.628906 C 38.242188 6.246094 37.855469 6.007813 37.4375 6.03125 C 37.40625 6.03125 37.375 6.03125 37.34375 6.03125 Z"></path>' +
+                '</svg> </a>';
+
+            var html = '<div class="details">' +
+                '<div style="padding:0 20px;"><div class="bold">Order Details</div>' +
+                '<div style="font-size:30px;">#' + parsedData.id + '<img src="/admin/assets/icons/' + parsedData.keywordSocialMedia + '-icon.svg" style ="margin-left:5px;width: 15px;"></div></div>' +
+                '<div class="info-line"><span class="c1">🌍Country:</span><span class="c2">' + parsedData.country + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">🏢Company:</span><span class="c2"><img src="/admin/assets/icons/' + parsedData.brandname + '.svg"></span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">#️⃣Account ID:</span><span class="c2">' + accountHtm + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">🧍Username:</span><span class="c2"><a style="color: #0000ff;text-decoration: underline;" href="' + parsedData.sourceURL + '" target= "_blank">' + parsedData.username + '</a></span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">📧Emailaddress:</span><span class="c2"><a style="color: #0000ff;text-decoration: underline;" href="/admin/check-user/?user=' + parsedData.emailaddress + '" target= "_blank">' + parsedData.emailaddress + '</a></span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">📦Package:</span><span class="c2">' + parsedData.amount + ' ' + parsedData.packagetype + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">💸Amount Paid:</span><span class="c2">£' + parsedData.price + ' <font color="' + color + '">' + parsedData.refunded + '</font></span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">📞Contact Number:</span><span class="c2">' + parsedData.contactnumber + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">⌚Order Made On:</span><span class="c2"> ' + added + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">♻️Last Refiled On:</span><span class="c2">' + lastrefilled + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">🚚Order Status:</span><span class="c2"> <font color="' + parsedData.statusColor + '">' + parsedData.orderstatus + '</font></span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">Tracking Page:</span><span class="c2"><a target="_BLANK" href="https://' + parsedData.tracking_domain + '/track-my-order/' + parsedData.tracking_ordersession + '" style="color:blue;    text-decoration: underline;">' + parsedData.tracking_ordersession + '</a></span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">Ip Address:</span><span class="c2"> ' + parsedData.ipaddress + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">Supplier Error:</span><span class="c2" style="color:Red"> ' + parsedData.supplier_errors + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">Last Four:</span><span class="c2"> ' + parsedData.lastfour + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '<div class="info-line"><span class="c1">Refund Offers:</span><span class="c2"> ' + refundoffers + '</span><span class="c3"><button class="btn-copy">Copy</button></span></div>' +
+                '</td>' +
+                '</div>';
+
+            $('#plotOrderData').html(html);
+            $('#plotOrderData').show();
+            $('#plotQuickActionData').show();
+            
+            handleCopyBtns();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+
+    {autojs}
+
+
+    var observe;
+    if (window.attachEvent) {
+        observe = function (element, event, handler) {
+            element.attachEvent('on' + event, handler);
+        };
+    }
+    else {
+        observe = function (element, event, handler) {
+            element.addEventListener(event, handler, false);
+        };
+    }
+    function init() {
+        var text = document.getElementById('text');
+        function resize() {
+            text.style.height = 'auto';
+            text.style.height = text.scrollHeight + 'px';
+        }
+        /* 0-timeout to get the already changed text */
+        function delayedResize() {
+            window.setTimeout(resize, 0);
+        }
+        observe(text, 'change', resize);
+        observe(text, 'cut', delayedResize);
+        observe(text, 'paste', delayedResize);
+        observe(text, 'drop', delayedResize);
+        observe(text, 'keydown', delayedResize);
+
+        text.focus();
+        text.select();
+        resize();
+    }
+
+    function populateAutoReply(key) {
+        canvas.classList.remove('active');
+        var autoReply = $("#autoReply" + key)
+            .html()
+            .trim();
+
+        $("#text").val(autoReply);
+
+        $("#text").each(function () {
+            this.setAttribute(
+                "style",
+                "height:" + this.scrollHeight + "px;overflow-y:hidden;"
+            );
+        });
+
+        $("html, body").animate(
+            {
+                scrollTop: $("#text").offset().top - 300,
+            },
+            "fast"
+        );
+
+        return false;
+    }
+    function formatDate(addedTimestamp) {
+        const date = new Date(addedTimestamp);
+
+        // Days of the week
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayName = days[date.getDay()];
+
+        // Day of the month with ordinal suffix
+        const dayOfMonth = date.getDate();
+        const ordinalSuffix = (dayOfMonth) => {
+            if (dayOfMonth > 3 && dayOfMonth < 21) return 'th'; // Special case for 11th to 13th
+            switch (dayOfMonth % 10) {
+                case 1: return 'st';
+                case 2: return 'nd';
+                case 3: return 'rd';
+                default: return 'th';
+            }
+        };
+
+        // Months of the year
+        const months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        const monthName = months[date.getMonth()];
+
+        // Year, hours, minutes, seconds
+        const year = date.getFullYear();
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+
+        // Combining all parts together
+        return `${dayName} ${dayOfMonth}${ordinalSuffix(dayOfMonth)} of ${monthName} {year} ${hours}:${minutes}:${seconds}`;
+    }
+
+    // Get the button to top
+    let backToTopBtn = document.getElementById("backToTopBtn");
+
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopBtn.style.display = "block";
+        } else {
+            backToTopBtn.style.display = "none";
+        }
+    }
+
+    backToTopBtn.onclick = function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    };
+</script>

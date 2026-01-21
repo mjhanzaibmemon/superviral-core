@@ -1,0 +1,1173 @@
+h1{max-width:initial;}
+
+section .btn {
+    display: inline-block;
+    width: initial;
+    max-width: 100%;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 9px 15px;
+    white-space: nowrap;
+}
+
+.superviral-free-tools-page * {
+    box-sizing: border-box;
+}
+
+.superviral-free-tools-page button {
+    cursor: pointer;
+}
+
+.superviral-free-tools-page .main-container {
+    padding: 0 17px 0;
+}
+
+.superviral-free-tools-page .btn3 {
+    text-align: center;
+}
+
+.superviral-free-tools-page hr {
+    border: none;
+    height: 1px;
+    background-color: #F3F3F3;
+    margin:35px 0;
+}
+
+.banner {
+    background: linear-gradient(180deg, #EFE9F4 0%, rgba(255, 255, 255, 0.00) 100%);
+    padding: 20px 0 30px;
+    color: #000;
+}
+
+.video-downloader .banner {
+    background: linear-gradient(180deg, #ECE8FF 0%, rgba(255, 255, 255, 0.00) 100%);
+}
+
+.story-downloader .banner {
+    background: linear-gradient(180deg, #ECF6EF 0%, rgba(255, 255, 255, 0.00) 100%);
+}
+
+.pp-viewer .banner {
+    background: linear-gradient(180deg, #F4E7F4 0%, rgba(255, 255, 255, 0.00) 100%);
+}
+
+.follower-count .banner {
+    background: linear-gradient(180deg, #E5F1FA 0%, rgba(255, 255, 255, 0.00) 100%);
+}
+
+.banner .title {
+    font-size: 37px;
+    padding: 0;
+    font-weight: 600;
+    margin: 0 0 20px;
+    color: #000;
+}
+
+.video-downloader .banner .title {
+    color: #10005C;
+}
+
+.story-downloader .banner .title {
+    color: #003A12;
+}
+
+.pp-viewer .banner .title {
+    color: #530053;
+}
+
+.follower-count .banner .title {
+    color: #003F6D;
+}
+
+
+h4.subtitle{margin-top:0;}
+
+.sub-item h4.sub-heading {
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.banner .subtitle {
+    font-weight: 300;
+    margin: 0 0 30px;
+}
+
+.banner .input-group .g-recaptcha {
+    margin-bottom: 25px;
+}
+.banner .input-group .g-recaptcha + .label {
+    margin-top: -25px;
+    margin-bottom: 25px;
+}
+
+.banner .input-group:nth-of-type(1) {
+    margin-bottom: 12px;
+}
+
+.banner .input-group .instruction {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 13px;
+    display: inline-block;
+}
+
+.banner .input-group .input-container {
+    padding: 12px;
+    padding-left: 13px;
+    padding-right: 5px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    border-radius: 100px;
+    background: #FFF;
+    backdrop-filter: blur(2px);
+    border: solid 1px #ddd;
+}
+
+.banner .input-group #post_url,
+.banner .input-group #userName {
+    flex: 1;
+    padding: 0;
+    border: none;
+    font-weight: 400;
+    color: #000;
+    outline: none;
+    font-size: 20px;
+}
+
+.banner .input-group #post_url::placeholder,
+.banner .input-group #userName::placeholder {
+    color: #636363;
+}
+
+.banner .input-group .input-container .btn-paste {
+    border-radius: 16px;
+    background: #000;
+    font-size: 9px;
+    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    color: #FFF;
+    border: none;
+    padding: 8px 10px;
+}
+
+.banner .input-group .btn-save-video {
+    display: none;
+}
+
+.banner .input-group .btn-primary.loading {
+    background-color: #AFBAFF;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.banner .input-group .btn-primary.loading .icon,
+.banner .input-group .btn-primary .spinner {
+    display: none;
+}
+
+.banner .input-group .btn-primary.loading .spinner {
+    display: block;
+}
+
+.banner .input-group .btn-primary.loading .spinner svg {
+    animation: spin 1s linear infinite;
+}
+
+
+.banner #post {
+    padding: 3px 0 20px;
+    display: none;
+}
+
+.banner #post video {
+    max-width: 100%;
+    max-height: 150px;
+}
+
+#post img {
+    width: 60%;
+}
+
+.more-free-tools {
+    margin: 27px 0 37px;
+}
+
+.more-free-tools .title {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 0 15px;
+}
+
+.more-free-tools .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+.more-free-tools .list a {
+    display: flex;
+    background-color: #000;
+    color: #FFF;
+    width: 100%;
+    border-radius: 100px;
+    border: 0.5px solid #000;
+    padding: 9px 14px;
+    font-weight: 600;
+    /* transition: 0.5s ease; */
+}
+
+/* .more-free-tools .list a:hover {
+    background-color: #FFF;
+    color: #000;
+} */
+
+.more-free-tools .list a .icon,
+.more-free-tools .list a .text,
+.more-free-tools .list .link-icon {
+    display: flex;
+    align-items: center;
+}
+
+.more-free-tools .list a .icon {
+    margin-right: 8px;
+}
+
+.more-free-tools .list a .link-icon {
+    margin-left: auto;
+}
+
+.about .title {
+    margin: 18px 0;
+    font-size: 25px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+
+.about .title .text-muted {
+    color: #7A7A7A;
+}
+
+.about .title .text-special {
+    background: var(--Backgroound-Gradient, linear-gradient(105deg, #C43B56 -15.5%, #982684 20.73%, #6A10B3 61.98%, #5908C5 82.64%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about .subtitle,
+.faq .heading,
+.download-prompt .heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #777;
+}
+
+.about .para {
+    color: #000;
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0 0 30px;
+}
+
+.about .para a {
+    text-decoration: underline;
+    color:blue;
+}
+
+.about .para b {
+    font-weight: 600;
+}
+
+.about .heading {
+    margin: 0 0 12px;
+    font-size: 25px;
+    font-weight: 600;
+    float: unset;
+}
+
+.about .img-container {
+    margin-bottom: 21px;
+}
+
+.about .checklist .item {
+    margin-bottom: 30px;
+}
+
+.about .checklist .item .label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about .checklist .item .label .icon {
+    color: #787878;
+    width: 22px;
+    height: 25px;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.about .checklist .item .label .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.about .checklist .item .label .txt {
+    font-size: 21px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.about .checklist .item .para {
+    margin-top: 7px;
+    margin-bottom: 0;
+}
+
+.features .item.includes-roles .img-container {
+    display: none;
+}
+.features .item .img-container{display:none;}
+.features img{width: 300px;height: 95px;}
+.features img.square_img{width: 200px; height: 161px;}
+.features img.tall_img{width: 200px; height: 309px;}
+.features img.hideDesktop{margin-bottom:30px;}
+.features .roles {margin-top: 30px;}
+.features .roles .item {
+    margin-bottom: 24px;
+    display: flex;
+    gap: 21px;
+}
+
+.features .roles .item .content .label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.features .roles .item .content .para {
+    margin-bottom: 0;
+}
+
+
+.faq {
+    margin-bottom: 45px;
+}
+
+.faq .title {
+    font-size: 25px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    margin: 0 0 12px;
+}
+
+.faq .para,
+.faq .faq-part .box .answer {
+    font-size: 16px;
+}
+
+.faq .faq-part {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 9px;
+    margin-bottom: 35px;
+}
+
+.faq .faq-part .box {
+    width: 100%;
+    padding: 10px 15px 15px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+}
+
+.faq .faq-part .box .question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faq .faq-part .box .question .txt {
+    font-size: 16px;
+    font-weight: 600;
+    max-width: 228px;
+}
+
+.faq .faq-part .box .question .icon {
+    transition: transform 0.3s ease;
+}
+
+.faq .faq-part .box.active .question .icon {
+    transform: rotate(90deg);
+}
+
+.faq .faq-part .box .answer {
+    display: none;
+    margin-top: 18px;
+    margin-bottom: 6px;
+}
+
+.faq .faq-part .box.active .answer {
+    display: block;
+}
+
+.faq .faq-part .box.active .answer a{color:blue;text-decoration: underline;}
+
+.download-prompt {
+    margin: 0 auto 30px;
+}
+
+.download-prompt .heading {
+    text-align: center;
+}
+
+.download-prompt .title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 16px;
+    text-align: center;
+}
+
+#loading_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, .8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading_overlay_spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.para {
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+.guideline {
+    margin: 38px 0 35px;
+}
+
+.guideline .guide {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-bottom: 68px;
+    max-height: 100px;
+}
+
+.guideline .guide:last-child {
+    margin-bottom: 0;
+}
+
+.guideline .guide .seqNum {
+    position: relative;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4D05BB;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 70px;
+    font-weight: 600;
+    background-color: #FFF;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding-bottom: 5px;
+}
+
+.guideline .guide:not(:last-child) .seqNum::after {
+    content: "";
+    width: 9px;
+    height: 68px;
+    position: absolute;
+    top: 100px;
+    background: #4D05BB;
+}
+
+.guideline .guide .para {
+    font-size: 16px;
+    color: #4e4e4e;
+    text-align: left;
+}
+
+.guideline .guide .seqNum{background: #f5eeff;}
+
+.superviral-free-tools-page-uk .reasons .sub-item {
+    display: flex;
+    gap: 16px;
+}
+
+.superviral-free-tools-page-uk .reasons .sub-item:not(:last-child) {
+    margin-bottom: 37px;
+}
+
+.superviral-free-tools-page-uk .reasons .sub-item .sub-heading {
+    margin-top: 0;
+}
+
+.superviral-free-tools-page-uk .features .item .body .img-container {
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+.testimonials {
+    margin-bottom: 50px;
+}
+
+.testimonials .swiper-container {
+    padding: 25px 0;
+} 
+
+.testimonials .swiper {
+    display: flex;
+    gap: 25px;
+    width: 758px;
+}
+
+.testimonials .card {
+    width: 236px;
+    padding: 16px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 38px 0px rgba(0, 0, 0, 0.05);
+}
+
+.testimonials .stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 8px;
+}
+
+.testimonials .card .icon {
+    display: flex;
+    width: 13px;
+    height: 13px;
+}
+
+.testimonials .card .icon img,
+.testimonials .card .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.testimonials .card .reviewer .icon {
+    width: 9px;
+    height: 13px;
+}
+
+.testimonials .card .label,
+.testimonials .card .para {
+    font-family: "DM Sans", sans-serif;
+}
+
+.testimonials .card .label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.testimonials .card .para {
+    margin-bottom: 15px;
+}
+
+.testimonials .card .flex-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 200;
+}
+
+.testimonials .card .reviewer,
+.testimonials .card .verification {
+    font-family: "DM Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.testimonials .card .verification .txt {
+    color: #D85B00;
+}
+
+.superviral-free-tools-page .hero {
+    background: transparent !important;
+}
+
+.superviral-free-tools-page .hero .packages-md::after {
+    background: linear-gradient(90deg, rgba(250, 250, 250, 0), #FFF);
+}
+
+.listctnmobile {
+    list-style-position: initial;
+    list-style-image: initial;
+    list-style-type: none;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    font-size: 14px;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.listctnmobile li {
+    margin: 0px;
+    padding: 3px 3px 3px 28px;
+    line-height: 30px;
+    position: relative;
+}
+
+.listctnmobile li .tick {
+    width: 20px;
+    height: 20px;
+    background: url("/imgs/check.svg") no-repeat no-repeat;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 9px;
+}
+
+.newpackage {
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    background: -webkit-linear-gradient(45deg, #fdeff9, #fbf1f9, #f9f5fb, #f9f8fc, #f5fcff, #e1f7fc, #e0f3fa, #e0f2f1);
+    background: -moz-linear-gradient(45deg, #fdeff9, #fbf1f9, #f9f5fb, #f9f8fc, #f5fcff, #e1f7fc, #e0f3fa, #e0f2f1);
+    background: -o-linear-gradient(45deg, #fdeff9, #fbf1f9, #f9f5fb, #f9f8fc, #f5fcff, #e1f7fc, #e0f3fa, #e0f2f1);
+    background: -ms-linear-gradient(45deg, #fdeff9, #fbf1f9, #f9f5fb, #f9f8fc, #f5fcff, #e1f7fc, #e0f3fa, #e0f2f1);
+    background: linear-gradient(45deg, #fdeff9, #fbf1f9, #f9f5fb, #f9f8fc, #f5fcff, #e1f7fc, #e0f3fa, #e0f2f1);
+    border: 2px solid #4e3ce3;
+    position: relative;
+    height: 91px;
+    padding: 6px 20px;
+    /* margin-bottom : 15px; */
+    margin: 0 auto 15px;
+    max-width: 470px;
+}
+
+.newpackage.best {
+    border: solid 4px #823af0;
+    position: relative;
+}
+
+.newpackage.best::after {
+    content: 'BEST SELLING';
+    position: absolute;
+    top: -11px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #823af0;
+    display: inline-block;
+    color: white;
+    width: 150px;
+    border-radius: 29px;
+    padding: 3px 0px;
+    line-height: 18px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+}
+
+.newpackage .amount {
+    font-weight: 600;
+    font-size: 43px;
+    position: absolute;
+    top: 0;
+}
+
+.newpackage .typeofpackage {
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 11px;
+}
+
+.newpackage .price {
+    height: 54px;
+    font-size: 39px;
+    color: rgb(0, 128, 0);
+    position: absolute;
+    right: 16px;
+    top: -4px;
+}
+
+.newpackage .price .sign {
+    font-size: 15px;
+    position: absolute;
+    left: -9px;
+    top: 18px;
+}
+
+.newpackage .price .mainprice {
+    display: inline-block;
+    font-weight: 300;
+    font-size: 26px;
+}
+
+.newpackage .price .decimal {
+    font-size: 12px;
+}
+
+.newpackage .ctabutton {
+    position: absolute;
+    right: 13px;
+    bottom: 3px;
+}
+
+.newpackage .ctabutton a {
+    background: rgb(26, 115, 231);
+    color: rgb(255, 255, 255);
+    display: block;
+    width: 100px;
+    padding: 5px 0px;
+    border-radius: 21px;
+    margin: 5px auto;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+@media only screen and (min-width: 425px) {
+    section .btn {
+        padding: 9px 40px;
+    }
+
+    .more-free-tools .title,
+    .about .title {
+        font-size: 30px;
+    }
+
+    .about .heading,
+    .faq .title {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 575px) {
+    .superviral-free-tools-page .main-container {
+        padding: 0 38px 0;
+    }
+
+    .banner {
+        padding: 30px 0 40px;
+    }
+
+    .banner .title {
+        text-align: center;
+        margin: 0 auto 14px;
+    }
+
+    .banner .subtitle {
+        text-align: center;
+    }
+
+    /* .banner .input-group .instruction,
+    .banner .input-group #post_url,
+    .banner .input-group #userName {
+        font-size: 14px;
+    } */
+
+    .banner .input-group .input-container .btn-paste {
+        font-size: 11px;
+        padding: 10px 12px;
+    }
+
+    .banner #post video {
+        max-height: 220px;
+    }
+
+    .more-free-tools .list a {
+        width: 49%;
+    }
+
+    .about .subtitle,
+    .faq .heading,
+    .download-prompt .heading {
+        font-size: 18px;
+    }
+
+    .about .heading {
+
+        margin: 0px 0 30px;
+    }
+
+    .faq {
+        margin-bottom: 70px;
+    }
+
+    /* .faq .title {
+        font-size: 26px;
+    } */
+
+    .download-prompt {
+        padding: 0 38px 0;
+        max-width: unset;
+        margin: 0 auto 40px;
+    }
+
+    .download-prompt .title {
+        font-size: 28px;
+        max-width: 70%;
+        margin: 0 auto 16px;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .superviral-free-tools-page .basic-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .superviral-free-tools-page .hero .packages-section {
+        padding-top: 0;
+    }
+
+    .superviral-free-tools-page .hero .packages-md .swiper-container {
+        padding-left: 0;
+    }
+
+    .superviral-free-tools-page hr {
+        margin: 50px 0;
+    }
+
+    .banner .title {
+        font-size: 50px;
+    }
+
+    .superviral-free-tools-page .main-container {
+        padding: 0 50px 0;
+    }
+
+    .banner {
+        padding: 40px 0 60px;
+    }
+
+    .banner .subtitle {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+
+    .banner .input-group .instruction,
+    .banner .input-group #post_url,
+    .banner .input-group #userName {
+        font-size: 18px;
+    }
+
+    .banner .input-group .input-container .btn-paste {
+        font-size: 13px;
+        padding: 11px 15px;
+        border-radius: 20px;
+    }
+
+    .banner .input-group .btn-primary .icon svg {
+        width: 10px;
+        height: 14px;
+    }
+
+    .banner .input-group .btn-primary .spinner svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    #post img {
+        width: 25%
+    }
+
+    .more-free-tools {
+        margin: 35px 0 50px;
+    }
+
+    .more-free-tools .title {
+        margin-bottom: 26px;
+    }
+
+    .about .subtitle,
+    .faq .heading,
+    .download-prompt .heading {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .about .para {
+        /* font-size: 16px; */
+        margin-bottom: 25px;
+    }
+
+    /* .faq .title {
+        font-size: 29px;
+    } */
+
+    .download-prompt {
+        padding: 0 50px 0;
+    }
+
+    .download-prompt .title {
+        max-width: unset;
+        font-size: 36px;
+        margin-bottom: 25px;
+    }
+}
+
+.features-sm {
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    .superviral-free-tools-page .main-container {
+        padding: 0;
+        max-width: 865px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .banner {
+        padding-bottom: 50px;
+    }
+
+    .banner .main-container {
+        max-width: 800px;
+    }
+
+    .banner #post video {
+        max-height: 230px;
+    }
+
+    .banner .input-group:nth-of-type(1) {
+        margin-bottom: 25px;
+    }
+
+    /* .banner .input-group .instruction,
+    .banner .input-group #post_url,
+    .banner .input-group #userName {
+        font-size: 18px;
+    } */
+
+
+    .more-free-tools {
+        margin: 45px auto 83px;
+    }
+
+    .more-free-tools .title {
+        margin-bottom: 20px;
+    }
+
+    .more-free-tools .list {
+        column-gap: 25px;
+    }
+
+    .more-free-tools .list a {
+        width: initial;
+    }
+
+    .more-free-tools .list a .link-icon {
+        margin-left: 13px;
+    }
+
+    .about .subtitle,
+    .faq .heading,
+    .download-prompt .heading {
+        margin-bottom: 10px;
+    }
+
+    .about .title {
+        margin-bottom: 15px;
+    }
+
+    .about .para {
+        margin-bottom: 35px;
+    }
+
+    .about .para:last-child {
+        margin-bottom: 0;
+    }
+
+    .about .heading {
+        margin: 0px 0 15px;
+    }
+
+    .about .img-container {
+        margin-bottom: 35px;
+    }
+
+
+
+    .features-lg {display: block;}
+
+    .features .item .img-container,
+    .features .item .img-container-sm  {
+        min-width: 35%;
+        text-align: center;
+        display:block;
+    }
+
+    .features .hideDesktop{display:none;}
+
+    .features img.square_img {
+        width: 230px;
+        height: 230px;
+        object-fit: fill;
+    }
+
+    .features img.tall_img {
+        aspect-ratio: 3 / 4;
+        object-fit: fill;
+        height: auto;
+    }
+
+    .features-lg .item .body {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap:3rem;
+    }
+
+    .features-lg .item .body .content {
+        flex-grow: 1;
+    }
+
+    .features-lg .item .body .content.content-full {
+        max-width: unset;
+    }
+
+    .features-lg .item.includes-roles .img-container {
+        margin-top: 35px;
+        margin-bottom: 40px;
+    }
+
+    .faq {
+        margin-bottom: 70px;
+    }
+
+    .faq .title {
+        /* font-size: 35px; */
+        margin-bottom: 35px;
+    }
+
+    .faq .faq-part {
+        margin-top: 35px;
+        gap: 12px;
+        justify-content: space-between;
+    }
+
+    .faq .faq-part .box {
+        width: 49%;
+    }
+
+    .faq .faq-part .box:not(.active) {
+        height: 90px;
+    }
+
+    .faq .faq-part .box .question .txt {
+        max-width: 327px;
+        /* font-size: 18px; */
+    }
+
+    .faq .faq-part .box .question .icon {
+        width: 14px;
+        height: 21px;
+    }
+
+    .faq .faq-part .box .question .icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .download-prompt {
+        padding: 0
+    }
+
+    .guideline {
+        margin: 43px 0 50px;
+        display: flex;
+        gap: 36px;
+        justify-content: center;
+    }
+
+    .guideline .guide {
+        flex-direction: column;
+        align-items: unset;
+        gap: 28px;
+        margin-bottom: 0;
+        width: 209px;
+        max-height: unset;
+    }
+
+    .guideline .guide .seqNum {
+        width: 115px;
+        height: 115px;
+    }
+
+    .guideline .guide:not(:last-child) .seqNum::after {
+        width: 130px;
+        height: 7px;
+        left: 115px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .superviral-free-tools-page-uk .features .item .body {
+        display: flex;
+        align-items: start;
+        gap: 3rem
+    }
+
+    .superviral-free-tools-page-uk .features .item .body .img-container.align-center {
+        align-self: center;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .more-free-tools .title,
+    .about .title {
+        font-size: 45px;
+    }
+
+    .about .heading,
+    .faq .title {
+        font-size: 41px;
+    }
+}

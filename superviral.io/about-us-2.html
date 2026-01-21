@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{title}</title>
+        <meta name="description" content="{metadesc}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <meta http-equiv="Content-Language" content="{contentlanguage}">
+        <link rel="canonical" href="{canonical}" />
+        <link rel="alternate" hreflang="en-us" href="https://superviral.io/about-us/" />
+        <link rel="alternate" hreflang="en-gb" href="https://superviral.io/uk/about-us/" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="preload" href="/imgs/about/happy-users.jpg" as="image">
+        <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/orderform.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <style>
+            .page-about-us * {
+                box-sizing: border-box;
+                font-family: "DM Sans", sans-serif;
+            }
+    
+            .owl-carousel .owl-item {
+                display: flex;
+                justify-content: center;
+            }
+    
+            .owl-carousel .owl-dots {
+                display: flex;
+                /*for centering the dots*/
+                justify-content: center;
+                gap: 8px;
+                margin-top: 10px;
+            }
+    
+            .owl-carousel .owl-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #EDEDED !important;
+                display: inline-block;
+                /*for making them horizontal, if you want vertical then you can use- display: block*/
+            }
+    
+            .owl-carousel .owl-dot.active {
+                background-color: #8F8F8F !important;
+            }
+            
+            .page-about-us .lazy {
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+    
+            .page-about-us .lazy-bg {
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+            }
+    
+            .page-about-us .lazy-loaded,
+            .page-about-us .lazy-bg-loaded {
+                opacity: 1;
+            }
+    
+            .page-about-us .fade-out {
+                position: relative;
+                overflow: hidden;
+            }
+    
+            .page-about-us .fade-out::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100px;
+                background: linear-gradient(transparent, white);
+            }
+    
+            .page-about-us .hidden-content {
+                display: none;
+            }
+    
+            .page-about-us button,
+            .page-about-us a {
+                cursor: pointer;
+            }
+    
+            .page-about-us section {
+                padding-left: 17px;
+                padding-right: 17px;
+                padding-top: 30px;
+                padding-bottom: 50px;
+            }
+    
+            .page-about-us .section-linear-gradient {
+                background: linear-gradient(180deg, #FAFAFA 0%, #FFF 100%);
+            }
+    
+            .page-about-us .img-container img,
+            .page-about-us .img-container svg {
+                width: 100%;
+                height: 100%;
+                border-radius:6px;
+                display:block;
+            }
+    
+            .page-about-us h1,
+            .page-about-us section h2 {
+                position: relative;
+                font-family: "Plus Jakarta Sans", sans-serif;
+                margin-top: 0;
+                margin-bottom: 20px;
+                text-align: start;
+                font-size: 33px;
+                font-weight: 600;
+            }
+
+            .page-about-us .para,
+            .page-about-us .txt-secondary {
+                font-size: 16px;
+                color: #4F4F4F;
+                font-weight: 280;
+            }
+    
+            .page-about-us #section-reasons h3,
+            .page-about-us #section-achievements h3 {
+                font-size: 18px;
+                color: #682bc7;
+                margin-bottom: 0;
+                margin: 0;
+                margin-top:1rem;
+                font-weight: 500;
+                float: unset;
+                height: auto;
+            }
+
+            .page-about-us #section-reasons h3 + p,
+            .page-about-us #section-achievements h3 + p {
+                margin-top: 0;
+            }
+    
+            .page-about-us .txt-special {
+                background: linear-gradient(101deg, #C43B56 40.39%, #982684 48.92%, #6A10B3 58.62%, #5908C5 63.48%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 700;
+            }
+    
+            .page-about-us h1 span img,
+            .page-about-us h2 span img {
+                width: 40px;
+                height: 40px;
+            }
+    
+            .page-about-us h2 span.star-struck img {
+                position: absolute;
+                top: 3px;
+            }
+            
+            .page-about-us h2 span.medal img {
+            vertical-align: middle;
+            position: relative;
+            top: -6px;
+            }
+    
+     
+            .page-about-us .btn-primary {
+                font-family: "Open Sans", sans-serif;
+                font-weight: 600;
+                border-radius: 20px;
+                background: #1A73E7;
+                color: #FFF;
+                border: 0;
+                padding: 7px;
+            }
+    
+            .page-about-us .link-primary {
+                color: #1A73E7;
+                font-weight: 600;
+                text-decoration: underline;
+            }
+    
+            #section-hero {
+                padding-top: 20px;
+                padding-bottom: 50px;
+                background-color: #FFF;
+            }
+    
+            #section-hero .img-container {
+                width: 286px;
+            }
+    
+            #section-hero .content {
+                margin-bottom: 35px;
+            }
+    
+            #section-history .timeline {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 50px;
+                border-left: 2px solid #E7E7E7;
+            }
+    
+            #section-history .content {
+                padding-left: 30px;
+                position: relative;
+            }
+    
+            #section-history .content::before {
+                content: "";
+                position: absolute;
+                top: 15px;
+                left: 0;
+                width: 20px;
+                height: 2px;
+                background-color: #E7E7E7;
+            }
+    
+            #section-history .timeline .content .year {
+                color: #4D05BC;
+                font-family: "Plus Jakarta Sans";
+                font-size: 25px;
+                font-style: normal;
+                font-weight: 600;
+                margin: 0 0 10px;
+                float: unset;
+                height: auto;
+            }
+    
+            #section-history .timeline .para {
+                margin-bottom: 0;
+            }
+    
+            #section-history .view-btn {
+                background: transparent;
+                border: none;
+                padding: 0;
+                text-decoration-line: underline;
+                font-size: 14px;
+                font-weight: 500;
+                font-family: "DM Sans";
+                margin-top: 10px;
+                display: block;
+            }
+    
+            #section-vision {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                width: 100%;
+                height: 100vh;
+                position: relative;
+                padding-top: 150px;
+                padding-bottom: 0;
+            }
+    
+            /* iOS specific fix for background-attachment issue */
+              @supports (-webkit-overflow-scrolling: touch) {
+                #section-vision {
+                    background-attachment: local;
+                }
+            } 
+    
+            #section-vision h2,
+            #section-vision .para {
+                position: relative;
+                color: #FFFFFF;
+                z-index: 99;
+            }
+    
+    
+            #section-vision::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(121, 69, 40, 0.48);
+                backdrop-filter: blur(1.5px);
+            }
+    
+            #section-reasons .reasons-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 50px;
+                margin-top: 30px;
+            }
+    
+            #section-achievements .logo-heading {
+                text-align: center;
+                margin-top: 20px;
+                width: 100%;
+                max-width: 100%;
+            }
+    
+            #section-achievements .logo-container {
+                width: 100%;
+                margin-bottom: 45px;
+            }
+    
+            #section-achievements .logo-container img {
+                width: 100%;
+                height: 100%;
+            }
+    
+            #section-achievements .img-container,
+            #section-reasons .img-container {
+                width: 50px;
+                height: 50px;
+            }
+    
+            #section-achievements .achievements-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 50px;
+                margin-top: 30px;
+                margin-bottom: 45px;
+            }
+    
+            #section-achievements .achievements-container .achievement .title-container {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+    
+            #section-achievements .achievement .title-container h5 {
+                margin: 0;
+                color: #4D05BC;
+                font-family: "Plus Jakarta Sans";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+            }
+    
+            #section-achievements .img-container.cover {
+                height: 286px;
+                width: 286px;
+                margin: auto;
+            }
+    
+            #section-achievements .img-container.cover .image-sm {
+                display: block
+            }
+    
+            #section-achievements .img-container.cover .image-lg {
+                display: none;
+            }
+    
+            #section-form-message .input-group {
+                margin-bottom: 14px;
+            }
+    
+            #section-form-message .input {
+                border-radius: 6px;
+                border: 1px solid #ECECEC;
+                padding: 10.5px;
+                font-size: 13px;
+                margin: 0;
+            }
+    
+            #section-form-message .input-group textarea {
+                resize: none;
+                height: 160px;
+            }
+    
+            #section-form-message .btn-primary {
+                width: 100%;
+                font-size: 13px;
+                padding: 11px;
+            }
+    
+            #section-form-message form {
+                margin-bottom: 38px;
+            }
+    
+            #section-form-message .testimonials .swiper-container {
+                display: none;
+            }
+    
+            #section-form-message .card {
+                width: 236px;
+                padding: 16px;
+                border-radius: 10px;
+                background: #FFF;
+                box-shadow: 0px 0px 38px 0px rgba(0, 0, 0, 0.05);
+            }
+    
+            #section-form-message .stars {
+                display: flex;
+                align-items: center;
+                gap: 2px;
+                margin-bottom: 8px;
+            }
+
+            #section-form-message .stars .icon {
+                width: 13px;
+                height: 13px;
+            }
+
+            #section-form-message .icon img,
+            #section-form-message .icon svg {
+                width: 100%;
+                height: 100%;
+            }
+    
+            #section-form-message .card .icon {
+                display: flex;
+            }
+    
+            #section-form-message .card .label {
+                font-weight: 500;
+                margin-bottom: 5px;
+            }
+    
+            #section-form-message .card .para {
+                margin-bottom: 15px;
+            }
+    
+            #section-form-message .card .flex-box {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 10px;
+                font-weight: 200;
+            }
+    
+            #section-form-message .card .reviewer,
+            #section-form-message .card .verification {
+                display: flex;
+                align-items: center;
+                gap: 2px;
+            }
+    
+            #section-form-message .card .verification .txt {
+                color: #C75300;
+            }
+    
+            #section-form-message .guide {
+                display: none;
+            }
+    
+    
+            #section-tips h2 .txt-special {
+                background: linear-gradient(105deg, #C43B56 -15.5%, #982684 20.73%, #6A10B3 61.98%, #5908C5 82.64%);
+                background-clip: text;
+            }
+    
+            #section-tips .tips {
+                margin-bottom: 20px;
+            }
+    
+            #section-tips .tips .swiper-container {
+                display: none;
+                padding: 1rem;
+            }
+    
+            .owl-item {
+                padding: 1.25rem 0;
+            }
+    
+            #section-tips .card {
+                display: block;
+                width: 252px;
+                border-radius: 10px;
+                border: 1px solid #F4F4F4;
+                background: #FFF;
+                box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.07);
+                padding: 8px 8px 16px;
+            }
+    
+            #section-tips .card .img-container {
+                height: 123px;
+                margin-bottom: 10px;
+            }
+    
+            #section-tips .card .label {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 8px;
+            }
+    
+            #section-tips .card .para {
+                margin-bottom: 13px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+    
+            #section-tips .tipper {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                font-size: 13px;
+            }
+    
+            #section-tips .tipper .user-img.sv {
+                padding: 1px;
+                border-radius: 23px;
+                background: linear-gradient(105deg, #C43B56 -15.5%, #982684 20.73%, #6A10B3 61.98%, #5908C5 82.64%);
+                display: block;
+            }   
+            
+            #section-tips .tipper .user-img.sv > div {
+                background: white;
+                padding: 5px;
+                border-radius: 26px;
+                border: solid 1px white;
+            }
+    
+            #section-tips .tipper .user-img.sv img {
+                width: 20px;
+                height: 20px;
+                display: block;
+            }
+    
+            #section-tips .tipper .user-img {
+                width: 29px;
+                height: 29px;
+            }
+    
+            #section-tips .tipper .user-img img {
+                width: 100%;
+                height: 100%;
+                border-radius:50px;
+            }
+    
+            #section-tips .tipper .bio .name {
+                font-weight: 700;
+            }
+    
+            #section-tips .tipper .bio .status {
+                display: flex;
+                align-items: center;
+                gap: 3px;
+            }
+    
+            #section-tips .tipper .bio .status .icon {
+                display: flex;
+            }
+    
+            #section-social-media .txt-center {
+                text-align: center;
+                margin-bottom: 18px;
+            }
+    
+            #section-social-media .txt-special {
+                background: linear-gradient(105deg, #C43B56 -15.5%, #982684 20.73%, #6A10B3 61.98%, #5908C5 82.64%);
+                background-clip: text;
+            }
+    
+    
+            #section-social-media .tabs {
+                display: flex;
+                width: 204px;
+                padding: 4px;
+                border-radius: 100px;
+                border: 1px solid #F1F1F1;
+                background: #FFF;
+                box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.11);
+                margin: 0 auto 45px;
+            }
+    
+            #section-social-media .btn-tab {
+                font-weight: 700;
+                width: 98px;
+                border-radius: 100px;
+                background-color: transparent;
+                padding: 4px;
+                border: none;
+                font-size: 16px;
+                transition: background-color 0.3s;
+            }
+    
+            #section-social-media .btn-tab.active {
+                /* background: linear-gradient(105deg, #C43B56 -15.5%, #982684 20.73%, #6A10B3 61.98%, #5908C5 82.64%); */
+                background-color: #000;
+                color: #FFF;
+            }
+    
+            #section-social-media .btn-tab:not(.active) {
+                opacity: 1;
+            }
+    
+            @keyframes slideInOut {
+                0% {
+                    opacity: 0;
+                    transform: translateX(20px);
+                }
+    
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+    
+            /* Animation for sliding from tab 2 to tab 1 */
+            @keyframes slideInOutReverse {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+    
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+    
+            .btn-tab.animate-slideInOut {
+                animation: slideInOut 0.5s forwards;
+            }
+    
+            .btn-tab.animate-slideInOutReverse {
+                animation: slideInOutReverse 0.5s forwards;
+            }
+
+            #section-social-media .social-links {
+                display: flex;
+                flex-direction: column;
+                row-gap: 15px;
+                height: 309px;
+            }
+
+            #section-social-media .social-links a {
+                display: flex;
+                background-color: #0AA1FF;
+                color: #FFF;
+                width: 100%;
+                align-items: center;
+                padding: 8px 16px;
+                border-radius: 10px;
+                
+            }
+
+            #section-social-media .social-links .icon-social {
+                margin-left: auto;
+                margin-right: 16px;
+            }
+
+            #section-social-media .social-links .txt,
+            #section-social-media .social-links .txt * {
+                font-family: "Plus Jakarta Sans", sans-serif;
+                font-weight: 500;
+            }
+    
+            #section-form-message .para,
+            #section-tips .para,
+            #section-faq .para {
+                margin-bottom: 30px;
+            }
+    
+            #section-faq .flex-box {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+    
+            #section-faq .item {
+                border-radius: 6px;
+                background: #FFF;
+                box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+                padding: 8px 10px;
+                cursor: pointer;
+            }
+    
+            #section-faq .item.active {
+                background-color: #F8F8F8;
+            }
+    
+            #section-faq .item .question {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 13px;
+                font-weight: 600;
+            }
+    
+            #section-faq .item .icon {
+                display: flex;
+                transition: transform 0.5s ease;
+            }
+    
+            #section-faq .item.active .icon {
+                transform: rotate(90deg);
+            }
+    
+            #section-faq .item .answer {
+                margin-top: 8px;
+                font-size: 12px;
+                display: none;
+            }
+    
+            #section-faq .item.active .answer {
+                display: block;
+            }
+    
+            #section-faq .link-primary {
+                font-size: 13px;
+            }
+    
+            /* Small devices (phones, 576px and up) */
+            @media (min-width: 576px) {}
+    
+            /* Medium devices (tablets, 768px and up) */
+            @media (min-width: 768px) {
+                .page-about-us section {
+                    padding: 60px 0 80px;
+                }
+    
+                .page-about-us .carousel {
+                    display: none;
+                }
+    
+                .page-about-us .fade-out::after {
+                    display: none;
+                }
+    
+                .page-about-us .hidden-content {
+                    display: block;
+                }
+    
+                .page-about-us .section-container {
+                    max-width: 672px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+    
+                .page-about-us h1,
+                .page-about-us section h2 {
+                    font-size: 49px;
+                    max-width: 438px;
+                }
+    
+                .page-about-us section .h2-form {
+                    max-width: 432px;
+                }
+    
+                .page-about-us .para,
+                .page-about-us .txt-secondary {
+                    font-size: 18px;
+                }
+    
+                .page-about-us .para {
+                    max-width: 550px;
+                }
+    
+                .page-about-us h1 span img,
+                .page-about-us h2 span img {
+                    width: 55px;
+                    height: 55px;
+                }
+    
+                .page-about-us h2 span.star-struck img {
+                    position: absolute;
+                    top: 7px;
+                }
+                
+                .page-about-us h2 span.medal img {
+                    vertical-align: middle;
+                    position: relative;
+                    top: -11px;
+                }
+    
+    
+                .page-about-us .btn-primary {
+                    padding: 8px;
+                }
+    
+                #section-hero .flex-box {
+                    display: flex;
+                    justify-content: space-between;
+                }
+    
+                #section-hero .img-container {
+                    order: 1;
+                    width: 300px;
+                    height: 300px;
+                }
+    
+                #section-hero .content {
+                    order: 2;
+                    max-width: 330px;
+                }
+    
+                #section-history .timeline::-webkit-scrollbar {
+                    height: 9px;
+                }
+    
+                #section-history .timeline::-webkit-scrollbar-track {
+                    background-color: #F4F4F4;
+                    border-radius: 5px;
+                }
+    
+                #section-history .timeline::-webkit-scrollbar-thumb {
+                    background-color: #808080;
+                    border-radius: 5px;
+                }
+    
+    
+                #section-history .timeline {
+                    flex-direction: row;
+                    border-top: 2px solid #E7E7E7;
+                    border-left: none;
+                    overflow-x: scroll;
+                    padding: 0;
+                }
+    
+    
+                #section-history .content {
+                    flex: 0 0 20%;
+                    margin-bottom: 20px;
+                    padding: 30px 0 0;
+                    position: relative;
+                }
+    
+                #section-history .content::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 2px;
+                    height: 20px;
+                    background-color: #E7E7E7;
+                }
+    
+                #section-history .view-btn {
+                    display: none;
+                }
+    
+                #section-reasons {
+                    background-color: #FFFFFF;
+                }
+    
+                #section-reasons .reasons-container {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+    
+                #section-vision {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                }
+    
+                #section-achievements .logo-heading {
+                    margin-bottom: 35px;
+                }
+    
+                #section-achievements .para.achievements-desc {
+                    margin-bottom: 60px;
+                }
+    
+                #section-achievements .img-container,
+                #section-reasons .img-container {
+                    width: 60px;
+                    height: 60px;
+                }
+    
+                #section-achievements .img-container.cover {
+                    width: 100%;
+                    min-width: 671px;
+                    height: 350px;
+                }
+    
+                #section-achievements .img-container.cover .image-sm {
+                    display: none;
+                }
+    
+                #section-achievements .img-container.cover .image-lg {
+                    display: block;
+                }
+    
+                #section-achievements .img-container.cover img,
+                #section-achievements .img-container.cover svg {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 40px;
+                }
+    
+                #section-achievements .achievements-container {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+    
+                #section-achievements .achievements-container .achievement .title-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                }
+    
+                #section-form-message {
+                    padding-bottom: 26px;
+                }
+    
+                #section-form-message form {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    max-width: 473px;
+                    margin: 0 auto 48px;
+                }
+    
+                #section-form-message .para,
+                #section-tips .para,
+                #section-faq .para {
+                    margin-bottom: 50px;
+                }
+    
+                #section-form-message .input-group {
+                    margin-bottom: 17px;
+                    width: 100%;
+                }
+    
+                #section-form-message .input {
+                    font-size: 16px;
+                    /* padding: 9px; */
+                }
+    
+                #section-form-message .input-group textarea {
+                    height: 170px;
+                }
+    
+                #section-form-message .input-group.md-half {
+                    width: 49%;
+                }
+    
+                #section-form-message form .btn-wrapper {
+                    width: 100%;
+                }
+    
+                #section-form-message .btn-primary {
+                    font-size: 16px;
+                }
+    
+                #section-form-message .testimonials .swiper-container {
+                    display: block;
+                }
+    
+                #section-form-message .testimonials .swiper-row,
+                #section-tips .tips .swiper-container {
+                    overflow-x: scroll;
+                    /* Hide scrollbar styles */
+                    /* Firefox */
+                    scrollbar-width: none;
+                    /* IE and Edge */
+                    -ms-overflow-style: none;
+                }
+    
+                #section-form-message .testimonials .swiper-row {
+                    background-color: #FFF;
+                    padding: 12.5px;
+                }
+    
+                #section-form-message .testimonials .swiper-row:last-child {
+                    padding-bottom: 25px;
+                }
+    
+                /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+                #section-form-message .testimonials .swiper-row::-webkit-scrollbar,
+                #section-tips .tips .swiper-container::-webkit-scrollbar {
+                    display: none;
+                }
+    
+                #section-form-message .testimonials .swiper {
+                    display: flex;
+                    width: 875px;
+                    gap: 25px;
+                    cursor: grab;
+                }
+    
+                #section-form-message .card {
+                    display: block;
+                    width: 275px;
+                }
+    
+                #section-form-message .card,
+                #section-tips .card {
+                    /* Prevent text selection */
+                    user-select: none;
+                }
+    
+                #section-form-message .stars .icon {
+                    width: 16px;
+                    height: 16px;
+                }
+    
+                #section-form-message .card .label {
+                    margin-bottom: 7px;
+                }
+    
+                #section-form-message .card .flex-box {
+                    font-size: 14px;
+                }
+    
+                #section-form-message .card .reviewer,
+                #section-form-message .card .verification {
+                    gap: 3px;
+                }
+    
+                #section-form-message .card .reviewer .icon {
+                    width: 9px;
+                    height: 13px;
+                }
+    
+                #section-form-message .card .verification .icon {
+                    width: 13px;
+                    height: 13px;
+                }
+    
+                #section-form-message .guide {
+                    display: block;
+                    text-align: center;
+                    /* margin-top: 6px; */
+                    color: #808080;
+                }
+    
+                #section-form-message .guide .line {
+                    display: inline-block;
+                    width: 32px;
+                    height: 1px;
+                    background-color: #808080;
+                    position: relative;
+                }
+    
+                #section-form-message .guide .line::before {
+                    content: "<";
+                    position: absolute;
+                    left: -2px;
+                    bottom: -9px;
+                }
+    
+                #section-form-message .guide .line::after {
+                    content: ">";
+                    position: absolute;
+                    right: -3px;
+                    bottom: -9px;
+                }
+    
+                #section-form-message .guide .txt {
+                    margin-top: 9px;
+                    font-size: 14px;
+                }
+    
+                #section-tips .tips .swiper-container {
+                    display: block;
+                }
+    
+                #section-tips .tips .swiper {
+                    display: flex;
+                    width: 852px;
+                    gap: 18px;
+                    cursor: grab;
+                }
+    
+                #section-tips .card {
+                    width: 272px;
+                }
+    
+                #section-tips .card .img-container {
+                    height: 134px;
+                }
+    
+                #section-tips .card .label {
+                    font-size: 18px;
+                }
+    
+                #section-tips .card .para {
+                    font-size: 13px;
+                }
+    
+                #section-tips .tipper .bio .status .icon {
+                    width: 12px;
+                    height: 12px;
+                }
+    
+                #section-tips .tipper .bio .status .icon svg {
+                    width: 100%;
+                    height: 100%;
+                }
+    
+                #section-social-media .tabs {
+                    width: 242px;
+                }
+    
+                #section-social-media .btn-tab {
+                    width: 114px;
+                    padding: 5px;
+                }
+    
+                #section-social-media .social-links {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    height: auto;
+                }
+
+                #section-social-media .social-links a {
+                    width: 49%;
+                }
+    
+                #section-faq .flex-box {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    gap: 11px;
+                    margin-bottom: 18px;
+                }
+    
+                #section-faq .flex-box .item {
+                    width: 49%;
+                }
+    
+                #section-faq .item .question {
+                    font-size: 16px;
+                }
+    
+                #section-faq .item .answer {
+                    font-size: 14px;
+                }
+    
+                #section-faq .link-primary {
+                    font-size: 16px;
+                }
+    
+            }
+    
+            /* Large devices (desktops, 992px and up) */
+            @media (min-width: 992px) {
+                .page-about-us .section-container {
+                    max-width: 928px;
+                }
+    
+                #section-hero .img-container {
+                    width: initial;
+                    height: initial;
+                }
+    
+                #section-hero .content {
+                    max-width: 465px;
+                }
+    
+                #section-achievements .img-container,
+                #section-reasons .img-container {
+                    width: 65px;
+                    height: 65px;
+                }
+    
+                #section-form-message .testimonials .swiper {
+                    width: 1475px;
+                }
+
+                #section-tips .tips .swiper {
+                    width: 1142px;
+                }
+
+                #section-social-media .social-links .txt {
+                    font-size: 20px;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        {header}
+        <div class="page-about-us">
+            <section id="section-hero">
+                <div class="section-container">
+                    <h1>{h1}<span> <img src="/imgs/about/rocket.png" alt="rocket"></span></h1>
+                    <div class="flex-box">
+                        <div class="content">
+                            <p class="para">{1-desc-1}</p>
+                            <p class="para">{1-desc-2}</p>
+                        </div>
+                        <div class="img-container">
+                            <!-- <img class="lazy" data-src="/imgs/about/happy-users.png" src="" alt="happy-users"> -->
+                            <img src="/imgs/about/happy-users.jpg" alt="happy-users">
+                            <!-- <img class="lazy" data-src="/imgs/about/happy-users.jpg" src="" alt="happy-users"> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section-history" class="section-linear-gradient">
+                <div class="section-container">
+                    <h2>{2-h2}<span><img class="lazy" alt="star-ring" data-src="/imgs/about/dizzy.png" src=""></span></h2>
+                    <p class="para">{2-desc-1}</p>
+                    <p class="para">{2-desc-2}</p>
+                    <div class="timeline fade-out" id="fade-out">
+                        <div class="content">
+                            <h3 class="year">2012</h3>
+                            <p class="para desc">{6-history-1}</p>
+                        </div>
+                        <div class="content">
+                            <h3 class="year">2013</h3>
+                            <p class="para desc">{6-history-2}</p>
+                        </div>
+                        <div class="content">
+                            <h3 class="year">2014</h3>
+                            <p class="para desc">{6-history-3}</p>
+                        </div>
+                        <div class="content">
+                            <h3 class="year">2015</h3>
+                            <p class="para desc">{6-history-4}</p>
+                        </div>
+                        <div class="content hidden-content">
+                            <h3 class="year">2016</h3>
+                            <p class="para desc">{6-history-5}</p>
+                        </div>
+                        <div class="content hidden-content">
+                            <h3 class="year">2017</h3>
+                            <p class="para desc">{6-history-6}</p>
+                        </div>
+                        <div class="content hidden-content">
+                            <h3 class="year">2018</h3>
+                            <p class="para desc">{6-history-7}</p>
+                        </div>
+                        <div class="content hidden-content">
+                            <h3 class="year">2019</h3>
+                            <p class="para desc">{6-history-8}</p>
+                        </div>
+                        <div class="content hidden-content">
+                            <h3 class="year">2020</h3>
+                            <p class="para desc">{6-history-9}</p>
+                        </div>
+                        <div class="content hidden-content">
+                            <h3 class="year">2021</h3>
+                            <p class="para desc">{6-history-10}</p>
+                        </div>
+                        <div class="content hidden-content">
+                            <h3 class="year">2022</h3>
+                            <p class="para desc">{6-history-11}</p>
+                        </div>
+                        <div class="content hidden-content">
+                            <h3 class="year">2024</h3>
+                            <p class="para desc">{6-history-12}</p>
+                        </div>
+                    </div>
+                    <button class="view-btn" onclick="toggleTimeline()">See More</button>
+                </div>
+            </section>
+            <section id="section-vision" class="lazy-bg" data-bg-src="/imgs/about/our-vision.webp">
+                <div class="section-container" style="width: 100%;">
+                    <h2>{3-h2}  <span class="star-struck">  <img class="lazy" alt="star-struck" data-src="/imgs/about/star-struck.png" src=""></span></h2>
+                    <p class="para">{3-desc-1}</p>
+                    <p class="para">{3-desc-2}</p>
+                </div>
+            </section>
+            <section id="section-reasons">
+                <div class="section-container">
+                    <h2>{4-h2}<span class="medal"> <img class="lazy" alt="medal" data-src="/imgs/about/1st-place-medal.png" src=""></span></h2>
+                    <p class="para">{4-desc-1}</p>
+                    <div class="reasons-container">
+                        <div class="reason">
+                            <div class="img-container">
+                                <img class="lazy" data-src="/imgs/about/reasons-section-icon.svg" src="" alt="icon">
+                            </div>
+                            <h3>{4-benefit-1}</h3>
+                        </div>
+                        <div class="reason">
+                            <div class="img-container">
+                                <img class="lazy" data-src="/imgs/about/reasons-section-icon1.svg" src="" alt="icon">
+                            </div>
+                            <h3>{4-benefit-2}</h3>
+                        </div>
+                        <div class="reason">
+                            <div class="img-container">
+                                <img class="lazy" data-src="/imgs/about/reasons-section-icon2.svg" src="" alt="icon">
+                            </div>
+                            <h3>{4-benefit-3}</h3>
+                        </div>
+                        <div class="reason">
+                            <div class="img-container">
+                                <img class="lazy" data-src="/imgs/about/reasons-section-icon3.svg" src="" alt="icon">
+                            </div>
+                            <h3>{4-benefit-4}</h3>
+                        </div>
+                        <div class="reason">
+                            <div class="img-container">
+                                <img class="lazy" data-src="/imgs/about/reasons-section-icon4.svg" src="" alt="icon">
+                            </div>
+                            <h3>{4-benefit-5}</h3>
+                        </div>
+                        <div class="reason">
+                            <div class="img-container">
+                                <img class="lazy" data-src="/imgs/about/reasons-section-icon5.svg" src="" alt="icon">
+                            </div>
+                            <h3>{4-benefit-6}</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section-achievements" class="section-linear-gradient">
+                <div class="section-container">
+                    <h2>{5-h2}<span> <img class="lazy" alt="trophy" data-src="/imgs/about/trophy.png" src=""></span> </h2>
+                    <p class="para achievements-desc">{5-desc-1}</p>
+                    <div class="logo-container">
+                        <img class="lazy" data-src="/imgs/about/logo-brands-{loc}.svg" src="" alt="logos">
+                    </div>
+                    <div class="achievements-container">
+                        <div class="achievement">
+                                <div class="img-container">
+                                    <img class="lazy" data-src="/imgs/about/achievements-section-icon1.svg" src="" alt="icon">
+                                </div>
+                            <div class="content">
+                                <h3>{5-h5-1}</h3>
+                                <p class="para">{5-benefit-1}</p>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                                <div class="img-container">
+                                    <img class="lazy" data-src="/imgs/about/achievements-section-icon2.svg" src="" alt="icon">
+                                </div>
+                            <div class="content">
+                                <h3>{5-h5-2}</h3>
+                                <p class="para">{5-benefit-2}</p>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                                <div class="img-container">
+                                    <img class="lazy" data-src="/imgs/about/achievements-section-icon3.svg" src="" alt="icon">
+                                </div>
+                            <div class="content">
+                                <h3>{5-h5-3}</h3>
+                                <p class="para">{5-benefit-3}</p>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                                <div class="img-container">
+                                    <img class="lazy" data-src="/imgs/about/achievements-section-icon4.svg" src="" alt="icon">
+                                </div>
+                            <div class="content">
+                                <h3>{5-h5-4}</h3>
+                                <p class="para">{5-benefit-4}</p>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                                <div class="img-container">
+                                    <img class="lazy" data-src="/imgs/about/achievements-section-icon5.svg" src="" alt="icon">
+                                </div>
+                            <div class="content">
+                                <h3>{5-h5-5}</h3>
+                                <p class="para">{5-benefit-5}</p>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                                <div class="img-container">
+                                    <img class="lazy" data-src="/imgs/about/achievements-section-icon6.svg" src="" alt="icon">
+                                </div>
+                            <div class="content">
+                                <h3>{5-h5-6}</h3>
+                                <p class="para">{5-benefit-6}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-container cover">
+                        <img class="image-sm lazy" data-src="/imgs/about/achievements-image-sm.svg" src="" alt="image">
+                        <img class="image-lg lazy" data-src="/imgs/about/achievements-image.svg" src="" alt="image">
+                    </div>
+                </div>
+            </section>
+            <section id="section-form-message" class="section-linear-gradient">
+                <div class="section-container">
+                    <h2 class="h2-form">{6-h2}<span> <img class="lazy" alt="purple-heart" data-src="/imgs/about/purple-heart.png" src=""></span> </h2>
+                    <p class="para">{6-desc-1}</p>
+                    {emailsuccess}
+    
+                    <form method="POST" id="submitForm" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <input class="input" type="text" name="name" placeholder="name">
+                        </div>
+                        <div class="input-group md-half">
+                            <input class="input" type="text" name="emailaddress" placeholder="email address">
+                        </div>
+                        <div class="input-group md-half">
+                            <input class="input" type="text" name="orderid" placeholder="order #">
+                        </div>
+                        <div class="input-group">
+                            <input class="input" type="text" name="subject" placeholder="subject">
+                        </div>
+                        <div class="input-group">
+                            <textarea class="input" type="text" name="message" placeholder="message"></textarea>
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="6LfybP8ZAAAAAOz6JVgBFhqDutq7i5fs6fEBi0zR"></div>
+                        <div class="btn-wrapper" style="margin-top:20px;">
+                            <button class="btn-primary" name="submit" value="1" type="submit">Send message</button>
+                        </div>
+                    </form>
+                    <div class="testimonials">
+                        <div class="carousel owl-carousel"></div>
+                        <div class="swiper-container"></div>
+                    </div>
+                    <div class="guide">
+                        <span class="line"></span>
+                        <div class="txt">Drag left or right</div>
+                    </div>
+                </div>
+            </section>
+    
+            <section id="section-tips" class="section-linear-gradient">
+                <div class="section-container">
+                    <h2>{7-h2} <span><img class="lazy" alt="brain" data-src="/imgs/about/brain.png" src=""></span></h2>
+                    <p class="para"></p>
+                    <div class="tips">
+                        <div class="carousel owl-carousel"></div>
+                        <div class="swiper-container"></div>
+                    </div>
+                    <a href="/{loclocation}blog/" class="link-primary">See more blogs ></a>
+                </div>
+            </section>
+    
+            <section id="section-social-media" class="section-linear-gradient">
+                <div class="section-container">
+                    <div class="txt-center">Pick a social media:</div>
+                    <div class="tabs">
+                        <button class="btn-tab active" onclick="toggleTab('instagram')">Instagram</button>
+                        <button class="btn-tab reverse" onclick="toggleTab('tiktok')">TikTok</button>
+                    </div>
+                    <div class="social-links social1">
+                        <a href="{8-btn1-href}">
+                            <span class="txt">Buy Instagram Followers</span>
+                            <img class="icon-social" src="/imgs/home/icon-social1.svg" alt="icon-social">
+                            <img src="/imgs/home/link-arrow.svg" alt="link-arrow">
+                        </a>
+                        <a href="{8-btn2-href}">
+                            <span class="txt">Buy Instagram Likes</span>
+                            <img class="icon-social" src="/imgs/home/icon-social2.svg" alt="icon-social">
+                            <img src="/imgs/home/link-arrow.svg" alt="link-arrow">
+                        </a>
+                        <a href="{8-btn3-href}">
+                            <span class="txt">Buy Instagram Views</span>
+                            <img class="icon-social" src="/imgs/home/icon-social3.svg" alt="icon-social">
+                            <img src="/imgs/home/link-arrow.svg" alt="link-arrow">
+                        </a>
+                        <a href="{8-btn7-href}">
+                            <span class="txt">Buy Instagram Comments</span>
+                            <img class="icon-social" src="/imgs/home/icon-social4.svg" alt="icon-social">
+                            <img src="/imgs/home/link-arrow.svg" alt="link-arrow">
+                        </a>
+                    </div>
+                    <div class="social-links social2" style="display: none;">
+                        <a href="{8-btn4-href}">
+                            <span class="txt">Buy TikTok Followers</span>
+                            <img class="icon-social" src="/imgs/home/icon-social1.svg" alt="icon-social">
+                            <img src="/imgs/home/link-arrow.svg" alt="link-arrow">
+                        </a>
+                        <a href="{8-btn5-href}">
+                            <span class="txt">Buy TikTok Likes</span>
+                            <img class="icon-social" src="/imgs/home/icon-social2.svg" alt="icon-social">
+                            <img src="/imgs/home/link-arrow.svg" alt="link-arrow">
+                        </a>
+                        <a href="{8-btn6-href}">
+                            <span class="txt">Buy TikTok Views</span>
+                            <img class="icon-social" src="/imgs/home/icon-social3.svg" alt="icon-social">
+                            <img src="/imgs/home/link-arrow.svg" alt="link-arrow">
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section id="section-faq" class="section-linear-gradient">
+                <div class="section-container">
+                    <h2>FAQ</h2>
+                    <!-- <p class="para">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua.
+                    </p> -->
+                    <div class="flex-box">
+                        <div class="item">
+                            <div class="question">
+                                <span class="txt">{faq-q1}</span>
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11"
+                                        fill="none">
+                                        <path d="M1 10L5 5.5L1 1" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="answer txt-secondary">{faq-a1}</div>
+                        </div>
+                        <div class="item">
+                            <div class="question">
+                                <span class="txt">{faq-q2}</span>
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11"
+                                        fill="none">
+                                        <path d="M1 10L5 5.5L1 1" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="answer txt-secondary">{faq-a2}</div>
+                        </div>
+                        <div class="item">
+                            <div class="question">
+                                <span class="txt">{faq-q3}</span>
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11"
+                                        fill="none">
+                                        <path d="M1 10L5 5.5L1 1" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="answer txt-secondary">{faq-a3}</div>
+                        </div>
+                        <div class="item">
+                            <div class="question">
+                                <span class="txt">{faq-q4}</span>
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11"
+                                        fill="none">
+                                        <path d="M1 10L5 5.5L1 1" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="answer txt-secondary">{faq-a4}</div>
+                        </div>
+                        <div class="item">
+                            <div class="question">
+                                <span class="txt">{faq-q5}</span>
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11"
+                                        fill="none">
+                                        <path d="M1 10L5 5.5L1 1" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="answer txt-secondary">{faq-a5}</div>
+                        </div>
+                        <div class="item">
+                            <div class="question">
+                                <span class="txt">{faq-q6}</span>
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11"
+                                        fill="none">
+                                        <path d="M1 10L5 5.5L1 1" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="answer txt-secondary">{faq-a6}</div>
+                        </div>
+                        <div class="item">
+                            <div class="question">
+                                <span class="txt">{faq-q7}</span>
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11"
+                                        fill="none">
+                                        <path d="M1 10L5 5.5L1 1" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="answer txt-secondary">{faq-a7}</div>
+                        </div>
+                        <div class="item">
+                            <div class="question">
+                                <span class="txt">{faq-q8}</span>
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11"
+                                        fill="none">
+                                        <path d="M1 10L5 5.5L1 1" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="answer txt-secondary">{faq-a8}</div>
+                        </div>
+                        <div class="item">
+                            <div class="question">
+                                <span class="txt">{faq-q9}</span>
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11"
+                                        fill="none">
+                                        <path d="M1 10L5 5.5L1 1" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="answer txt-secondary">{faq-a9}</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <a href="#;" onclick="questionModal();" class="link-primary">Ask a question</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        {footer}
+        <script src="/common/lazy-loading.js"></script>
+        <script>
+            {headerscript}
+    function questionModal(){
+    
+    
+    
+    var widthPopup="356";var heightPopup="472";
+    
+    
+    
+    var signDiv=document.createElement("div");  signDiv.id='signDiv';   document.body.appendChild(signDiv);
+    
+    var questionHTML='<div style="background:#000;height:100%;position:fixed;top:0;left:0;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:9998"></div>';
+    
+    questionHTML+='<div style="overflow: hidden; z-index:9999;width:'+widthPopup+'px;height:'+heightPopup+'px;position:fixed;left:50%;margin-left:-'+(widthPopup/2)+'px;top:50%;margin-top:-'+(heightPopup/2)+'px;border:0">';
+    
+    questionHTML+='<iframe src="{loclink}/userquestions.php?page=about-us" style="overflow: hidden;width:100%;height:'+ (heightPopup - 35) +'px;border:none;outline:none;-webkit-border-radius:5px;border-radius:5px; box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);-webkit-box-shadow:1px 1px 0px 0px rgba(50, 50, 50, 0.75);" scrolling="no"></iframe><div onclick="closequestionDiv();" style="text-align:center;color:#fff;font-size:15px;">Close window X</div></div>';
+    
+    
+    
+    document.getElementById('signDiv').innerHTML=questionHTML;
+    
+    
+    
+    return false;
+    
+    
+    
+    }
+    
+    
+    
+    function closequestionDiv(msg){
+    
+    document.body.removeChild(document.getElementById('signDiv'));
+    
+    // exitout="1";
+    
+    if(msg == "Question submitted successfully - thank you for the feedback!")
+    
+    addMsgs(msg);
+    
+    }
+    
+    function addMsgs(msg){
+    
+        $("#successMsgAddQues").html(msg);
+    
+        $("#successMsgAddQues").show();
+    
+        document.getElementById("successMsgBtn").click();
+    
+    }
+    
+    
+            function myFunction() {
+                document.getElementById("myDropdownnew").classList.toggle("show");
+            }
+    
+            const bpTablet = 768;
+            const bpDesktop = 992;
+            const testimonials = [
+                `
+            <div class="card">
+                <div class="stars">
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                </div>
+                <div class="label">Thank you James!</div>
+                <div class="para">James resolved my issues quickly.</div>
+                <div class="flex-box">
+                    <div class="reviewer">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                fill="none">
+                                <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+                                <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                    stroke-width="0.55" />
+                            </svg>
+                        </span>
+                        <span class="txt">Catherine</span>
+                    </div>
+                    <div class="verification">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                    fill="#D85B00" />
+                            </svg>
+                        </span>
+                        <span class="txt">Verified purchase</span>
+                    </div>
+                </div>
+            </div>
+            `,
+                `
+            <div class="card">
+                <div class="stars">
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                </div>
+                <div class="label">Instant start</div>
+                <div class="para">Soon as I paid, my followers started coming in.</div>
+                <div class="flex-box">
+                    <div class="reviewer">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                fill="none">
+                                <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+                                <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                    stroke-width="0.55" />
+                            </svg>
+                        </span>
+                        <span class="txt">Elijah</span>
+                    </div>
+                    <div class="verification">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                    fill="#D85B00" />
+                            </svg>
+                        </span>
+                        <span class="txt">Verified purchase</span>
+                    </div>
+                </div>
+            </div>
+            `,
+                `
+            <div class="card">
+                <div class="stars">
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                </div>
+                <div class="label">Fab!</div>
+                <div class="para">Effortless purchasing process. Highly recommend!</div>
+                <div class="flex-box">
+                    <div class="reviewer">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                fill="none">
+                                <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+                                <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                    stroke-width="0.55" />
+                            </svg>
+                        </span>
+                        <span class="txt">Jordan</span>
+                    </div>
+                    <div class="verification">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                    fill="#D85B00" />
+                            </svg>
+                        </span>
+                        <span class="txt">Verified purchase</span>
+                    </div>
+                </div>
+            </div>
+            `,
+                `
+            <div class="card">
+                <div class="stars">
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                </div>
+                <div class="label">0 Faults👌</div>
+                <div class="para">Quick delivery, real followers. Happy with my purchase</div>
+                <div class="flex-box">
+                    <div class="reviewer">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                fill="none">
+                                <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+                                <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                    stroke-width="0.55" />
+                            </svg>
+                        </span>
+                        <span class="txt">Kayla</span>
+                    </div>
+                    <div class="verification">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                    fill="#D85B00" />
+                            </svg>
+                        </span>
+                        <span class="txt">Verified purchase</span>
+                    </div>
+                </div>
+            </div>
+            `,
+                `
+            <div class="card">
+                <div class="stars">
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                </div>
+                <div class="label">Brilliant results</div>
+                <div class="para">Decided to give Superviral a try and I don’t regret it one bit👌</div>
+                <div class="flex-box">
+                    <div class="reviewer">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                fill="none">
+                                <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+                                <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                    stroke-width="0.55" />
+                            </svg>
+                        </span>
+                        <span class="txt">Ben</span>
+                    </div>
+                    <div class="verification">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                    fill="#D85B00" />
+                            </svg>
+                        </span>
+                        <span class="txt">Verified purchase</span>
+                    </div>
+                </div>
+            </div>
+            `,
+                `
+            <div class="card">
+                <div class="stars">
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                </div>
+                <div class="label">Resolved issue quick</div>
+                <div class="para">James resolved my issue within 5 minutes of it occurring. Thanks!</div>
+                <div class="flex-box">
+                    <div class="reviewer">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                fill="none">
+                                <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+                                <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                    stroke-width="0.55" />
+                            </svg>
+                        </span>
+                        <span class="txt">Spencer</span>
+                    </div>
+                    <div class="verification">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                    fill="#D85B00" />
+                            </svg>
+                        </span>
+                        <span class="txt">Verified purchase</span>
+                    </div>
+                </div>
+            </div>
+            `,
+                `
+            <div class="card">
+                <div class="stars">
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                </div>
+                <div class="label">Highly recommend</div>
+                <div class="para">Been using Superviral for 8 years now and haven’t had any issues.</div>
+                <div class="flex-box">
+                    <div class="reviewer">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                fill="none">
+                                <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+                                <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                    stroke-width="0.55" />
+                            </svg>
+                        </span>
+                        <span class="txt">Callum</span>
+                    </div>
+                    <div class="verification">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                    fill="#D85B00" />
+                            </svg>
+                        </span>
+                        <span class="txt">Verified purchase</span>
+                    </div>
+                </div>
+            </div>
+            `,
+                `
+            <div class="card">
+                <div class="stars">
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                </div>
+                <div class="label">Rapid growth!</div>
+                <div class="para">Within seconds I became famous. Love it 🤩</div>
+                <div class="flex-box">
+                    <div class="reviewer">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                fill="none">
+                                <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+                                <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                    stroke-width="0.55" />
+                            </svg>
+                        </span>
+                        <span class="txt">Maria</span>
+                    </div>
+                    <div class="verification">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                    fill="#D85B00" />
+                            </svg>
+                        </span>
+                        <span class="txt">Verified purchase</span>
+                    </div>
+                </div>
+            </div>
+            `,
+                `
+            <div class="card">
+                <div class="stars">
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                    <div class="icon">
+                        <img src="/imgs/about/star.svg" alt="star">
+                    </div>
+                </div>
+                <div class="label">Just what I’ve been looking for</div>
+                <div class="para">I’ve been looking for real likes for ages and I’ve finally found them!</div>
+                <div class="flex-box">
+                    <div class="reviewer">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10"
+                                fill="none">
+                                <circle cx="4.5" cy="2.5" r="2.225" stroke="#4F4F4F" stroke-width="0.55" />
+                                <path d="M8 9.5C8 7.567 6.433 6 4.5 6C2.567 6 1 7.567 1 9.5" stroke="#4F4F4F"
+                                    stroke-width="0.55" />
+                            </svg>
+                        </span>
+                        <span class="txt">Nathan</span>
+                    </div>
+                    <div class="verification">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10ZM4.84405 7.14999L7.65655 3.81666L6.51012 2.84935L4.20824 5.5775L3.01402 4.45352L1.98598 5.54582L3.75681 7.21249L4.33342 7.75519L4.84405 7.14999Z"
+                                    fill="#D85B00" />
+                            </svg>
+                        </span>
+                        <span class="txt">Verified purchase</span>
+                    </div>
+                </div>
+            </div>
+            `
+            ]
+            const tElement = document.querySelector("#section-form-message .testimonials");
+            const blogs = [{blogs_arr}];
+            const tips = document.querySelector('#section-tips .tips');
+            let currentScreen = window.innerWidth;
+    
+            // function for swiper dragging
+            const addSwiperDragging = (element) => {
+                try {
+                    let isDown = false;
+                    let startX;
+                    let scrollLeft;
+    
+                    element.addEventListener('mousedown', (e) => {
+                        e.preventDefault();
+                        isDown = true;
+                        startX = e.pageX - element.offsetLeft;
+                        scrollLeft = element.scrollLeft;
+                        element.style.cursor = 'grabbing';
+                    });
+    
+                    element.addEventListener('mouseleave', (e) => {
+                        e.preventDefault();
+                        isDown = false;
+                        element.classList.remove('active');
+                        element.style.cursor = 'grab';
+                    });
+    
+                    element.addEventListener('mouseup', (e) => {
+                        e.preventDefault();
+                        isDown = false;
+                        setTimeout(()=>{
+                            element.classList.remove('active');
+                        }, 500);
+                        element.style.cursor = 'grab';
+                    });
+    
+                    element.addEventListener('mousemove', (e) => {
+                        if (!isDown) return;
+                        e.preventDefault();
+                        element.classList.add('active');
+                        const x = e.pageX - element.offsetLeft;
+                        const walk = (x - startX) * 3; //scroll-fast
+                        element.scrollLeft = scrollLeft - walk;
+                    });
+    
+                    const anchors = element.querySelectorAll('a');
+                    anchors.forEach(anchor => {
+                        anchor.addEventListener('click', (e)=>{
+                            if (element.classList.contains('active'))
+                                e.preventDefault();
+                        });
+                    });
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+    
+            // For carousel
+            try {
+                const tCarousel = document.querySelector("#section-form-message .testimonials .carousel");
+                const bCarousel = document.querySelector("#section-tips .tips .carousel");
+                testimonials.forEach(item => tCarousel.innerHTML += item);
+                blogs.forEach(item => bCarousel.innerHTML += item);
+                $(document).ready(function () {
+                    $('.owl-carousel').owlCarousel({
+                        loop: true,
+                        margin: 10,
+                        nav: false,
+                        dots: true,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            600: {
+                                items: 3
+                            },
+                            1000: {
+                                items: 5
+                            }
+                        }
+                    });
+                });
+    
+            } catch (error) {
+                console.error(error);
+            }
+    
+            // funtion for swiper rendering
+            const renderReviewSwiper = () => {
+                try {
+                    let itemsPerRow;
+                    if (currentScreen < bpDesktop)
+                        itemsPerRow = 3;
+                    else itemsPerRow = 5;
+                    const swiperContainer = tElement.querySelector('.swiper-container');
+                    swiperContainer.innerHTML = '';
+                    for (let i = 0; i < Math.ceil(testimonials.length / itemsPerRow); i++) {
+                        const sIndex = i * itemsPerRow;
+                        const swiperRow = document.createElement('div');
+                        const swiper = document.createElement('div');
+                        swiperRow.setAttribute('class', 'swiper-row');
+                        swiper.setAttribute('class', 'swiper');
+                        for (j = sIndex; j < sIndex + itemsPerRow && j < testimonials.length; j++) {
+                            swiper.innerHTML += testimonials[j];
+                        }
+                        swiperRow.appendChild(swiper);
+                        swiperContainer.appendChild(swiperRow);
+                        const rows = tElement.querySelectorAll('.swiper-row');
+                        rows.forEach(row => addSwiperDragging(row));
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+    
+            renderReviewSwiper();
+    
+            // render tips swiper
+            try {
+                const swiperContainer = tips.querySelector('.swiper-container');
+                const swiper = document.createElement('div');
+                swiper.setAttribute('class', 'swiper');
+                blogs.forEach((blog) => swiper.innerHTML += blog);
+                swiperContainer.append(swiper);
+                addSwiperDragging(swiperContainer);
+            } catch (error) {
+                console.error(error);
+            }
+    
+            function toggleTimeline() {
+                try {
+                    const hiddenContent = document.querySelectorAll('.hidden-content');
+                    const viewBtn = document.querySelector('.view-btn');
+                    const timeline = document.getElementById('fade-out');
+    
+                    // Check if the viewport width is less than 768px (mobile view)
+                    if (currentScreen < bpTablet) {
+                        hiddenContent.forEach(item => {
+                            if (item.style.display === 'none' || item.style.display === '') {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+    
+                        if (viewBtn.textContent === 'See More') {
+                            viewBtn.textContent = 'Show Less';
+                            timeline.classList.remove('fade-out');
+                        } else {
+                            viewBtn.textContent = 'See More';
+                            timeline.classList.add('fade-out');
+                        }
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+    
+            // Initialize hidden content for mobile view
+            try {
+                const hiddenContent = document.querySelectorAll('.hidden-content');
+                const timeline = document.getElementById('fade-out');
+    
+                if (currentScreen < bpTablet) {
+                    hiddenContent.forEach(item => item.style.display = 'none');
+                    timeline.classList.add('fade-out');
+                } else {
+                    hiddenContent.forEach(item => item.style.display = 'block');
+                    timeline.classList.remove('fade-out');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+    
+            // Ensure that the script runs when the window is resized
+            window.addEventListener('resize', () => {
+                try {
+                    currentScreen = window.innerWidth;
+                    const hiddenContent = document.querySelectorAll('.hidden-content');
+                    const timeline = document.getElementById('fade-out');
+    
+                    if (currentScreen < bpTablet) {
+                        hiddenContent.forEach(item => item.style.display = 'none');
+                        timeline.classList.add('fade-out');
+                    } else {
+                        hiddenContent.forEach(item => item.style.display = 'block');
+                        timeline.classList.remove('fade-out');
+                        renderReviewSwiper();
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            });
+    
+            function toggleTab(tab) {
+                try {
+                    const tabs = document.querySelectorAll('.btn-tab');
+    
+                    tabs.forEach(function (el) {
+                        el.classList.remove('animate-slideInOut', 'animate-slideInOutReverse');
+                    });
+    
+                    if (tab === 'instagram') {
+                        document.querySelector('.social1').style.display = 'flex';
+                        document.querySelector('.social2').style.display = 'none';
+                        tabs.forEach(function (el) {
+                            el.classList.remove('active');
+                        });
+                        const activeTab = document.querySelector('.btn-tab:nth-child(1)');
+                        activeTab.classList.add('active');
+                        activeTab.classList.add('animate-slideInOut');
+                    } else if (tab === 'tiktok') {
+                        document.querySelector('.social1').style.display = 'none';
+                        document.querySelector('.social2').style.display = 'flex';
+                        tabs.forEach(function (el) {
+                            el.classList.remove('active');
+                        });
+                        const activeTab = document.querySelector('.btn-tab:nth-child(2)');
+                        activeTab.classList.add('active');
+                        activeTab.classList.add('animate-slideInOutReverse');
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+    
+    
+            try {
+                const faqitems = document.querySelectorAll("#section-faq .flex-box .item");
+                faqitems.forEach((clickedItem) => {
+                    clickedItem.addEventListener("click", () => {
+                        faqitems.forEach((item) => {
+                            if (item === clickedItem) {
+                                if (item.classList.contains('active'))
+                                    item.classList.remove('active');
+                                else
+                                    item.classList.add('active');
+                            } else
+                                item.classList.remove('active');
+                        });
+                    })
+                })
+            } catch (error) {
+                console.error(error);
+            }
+    
+            document.addEventListener("DOMContentLoaded", function() {
+               const form = document.getElementById('submitForm');  // Replace with your form's ID
+    
+               form.addEventListener('submit', function() {
+                   localStorage.setItem('scrollPosition', window.scrollX);
+                   localStorage.setItem('scrollPositionY', window.scrollY);
+               });
+    
+               const scrollPositionX = localStorage.getItem('scrollPosition');
+               const scrollPositionY = localStorage.getItem('scrollPositionY');
+               if (scrollPositionX !== null && scrollPositionY !== null) {
+                   window.scrollTo(scrollPositionX, scrollPositionY);
+               }
+               localStorage.removeItem('scrollPosition');
+               localStorage.removeItem('scrollPositionY');
+           });
+        </script>
+        <script src="https://www.google.com/recaptcha/api.js" async></script>
+    </body>
+</html>
+</html>

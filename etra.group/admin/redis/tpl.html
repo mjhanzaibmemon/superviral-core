@@ -1,0 +1,143 @@
+<!-- @meta -->
+
+<title>Redis Status</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<style>
+    .box23 {
+        margin: 40px auto;
+        width: 90%;
+        background: #fff;
+        border-radius: 6px;
+        padding: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+
+    .key-block {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 15px;
+    }
+
+    .key-header {
+        background: #f1f1f1;
+        padding: 12px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .key-header:hover {
+        background: #e1e1e1;
+    }
+
+    .key-details {
+        padding: 10px 15px;
+        background: #fafafa;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+
+    .btn {
+        padding: 8px 14px;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #000;
+    }
+
+    .input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+</style>
+
+
+<!-- @head_tags -->
+
+<!-- @script_tags -->
+<!-- @script_tags -->
+
+
+
+<main>
+    <h1 style="text-align:center;margin-top:35px;">Redis Status 📦</h1>
+    <div style="margin-bottom: 20px;text-align:center;">
+        <input type="text" id="newKey" placeholder="Key" class="input" style="width: 200px;" />
+        <input type="text" id="newValue" placeholder="Value (JSON format)" class="input" style="width: 300px;" />
+        <button class="btn" onclick="addKey()">Add</button>
+        <button class="btn" onclick="resetAll()">Reset All</button>
+        <button class="btn" onclick="fetchAll()">Fetch Parameter Store</button>
+    </div>
+
+    <div class="box23">
+        <div class="redis-container">
+            {results}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).on('click', '.key-header', function () {
+            $(this).next('.key-details').slideToggle();
+        });
+        function addKey() {
+            const key = $('#newKey').val().trim();
+            const value = $('#newValue').val().trim();
+            if (!key || !value) return alert('Both key and value are required.');
+            try {
+                JSON.parse(value);
+            } catch {
+                return alert('Value must be valid JSON.');
+            }
+
+            $.post('redis-handler.php', { action: 'add', key, value }, () => location.reload());
+        }
+
+        function resetAll() {
+            if (!confirm('Are you sure you want to delete all Redis keys?')) return;
+            $.post('redis-handler.php', { action: 'reset' }, () => location.reload());
+        }
+
+        function fetchAll() {
+            const key = '{ssmKey}';
+            if (!confirm('Are you sure you want to fetch Parameter store?')) return;
+            $.post('redis-handler.php', { action: 'delete', key }, () => location.reload());
+        }
+
+        $(document).on('click', '.delete-btn', function () {
+            const key = $(this).data('key');
+            if (!confirm(`Delete key "${key}"?`)) return;
+            $.post('redis-handler.php', { action: 'delete', key }, () => location.reload());
+        });
+
+    </script>
+</main>

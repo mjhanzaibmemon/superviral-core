@@ -1,0 +1,260 @@
+service: etra
+
+custom:
+  # IMPORTANT: environment selector
+  # Serverless passes --stage <env> so we map it here
+  main: ${opt:stage}
+
+  # IAM roles per environment
+  role:
+    dev: arn:aws:iam::628897991898:role/lambdaexecutionrole
+    stage: arn:aws:iam::<STAGE_ACCOUNT_ID>:role/lambdaexecutionrole
+    main: arn:aws:iam::669633198436:role/lambdaexecutionrole
+
+  # VPC per environment
+  vpc:
+    dev:
+      securityGroupIds:
+        - sg-046b82ae67bfd26fb
+      subnetIds:
+        - subnet-03d7cb77bed1870a9
+
+    stage:
+      securityGroupIds:
+        - sg-023522aad0d377362
+      subnetIds:
+        - subnet-0b2e2cae82b4aca2b
+
+    main:
+      securityGroupIds:
+        - sg-023522aad0d377362
+      subnetIds:
+        - subnet-0b2e2cae82b4aca2b
+
+provider:
+  name: aws
+
+  # environment chosen (dev/stage/main)
+  main: ${self:custom.main}
+
+  region: us-east-2
+  runtime: php-81-fpm
+  timeout: 29
+  architecture: arm64
+
+  tracing:
+    lambda: true
+
+  # Dynamic IAM role selection
+  role: ${self:custom.role.${self:custom.main}}
+
+  # Correct VPC mapping
+  vpc:
+    securityGroupIds: ${self:custom.vpc.${self:custom.main}.securityGroupIds}
+    subnetIds: ${self:custom.vpc.${self:custom.main}.subnetIds}
+
+  # Deployment bucket per environment
+  deploymentBucket:
+    name: lambda-bucket-dev1  # <-- YOU REQUESTED THIS
+
+  apiGateway:
+    binaryMediaTypes:
+      - "*/*"
+
+plugins:
+  - ./vendor/bref/bref
+
+# ---------------- FUNCTIONS (unchanged) ---------------- #
+
+functions:
+  test:
+    handler: test/test.php
+    events:
+      - httpApi:
+          path: /test
+          method: "*"
+
+  create-sms-lambda:
+    handler: create-sms/create-sms-lambda.php
+    runtime: php-81
+    events:
+      - httpApi:
+          path: /create-sms-lambda
+          method: "*"
+
+  sms-lambda:
+    handler: dosms/sms-lambda.php
+    runtime: php-81
+    events:
+      - httpApi:
+          path: /sms-lambda
+          method: "*"
+
+  email-lambda:
+    handler: doemail/email-lambda.php
+    runtime: php-81
+    events:
+      - httpApi:
+          path: /email-lambda
+          method: "*"
+
+  refills-lambda:
+    handler: refills/refills-lambda.php
+    runtime: php-81
+    events:
+      - httpApi:
+          path: /refills-lambda
+          method: "*"
+
+  refills-mass-lambda:
+    handler: refills-mass/refills-mass-lambda.php
+    runtime: php-81
+    events:
+      - httpApi:
+          path: /refills-mass-lambda
+          method: "*"
+
+  socialmedia-api-lambda:
+    handler: socialmedia-api/socialmedia-api-lambda.php
+    events:
+      - httpApi:
+          path: /socialmedia-api-lambda
+          method: "*"
+
+  supplier-lambda:
+    handler: supplier/supplier-lambda.php
+    runtime: php-81
+    timeout: 120
+    events:
+      - httpApi:
+          path: /supplier-lambda
+          method: "*"
+
+  autofulfill-free-lambda:
+    handler: auto-fulfill-free/autofulfill-free-lambda.php
+    runtime: php-81
+    timeout: 180
+    events:
+      - httpApi:
+          path: /autofulfill-free-lambda
+          method: "*"
+
+  autofulfill-lambda:
+    handler: auto-fulfill/autofulfill-lambda.php
+    runtime: php-81
+    timeout: 180
+    events:
+      - httpApi:
+          path: /autofulfill-lambda
+          method: "*"
+
+  download-thumbs-lambda:
+    handler: download-thumbs/download-thumbs-lambda.php
+    events:
+      - httpApi:
+          path: /download-thumbs-lambda
+          method: "*"
+
+  download-thumbs-api-lambda:
+    handler: download-thumbs-api/download-thumbs-lambda.php
+    timeout: 120
+    events:
+      - httpApi:
+          path: /download-thumbs-api-lambda
+          method: "*"
+
+  download-thumbs-retry-api-lambda:
+    handler: download-thumbs-retry-api/download-thumbs-retry-lambda.php
+    timeout: 120
+    events:
+      - httpApi:
+          path: /download-thumbs-retry-api-lambda
+          method: "*"
+
+  manjur-lambda:
+    handler: manjur/manjur-lambda.php
+    timeout: 120
+    events:
+      - httpApi:
+          path: /manjur-lambda
+          method: "*"
+
+  checkorderfulfilled-lambda:
+    handler: checkorderfulfilled/checkorderfulfilled-lambda.php
+    runtime: php-81
+    timeout: 120
+    events:
+      - httpApi:
+          path: /checkorderfulfilled-lambda
+          method: "*"
+
+  free-followers-lambda:
+    handler: free-followers/free-followers-lambda.php
+    runtime: php-81
+    events:
+      - httpApi:
+          path: /free-followers-lambda
+          method: "*"
+
+  free-likes-lambda:
+    handler: free-likes/free-likes-lambda.php
+    runtime: php-81
+    events:
+      - httpApi:
+          path: /free-likes-lambda
+          method: "*"
+
+  sentinel:
+    handler: sentinel/initiate-tests.php
+    runtime: php-81
+    events:
+      - httpApi:
+          path: /sentinel
+          method: "*"
+
+  autofulfill-clear-lambda:
+    handler: auto-fulfill-clear/autofulfill-clear-lambda.php
+    events:
+      - httpApi:
+          path: /autofulfill-clear-lambda
+          method: "*"
+
+  autofulfill-free-clear-lambda:
+    handler: auto-fulfill-free-clear/autofulfill-free-clear-lambda.php
+    events:
+      - httpApi:
+          path: /autofulfill-free-clear-lambda
+          method: "*"
+
+  run-query-lambda:
+    handler: run-query/run-query-lambda.php
+    runtime: php-81
+    events:
+      - httpApi:
+          path: /run-query-lambda
+          method: "*"
+
+  check-account-status-lambda:
+    handler: check-account-status/check-account-status-lambda.php
+    runtime: php-81
+    timeout: 120
+    events:
+      - httpApi:
+          path: /check-account-status-lambda
+          method: "*"
+
+  preloadpost-lambda:
+    handler: preloadpost/preloadpost-lambda.php
+    timeout: 120
+    events:
+      - httpApi:
+          path: /preloadpost-lambda
+          method: "*"
+
+  preloadpost-tiktok-lambda:
+    handler: preloadpost-tiktok/preloadpost-tiktok-lambda.php
+    timeout: 120
+    events:
+      - httpApi:
+          path: /preloadpost-tiktok-lambda
+          method: "*"

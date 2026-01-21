@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Billing & Fast Checkout - Superviral</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/css/accountstyle.css">
+<style type="text/css">
+
+.savingcardbtn{    display: inline-block;
+    position: relative;
+    width: initial;
+    margin: 0!important;
+    font-size: 14px;
+    padding: 12px 20px;margin-right: 14px!important;}
+
+      .pay-icon{    position: absolute;
+    left: 45px;
+    bottom: 30px;
+    width: 21px;
+    height: 36px;
+    background-size: 20px;
+    background-repeat: no-repeat;}
+
+.login_form.modal div{position: relative;}
+
+.login_form.modal div input{padding-left:50px;}
+
+.login_form.modal .emailsuccess{    height: 19px;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-top: 32px!important;
+    line-height: 20px;}
+
+.login_form.modal div .btn{padding-left:0;}
+
+h2{font-size: 20px;
+    margin-top: 70px;}
+
+h3{height: initial;}
+
+.btn6{width:initial;}
+
+.savedcards{    border: 1px solid #cccc;
+    margin-bottom: 15px;
+    padding: 12px 10px;
+    border-radius: 8px;
+    height: 26px;
+    padding-left: 68px;
+    position: relative;
+    line-height: 27px;
+    font-size: 15px;}
+
+.savedcards .cardbrand{    width: 40px;
+    position: absolute;
+    left: 14px;
+    top: 13px;}
+
+  .savedcards .deletecard img{    width: 21px;
+  position: absolute;
+    right: 14px;
+    top: 15px;}
+
+  .savedcards .savingcardbtn,.substitle .savingcardbtn{    height: 34px;
+    line-height: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+    border: 1px solid #5d5d5d;    position: absolute;
+    right: 39px;
+    top: 8px;}
+
+
+    .primary{border: 1px solid #03a9f4;
+    background: #eafbff;}
+
+    .primary .primarystatus{    height: 4px;
+    line-height: 5px;
+    padding: 10px 7px;
+    font-size: 13px;
+    color: #fff;
+    right: 78px;
+    top: 13px;
+    position: absolute;
+    background: #03a9f4;
+    border-radius: 3px;}
+
+    .savedcards .expired{font-size: 12px;
+    width: initial;
+    display: initial;
+    margin-left: 15px;
+    background-color: red;
+    color: white;
+    padding: 4px 7px;}
+
+    .savedcards .expiring{background:#ff791a;}
+
+
+    .subscriptions{    border: 1px solid #cccc;
+    margin-bottom: 15px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    position: relative;
+    line-height: 27px;
+    font-size: 15px;    
+    padding-left: 78px;}
+
+    .subscriptions table{width: 100%; 
+    font-size: 13px;}
+    .subscriptions table tr td{border:0;}
+
+    .subscriptions .substitle{    margin-top: 11px;font-size:16px;margin-bottom:13px;padding-bottom: 9px;border-bottom:1px solid #ccc;}
+    .subscriptions .subtitlemain{    margin-top: 11px;
+    font-size: 16px;
+    margin-bottom: 0;
+    padding-bottom: 6px;
+    border-bottom: 0;
+    }
+
+
+    .subscriptions .substitle .username{font-size:13px;font-style:italic;color:grey;}
+    .subscriptions .substitle span{font-size:14px;font-style:italic;color:grey;}
+    .subscriptions .substitle .status{display: inline-block;
+    font-size: 13px;
+    position: relative;font-weight:bold;}
+
+    .subscriptions .substitle .statusactive{color:green;}
+    .subscriptions .substitle .statuspaused{color:orange;}
+    .subscriptions .substitle .statuscancelled{color:red;}
+
+    .subscriptions .substitle .statuspaused .spinning,.subscriptions .substitle .statuscancelled .spinning{display:none;}
+
+    .substitle .savingcardbtn{    top: initial;
+    right: initial;
+    position: unset;
+    display: inline-block;
+    width: 82px;
+    margin-top: -6px!important;
+    text-align: center;float:right;}
+
+    .dp{    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    position: absolute;left:10px;
+      top: 12px;}
+
+      .spinning{    animation-name: spin;
+    animation-duration: 600ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    height: 20px;
+    fill: #000000;
+    position: absolute;
+    right: -29px;
+    top: 3px;}
+
+    .savecardmsg{font-size: 13px;}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+</style>
+<title>Billing</title>
+</head>
+<body>
+{header}
+<div class="orderbody" align="center">
+
+
+    <div class="cnwidth">
+
+
+       <div class="container dshadow" style="text-align: left;">
+            <h1>Billing and Fast Checkout</h1>
+
+            <h2>Saved cards</h2>
+            {success1}
+            <div class="inner-billing">
+               {cardresults}
+                
+                <a href="#ex1" class="btn btn3 savingcardbtn" rel="modal:open" style="display:none;"> + Add a new card</a>
+            </div>
+
+            <h2>Subscriptions history</h2>
+            <div class="inner-billing">
+                {subscriptionresults}
+
+                <a href="/account/automatic-likes/" class="btn btn3 savingcardbtn"> + Add a new subscription</a>
+            </div>
+
+
+             <h2>Fast checkout preferences</h2>
+            <div style="margin:30px 0 10px 0;font-size:15px"><a class="btn btn3 savingcardbtn" href="/account/settings/billing/?billingsave={billingsavehref}">{billingsavecta}</a><br><br>{billingsavestatus}</div>
+
+
+            <div class="inner-billing savecardmsg">Your payment methods are saved with the <b>most up-to-date 256-bit encryption technology</b> used by modern banks.  For <u>security reasons</u>, <b>we don't save your CVC</b>, which you will need to re-enter at checkout.</div>
+
+        </div>
+    </div>
+
+</div>
+
+<form action="billing.php" class="login_form modal" id="ex1" style="display:none;" method="post">
+
+    
+    <h3>Add New Card Details For Faster Checkout</h3>
+  
+    <input type="hidden" name="submitcardpayment" value="1">  
+    <input type="hidden" id="cardbrand" name="cardbrand" value="{cardbrand}">  
+    <input type="hidden" name="cardbrand1" value="{cardbrand1}">  
+    
+    <div><label>Cardholder name:</label>
+    {error1}
+    <ion-icon name="person-outline" class="pay-icon"></ion-icon>
+    <input id="input1" type="text" name="cardholdername" class="required field is-empty input" value="{cardholdername}"  autocomplete="cc-name" >
+    </div>
+    
+    <div><label>Card 16-digits:</label>
+        {error2}
+        <ion-icon name="card-outline" class="pay-icon"></ion-icon>
+        <input  id="input2" type="text" name="longdigits" class="required ccFormatMonitor" value="{longdigits}"  autocomplete="cc-number" >
+      </div>
+
+    <div><label>Expiry date:</label>
+      {error3}
+        <ion-icon name="calendar-outline" class="pay-icon pay-icon-2"></ion-icon>
+        <input id="inputExpDate" type="text" name="expirydate" class="required" value="{expirydate}" placeholder="MM/YYYY" autocomplete="cc-exp" >
+      </div>
+
+  <div><input class="btn color4 dshadow" type="submit" name="update_card" value="Save Card Details" ></div>
+
+
+</form>
+
+{footer}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />   
+{modalonload}
+<script type="text/javascript">
+
+
+$('.emailsuccess').delay(5000).fadeOut('slow');
+
+window.addEventListener("pageshow", () => {
+   // $("#input1").val('');
+   // $("#input2").val('');
+    $("#inputExpDate").val('');
+    $("#input4").val('');
+});
+
+
+
+
+
+var app;
+
+(function() {
+  'use strict';
+  
+  app = {
+    monthAndSlashRegex: /^\d\d \/ $/, // regex to match "MM / "
+    monthRegex: /^\d\d$/, // regex to match "MM"
+    
+    el_cardNumber: '.ccFormatMonitor',
+    el_expDate: '#inputExpDate',
+    el_cvv: '.cvv',
+    el_ccUnknown: 'cc_type_unknown',
+    el_ccTypePrefix: 'cc_type_',
+    el_monthSelect: '#monthSelect',
+    el_yearSelect: '#yearSelect',
+    
+    cardTypes: {
+      'American Express': {
+        name: 'American Express',
+        code: 'ax',
+        security: 4,
+        pattern: /^3[47]/,
+        valid_length: [15],
+        formats: {
+          length: 15,
+          format: 'xxxx xxxxxxx xxxx'
+        }
+      },
+      'Visa': {
+        name: 'Visa',
+        code: 'vs',
+        security: 3,
+        pattern: /^4/,
+        valid_length: [16],
+        formats: {
+            length: 16,
+            format: 'xxxx xxxx xxxx xxxx'
+          }
+      },
+      'Maestro': {
+        name: 'Maestro',
+        code: 'ma',
+        security: 3,
+        pattern: /^(50(18|20|38)|5612|5893|63(04|90)|67(59|6[1-3])|0604)/,
+        valid_length: [16],
+        formats: {
+            length: 16,
+            format: 'xxxx xxxx xxxx xxxx'
+          }
+      },
+      'Mastercard': {
+        name: 'Mastercard',
+        code: 'mc',
+        security: 3,
+        pattern: /^5[1-5]/,
+        valid_length: [16],
+        formats: {
+            length: 16,
+            format: 'xxxx xxxx xxxx xxxx'
+          }
+      } 
+    }
+  };
+  
+  app.addListeners = function() {
+      $(app.el_expDate).on('keydown', function(e) {
+        app.removeSlash(e);
+      });
+
+      $(app.el_expDate).on('keyup', function(e) {
+        app.addSlash(e);
+      });
+
+      $(app.el_expDate).on('blur', function(e) {
+        app.populateDate(e);
+      });
+
+      $(app.el_cvv +', '+ app.el_expDate).on('keypress', function(e) {
+        return e.charCode >= 48 && e.charCode <= 57;
+      });  
+  };
+  
+  app.addSlash = function (e) {
+    var isMonthEntered = app.monthRegex.exec(e.target.value);
+    if (e.key >= 0 && e.key <= 9 && isMonthEntered) {
+      e.target.value = e.target.value + " / ";
+    }
+  };
+  
+  app.removeSlash = function(e) {
+    var isMonthAndSlashEntered = app.monthAndSlashRegex.exec(e.target.value);
+    if (isMonthAndSlashEntered && e.key === 'Backspace') {
+      e.target.value = e.target.value.slice(0, -3);
+    }
+  };
+  
+  app.populateDate = function(e) {
+    var month, year;
+    
+    if (e.target.value.length == 7) {
+      month = parseInt(e.target.value.slice(0, -5));
+      year = "20" + e.target.value.slice(5);
+      
+      if (app.checkMonth(month)) {
+        $(app.el_monthSelect).val(month);
+      } else {
+        $(app.el_monthSelect).val(0);
+      }
+      
+      if (app.checkYear(year)) {
+        $(app.el_yearSelect).val(year);
+      } else {
+        $(app.el_yearSelect).val(0);
+      }
+      
+    }
+  };
+  
+  app.checkMonth = function(month) {
+    if (month <= 12) {
+      var monthSelectOptions = app.getSelectOptions($(app.el_monthSelect));
+      month = month.toString();
+      if (monthSelectOptions.includes(month)) {
+        return true; 
+      }
+    }
+  };
+  
+  app.checkYear = function(year) {
+    var yearSelectOptions = app.getSelectOptions($(app.el_yearSelect));
+    if (yearSelectOptions.includes(year)) {
+      return true; 
+    }
+  };
+          
+  app.getSelectOptions = function(select) {
+    var options = select.find('option');
+    var optionValues = [];
+    for (var i = 0; i < options.length; i++) {
+      optionValues[i] = options[i].value;
+    }
+    return optionValues;
+  };
+  
+  app.setMaxLength = function ($elem, length) {
+    if($elem.length && app.isInteger(length)) {
+      $elem.attr('maxlength', length);
+    }else if($elem.length){
+      $elem.attr('maxlength', '');
+    }
+  };
+  
+  app.isInteger = function(x) {
+    return (typeof x === 'number') && (x % 1 === 0);
+  };
+
+  app.createExpDateField = function() {
+    $(app.el_monthSelect +', '+ app.el_yearSelect).hide();
+    $(app.el_monthSelect).parent().prepend('<input type="text" class="ccFormatMonitor">');
+  };
+  
+  
+  app.isValidLength = function(cc_num, card_type) {
+    for(var i in card_type.valid_length) {
+      if (cc_num.length <= card_type.valid_length[i]) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  app.getCardType = function(cc_num) {
+    for(var i in app.cardTypes) {
+      var card_type = app.cardTypes[i];
+      if (cc_num.match(card_type.pattern) && app.isValidLength(cc_num, card_type)) {
+        return card_type;
+      }
+    }
+  };
+
+  app.getCardFormatString = function(cc_num, card_type) {
+    for(var i in card_type.formats) {
+      var format = card_type.formats[i];
+      if (cc_num.length <= format.length) {
+        return format;
+      }
+    }
+  };
+
+  app.formatCardNumber = function(cc_num, card_type) {
+    var numAppendedChars = 0;
+    var formattedNumber = '';
+    var cardFormatIndex = '';
+
+    if (!card_type) {
+      return cc_num;
+    }
+
+    var cardFormatString = app.getCardFormatString(cc_num, card_type);
+    for(var i = 0; i < cc_num.length; i++) {
+      cardFormatIndex = i + numAppendedChars;
+      if (!cardFormatString || cardFormatIndex >= cardFormatString.length) {
+        return cc_num;
+      }
+
+      if (cardFormatString.charAt(cardFormatIndex) !== 'x') {
+        numAppendedChars++;
+        formattedNumber += cardFormatString.charAt(cardFormatIndex) + cc_num.charAt(i);
+      } else {
+        formattedNumber += cc_num.charAt(i);
+      }
+    }
+
+    return formattedNumber;
+  };
+
+  app.monitorCcFormat = function($elem) {
+    var cc_num = $elem.val().replace(/\D/g,'');
+    var card_type = app.getCardType(cc_num);
+    $elem.val(app.formatCardNumber(cc_num, card_type));
+    app.addCardClassIdentifier($elem, card_type);
+    document.getElementById("cardbrand").value = card_type.name;
+  };
+
+  app.addCardClassIdentifier = function($elem, card_type) {
+    var classIdentifier = app.el_ccUnknown;
+    if (card_type) {
+      classIdentifier = app.el_ccTypePrefix + card_type.code;
+      app.setMaxLength($(app.el_cvv), card_type.security);
+    } else {
+      app.setMaxLength($(app.el_cvv));
+    }
+
+    if (!$elem.hasClass(classIdentifier)) {
+      var classes = '';
+      for(var i in app.cardTypes) {
+        classes += app.el_ccTypePrefix + app.cardTypes[i].code + ' ';
+      }
+      $elem.removeClass(classes + app.el_ccUnknown);
+      $elem.addClass(classIdentifier);
+    }
+  };
+
+  
+  app.init = function() {
+
+    $(document).find(app.el_cardNumber).each(function() {
+      var $elem = $(this);
+      if ($elem.is('input')) {
+        $elem.on('input', function() {
+          app.monitorCcFormat($elem);
+        });
+      }
+    });
+    
+    app.addListeners();
+    
+  }();
+  
+})();
+
+  function checkForm(form)
+  {
+    form.submitbtn.disabled = true;
+    return true;
+  }
+
+</script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+</body>
+</html>

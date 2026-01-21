@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="/css/style.min.css">
+
+<link rel="stylesheet" type="text/css" href="/css/loginregister.css">
+
+
+
+<title>{title} - Superviral</title>
+
+<style>.container{height:initial;}
+
+      .error {
+
+        color: red;
+
+      }</style>
+
+</head>
+
+<body>
+
+{header}
+
+
+
+
+
+<div class="orderbody" align="center">
+
+
+
+
+
+    <div class="cnwidth">
+
+
+
+        <div class="container dshadow" style="text-align: left;">
+
+                            <form id="form" method="post" action="/admin/login/">
+
+                    <h1>Login to admin account</h1>
+
+                    <div class="form-group">
+
+                        {error}
+
+                        {error1}
+
+                        <input type="text" class="form-control required" name="email" placeholder="Enter Username" value="{email}">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        {error2}
+
+                        <input type="password" class="form-control required" name="password" placeholder="{placeholder2}">
+
+                    </div>
+
+                    <button class="color4 btn">{maincta}</button>
+
+                </form>
+
+
+
+
+
+
+
+         </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+    <script>{footer}</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C18K306XYW"></script>
+
+<script async src="https://www.googleoptimize.com/optimize.js?id=OPT-WNB55RC"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'UA-41728467-8');
+
+  gtag('config', 'G-C18K306XYW');
+
+
+
+gtag('event', 'Pageview2', {
+
+  'event_category': 'View',
+
+  'event_label': 'Viewed'
+
+});
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

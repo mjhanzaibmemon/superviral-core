@@ -1,0 +1,1124 @@
+<style>
+    #custom-loader {
+        position: absolute;
+        top: 13px;
+        right: 20px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 5px solid;
+        border-color: #ffffff;
+        border-right-color: #1a73e7;
+        animation: s2 1s infinite linear;
+        display: none;
+    }
+
+    @keyframes s2 {
+        to {
+            transform: rotate(1turn)
+        }
+    }
+
+
+
+    h1 {
+        margin-bottom: 15px;
+    }
+
+
+
+    .greenbtn {
+        background: #80bd29;
+        width: initial;
+        display: inline-block;
+        margin: 0 !important;
+        padding: 10px 13px;
+        font-size: 15px;
+        border-color: #80bd29;
+
+    }
+
+
+
+
+
+
+
+    .ordertbl .thewidth .thewidthleft,
+    .ordertbl .thewidth .thewidthright {
+        width: 50%;
+    }
+
+
+
+    .discounttbl {
+        margin-top: 25px;
+    }
+
+
+
+
+
+
+
+    .discounttbl .thewidth .thewidthleft .package {
+        padding-top: 10px;
+    }
+
+
+
+
+
+
+
+    .tickadded {
+        position: relative;
+    }
+
+
+
+    .tickadded .tick {
+        width: 20px;
+
+
+
+        height: 20px;
+
+
+
+        background: url(/imgs/all-images.png) no-repeat 0 -26px;
+
+
+
+        display: block;
+
+
+
+        position: absolute;
+
+
+
+        left: 0;
+
+
+
+        top: 9px;
+    }
+
+
+
+
+
+
+
+    .tickadded span {
+        margin-top: 0 !important;
+        padding-left: 26px;
+
+
+
+        color: #008000 !important;
+    }
+
+
+
+
+
+
+
+    .remove {
+        font-size: 14px;
+
+
+
+        color: grey;
+    }
+
+
+
+
+
+
+
+    .ups {
+        margin-top: 15px;
+        display: block;
+    }
+
+
+
+
+
+
+
+    .container .ups1 {
+        display: block;
+
+
+
+        color: black;
+
+
+
+        text-align: right;
+
+
+
+        margin: 0;
+
+
+
+        position: relative;
+
+
+        color: #008000 !important;
+        margin-top: 5px;
+    }
+
+
+
+
+
+
+
+    .thewidth .autolikesdesc {
+        padding: 0;
+        margin-top: 15px;
+    }
+
+
+
+
+
+
+
+    .thewidth .autolikesdesc .tickadded span {
+        color: #003a00 !important;
+    }
+
+
+
+
+
+
+
+    .thewidth .bftag {
+
+
+
+        background: #ffe6e6;
+
+
+
+        padding: 3px 9px;
+
+
+
+        font-size: 13px;
+
+
+
+        width: fit-content;
+
+
+
+        margin-bottom: 12px;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    .dp2 {
+        -webkit-border-radius: 39px;
+
+
+
+        -moz-border-radius: 39px;
+
+
+
+        border-radius: 39px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    .discounttbl .thewidth .thewidthleft,
+    .discounttbl .thewidth .thewidthright {
+        width: 100%;
+    }
+
+
+
+
+
+
+
+    .greenbtn {
+        width: 100%;
+
+
+
+        text-align: center;
+    }
+
+
+
+
+
+
+
+    .changeusernamelink {
+        text-decoration: underline;
+        color: #0000da;
+    }
+
+    #order-table_cn{padding:0!important;background:none;margin-bottom:25px;}
+    #order-table_cn > div{margin:0 10px;}
+    @media (min-width:768px){
+        #order-table_cn > div{border-radius:10px 10px 0 0;overflow: hidden;margin:0;}
+    }
+
+    .order-table {
+        width:100%;
+        min-width:700px;
+        height: 400px;
+        table-layout: fixed;
+        border-collapse: collapse;      
+    }
+
+    .order-table th,
+    .order-table td {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .order-table th {
+        font-weight: 600;
+    }
+
+    .order-table thead th:first-child {
+        background-color: #000;
+    }
+
+
+    .order-table thead {
+        background-color: #878787;
+        color: #FFF;
+    }
+
+    .order-table thead tr,
+    .order-table tbody tr {
+        height: 80px;
+    }
+
+    .order-table tbody tr:nth-child(odd) {
+        background-color: #F9F9F9;
+    }
+
+    .order-table tbody tr:nth-child(even) {
+        background-color: #F4F4F4;
+    }
+   
+    .order-table tbody tr img{
+        max-width:75%;
+        display: block;
+        margin:auto;
+    }
+
+
+
+
+    @media only screen and (min-width: 768px) {
+
+
+
+        .container {
+
+
+
+
+
+
+
+            padding: 37px 5% !important;
+
+
+
+        }
+
+
+
+
+
+
+
+        .discounttbl .thewidth .thewidthleft,
+        .discounttbl .thewidth .thewidthright {
+            width: 50%;
+        }
+
+
+
+        .greenbtn {
+            width: initial;
+
+
+
+            text-align: right;
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .stepsbar {
+
+
+
+        width: 85%;
+
+
+
+        -webkit-animation: animateThis 1s ease;
+
+
+
+        animation: animateThis 1s ease;
+
+
+
+        background: rgb(78, 3, 224);
+
+
+
+        height: 100%;
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+    @keyframes animateThis {
+
+
+
+        0% {
+
+
+
+            width: 75%;
+
+
+
+        }
+
+
+
+        100% {
+
+
+
+            width: 85%;
+
+
+
+        }
+
+
+
+    }
+</style>
+
+
+
+<div class="orderbody" align="center">
+
+
+
+
+
+
+
+
+
+
+
+    <div class="cnwidth">
+
+
+
+
+
+
+
+        {discountnotifcart}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="liveholder"><span class="livebox"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    class="livesvg">
+                    <path d="M256 0C115.4 0 0 115.4 0 256s115.4 256 256 256 256-115.4 256-256S396.6 0 256 0z" />
+                </svg> Live</span><span id="livecount" class="livecount"></span> {usercheckoutlabel}</div>
+
+
+
+
+
+
+
+        <div class="container container2 dshadow">
+
+
+
+
+
+
+
+            <h1>{h1}</h1>
+
+
+
+
+
+
+
+            <div class="ordertbl">
+
+
+
+                <div class="orderheader thewidth">
+
+
+
+
+
+
+
+                    <span class="thewidthleft">{tblitem}</span>
+
+
+
+                    <span class="thewidthright">{tblprice}</span>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="thewidth">
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="thewidthleft"><span class="package">{packagetitle}</span><span
+                            class="username">@{igusername} {changeusernamelink}</span>
+
+                        <div id="loadpic">{profilepicture}</div>
+
+                        <div id="loadurl">{postURL}</div>
+
+                        <div class="tickadded"><span class="tick"></span><span>Ready for delivery</span></div>
+
+                    </div>
+
+
+
+                    <div class="thewidthright">{currency}{price}{currencyend}</div>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+            <div class="ordertbl discounttbl">
+
+
+
+                <div class="thewidth">
+
+
+
+
+
+
+
+                    <div class="thewidthleft"><span class="package">{discounttitle}</span></div>
+
+
+
+                    <div class="thewidthright">{discountbtn}</div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+            <div>{upsellFollowerHtml}</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="ordertbl discounttbl" {autolikesoffer}>
+
+
+
+                <div class="thewidth">
+
+
+
+
+
+
+
+                    <div class="thewidthleft"><span class="package">{discounttitleautolikes}</span>
+
+
+
+                        <div class="autolikesdesc" {autolikesdesc}>
+
+
+
+
+
+
+
+                            <div class="tickadded"><span class="tick"></span><span>{alpoint3}</span></div>
+
+
+
+                            <div class="tickadded"><span class="tick"></span><span>{alpoint2}</span></div>
+
+
+
+                            <div class="tickadded"><span class="tick"></span><span>{alpoint4}</span></div>
+
+
+
+                            <div class="tickadded"><span class="tick"></span><span>{alpoint1}</span></div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="thewidthright">{discountbtnautolikes}</div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="container  container2 dshadow">
+
+
+
+
+
+
+
+            <h1>{h2}</h1>
+
+
+
+
+
+
+
+            {discounton}
+
+
+
+
+
+
+
+            <div class="summary thewidth">
+
+
+
+                <div class="thewidthleft"><span class="package">{packagetitle}</span>{summaryupsell1}{summaryautolikes1}
+                </div>
+
+
+
+                <div class="thewidthright">{currency}{price}{currencyend}{summaryupsell2}{summaryautolikes2}</div>
+
+
+
+
+
+
+                {upsellSubTotal}
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+            {discountreview}
+
+
+
+
+
+
+
+            <div class="finalsummary thewidth">
+
+
+
+                <div class="thewidthleft"><span class="package">{ostotal}</span></div>
+
+
+
+                <div class="thewidthright">{currency}{totalprice}{currencyend}</div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div>
+                <!--    <form method="POST" action="{submitformto}"><input type="submit" value="{ctabtn}" class="color4 btn"></form> -->
+
+                <div style="position: relative;">
+                    <a class="btn color4" href="{submitformto}" style="text-align: center;font-size:18px;"
+                        id="spin-btn">{ctabtn}</a>
+                    <div id="custom-loader"></div>
+                </div>
+                <!--
+                            <script>
+                                document.getElementById("spin-btn").addEventListener("click", spinFunction);
+            
+                                function spinFunction() {
+                                    document.getElementById("custom-loader").style.display = "block";
+                                }
+                            </script>
+                            -->
+            </div>
+
+
+
+        </div>
+
+        <div>
+            <div class="container" style="background:none;padding:0!important;margin-top:30px;"><h1>Compare providers ❤️</h1></div>
+            <div class="container" id="order-table_cn" style="overflow:auto;">
+                <div style="width:100%;">
+                    <table class="order-table">
+                        <thead>
+                            <tr>
+                                <th>Websites</th>
+                                <th>Package<br>Price</th>
+                                <th>Based In</th>
+                                <th>Delivery<br>Guarantee</th>
+                                <th>Refund<br>Guarantee</th>
+                                <th>Premium</th>
+                                <th>Instant<br>Delivery</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background-color: #B2E8FF;">
+                                <td><img src="/imgs/superviral-logo.png" alt="logo"></td>
+                                <td>{currency}{price}{currencyend}</td>
+                                <td>US & UK</td>
+                                <td><img src="/imgs/checked-green.svg" alt="icon"></td>
+                                <td><img src="/imgs/checked-green.svg" alt="icon"></td>
+                                <td><img src="/imgs/checked-green.svg" alt="icon"></td>
+                                <td><img src="/imgs/checked-green.svg" alt="icon"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="/imgs/buzzoid-logo.png" alt="logo"></td>
+                                <td>{buzzoid_price}</td>
+                                <td>United Arab Emirates</td>
+                                <td><img src="/imgs/cross-red.svg" alt="icon"></td>
+                                <td><img src="/imgs/cross-red.svg" alt="icon"></td>
+                                <td><img src="/imgs/checked-green.svg" alt="icon"></td>
+                                <td><img src="/imgs/checked-green.svg" alt="icon"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="/imgs/instafollowers-logo.png" alt="logo"></td>
+                                <td>{instafollowers_price}</td>
+                                <td>Estonia Near Russia</td>
+                                <td><img src="/imgs/cross-red.svg" alt="icon"></td>
+                                <td><img src="/imgs/cross-red.svg" alt="icon"></td>
+                                <td><img src="/imgs/checked-green.svg" alt="icon"></td>
+                                <td><img src="/imgs/checked-green.svg" alt="icon"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="/imgs/logo-white-goread.png" alt="logo"></td>
+                                <td>{goread_price}</td>
+                                <td>United Arab Emirates</td>
+                                <td><img src="/imgs/cross-red.svg" alt="icon"></td>
+                                <td><img src="/imgs/cross-red.svg" alt="icon"></td>
+                                <td><img src="/imgs/checked-green.svg" alt="icon"></td>
+                                <td><img src="/imgs/cross-red.svg" alt="icon"></td>
+                            </tr>
+                        </tbody>
+                    </table>  
+                </div>          
+            </div>            
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+        <div class="cnwidth" style="width: 90%;">
+        
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+    /*
+        function checkAdminStats() {
+    
+    
+    
+            $.ajax({
+    
+              type: "POST",
+    
+               url: "https://superviral.io/ajax-post.php",
+    
+             // url: 'http://superviral.lcl/ajax-post.php',
+    
+              data: { "type": "checkAdminStats" },
+    
+              success: function (data) {
+    
+                if (data == 1) {
+    
+                  $("#loadpic").hide();
+    
+                  $("#loadurl").show();
+    
+                } else {
+    
+                  $("#loadpic").show();
+    
+                  $("#loadurl").hide();
+    
+                }
+    
+              },
+    
+            });
+    
+    
+    
+        }
+    
+    
+    
+        checkAdminStats();
+    */
+
+
+
+
+    function liveusers() {
+
+
+
+        var feedback = $.ajax({
+
+
+
+            type: "GET",
+
+
+
+            url: "https://superviral.io/livecheckout.php",
+
+
+
+            async: false
+
+
+
+        }).complete(function () {
+
+
+
+            setTimeout(function () { liveusers(); }, 3000);
+
+
+
+        }).responseText;
+
+
+
+
+
+
+
+        $('.livecount').html(feedback);
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+    liveusers();
+
+
+
+
+
+
+
+
+
+
+
+    function getdp() {
+
+
+
+
+
+
+
+        $("#loadpic").load("/api-v2/?datatype=dp&ordersession={ordersession}&username={igusername}");
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+    {triggergetpost}
+
+
+
+
+
+
+
+</script>
