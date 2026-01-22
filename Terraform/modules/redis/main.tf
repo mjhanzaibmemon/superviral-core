@@ -3,6 +3,9 @@ resource "aws_security_group" "this" {
   name   = var.sg_name
   vpc_id = var.vpc_id
 
+  # Destroy se pehle rules revoke kar do
+  revoke_rules_on_delete = true
+
   ingress {
     from_port   = var.port
     to_port     = var.port
@@ -64,6 +67,9 @@ resource "aws_elasticache_cluster" "this" {
   subnet_group_name = aws_elasticache_subnet_group.this.name
 
   security_group_ids = [aws_security_group.this.id]
+
+  # Destroy ke time turant apply karo
+  apply_immediately = true
 
   tags = {
     Name = var.replication_group_id

@@ -5,6 +5,9 @@ resource "aws_lb_target_group" "this" {
   vpc_id      = var.vpc_id
   target_type = "ip"
 
+  # Fast deregistration for quick destroy
+  deregistration_delay = 10
+
   health_check {
     enabled             = true
     healthy_threshold   = var.health_check_healthy_threshold

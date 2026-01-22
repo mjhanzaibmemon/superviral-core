@@ -20,7 +20,10 @@ resource "aws_db_instance" "this" {
 
   publicly_accessible = false
 
-  skip_final_snapshot = true
+  # Destroy ke liye required settings
+  skip_final_snapshot    = true
+  deletion_protection    = false
+  delete_automated_backups = true
 
   tags = {
     Name = var.identifier

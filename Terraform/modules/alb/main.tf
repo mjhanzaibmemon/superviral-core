@@ -3,6 +3,9 @@ resource "aws_security_group" "alb" {
   description = "Security group for ALB"
   vpc_id      = var.vpc_id
 
+  # Destroy se pehle rules revoke kar do
+  revoke_rules_on_delete = true
+
   ingress {
     from_port   = 80
     to_port     = 80

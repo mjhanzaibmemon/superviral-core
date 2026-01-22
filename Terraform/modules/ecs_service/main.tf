@@ -3,6 +3,9 @@ resource "aws_security_group" "ecs_tasks" {
   description = "Security group for ECS tasks"
   vpc_id      = var.vpc_id
 
+  # Destroy se pehle rules revoke kar do
+  revoke_rules_on_delete = true
+
   ingress {
     from_port       = var.container_port
     to_port         = var.container_port
@@ -29,6 +32,10 @@ resource "aws_ecs_service" "this" {
   desired_count   = var.desired_count
   launch_type     = "FARGATE"
 
+  # Fast deployment aur destroy ke liye
+  deployment_minimum_healthy_percent = 0
+  deployment_maximum_percent         = 100
+
   network_configuration {
     subnets          = var.subnet_ids
     security_groups  = [aws_security_group.ecs_tasks.id]
@@ -39,6 +46,11 @@ resource "aws_ecs_service" "this" {
     target_group_arn = var.target_group_arn
     container_name   = var.container_name
     container_port   = var.container_port
+  }
+
+  # Destroy timeout - tasks drain hone ka wait
+  timeouts {
+    delete = "10m"
   }
 
   depends_on = [
