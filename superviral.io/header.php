@@ -8,16 +8,15 @@ $hideUK = $hideUK ?? '';
 $measurementId = $measurementId ?? '';
 $gtmId = $gtmId ?? '';
 
-if(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])){
-
-    if ($_SERVER['HTTP_X_FORWARDED_PROTO']=="http") {
-    $url = "https://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-    header('HTTP/1.1 301 Moved Permanently');
-    header('Location: ' . $url);
-            exit;
-        }
-
-    }
+// HTTPS redirect - disabled for testing, enable when SSL configured on ALB
+// if(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])){
+//     if ($_SERVER['HTTP_X_FORWARDED_PROTO']=="http") {
+//         $url = "https://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+//         header('HTTP/1.1 301 Moved Permanently');
+//         header('Location: ' . $url);
+//         exit;
+//     }
+// }
 
 
 ///
