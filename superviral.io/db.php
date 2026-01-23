@@ -378,7 +378,7 @@ if (
 
 // WE ARE RETRIEVING IT THROUGH GET
 
-$loc = addslashes($_GET['loc']); //MAKE SURE THE GET STAYS HERE
+$loc = addslashes($_GET['loc'] ?? ''); //MAKE SURE THE GET STAYS HERE
 
 if (empty($loc)) $loc = 'us';
 
@@ -389,6 +389,9 @@ if ($loc == 'www') $loc = 'us';
 if ($loc !== 'us') {
     $loclink        = '/' . $loc;
     $loclinkforward = $loc . '/';
+} else {
+    $loclink        = '';
+    $loclinkforward = '';
 }
 
 $locas = array(

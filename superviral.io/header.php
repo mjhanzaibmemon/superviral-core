@@ -2,6 +2,12 @@
 
 include_once('db.php');
 
+// Initialize variables that may not be set
+$blogsection = $blogsection ?? '';
+$hideUK = $hideUK ?? '';
+$measurementId = $measurementId ?? '';
+$gtmId = $gtmId ?? '';
+
 if(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])){
 
     if ($_SERVER['HTTP_X_FORWARDED_PROTO']=="http") {
@@ -15,7 +21,7 @@ if(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])){
 
 
 ///
-$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+$ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '';
 
 
 $headerscript = '
