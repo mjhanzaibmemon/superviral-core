@@ -283,24 +283,6 @@ module "alb_listener" {
 }
 
 ################################################################################
-#                  ALB Listener Rule - superviral.io (DEV ONLY)                #
-################################################################################
-# Yeh module /superviral.io path ko target group pe route karta hai
-# Aur root "/" ko /superviral.io pe redirect karta hai
-module "alb_listener_rule" {
-  source = "../modules/alb_listener_rule"
-
-  listener_arn     = module.alb_listener.listener_arn
-  target_group_arn = module.alb_target_group.target_group_arn
-  priority         = 100
-  redirect_priority = 200
-  env              = var.environment
-  tags             = var.tags
-
-  depends_on = [module.alb_listener, module.alb_target_group]
-}
-
-################################################################################
 #                      ECS Service (DEV ONLY)                                  #
 ################################################################################
 # NEW: ECS service replaces EKS deployment

@@ -82,7 +82,8 @@ RUN { \
     echo 'post_max_size = 50M'; \
     echo 'date.timezone = Europe/London'; \
     echo 'log_errors = On'; \
-    echo 'display_errors = Off'; \
+    echo 'display_errors = On'; \
+    echo 'error_reporting = E_ALL'; \
     echo 'error_log = /var/log/apache2/php_errors.log'; \
     echo 'opcache.enable = 1'; \
     echo 'opcache.memory_consumption = 256'; \
@@ -94,19 +95,14 @@ RUN { \
 RUN { \
     echo '<VirtualHost *:80>'; \
     echo '    ServerAdmin admin@etra.group'; \
-    echo '    DocumentRoot /var/www/html/superviral.io'; \
+    echo '    DocumentRoot /var/www/html'; \
     echo '    '; \
-    echo '    <Directory /var/www/html/superviral.io>'; \
+    echo '    <Directory /var/www/html>'; \
     echo '        Options +FollowSymLinks +Indexes'; \
     echo '        AllowOverride All'; \
     echo '        Require all granted'; \
     echo '        DirectoryIndex index.php index.html'; \
     echo '    </Directory>'; \
-    echo '    '; \
-    echo '    # Protect sensitive files'; \
-    echo '    <FilesMatch "^\.env">'; \
-    echo '        Require all denied'; \
-    echo '    </FilesMatch>'; \
     echo '    '; \
     echo '    # Enable compression'; \
     echo '    <IfModule mod_deflate.c>'; \
@@ -118,17 +114,8 @@ RUN { \
     echo '</VirtualHost>'; \
     } > /etc/apache2/sites-available/000-default.conf
 
-# Copy application files (context should be repository root, not .docker/php/)
-# Build command should be: docker build -f .docker/php/Dockerfile .
-# NOT: docker build -f .docker/php/Dockerfile .docker/php
-COPY . /var/www/html/
-
-# Copy prestart checks script and make sure log exists
-COPY .docker/php/prestart_checks.sh /usr/local/bin/prestart_checks.sh
-RUN chmod +x /usr/local/bin/prestart_checks.sh \
-    && mkdir -p /var/log \
-    && touch /var/log/prestart_checks.log \
-    && chown www-data:www-data /var/log/prestart_checks.log
+# Copy application files - sirf superviral.io folder ka content
+COPY ./superviral.io/ /var/www/html/
 
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html \
@@ -142,5 +129,5 @@ EXPOSE 80 443
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost/ || exit 1
 
-# Start Apache but run prestart checks first
-CMD ["/bin/bash", "-c", "/usr/local/bin/prestart_checks.sh || { echo 'Prestart checks failed; aborting'; exit 1; } && exec apache2-foreground"]
+# Start Apache directly (old working style)
+CMD ["apache2-foreground"]
