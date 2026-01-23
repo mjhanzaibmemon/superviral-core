@@ -1,6 +1,6 @@
 <?php
 
-if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start();
+if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'] ?? '', 'gzip')) ob_start("ob_gzhandler"); else ob_start();
 header('Content-type: text/html; charset=utf-8');
 header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (24 * 60 * 60)));
 
@@ -8,7 +8,7 @@ $db=1;
 include('header.php');
 
 // for redirecting US to main site
-$queryLoc = addslashes($_GET['loc']);
+$queryLoc = addslashes($_GET['loc'] ?? '');
 // echo $queryLoc;die;
 $uri = str_replace("/us","" ,$_SERVER['REQUEST_URI']);
 if($queryLoc == 'us'){
@@ -87,7 +87,8 @@ if($loc=='de'){header("Location: https://superviral.io/", true, 301);die;}
 if($loc=='it'){header("Location: https://superviral.io/", true, 301);die;}
 
 
-if($_GET['unsub']=='true'){
+$domessage = '';
+if(($_GET['unsub'] ?? '') == 'true'){
 
 
 

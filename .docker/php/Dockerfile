@@ -82,8 +82,7 @@ RUN { \
     echo 'post_max_size = 50M'; \
     echo 'date.timezone = Europe/London'; \
     echo 'log_errors = On'; \
-    echo 'display_errors = On'; \
-    echo 'error_reporting = E_ALL'; \
+    echo 'display_errors = Off'; \
     echo 'error_log = /var/log/apache2/php_errors.log'; \
     echo 'opcache.enable = 1'; \
     echo 'opcache.memory_consumption = 256'; \
@@ -95,14 +94,19 @@ RUN { \
 RUN { \
     echo '<VirtualHost *:80>'; \
     echo '    ServerAdmin admin@etra.group'; \
-    echo '    DocumentRoot /var/www/html'; \
+    echo '    DocumentRoot /var/www/html/superviral.io'; \
     echo '    '; \
-    echo '    <Directory /var/www/html>'; \
+    echo '    <Directory /var/www/html/superviral.io>'; \
     echo '        Options +FollowSymLinks +Indexes'; \
     echo '        AllowOverride All'; \
     echo '        Require all granted'; \
     echo '        DirectoryIndex index.php index.html'; \
     echo '    </Directory>'; \
+    echo '    '; \
+    echo '    # Protect sensitive files'; \
+    echo '    <FilesMatch "^\.env">'; \
+    echo '        Require all denied'; \
+    echo '    </FilesMatch>'; \
     echo '    '; \
     echo '    # Enable compression'; \
     echo '    <IfModule mod_deflate.c>'; \
@@ -114,8 +118,8 @@ RUN { \
     echo '</VirtualHost>'; \
     } > /etc/apache2/sites-available/000-default.conf
 
-# Copy application files - sirf superviral.io folder ka content
-COPY ./superviral.io/ /var/www/html/
+# Copy application files (pura repo copy karo - etra.group bhi chahiye)
+COPY . /var/www/html/
 
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html \
