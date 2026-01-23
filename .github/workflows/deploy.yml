@@ -29,31 +29,36 @@ jobs:
         if [[ "${GITHUB_REF_NAME}" == "dev" ]]; then
           echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_DEV }}" >> $GITHUB_ENV
           echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}" >> $GITHUB_ENV
-          echo "AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_DEV }}" >> $GITHUB_ENV
-          echo "AWS_REGION=${{ secrets.AWS_REGION_DEV }}" >> $GITHUB_ENV
-          echo "ECR_REPO_NAME=${{ secrets.ECR_REPO_NAME_DEV }}" >> $GITHUB_ENV
-          echo "ECS_CONTAINER_NAME=${{ secrets.ECS_CONTAINER_NAME_DEV }}" >> $GITHUB_ENV
-          echo "ECS_SERVICE_NAME=${{ secrets.ECS_SERVICE_NAME_DEV }}" >> $GITHUB_ENV
-          echo "ECS_CLUSTER_NAME=${{ secrets.ECS_CLUSTER_NAME_DEV }}" >> $GITHUB_ENV
+          echo "AWS_ACCOUNT_ID=${{ secrets.DEV_AWS_ACCOUNT_ID }}" >> $GITHUB_ENV
+          echo "AWS_REGION=${{ secrets.DEV_AWS_REGION }}" >> $GITHUB_ENV
+          echo "ECR_REPO_NAME=${{ secrets.DEV_ECR_REPO_NAME }}" >> $GITHUB_ENV
+          echo "ECS_CONTAINER_NAME=${{ secrets.DEV_ECS_CONTAINER_NAME }}" >> $GITHUB_ENV
+          echo "ECS_SERVICE_NAME=${{ secrets.DEV_ECS_SERVICE_NAME }}" >> $GITHUB_ENV
+          echo "ECS_CLUSTER_NAME=${{ secrets.DEV_ECS_CLUSTER_NAME }}" >> $GITHUB_ENV
 
         elif [[ "${GITHUB_REF_NAME}" == "stage" ]]; then
           echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_STAGE }}" >> $GITHUB_ENV
           echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_STAGE }}" >> $GITHUB_ENV
-          echo "AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_STAGE }}" >> $GITHUB_ENV
-          echo "AWS_REGION=${{ secrets.AWS_REGION_STAGE }}" >> $GITHUB_ENV
-          echo "ECR_REPO_NAME=${{ secrets.ECR_REPO_NAME_STAGE }}" >> $GITHUB_ENV
-          echo "ECS_CONTAINER_NAME=${{ secrets.ECS_CONTAINER_NAME_STAGE }}" >> $GITHUB_ENV
-          echo "ECS_SERVICE_NAME=${{ secrets.ECS_SERVICE_NAME_STAGE }}" >> $GITHUB_ENV
-          echo "ECS_CLUSTER_NAME=${{ secrets.ECS_CLUSTER_NAME_STAGE }}" >> $GITHUB_ENV
-        else
+          echo "AWS_ACCOUNT_ID=${{ secrets.STAGE_AWS_ACCOUNT_ID }}" >> $GITHUB_ENV
+          echo "AWS_REGION=${{ secrets.STAGE_AWS_REGION }}" >> $GITHUB_ENV
+          echo "ECR_REPO_NAME=${{ secrets.STAGE_ECR_REPO_NAME }}" >> $GITHUB_ENV
+          echo "ECS_CONTAINER_NAME=${{ secrets.STAGE_ECS_CONTAINER_NAME }}" >> $GITHUB_ENV
+          echo "ECS_SERVICE_NAME=${{ secrets.STAGE_ECS_SERVICE_NAME }}" >> $GITHUB_ENV
+          echo "ECS_CLUSTER_NAME=${{ secrets.STAGE_ECS_CLUSTER_NAME }}" >> $GITHUB_ENV
+
+        elif [[ "${GITHUB_REF_NAME}" == "main" ]]; then
           echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_PROD }}" >> $GITHUB_ENV
           echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}" >> $GITHUB_ENV
-          echo "AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_PROD }}" >> $GITHUB_ENV
-          echo "AWS_REGION=${{ secrets.AWS_REGION_PROD }}" >> $GITHUB_ENV
-          echo "ECR_REPO_NAME=${{ secrets.ECR_REPO_NAME_PROD }}" >> $GITHUB_ENV
-          echo "ECS_CONTAINER_NAME=${{ secrets.ECS_CONTAINER_NAME_PROD }}" >> $GITHUB_ENV
-          echo "ECS_SERVICE_NAME=${{ secrets.ECS_SERVICE_NAME_PROD }}" >> $GITHUB_ENV
-          echo "ECS_CLUSTER_NAME=${{ secrets.ECS_CLUSTER_NAME_PROD }}" >> $GITHUB_ENV
+          echo "AWS_ACCOUNT_ID=${{ secrets.PROD_AWS_ACCOUNT_ID }}" >> $GITHUB_ENV
+          echo "AWS_REGION=${{ secrets.PROD_AWS_REGION }}" >> $GITHUB_ENV
+          echo "ECR_REPO_NAME=${{ secrets.PROD_ECR_REPO_NAME }}" >> $GITHUB_ENV
+          echo "ECS_CONTAINER_NAME=${{ secrets.PROD_ECS_CONTAINER_NAME }}" >> $GITHUB_ENV
+          echo "ECS_SERVICE_NAME=${{ secrets.PROD_ECS_SERVICE_NAME }}" >> $GITHUB_ENV
+          echo "ECS_CLUSTER_NAME=${{ secrets.PROD_ECS_CLUSTER_NAME }}" >> $GITHUB_ENV
+
+        else
+          echo "Unknown branch: ${GITHUB_REF_NAME}"
+          exit 1
         fi
 
     # -----------------------------

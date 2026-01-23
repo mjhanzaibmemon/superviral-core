@@ -1,11 +1,3 @@
-variable "rds_username" {
-  type = string
-}
-
-variable "rds_password" {
-  type      = string
-  sensitive = true
-}
 ################################################################################
 #                         ECS Configuration Variables                          #
 ################################################################################
@@ -23,7 +15,7 @@ variable "ecs_task_memory" {
 }
 
 variable "ecs_desired_count" {
-  description = "Desired number of ECS tasks (was EKS node group desired_size)"
+  description = "Desired number of ECS Fargate tasks"
   type        = number
   default     = 10
 }
@@ -59,13 +51,13 @@ variable "aws_region" {
 variable "ecr_repository_name" {
   description = "ECR repository name"
   type        = string
-  default     = "my-ecr-repo"
+  default     = "superviral-ecr"
 }
 
 variable "alb_name" {
-  description = "Application Load Balancer name"
+  description = "Application Load Balancer name (NOT USED - hardcoded in main.tf)"
   type        = string
-  default     = "dev-alb"
+  default     = "superviral-alb"
 }
 
 variable "alb_listener_port" {
@@ -91,9 +83,9 @@ variable "rds_max_allocated_storage" {
 }
 
 variable "rds_identifier" {
-  description = "RDS instance identifier"
+  description = "RDS instance identifier (NOT USED - hardcoded in main.tf as superviral-{env}-db)"
   type        = string
-  default     = "my-mysql-db"
+  default     = "superviral-db"
 }
 
 variable "rds_instance_class" {
@@ -132,13 +124,16 @@ variable "rds_parameter_group_name" {
   default     = "mysql-parameters"
 }
 
-variable "tags" {
-  description = "Common tags for all resources"
-  type        = map(string)
-  default = {
-    Environment = "dev"
-    Project     = "superviral"
-    ManagedBy   = "terraform"
-  }
+# Note: Tags are set inline in each resource/module in main.tf
+# Environment is dynamic via var.environment passed from workflow
+
+################################################################################
+#                         Secrets Manager Configuration                        #
+################################################################################
+
+variable "db_secrets_arn" {
+  description = "ARN of the Secrets Manager secret containing DB credentials (DB_USER, DB_PASS)"
+  type        = string
+  default     = ""  # Must be provided via GitHub secrets or terraform.tfvars
 }
 

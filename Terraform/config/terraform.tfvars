@@ -1,23 +1,22 @@
-environment = "dev"
-aws_region  = "us-east-1"
+# NOTE: environment and aws_region are passed from workflow via -var flags
+# DO NOT set environment or aws_region here - they come from GitHub secrets
+#   -var="environment=${DEPLOY_ENV}"
+#   -var="aws_region=${AWS_REGION}"
 
-ecs_task_cpu    = 256
-ecs_task_memory = 512
+ecs_task_cpu      = 256
+ecs_task_memory   = 512
 ecs_desired_count = 1
 
-ecr_repository_name = "my-ecr-repo"
+# ECR repository name (shared across environments)
+ecr_repository_name = "superviral-ecr"
 
-alb_name = "my-app-alb-dev"
 alb_listener_port = 80
 
-rds_identifier      = "my-mysql-dev-db"
-rds_instance_class  = "db.t3.micro"
-rds_engine_version  = "8.0"
+# RDS settings (identifier is now dynamic in main.tf: superviral-${var.environment}-db)
+rds_instance_class    = "db.t3.micro"
+rds_engine_version    = "8.0"
 rds_allocated_storage = 20
-ecs_container_image = ""
+ecs_container_image   = ""
 
-tags = {
-  Environment = "dev"
-  Project     = "superviral"
-  ManagedBy   = "terraform"
-}
+# Tags are set in variable.tf with dynamic environment from var.environment
+# No need to override here

@@ -1,88 +1,121 @@
 ################################################################################
+#                         Data Sources - Secrets Manager                       #
+################################################################################
+# Fetch initial DB credentials from Secrets Manager
+data "aws_secretsmanager_secret_version" "db_credentials" {
+  count     = var.db_secrets_arn != "" ? 1 : 0
+  secret_id = var.db_secrets_arn
+}
+
+locals {
+  # Parse the initial secret JSON
+  # User must create secret with: DB_USER, DB_PASS, DB_NAME, DB_PORT, REDIS_PORT
+  initial_credentials = var.db_secrets_arn != "" ? jsondecode(data.aws_secretsmanager_secret_version.db_credentials[0].secret_string) : {}
+
+  db_user   = lookup(local.initial_credentials, "DB_USER", "admin")
+  db_pass   = lookup(local.initial_credentials, "DB_PASS", "changeme")
+  db_name   = lookup(local.initial_credentials, "DB_NAME", var.rds_db_name)
+  db_port   = lookup(local.initial_credentials, "DB_PORT", "3306")
+  redis_port = lookup(local.initial_credentials, "REDIS_PORT", "6379")
+}
+
+################################################################################
+#                  Update Secrets Manager with Host Values                     #
+################################################################################
+# After RDS/Redis created, update secret with actual HOST values
+resource "aws_secretsmanager_secret_version" "db_credentials_updated" {
+  count     = var.db_secrets_arn != "" ? 1 : 0
+  secret_id = var.db_secrets_arn
+
+  secret_string = jsonencode({
+    DB_USER    = local.db_user
+    DB_PASS    = local.db_pass
+    DB_NAME    = local.db_name
+    DB_PORT    = local.db_port
+    DB_HOST    = module.rds_instance.db_endpoint_address
+    REDIS_HOST = module.redis.primary_endpoint_address
+    REDIS_PORT = local.redis_port
+  })
+
+  depends_on = [module.rds_instance, module.redis]
+}
+
+################################################################################
 #                               VPC                                            #
 ################################################################################
 
 module "vpc" {
   source     = "../modules/vpc"
   cidr_block = "10.0.0.0/16"
-  tags_name  = "vpc"
+  tags_name  = "superviral-vpc"
 }
 
 ################################################################################
-#                         EKS Cluster Subnets                                  #
+#                         ECS Subnets                                          #
 ################################################################################
 
-module "eks_subnet_1" {
+module "ecs_subnet_1" {
   source                  = "../modules/subnet"
   vpc_id                  = module.vpc.vpc_id
   cidr_block              = "10.0.2.0/24"
   map_public_ip_on_launch = true
-  availability_zone       = "us-east-1a"
+  availability_zone       = "${var.aws_region}a"
 
   depends_on = [module.vpc]
 }
 
-module "eks_subnet_2" {
+module "ecs_subnet_2" {
   source                  = "../modules/subnet"
   vpc_id                  = module.vpc.vpc_id
   cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = true
-  availability_zone       = "us-east-1b"
+  availability_zone       = "${var.aws_region}b"
 
   depends_on = [module.vpc]
 }
 
 ################################################################################
-#                         Rds Subnet                                 #
+#                         RDS Subnet                                           #
 ################################################################################
 module "rds_subnet_1" {
   source                  = "../modules/subnet"
   vpc_id                  = module.vpc.vpc_id
   cidr_block              = "10.0.3.0/24"
   map_public_ip_on_launch = false
-  availability_zone       = "us-east-1b"
+  availability_zone       = "${var.aws_region}b"
 
   depends_on = [module.vpc]
 }
+
 module "rds_subnet_2" {
   source                  = "../modules/subnet"
   vpc_id                  = module.vpc.vpc_id
   cidr_block              = "10.0.4.0/24"
   map_public_ip_on_launch = false
+  availability_zone       = "${var.aws_region}a"
 
-  availability_zone = "us-east-1a"
-  depends_on        = [module.vpc]
+  depends_on = [module.vpc]
 }
+
 ################################################################################
-#                         lambda subnet                                    # 
+#                         Lambda Subnet                                        #
+################################################################################
 module "lambda_subnet_2" {
   source                  = "../modules/subnet"
   vpc_id                  = module.vpc.vpc_id
   cidr_block              = "10.0.5.0/24"
   map_public_ip_on_launch = false
+  availability_zone       = "${var.aws_region}a"
 
-  availability_zone = "us-east-1a"
-  depends_on        = [module.vpc]
+  depends_on = [module.vpc]
 }
 
-
 ################################################################################
-#                           IAM ROLES                                          #
+#                   ECS TASK EXECUTION ROLE                                    #
 ################################################################################
-
-# [REMOVED - EKS-specific] EKS Cluster Role - No longer needed for ECS Fargate
-# module "eks_cluster_iam_role" { ... }
-
-# [REMOVED - EKS-specific] EKS Node Group Role - No longer needed for ECS Fargate
-# module "eks_node_group_role" { ... }
-
-################################################################################
-#                   ECS TASK EXECUTION ROLE (DEV ONLY)                         #
-################################################################################
-# NEW: ECS Task Execution Role - Allows ECS to pull images and write logs
 module "ecs_task_execution_role" {
   source    = "../modules/iam"
-  role_name = "ecs_task_execution_role_dev"
+  role_name = "superviral-task-exec-role-${var.environment}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -93,10 +126,9 @@ module "ecs_task_execution_role" {
   })
 }
 
-# NEW: ECS Task Role - Allows containerized application to access AWS services
 module "ecs_task_role" {
   source    = "../modules/iam"
-  role_name = "ecs_task_role_dev"
+  role_name = "superviral-task-role-${var.environment}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -108,9 +140,8 @@ module "ecs_task_role" {
 }
 
 ################################################################################
-#                   ECS Task Execution Role Policy Attachments (DEV ONLY)      #
+#                   ECS Task Execution Role Policy Attachments                 #
 ################################################################################
-# NEW: Required policies for ECS task execution (pulling images, logging)
 module "ecs_task_execution_policy_attachment" {
   source                      = "../modules/iam_role_policy_attachment"
   policy_attachment_role_name = module.ecs_task_execution_role.role_name
@@ -119,7 +150,6 @@ module "ecs_task_execution_policy_attachment" {
   depends_on = [module.ecs_task_execution_role]
 }
 
-# NEW: Allow ECS task execution role to pull from ECR
 module "ecs_task_execution_ecr_policy_attachment" {
   source                      = "../modules/iam_role_policy_attachment"
   policy_attachment_role_name = module.ecs_task_execution_role.role_name
@@ -128,10 +158,30 @@ module "ecs_task_execution_ecr_policy_attachment" {
   depends_on = [module.ecs_task_execution_role]
 }
 
+# Secrets Manager read permission for ECS
+resource "aws_iam_role_policy" "ecs_secrets_manager_policy" {
+  name = "superviral-secrets-manager-policy-${var.environment}"
+  role = module.ecs_task_execution_role.role_name
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "secretsmanager:GetSecretValue"
+        ]
+        Resource = var.db_secrets_arn != "" ? [var.db_secrets_arn] : ["*"]
+      }
+    ]
+  })
+
+  depends_on = [module.ecs_task_execution_role]
+}
+
 ################################################################################
-#                   ECS Task Role Policy Attachments (DEV ONLY)                #
+#                   ECS Task Role Policy Attachments                           #
 ################################################################################
-# NEW: Application can access other AWS services via this role
 module "ecs_task_ecr_policy_attachment" {
   source                      = "../modules/iam_role_policy_attachment"
   policy_attachment_role_name = module.ecs_task_role.role_name
@@ -141,122 +191,119 @@ module "ecs_task_ecr_policy_attachment" {
 }
 
 ################################################################################
-#                         ECS Cluster (DEV ONLY)                               #
+#                         ECS Cluster                                          #
 ################################################################################
-# NEW: ECS Cluster replaces EKS cluster for DEV environment
-# Benefits: Cheaper, simpler, Fargate-based (no node management)
 module "ecs_cluster" {
   source       = "../modules/ecs_cluster"
-  cluster_name = "my-ecs-cluster-dev"
+  cluster_name = "superviral-cluster-${var.environment}"
 
-  enable_container_insights     = true
+  enable_container_insights      = true
   default_capacity_provider_base = 1
 
   depends_on = [module.vpc]
 }
 
 ################################################################################
-#                      CloudWatch Log Group (DEV ONLY)                         #
+#                      CloudWatch Log Group                                    #
 ################################################################################
-# NEW: Centralized logging for ECS tasks (replaces EKS logging)
 module "cloudwatch_log_group" {
-  source        = "../modules/cloudwatch_log_group"
-  log_group_name = "/ecs/my-app-dev"
+  source            = "../modules/cloudwatch_log_group"
+  log_group_name    = "/ecs/superviral-${var.environment}"
   retention_in_days = 7
 }
 
 ################################################################################
-#                    ECS Task Definition (DEV ONLY)                            #
+#                    ECS Task Definition                                       #
 ################################################################################
-# NEW: Task definition replaces Kubernetes deployment manifests
-# Pulls image from ECR, connects to RDS, runs as containerized workload
 module "ecs_task_definition" {
   source = "../modules/ecs_task_definition"
 
-  task_family           = "my-app-dev"
-  container_name        = "my-app-container"
-  container_image       = var.ecs_container_image != "" ? var.ecs_container_image : module.ecr.ecr_repository_url
-  container_port        = 80
-  task_cpu              = var.ecs_task_cpu
-  task_memory           = var.ecs_task_memory
-  execution_role_arn    = module.ecs_task_execution_role.role_arn
-  task_role_arn         = module.ecs_task_role.role_arn
-  log_group_name        = module.cloudwatch_log_group.log_group_name
-  aws_region            = "us-east-1"
+  task_family        = "superviral-${var.environment}"
+  container_name     = "superviral-container"
+  container_image    = var.ecs_container_image != "" ? var.ecs_container_image : module.ecr.ecr_repository_url
+  container_port     = 80
+  task_cpu           = var.ecs_task_cpu
+  task_memory        = var.ecs_task_memory
+  execution_role_arn = module.ecs_task_execution_role.role_arn
+  task_role_arn      = module.ecs_task_role.role_arn
+  log_group_name     = module.cloudwatch_log_group.log_group_name
+  aws_region         = var.aws_region
 
-  # Application environment variables (same config as EKS pods would have)
+  # Only ENVIRONMENT is hardcoded - everything else from Secrets Manager
   container_environment = [
     {
-      name  = "DB_HOST"
-      value = module.rds_instance.db_endpoint_address
-    },
-    {
-      name  = "DB_NAME"
-      value = "etra_superviral"
-    },
-    {
-      name  = "DB_PORT"
-      value = "3306"
-    },
-    {
       name  = "ENVIRONMENT"
-      value = "dev"
-    },
-    {
-      name  = "DB_USER"
-      value = "admin"
-    },
-    {
-      name  = "DB_PASS"
-      value = "Admin123!"
-    }
-    ,
-    {
-      name  = "REDIS_HOST"
-      value = module.redis.primary_endpoint_address
-    },
-    {
-      name  = "REDIS_PORT"
-      value = tostring(module.redis.port)
+      value = var.environment
     }
   ]
+
+  # ALL DB/Redis values from Secrets Manager
+  container_secrets = var.db_secrets_arn != "" ? [
+    {
+      name      = "DB_HOST"
+      valueFrom = "${var.db_secrets_arn}:DB_HOST::"
+    },
+    {
+      name      = "DB_USER"
+      valueFrom = "${var.db_secrets_arn}:DB_USER::"
+    },
+    {
+      name      = "DB_PASS"
+      valueFrom = "${var.db_secrets_arn}:DB_PASS::"
+    },
+    {
+      name      = "DB_NAME"
+      valueFrom = "${var.db_secrets_arn}:DB_NAME::"
+    },
+    {
+      name      = "DB_PORT"
+      valueFrom = "${var.db_secrets_arn}:DB_PORT::"
+    },
+    {
+      name      = "REDIS_HOST"
+      valueFrom = "${var.db_secrets_arn}:REDIS_HOST::"
+    },
+    {
+      name      = "REDIS_PORT"
+      valueFrom = "${var.db_secrets_arn}:REDIS_PORT::"
+    }
+  ] : []
 
   depends_on = [
     module.ecs_task_execution_role,
     module.ecs_task_role,
     module.cloudwatch_log_group,
-    module.ecr
+    module.ecr,
+    aws_secretsmanager_secret_version.db_credentials_updated
   ]
 }
 
 ################################################################################
-#                    Application Load Balancer (DEV ONLY)                      #
+#                    Application Load Balancer                                 #
 ################################################################################
-# NEW: ALB provides external access to ECS tasks (replaces EKS Ingress/Service)
 module "alb" {
   source = "../modules/alb"
 
-  alb_name                   = "my-app-alb-dev"
-  alb_security_group_name    = "my-app-alb-sg-dev"
+  alb_name                   = "superviral-alb-${var.environment}"
+  alb_security_group_name    = "superviral-alb-sg-${var.environment}"
   vpc_id                     = module.vpc.vpc_id
-  subnet_ids                 = [module.eks_subnet_1.subnet_id, module.eks_subnet_2.subnet_id]
+  subnet_ids                 = [module.ecs_subnet_1.subnet_id, module.ecs_subnet_2.subnet_id]
   internal                   = false
   enable_deletion_protection = false
 
-  depends_on = [module.vpc, module.eks_subnet_1, module.eks_subnet_2]
+  depends_on = [module.vpc, module.ecs_subnet_1, module.ecs_subnet_2]
 }
 
 ################################################################################
-#                      ALB Target Group (DEV ONLY)                             #
+#                      ALB Target Group                                        #
 ################################################################################
-# NEW: Target group routes ALB traffic to ECS tasks
 module "alb_target_group" {
   source = "../modules/alb_target_group"
 
-  target_group_name             = "my-app-tg-dev"
-  target_port                   = 80
+  target_group_name = "superviral-tg-${var.environment}"
+  target_port       = 80
 
-  vpc_id                        = module.vpc.vpc_id
+  vpc_id = module.vpc.vpc_id
   health_check_healthy_threshold   = 2
   health_check_unhealthy_threshold = 2
   health_check_timeout            = 5
@@ -268,9 +315,8 @@ module "alb_target_group" {
 }
 
 ################################################################################
-#                       ALB Listener (DEV ONLY)                                #
+#                       ALB Listener                                           #
 ################################################################################
-# NEW: ALB listener routes port 80 traffic to target group
 module "alb_listener" {
   source = "../modules/alb_listener"
 
@@ -283,27 +329,23 @@ module "alb_listener" {
 }
 
 ################################################################################
-#                      ECS Service (DEV ONLY)                                  #
+#                      ECS Service                                             #
 ################################################################################
-# NEW: ECS service replaces EKS deployment
-# - Maintains 10 tasks (matching previous EKS desired_size)
-# - Auto-registers tasks with ALB target group
-# - Handles task lifecycle (start, stop, restart)
 module "ecs_service" {
   source = "../modules/ecs_service"
 
-  service_name      = "my-app-service-dev"
-  cluster_id        = module.ecs_cluster.cluster_id
-  task_definition_arn = module.ecs_task_definition.task_definition_arn
-  desired_count     = var.ecs_desired_count
-  vpc_id            = module.vpc.vpc_id
-  subnet_ids        = [module.eks_subnet_1.subnet_id, module.eks_subnet_2.subnet_id]
-  security_group_name = "ecs-tasks-sg-dev"
-  container_name    = "my-app-container"
-  container_port    = 80
-  target_group_arn  = module.alb_target_group.target_group_arn
+  service_name          = "superviral-service-${var.environment}"
+  cluster_id            = module.ecs_cluster.cluster_id
+  task_definition_arn   = module.ecs_task_definition.task_definition_arn
+  desired_count         = var.ecs_desired_count
+  vpc_id                = module.vpc.vpc_id
+  subnet_ids            = [module.ecs_subnet_1.subnet_id, module.ecs_subnet_2.subnet_id]
+  security_group_name   = "superviral-ecs-sg-${var.environment}"
+  container_name        = "superviral-container"
+  container_port        = 80
+  target_group_arn      = module.alb_target_group.target_group_arn
   alb_security_group_id = module.alb.alb_security_group_id
-  assign_public_ip  = true
+  assign_public_ip      = true
 
   depends_on = [
     module.ecs_cluster,
@@ -316,11 +358,9 @@ module "ecs_service" {
 ################################################################################
 #                           ECR Repository                                     #
 ################################################################################
-# REUSED: Same ECR repository used by ECS (was used by EKS before)
-# No changes - ECS pulls images from same ECR
 module "ecr" {
   source               = "../modules/ecr"
-  ecr_repository_name  = "my-ecr-repo"
+  ecr_repository_name  = "superviral-ecr"
   image_tag_mutability = "MUTABLE"
   scan_on_push         = true
 
@@ -328,39 +368,28 @@ module "ecr" {
 }
 
 ################################################################################
-#                           Internet Gateway (SHARED)                          #
+#                           Internet Gateway                                   #
 ################################################################################
-# UNCHANGED: Still needed for internet access (shared with Lambda, etc.)
 module "internet_gateway" {
-
   source = "../modules/igw"
-
   vpc_id = module.vpc.vpc_id
 
   depends_on = [module.vpc]
 }
 
 ################################################################################
-#                     RouteTable & Routes (DEV - UPDATED)                      #
+#                     RouteTable & Routes                                      #
 ################################################################################
-# MODIFIED: Route table now serves ECS tasks (ALB routes traffic)
-# Previously served EKS cluster - same subnets, same routing logic
 module "route_table" {
-
   source = "../modules/route_table"
 
   vpc_id  = module.vpc.vpc_id
-  rt_name = "Internet_route_dev"
+  rt_name = "superviral-route-${var.environment}"
 
-  depends_on = [module.eks_subnet_1, module.eks_subnet_2]
+  depends_on = [module.ecs_subnet_1, module.ecs_subnet_2]
 }
 
-################################################################################
-#                                  Route (SHARED)                              #
-################################################################################
-# UNCHANGED: Default route to IGW (used by ECS tasks now instead of EKS)
 module "routes" {
-
   source = "../modules/route"
 
   route_table_id         = module.route_table.id
@@ -371,33 +400,26 @@ module "routes" {
 }
 
 ################################################################################
-#                    Route Table Associations (DEV - UPDATED)                  #
+#                    Route Table Associations                                  #
 ################################################################################
-# REUSED: Same subnets now route ECS task traffic instead of EKS control plane
 module "subnet_1_rt_association" {
-
   source    = "../modules/route_table_association"
-  subnet_id = module.eks_subnet_1.subnet_id
-
+  subnet_id = module.ecs_subnet_1.subnet_id
   route_table_id = module.route_table.id
 
   depends_on = [module.route_table]
-
 }
 
 module "subnet_2_rt_association" {
-
   source = "../modules/route_table_association"
-
-  subnet_id      = module.eks_subnet_2.subnet_id
+  subnet_id      = module.ecs_subnet_2.subnet_id
   route_table_id = module.route_table.id
 
   depends_on = [module.route_table]
-
 }
 
 ################################################################################
-#                           RDS Subnet Group                                   #    
+#                           RDS Subnet Group                                   #
 ################################################################################
 module "rds_subnet_group" {
   source = "../modules/rds_subnet_group"
@@ -408,6 +430,7 @@ module "rds_subnet_group" {
   ]
   depends_on = [module.rds_subnet_1, module.rds_subnet_2]
 }
+
 ################################################################################
 #                           RDS Security Group                                 #
 ################################################################################
@@ -420,6 +443,7 @@ module "rds_sg" {
 
   depends_on = [module.vpc]
 }
+
 ################################################################################
 #                           RDS Parameter Group                               #
 ################################################################################
@@ -432,22 +456,25 @@ module "rds_parameter_group" {
     max_connections = "200"
   }
 }
+
 ################################################################################
-#                           RDS Instance                                      #   
+#                           RDS Instance                                      #
 ################################################################################
+# RDS - Credentials from Secrets Manager
 module "rds_instance" {
   source = "../modules/rds_instance"
 
-  identifier     = var.rds_identifier
-  engine_version = "8.0"
-  instance_class = "db.m5.large"
+  identifier     = "superviral-${var.environment}-db"
+  engine_version = var.rds_engine_version
+  instance_class = var.rds_instance_class
 
-  username = var.rds_username
-  password = var.rds_password
-  db_name  = "etra_superviral"
+  # Credentials from Secrets Manager
+  username = local.db_user
+  password = local.db_pass
+  db_name  = local.db_name
 
-  allocated_storage     = 20
-  max_allocated_storage = 90
+  allocated_storage     = var.rds_allocated_storage
+  max_allocated_storage = var.rds_max_allocated_storage
 
   storage_type = "gp3"
 
@@ -458,13 +485,12 @@ module "rds_instance" {
     module.rds_sg,
     module.rds_subnet_group
   ]
-
 }
 
 ################################################################################
 #                           Redis / ElastiCache                                #
 ################################################################################
-# Module to provision an ElastiCache Redis replication group and supporting SG
+# Redis - No authentication (internal VPC only)
 module "redis" {
   source = "../modules/redis"
 
@@ -472,7 +498,6 @@ module "redis" {
   subnet_ids   = [module.rds_subnet_1.subnet_id, module.rds_subnet_2.subnet_id]
   ingress_cidrs = ["10.0.0.0/16"]
 
-  # tuning options
   engine_version = "6.x"
   node_type      = "cache.t3.small"
   number_cache_clusters = 1
