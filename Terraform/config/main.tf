@@ -449,7 +449,7 @@ module "rds_sg" {
 ################################################################################
 module "rds_parameter_group" {
   source = "../modules/rds_parameter_group"
-  name   = "mysql-parameters"
+  name   = "superviral-mysql-parameters"
   family = "mysql8.0"
 
   parameters = {
