@@ -121,7 +121,7 @@ variable "rds_db_name" {
 variable "rds_parameter_group_name" {
   description = "RDS parameter group name"
   type        = string
-  default     = "mysql-parameters"
+  default     = "mysql-dev-parameters"
 }
 
 # Note: Tags are set inline in each resource/module in main.tf
