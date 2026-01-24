@@ -423,7 +423,7 @@ module "subnet_2_rt_association" {
 ################################################################################
 module "rds_subnet_group" {
   source = "../modules/rds_subnet_group"
-  name   = "rds-subnet-group"
+  name   = "superviral-rds-subnet-group"
   subnet_ids = [
     module.rds_subnet_1.subnet_id,
     module.rds_subnet_2.subnet_id
