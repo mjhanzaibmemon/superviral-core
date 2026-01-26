@@ -17,13 +17,13 @@ variable "vpc_id" {
 variable "health_check_healthy_threshold" {
   description = "Number of consecutive health checks successes required to be healthy"
   type        = number
-  default     = 2
+  default     = 2  # Fast enough for deployment
 }
 
 variable "health_check_unhealthy_threshold" {
   description = "Number of consecutive health check failures required to be unhealthy"
   type        = number
-  default     = 2
+  default     = 3  # More tolerant to avoid false positives
 }
 
 variable "health_check_timeout" {
@@ -35,7 +35,7 @@ variable "health_check_timeout" {
 variable "health_check_interval" {
   description = "Health check interval in seconds"
   type        = number
-  default     = 30
+  default     = 15  # Faster checks for quicker detection (was 30)
 }
 
 variable "health_check_path" {

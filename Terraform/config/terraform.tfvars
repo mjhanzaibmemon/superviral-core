@@ -5,7 +5,7 @@
 
 ecs_task_cpu      = 256
 ecs_task_memory   = 512
-ecs_desired_count = 1
+ecs_desired_count = 2
 
 # ECR repository name (shared across environments)
 ecr_repository_name = "superviral-ecr"

@@ -32,9 +32,19 @@ resource "aws_ecs_service" "this" {
   desired_count   = var.desired_count
   launch_type     = "FARGATE"
 
-  # Fast deployment aur destroy ke liye
-  deployment_minimum_healthy_percent = 0
-  deployment_maximum_percent         = 100
+  # Zero-downtime deployment configuration
+  # Minimum 100% ensures old tasks keep running until new ones are healthy
+  deployment_minimum_healthy_percent = 100
+  deployment_maximum_percent         = 200
+  
+  # Health check grace period - time for tasks to start before health checks
+  health_check_grace_period_seconds = 60
+
+  # Deployment circuit breaker - auto rollback on failure
+  deployment_circuit_breaker {
+    enable   = true
+    rollback = true
+  }
 
   network_configuration {
     subnets          = var.subnet_ids
