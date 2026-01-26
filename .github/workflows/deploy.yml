@@ -1,4 +1,4 @@
-name: Build & Deploy Docker -> ECR -> EKS
+name: Build & Deploy Docker -> ECR -> ECS
 
 on:
   workflow_dispatch:
@@ -9,6 +9,7 @@ on:
 #     - "k8s/deployment.yaml"
 #     - "**/Dockerfile"
 #     - "**/*.php"
+
 
 jobs:
   deploy:
