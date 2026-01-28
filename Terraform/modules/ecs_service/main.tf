@@ -3,7 +3,7 @@ resource "aws_security_group" "ecs_tasks" {
   description = "Security group for ECS tasks"
   vpc_id      = var.vpc_id
 
-  # Destroy se pehle rules revoke kar do
+  # Revoke rules before resource destruction
   revoke_rules_on_delete = true
 
   ingress {
@@ -58,7 +58,7 @@ resource "aws_ecs_service" "this" {
     container_port   = var.container_port
   }
 
-  # Destroy timeout - tasks drain hone ka wait
+  # Timeout for graceful task drainage during destruction
   timeouts {
     delete = "10m"
   }

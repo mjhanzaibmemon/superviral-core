@@ -3,7 +3,7 @@ resource "aws_security_group" "this" {
   name   = var.sg_name
   vpc_id = var.vpc_id
 
-  # Destroy se pehle rules revoke kar do
+  # Revoke rules before resource destruction
   revoke_rules_on_delete = true
 
   ingress {
@@ -68,7 +68,7 @@ resource "aws_elasticache_cluster" "this" {
 
   security_group_ids = [aws_security_group.this.id]
 
-  # Destroy ke time turant apply karo
+  # Apply changes immediately during destroy
   apply_immediately = true
 
   tags = {

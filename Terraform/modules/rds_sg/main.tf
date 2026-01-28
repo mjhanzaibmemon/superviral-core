@@ -2,7 +2,7 @@ resource "aws_security_group" "this" {
   name   = var.name
   vpc_id = var.vpc_id
 
-  # Destroy se pehle rules revoke kar do
+  # Revoke rules before resource destruction
   revoke_rules_on_delete = true
 
   ingress {

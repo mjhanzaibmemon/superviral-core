@@ -20,7 +20,7 @@ resource "aws_db_instance" "this" {
 
   publicly_accessible = false
 
-  # Destroy ke liye required settings
+  # Required settings for resource destruction
   skip_final_snapshot    = true
   deletion_protection    = false
   delete_automated_backups = true
