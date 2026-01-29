@@ -37,9 +37,14 @@ variable "ecs_container_port" {
 ################################################################################
 
 variable "environment" {
-  description = "Environment name"
+  description = "Environment name (dev, stage, or prod)"
   type        = string
   default     = "dev"
+  
+  validation {
+    condition     = contains(["dev", "stage", "prod"], var.environment)
+    error_message = "Environment must be one of: dev, stage, prod. This prevents accidental deployments to wrong environment."
+  }
 }
 
 variable "aws_region" {

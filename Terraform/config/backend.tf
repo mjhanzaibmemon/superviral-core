@@ -6,9 +6,11 @@ terraform {
   #   terraform init \
   #     -backend-config="bucket=my-terraform-state-bucket" \
   #     -backend-config="key=infra/dev/terraform.tfstate" \
-  #     -backend-config="region=us-east-1"
+  #     -backend-config="region=us-east-1" \
+  #     -backend-config="dynamodb_table=terraform-state-lock"
   backend "s3" {
     encrypt = true
-    # bucket, key, and region are provided via -backend-config at init time
+    # bucket, key, region, and dynamodb_table are provided via -backend-config at init time
+    # DynamoDB table prevents concurrent modifications across environments
   }
 }

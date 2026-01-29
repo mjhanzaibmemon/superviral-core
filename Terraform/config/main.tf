@@ -17,6 +17,9 @@ locals {
   db_name   = lookup(local.initial_credentials, "DB_NAME", var.rds_db_name)
   db_port   = lookup(local.initial_credentials, "DB_PORT", "3306")
   redis_port = lookup(local.initial_credentials, "REDIS_PORT", "6379")
+  
+  # Prevent accidental resource deletion in production
+  prevent_destroy = var.environment == "prod" ? true : false
 }
 
 ################################################################################
@@ -47,7 +50,7 @@ resource "aws_secretsmanager_secret_version" "db_credentials_updated" {
 module "vpc" {
   source     = "../modules/vpc"
   cidr_block = "10.0.0.0/16"
-  tags_name  = "superviral-vpc"
+  tags_name  = "superviral-vpc-${var.environment}"
 }
 
 ################################################################################
