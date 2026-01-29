@@ -38,7 +38,7 @@ resource "aws_ecs_service" "this" {
   deployment_maximum_percent         = 200
   
   # Health check grace period - time for tasks to start before health checks
-  health_check_grace_period_seconds = 60
+  health_check_grace_period_seconds = 30
 
   # Deployment circuit breaker - auto rollback on failure
   deployment_circuit_breaker {

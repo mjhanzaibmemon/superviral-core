@@ -156,8 +156,13 @@ jobs:
         echo "Updating service to use new task definition and forcing new deployment..."
         aws ecs update-service --cluster "$CLUSTER" --service "$SERVICE" --task-definition "$NEW_TASKDEF_ARN" --force-new-deployment
 
-        echo "Waiting for deployment to stabilize..."
-        aws ecs wait services-stable --cluster "$CLUSTER" --services "$SERVICE"
+        echo "Waiting for deployment to stabilize (max 5 minutes)..."
+        timeout 300 aws ecs wait services-stable --cluster "$CLUSTER" --services "$SERVICE" || {
+          echo "Deployment is taking longer than expected. Checking status..."
+          aws ecs describe-services --cluster "$CLUSTER" --services "$SERVICE" --query 'services[0].deployments' --output table
+          echo "Note: Deployment may still be in progress. Check AWS Console for details."
+          exit 1
+        }
 
         echo "ECS deployment complete."
        
