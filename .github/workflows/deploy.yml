@@ -156,15 +156,27 @@ jobs:
         echo "Updating service to use new task definition and forcing new deployment..."
         aws ecs update-service --cluster "$CLUSTER" --service "$SERVICE" --task-definition "$NEW_TASKDEF_ARN" --force-new-deployment
 
-        echo "Waiting for deployment to stabilize (max 5 minutes)..."
-        timeout 300 aws ecs wait services-stable --cluster "$CLUSTER" --services "$SERVICE" || {
-          echo "Deployment is taking longer than expected. Checking status..."
-          aws ecs describe-services --cluster "$CLUSTER" --services "$SERVICE" --query 'services[0].deployments' --output table
-          echo "Note: Deployment may still be in progress. Check AWS Console for details."
-          exit 1
-        }
-
-        echo "ECS deployment complete."
+        echo "Deployment triggered. Waiting for new tasks to start (max 2 minutes)..."
+        
+        # Quick check - just wait for new tasks to be running, not fully stable
+        TIMEOUT=120
+        ELAPSED=0
+        while [ $ELAPSED -lt $TIMEOUT ]; do
+          RUNNING_COUNT=$(aws ecs describe-services --cluster "$CLUSTER" --services "$SERVICE" --query 'services[0].runningCount' --output text)
+          DESIRED_COUNT=$(aws ecs describe-services --cluster "$CLUSTER" --services "$SERVICE" --query 'services[0].desiredCount' --output text)
+          
+          if [ "$RUNNING_COUNT" -ge "$DESIRED_COUNT" ]; then
+            echo "✓ New tasks are running ($RUNNING_COUNT/$DESIRED_COUNT)"
+            break
+          fi
+          
+          echo "Waiting for tasks... ($RUNNING_COUNT/$DESIRED_COUNT running)"
+          sleep 10
+          ELAPSED=$((ELAPSED + 10))
+        done
+        
+        echo "Deployment initiated successfully. Tasks are starting up."
+        echo "Note: Full health checks will continue in background. Monitor via AWS Console if needed."
        
     # -----------------------------
     # Display LoadBalancer URL

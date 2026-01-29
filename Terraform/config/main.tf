@@ -304,10 +304,10 @@ module "alb_target_group" {
   target_port       = 80
 
   vpc_id = module.vpc.vpc_id
-  health_check_healthy_threshold   = 2
+  health_check_healthy_threshold   = 1
   health_check_unhealthy_threshold = 2
-  health_check_timeout            = 3
-  health_check_interval           = 10
+  health_check_timeout            = 2
+  health_check_interval           = 5
   health_check_path               = "/health.php"
   health_check_matcher            = "200-299"
 
