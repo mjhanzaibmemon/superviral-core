@@ -1,0 +1,26 @@
+{
+  "name": "superviral-lambda-build",
+  "description": "CodeBuild project for Superviral Lambda functions",
+  "source": {
+    "type": "NO_SOURCE",
+    "buildspec": "buildspec.yml"
+  },
+  "artifacts": {
+    "type": "NO_ARTIFACTS"
+  },
+  "environment": {
+    "type": "LINUX_CONTAINER",
+    "image": "aws/codebuild/standard:7.0",
+    "computeType": "BUILD_GENERAL1_SMALL",
+    "privilegedMode": false,
+    "environmentVariables": []
+  },
+  "serviceRole": "arn:aws:iam::575108918774:role/SuperviralLambdaCodeBuildRole",
+  "timeoutInMinutes": 60,
+  "badgeEnabled": false,
+  "logsConfig": {
+    "cloudWatchLogs": {
+      "status": "ENABLED"
+    }
+  }
+}
