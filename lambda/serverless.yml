@@ -15,9 +15,10 @@ custom:
   vpc:
     dev:
       securityGroupIds:
-        - sg-046b82ae67bfd26fb
+        - sg-0abf2b251cfb8816a
       subnetIds:
-        - subnet-03d7cb77bed1870a9
+        - subnet-06644154d17866c1c
+        - subnet-007570f69efedc44d
 
     stage:
       securityGroupIds:
