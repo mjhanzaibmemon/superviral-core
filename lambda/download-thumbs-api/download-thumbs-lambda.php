@@ -1,5 +1,5 @@
 <?php
-'anuj';die;
+echo 'anuj';die;
 require __DIR__ . '/../common/db.php';
 require __DIR__ . '/../common/s3/S3.php';
 
