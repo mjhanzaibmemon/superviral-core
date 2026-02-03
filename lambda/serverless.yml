@@ -48,15 +48,13 @@ provider:
   tracing:
     lambda: true
 
-  # Environment variables from AWS Secrets Manager
+  # Environment variables from SSM Parameter Store
   environment:
-    MYSQL_HOST: ${secretsmanager:superviral-dev-secrets~true~DB_HOST}
-    MYSQL_DATABASE: ${secretsmanager:superviral-dev-secrets~true~DB_NAME}
-    MYSQL_USER: ${secretsmanager:superviral-dev-secrets~true~DB_USER}
-    MYSQL_PASSWORD: ${secretsmanager:superviral-dev-secrets~true~DB_PASS}
-    DB_PORT: ${secretsmanager:superviral-dev-secrets~true~DB_PORT}
-    REDIS_HOST: ${secretsmanager:superviral-dev-secrets~true~REDIS_HOST}
-    REDIS_PORT: ${secretsmanager:superviral-dev-secrets~true~REDIS_PORT}
+    MYSQL_HOST: ${ssm:dbHost}
+    MYSQL_DATABASE: ${ssm:dbName}
+    MYSQL_USER: ${ssm:dbUser}
+    MYSQL_PASSWORD: ${ssm:dbPass}
+    DB_PORT: "3306"
 
   role: ${self:custom.role.${self:custom.stage}}
 
