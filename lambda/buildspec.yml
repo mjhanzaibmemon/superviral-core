@@ -1,24 +1,26 @@
 version: 0.2
 
+env:
+  variables:
+    WORKING_DIR: lambda
+
 phases:
 
   install:
     commands:
       - echo "Installing Composer dependencies and Node.js packages..."
-      - cd lambda
-      - composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev & npm install -g serverless@3 --cache /root/.npm && wait
+      - cd $WORKING_DIR && composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev & npm install -g serverless@3 --cache /root/.npm && wait
       - echo "Checking AWS credentials..."
   pre_build:
     commands:
-      - cd lambda
       - export BRANCH_NAME=$(echo ${CODEBUILD_WEBHOOK_HEAD_REF:-refs/heads/dev} | awk -F'/' '{print $NF}')
+      - echo "Branch name is $BRANCH_NAME"
   build:
     commands:
-      - cd lambda
       - echo "Fetching stage from AWS Parameter Store..."
-      - STAGE=$(aws ssm get-parameter --name "stage" --query "Parameter.Value" --output text)  # Fetch 'stage' parameter
-      - echo "Packaging and deploying with Serverless..."
-      - serverless deploy --stage $BRANCH_NAME # Use the fetched stage
+      - STAGE=$(aws ssm get-parameter --name "stage" --query "Parameter.Value" --output text)
+      - echo "Packaging and deploying with Serverless from $WORKING_DIR directory..."
+      - cd $WORKING_DIR && serverless deploy --stage $BRANCH_NAME
       - echo "Deployment completed successfully."
 
 artifacts:
