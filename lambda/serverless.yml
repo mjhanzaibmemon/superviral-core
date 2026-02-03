@@ -55,7 +55,7 @@ provider:
 
   # Deployment bucket per environment
   deploymentBucket:
-    name: lambda-bucket-dev1  # <-- YOU REQUESTED THIS
+    name: superviral-lambda-deploy-575108918774  # CodeBuild account bucket
 
   apiGateway:
     binaryMediaTypes:
