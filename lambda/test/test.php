@@ -10,6 +10,7 @@ $dbName = getenv('MYSQL_DATABASE');
 $dbUser = getenv('MYSQL_USER');
 $dbPassword = getenv('MYSQL_PASSWORD');
 
+echo "anuj";
 die;
 
 try {
