@@ -22,15 +22,17 @@ custom:
 
     stage:
       securityGroupIds:
-        - sg-023522aad0d377362
+        - sg-0a5910c66bd08379b
       subnetIds:
-        - subnet-0b2e2cae82b4aca2b
+        - subnet-02b9ba5d93fd5c45e
+        - subnet-0374ae0463bcac99e
 
     main:
       securityGroupIds:
-        - sg-023522aad0d377362
+        - sg-05c85c80ccbaf6162
       subnetIds:
-        - subnet-0b2e2cae82b4aca2b
+        - subnet-0efb4087784870074
+        - subnet-0c74f43e33a582746
 
   # ---------------- DEPLOYMENT BUCKET (FIXED) ----------------
   deploymentBucket:
