@@ -17,10 +17,13 @@ phases:
       - echo "Branch name is $BRANCH_NAME"
   build:
     commands:
-      - echo "Fetching stage from AWS Parameter Store..."
-      - STAGE=$(aws ssm get-parameter --name "stage" --query "Parameter.Value" --output text)
       - echo "Packaging and deploying with Serverless from $WORKING_DIR directory..."
-      - cd $WORKING_DIR && serverless deploy --stage $BRANCH_NAME
+      - echo "Current directory before deployment:" && pwd
+      - echo "Listing files in current directory:" && ls -la
+      - echo "Changing to lambda directory..." && cd lambda
+      - echo "Current directory after cd:" && pwd
+      - echo "Listing files in lambda directory:" && ls -la serverless.yml
+      - serverless deploy --stage $BRANCH_NAME
       - echo "Deployment completed successfully."
 
 artifacts:
