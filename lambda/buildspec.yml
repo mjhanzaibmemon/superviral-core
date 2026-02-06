@@ -15,16 +15,26 @@ phases:
     commands:
       - export BRANCH_NAME=$(echo ${CODEBUILD_WEBHOOK_HEAD_REF:-refs/heads/dev} | awk -F'/' '{print $NF}')
       - echo "Branch name is $BRANCH_NAME"
+      # Map branch to proper stage
+      - |
+        if [ "$BRANCH_NAME" = "main" ]; then
+          export DEPLOY_STAGE="main"
+          echo "✅ Main branch detected → Deploying to PRODUCTION (main)"
+        elif [ "$BRANCH_NAME" = "stage" ]; then
+          export DEPLOY_STAGE="stage"
+          echo "✅ Stage branch detected → Deploying to STAGING (stage)"
+        elif [ "$BRANCH_NAME" = "dev" ]; then
+          export DEPLOY_STAGE="dev"
+          echo "✅ Dev branch detected → Deploying to DEVELOPMENT (dev)"
+        else
+          echo "❌ Unknown branch: $BRANCH_NAME - Skipping deployment"
+          exit 0
+        fi
   build:
     commands:
-      - echo "Packaging and deploying with Serverless from $WORKING_DIR directory..."
-      - echo "Current directory before deployment:" && pwd
-      - echo "Listing files in current directory:" && ls -la
-      - echo "Changing to lambda directory..." && cd lambda
-      - echo "Current directory after cd:" && pwd
-      - echo "Listing files in lambda directory:" && ls -la serverless.yml
-      - serverless deploy --stage $BRANCH_NAME
-      - echo "Deployment completed successfully - ListStackResources permission added."
+      - echo "Deploying to environment: $DEPLOY_STAGE"
+      - cd $WORKING_DIR && serverless deploy --stage $DEPLOY_STAGE
+      - echo "Deployment completed successfully."
 
 artifacts:
   files:
