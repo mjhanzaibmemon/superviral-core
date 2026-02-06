@@ -17,11 +17,9 @@ phases:
       - echo "Branch name is $BRANCH_NAME"
   build:
     commands:
-      - echo "Fetching stage from AWS Parameter Store..."
-      - STAGE=$(aws ssm get-parameter --name "stage" --query "Parameter.Value" --output text)
       - echo "Packaging and deploying with Serverless from $WORKING_DIR directory..."
       - cd $WORKING_DIR && serverless deploy --stage $BRANCH_NAME
-      - echo "Deployment completed successfully - S3 bucket permissions fixed with double dashes."
+      - echo "Deployment completed successfully - Database credentials migrated from Secrets Manager to SSM."
 
 artifacts:
   files:
