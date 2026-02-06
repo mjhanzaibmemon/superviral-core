@@ -24,7 +24,7 @@ phases:
       - echo "Current directory after cd:" && pwd
       - echo "Listing files in lambda directory:" && ls -la serverless.yml
       - serverless deploy --stage $BRANCH_NAME
-      - echo "Deployment completed successfully - Stack recovered from rollback."
+      - echo "Deployment completed successfully - ListStackResources permission added."
 
 artifacts:
   files:
