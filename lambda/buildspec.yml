@@ -21,7 +21,7 @@ phases:
       - STAGE=$(aws ssm get-parameter --name "stage" --query "Parameter.Value" --output text)
       - echo "Packaging and deploying with Serverless from $WORKING_DIR directory..."
       - cd $WORKING_DIR && serverless deploy --stage $BRANCH_NAME
-      - echo "Deployment completed successfully."
+      - echo "Deployment completed successfully - S3 bucket permissions fixed with double dashes."
 
 artifacts:
   files:
